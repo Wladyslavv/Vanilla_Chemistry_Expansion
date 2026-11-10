@@ -1,0 +1,9 @@
+# Build output (bash build.sh) and packaged uploads
+dist/
+release/
+*.zip
+
+# Local leftovers
+*.bak
+*.exe
+*.dll

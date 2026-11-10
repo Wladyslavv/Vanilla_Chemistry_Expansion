@@ -1,0 +1,1 @@
+1.6.1: Fixed Crackine salt forming using slightly too much acid: per-step rounding left about 137 uL of alkaloid unreacted from 50 mL alkaloid + 5 mL acid. The reaction now takes exactly 0.1 part acid per part alkaloid. / 1.6.1：修复快克因成盐时每次结算向上取整多扣酸，导致 50 mL 生物碱 + 5 mL 酸反应完还剩约 137 µL 生物碱；现在严格按每份生物碱 0.1 份酸反应。

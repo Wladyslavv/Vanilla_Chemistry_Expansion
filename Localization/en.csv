@@ -1,0 +1,280 @@
+liquid_dream_toxin,Dream Toxin
+injector_name,Dream Toxin Injector
+injector_desc,"A hot commodity in Upper Level aesthetic clinics. Micro-doses of purified Dream Toxin injected into facial muscles smooth out wrinkles within hours and freeze your expression at its most camera-ready. Clinics only accept pharma grade or better."
+injector_flavor,Smiling is an optional accessory.
+formula_name,Dream Toxin Formula
+formula_step_1,- Prepare Dream Cap Extract and Nightmare Cap Extract separately
+formula_step_2,"- Mix the two extracts 1:1 and add a little Acid to make it slightly acidic, keeping the Acid at 0.5%-5% of all the liquid in the container"
+formula_step_3,- Cool it to 2-8C in the chill zone of a fridge so it reacts into Dream Toxin
+formula_step_4,"- If any extract is left over, heat above 100C to burn it off, the toxin itself is heat-stable"
+formula_step_5,"- Neutralize the acid with an equal amount of Base, filter the debris, then dry it in the Evaporator"
+formula_step_6,- Select Dream Toxin Injector in the Chem Finisher
+liquid_calcite,Calcite
+liquid_quartz,Quartz Sand
+liquid_quicklime,Quicklime
+liquid_calcium_carbonate,Calcium Carbonate
+liquid_water_glass,Water Glass
+liquid_silica_gel,Silica Gel
+ore_notes_name,Ore Chemistry Notes
+ore_notes_intro,- Only a blender with all 4 chem modules can crush metal ore. 150C and 120C need an upgraded heating plate
+ore_notes_base,[Purifying base]
+ore_notes_base_1,"- Crush the ore, then filter out the quartz sand with Kotton fabric"
+ore_notes_base_2,"- Keep it dry and heat above 150C, the calcite calcines into quicklime"
+ore_notes_base_3,"- Pour the quicklime into base (base must be over half of all the liquid) and wait a moment, heating to 80-120C makes it faster"
+ore_notes_base_4,- Filter out the calcium carbonate and debris with a water filter
+ore_notes_acid,[Purifying acid]
+ore_notes_acid_1,"- Crush the ore, add as much base as there is quartz sand (they react 1:1) and heat above 120C, the quartz sand dissolves into water glass"
+ore_notes_acid_2,"- Add water and filter with a water filter, then add acid to precipitate silica gel and filter the debris with Kotton fabric"
+ore_notes_acid_3,"- Pour a little silica gel into acid (acid must be over 80% of all the liquid) and heat above 100C to remove the chemical contaminant"
+ore_notes_acid_4,"- Put it in the fridge freezer to remove heavy metal, then filter with a water filter"
+liquid_yeast_wine,Live Wine Yeast
+liquid_yeast_super,Live Super Yeast
+liquid_yeast_red,Live Red Yeast
+liquid_methanol,Methanol
+liquid_ice,Ice
+yeast_hint,"Drag onto a container to dissolve: adds {0} mL of live yeast."
+yeast_hint_microbes,"Drag onto a container to dissolve: adds {0} mL of live yeast and {1} mL of microbes."
+yeast_hint_reusable,"Drag onto a container: adds {0} mL of live yeast. Not used up; once per night."
+scanner_temperature," ({0} °C)"
+liquid_acetic_acid,Acetic Acid
+liquid_ethyl_acetate,Ethyl Acetate
+recipe_blended_wine,Blended Wine (750 mL)
+blended_wine_name,Blended {0}
+blended_wine_desc,"Wine blended from alcohol, water and ethyl acetate, honestly labelled as such."
+setting_water_boil,Water boiling speed (%)
+setting_water_boil_tooltip,"How fast water boils off above 100 C; 100 is vanilla (2% of the container's water per second, at least 0.1 mL). Only affects boiling, not the evaporator or other liquids."
+label_genuine,Genuine
+label_blended,Blended
+category_blended_wine,Wine Quality
+category_wine_blend,Production
+making_notes_name,Blended Wine Recipe
+making_1,"- Acetic acid: blend edible Dream Caps, boil dry above 100 C, then dry-distill above 150 C into acetic acid and char"
+making_2,"- Ethyl acetate: add twice as much alcohol as acetic acid, plus acid making up at least 1% of all the liquid, hold at 60-75 C"
+making_3,"- Clean up: neutralize the acid with base and run it through a water filter; the remaining ethyl acetate, alcohol and water can be used as is"
+making_4,"- Blend: alcohol 20-25% of the total, 1-2 mL ethyl acetate per litre, other impurities at most 1% of the total"
+making_5,"- Bottle: choose Blended Wine in the Chem Finisher, 750 mL per bottle"
+making_6,"- Methanol over 0.1% of the total endangers the public; blended wine does not age"
+selling_notes_name,Selling Blended Wine
+selling_1,"- Quality starts at 1: alcohol 20-25% of the total +3, 5-20% or over 25% +2, under 5% -3; no ethyl acetate -2, under 0.5 or over 4 mL per litre -1, 1-2 mL +1; impurities (anything but water, alcohol and ethyl acetate) over 2% of the total -1, at most 1% +1"
+selling_2,"- 6+ master vintage, 5 reserve, 3-4 production, 2 homebrew, 1 bucket brew"
+selling_3,"- Two labels can be changed with the labeler: wine quality and production (genuine/blended). Labelled blended sells for 15 points less; Upper Level clients refuse it"
+selling_4,"- Quality labelled 2+ tiers too high: anyone notices; 1 tier too high: Upper Level clients, tourists and clients who test chemicals notice"
+selling_5,"- Labelled genuine at its real quality: clients who test chemicals notice; real tier 4+ labelled one tier lower: nobody notices"
+selling_6,"- Trade board orders catch any false label"
+selling_7,"- Once caught it sells as blended wine of its real quality; false labels sold unnoticed add up to fraud"
+making_alcohol,[Alcohol]
+making_alcohol_1,"- Blend nutrifruit, add acid making up about 1% of all the liquid (at least 0.5%) and heat above 90 C: the starch hydrolyses into sugar (and the heat sterilises it)"
+making_alcohol_2,"- Neutralize with base until acid and base together are under 1% of the volume, then cool below 45 C"
+making_alcohol_3,"- Drag yeast onto the container to dissolve it and keep it at 20-35 C overnight: the yeast grows and ferments the sugar into alcohol 1:1 by volume. Wine yeast stops once alcohol is 12% of the total, super yeast at 18%; use super yeast for sugary mash"
+making_alcohol_4,"- Red yeast and unsterilised mash make methanol; heat to 65-75 C to boil it off"
+making_alcohol_5,"- In a fridge freezer water turns to ice until everything else is about 25% of the liquid (ice not counted); filter the ice out with Kotton fabric to concentrate the alcohol to at most about 25% of the total, then purify it in an evaporator with the solvent recovery module"
+making_ester,[Ethyl acetate]
+making_wine,[Blending]
+advanced_fabric_name,Advanced Kotton Fabric
+advanced_fabric_desc,"Filters out coarse particles like Kotton fabric (pore 150) and regains 1000 durability every day."
+advanced_fabric_flavor,"Woven with a self-cleaning coating. No washing required."
+effect_production,"+{0} mL {1} per 100 g of fruit (+{2} mL per item on other crops)"
+setting_fridge_cool,Fridge cooling speed (%)
+setting_fridge_cool_tooltip,"How fast a powered fridge brings containers to its target temperature; 100 is vanilla (chill zone 0.5 C/s, freezer 1 C/s). Default 400."
+setting_ferment,Yeast fermentation speed (%)
+setting_ferment_tooltip,"How fast yeast turns sugar into alcohol overnight. 100 is the default: each mL of live yeast turns 24 mL of sugar into 24 mL of alcohol per night."
+guide_book_name,Advanced Chemistry Handbook
+guide_book_desc,A retired chemist's collected process notes.
+guide_book_intro,"This handbook covers Dream Toxin, ore chemistry, making and selling blended wine, and nuclear waste reprocessing. Other mods may add their own sections at the end. Understand each step before you start."
+guide_book_continued,{0} (continued)
+liquid_spent_fuel,Spent Fuel
+liquid_pu_dissolved,Dissolved Plutonium
+liquid_fission_products,Fission Products
+liquid_pu_extract,Plutonium Extract
+liquid_plutonium,Plutonium
+opened_waste_name,Opened Nuclear Waste
+opened_waste_desc,"Holds 500 mL of spent fuel. While it holds evaporative liquids (water, alcohol, ethyl acetate) decay heat keeps it at 70 C; once the fuel is dissolved and those are poured off it heats past 300 C. Only plutonium extract and evaporative liquids pour out; radioactive contents, acid and other impurities stay inside. Only fits in the main inventory and the sales areas."
+opened_waste_flavor,Don't stare at it for too long.
+vitrified_name,Vitrified Waste
+vitrified_desc,"The fission products are melted into glass and sealed in a steel canister. Harmless; you can throw it away."
+vitrified_flavor,Open again in ten thousand years.
+ampoule_name,Plutonium Ampoule
+ampoule_desc,"0.1 mL of plutonium solution. Drag onto any drink or wine to add 50 to its value and make it nuclear, or onto a plutonium chemical battery for 2 kJ of self-charge per night."
+ampoule_flavor,"The label says: do not drink."
+nuclear_drink_name,Nuclear {0}
+merchant_name,Waste Broker
+merchant_line,"Some people pay me to get rid of these barrels. Some people pay me to sell them. You look like the second kind."
+radiation_notice,"You wake up nauseous and weak. Radiation sickness: -{0}% when selling."
+radiation_cured,"The Immunivax eases your radiation sickness. Now: -{0}%."
+radiation_immunivax_no_effect,"You feel nothing after the shot, and the radiation sickness is no better. It may not have been genuine."
+radiation_penalty,Radiation sickness
+nightlog_radiation_new,"You were exposed to radiation and caught radiation sickness: -{0}% when selling."
+nightlog_radiation_worse,"Your radiation sickness got worse: -{0}% when selling."
+nightlog_radiation_max,"Your radiation sickness is as bad as it gets: -{0}% when selling."
+nc_notes_name,Nuclear Waste Reprocessing Notes
+nc_notes_warning,"WARNING! Only open it if you can neutralize nuclear waste! Stay clear of radiation sickness!"
+nc_notes_1,"* Opening: pry the barrel open carefully with a crowbar, and make sure you deal with the fission products by chemical means only. Keep the opened barrel on your person; fission products do not pour out, and never should."
+nc_notes_2,"* Dissolution: add about 500 mL of concentrated acid. Keep acid above 98% of the non-radioactive liquid in the barrel."
+nc_notes_3,"* Valence adjustment: once dissolved, add about 20 mL of reducing agent."
+nc_notes_4,"* Extraction: pour in ethyl acetate, at least twice the fission products, about 100 mL. Add all 100 mL at once to extract as much plutonium as possible."
+nc_notes_5,"* Separation: pour the barrel into a clean container. Only the plutonium extract and volatile liquids come out; acid and impurities stay in the barrel."
+nc_notes_6,"* Plutonium: heat the liquid above 100 C to drive off water, organics and alcohol."
+nc_notes_7,"* Vitrification: once the barrel is emptied, decay heat takes it above 300 C. Add 50 mL of water glass; the fission products melt into glass, sealed in a steel canister, and can be disposed of safely."
+nc_notes_8,"* Protection: never spend the night with unprocessed waste, or you will catch radiation sickness that only Immunivax can cure."
+nc_notes_9,"* Plutonium ampoule: pure plutonium solution can be filled into plutonium ampoules in the Chem Finisher. Add one to any drink or wine to make a nuclear drink worth 50 credits more."
+refuse_blended_wine,"That doesn't go in our cellar."
+refuse_nuclear_drink,"I can't afford a drink like that. Just give me a regular one."
+refuse_nuclear_drink_lower,"I can't afford a drink like that. Just give me a regular one."
+ore_needs_modules,"Metal ore only breaks down in a blender with {0} chem modules (this one has {1})."
+beer_keg_name,Beer Keg
+beer_keg_desc,"2 L of home-brewed beer. Each double-click pours one serving: a can (about 333 mL) at room temperature, or a draft beer (500 mL) at chill temperature (2-8 C)."
+beer_keg_flavor,"Stamped on the bottom: serve chilled."
+beer_can_name,Canned Beer
+beer_can_desc,"A can of home-brewed beer. A powered fridge chills it."
+beer_can_flavor,"The best part is the sound it makes when you open it."
+draft_beer_name,Draft Beer
+draft_beer_desc,"Freshly tapped from a cold keg, head still on. Goes flat overnight."
+draft_beer_flavor,"Drink it while it's cold."
+flat_beer_name,Flat Draft Beer
+flat_beer_desc,"The head is long gone; it only sells for the price of a can."
+beer_tier_undrinkable,Undrinkable
+beer_tier_normal,Ordinary
+beer_tier_premium,Premium
+category_beer_quality,Beer quality
+recipe_beer_keg,Beer Keg
+beer_tapped,"Poured a draft beer; {0} mL left in the keg."
+beer_split,"Poured a can of beer; {0} mL left in the keg."
+beer_keg_tooltip_cold,"Temperature {0} C, {1} mL left: chilled, double-click to pour a draft beer."
+beer_keg_tooltip_warm,"Temperature {0} C, {1} mL left: double-click to pour a can; chill it to 2-8 C to pour draft beer."
+beer_notes_name,Beer Brewing Notes
+beer_1,"- The Chem Finisher fills beer into 2 L kegs; the liquid must contain alcohol"
+beer_2,"- Premium: alcohol 5-8% of the total, live yeast 0.1-1%, sugar up to 4%, protein up to 1%; impurities (anything but water, alcohol, yeast, sugar and protein) at most 1% of water + impurities"
+beer_3,"- Ordinary: alcohol 8-12%, live yeast below 0.1% or 1-2%, sugar 4-8%, protein 1-2%, impurities 1-2%; anything beyond is undrinkable, as is methanol above 0.1% of the total"
+beer_4,"- Recipe: mash 600-750 g of nutrifruit, hydrolyse and neutralize, dilute to about 1.2 L, add a packet of yeast and ferment for two nights, then dilute to 2 L. Base water is enough for ordinary beer; high-quality or pure water makes it premium"
+beer_5,"- The Chem Finisher adds no impurity when filling beer, however many chem modules it has"
+beer_6,"- Each double-click pours one serving: a can at room temperature (6 per keg), or a draft beer once chilled to 2-8 C in a powered fridge chill zone (4 per keg). The fridge needs two storage upgrades to fit the keg"
+beer_7,"- Sell draft beer the same day: overnight it goes flat and is only worth a can; cans can be chilled in a fridge for a bonus"
+beer_keg_empty,"Poured the last serving; the keg is empty."
+beer_table_name,Beer Quality Table
+beer_table_head,<b>Measure</b><pos=30%><b>Premium</b><pos=53%><b>Ordinary</b><pos=77%><b>Undrinkable</b>
+beer_table_alcohol,Alcohol<pos=30%>5-8%<pos=53%>8-12%<pos=77%>other
+beer_table_yeast,Live yeast<pos=30%>0.1-1%<pos=53%>1-2% *<pos=77%>over 2%
+beer_table_sugar,Sugar<pos=30%>up to 4%<pos=53%>4-8%<pos=77%>over 8%
+beer_table_protein,Protein<pos=30%>up to 1%<pos=53%>1-2%<pos=77%>over 2%
+beer_table_impurity,Impurities †<pos=30%>up to 1%<pos=53%>1-2%<pos=77%>over 2%
+beer_table_methanol,Methanol<pos=30%>-<pos=53%>-<pos=77%>over 0.1%
+beer_table_note_1,"- All shares are of the whole keg except impurities; the keg gets the tier of its worst measure"
+beer_table_note_2,"- * Less than 0.1% live yeast (no fizz) is also ordinary"
+beer_table_note_3,"- † Impurities: anything but water, alcohol, yeast, sugar and protein, as a share of water + impurities. Diluting with base water usually gives 1-2%, i.e. ordinary; high-quality or pure water reaches premium"
+liquid_alkaloid,Alkaloid
+xinke_plant_name,Xinke Shrub
+xinke_seed_name,Xinke Seeds
+xinke_seed_desc,"Seeds of a drought-tolerant evergreen shrub that can be picked again and again once planted. Each red berry holds a single seed."
+xinke_leaf_name,Xinke Leaves
+xinke_leaf_name_s,Small Xinke Leaves
+xinke_leaf_name_l,Large Xinke Leaves
+xinke_leaf_desc,"Leathery, oblong leaves of the Xinke shrub with a little alkaloid in them. Lower Level folk chew them for a lift: cheap, and mild."
+xinke_leaf_flavor,"Chew for a while, your tongue goes numb, and then you stop feeling tired."
+liquid_crackine_powder,Crackine Hydrochloride Powder
+crackine_vial_name,A Small Vial of Crackine
+crackine_vial_desc,"Pale yellow powder refined from Xinke leaves, in a small glass vial. Far stronger than chewing the leaves, and far pricier."
+crackine_vial_flavor,"Just a little is enough. Then you want just a little more."
+crackine_vial_l_name,A Large Vial of Crackine
+crackine_regular_1_1,"That {0} yesterday... honestly, I've never had anything that clean."
+crackine_regular_1_2,"All night it felt like someone had polished the inside of my head."
+crackine_regular_1_3,"Got any more? I brought {1} credits."
+crackine_regular_2_1,"Me again. {0}, same as yesterday."
+crackine_regular_2_2,"I told myself I wasn't coming today. And yet here I am, at your door."
+crackine_regular_2_3,"I brought a bit extra. {1} credits. Enough?"
+crackine_regular_3_1,"Don't ask. Just give me {0}."
+crackine_regular_3_2,"I put work off. Rent can wait too. It's fine. Really."
+crackine_regular_3_3,"{1} credits. That's all of it."
+crackine_regular_4_1,"{0}... please. Only yours works. Everyone else's feels wrong."
+crackine_regular_4_2,"My hands have been shaking since this morning."
+crackine_regular_4_3,"I scraped together {1} credits. Sold a few things. Don't ask what."
+crackine_notes_name,Crackine Refining Notes
+crackine_1,"- Blend Xinke leaves into a mix of water, protein and alkaloid"
+crackine_2,"- Add acid or base to denature the protein, then filter it out"
+crackine_3,"- Top up the acid to about 5% of the liquid"
+crackine_4,"- Boil it dry above 100 C: once water is below 1%, the alkaloid binds with the acid into Crackine HCl powder, using 0.1 part acid per part alkaloid"
+crackine_5,"- Drive off the leftover acid in the evaporator; it only does this for dry Crackine powder"
+crackine_6,"- Press it in the Chem Finisher, dry: a small vial takes 0.25 mL, a large vial 1 mL"
+crackine_7,"- Crackine at 90%+ purity hooks personal-use buyers: they always come back the next day, and each consecutive day their budget grows by 25%, up to 2000"
+lantern_plant_name,Hollow's Lantern
+lantern_seed_name,Hollow's Lantern Seeds
+lantern_seed_desc,"A lab-bred chili seed. High-yielding but hungry for nutrients, and its roots foul the water."
+lantern_chili_name,Hollow's Lantern
+lantern_chili_name_s,Small Hollow's Lantern
+lantern_chili_name_l,Large Hollow's Lantern
+lantern_chili_desc,"A laboratory-refined chili. Heated in alcohol it gives off a chemical irritant, used in high-intensity riot control."
+lantern_chili_flavor,"Refined for so long it is barely usable as a seasoning anymore. Not that most people on the station could afford seasoning anyway."
+liquid_capsaicin,Capsaicin
+liquid_lantern_ester,Lantern Ester
+incapacitant_vial_name,A Small Vial of Incapacitant
+incapacitant_vial_desc,"Lantern Ester refined from Hollow's Lantern chilis, in a small glass vial. Sprayed as a mist, it keeps a whole street from opening its eyes. Security and the Upper Level's private guards both buy it."
+incapacitant_vial_flavor,"Legal, licensed, and the purpose is written on the purchase order."
+lantern_sale_upper_clean,"Good stock. Your record's clean, too. Keep it that way."
+lantern_sale_upper_partial,"Our estate guards have been short on these. I'll mention your name to a friend at Security."
+lantern_sale_upper_cleared,"I made a call. Your file at Security is clean now."
+lantern_sale_upper_slowed,"Your file is clean, and I've asked them to slow the investigation. The Upper Level remembers who helps it."
+lantern_sale_security_clean,"Supply will like this batch. You've always kept your nose clean. Good."
+lantern_sale_security_partial,"We'll take this batch. A few pages of your file seem to have gone missing."
+lantern_sale_security_cleared,"Your file? We don't have a file on you."
+lantern_sale_security_slowed,"No file, and I'll have a word with the investigators. We'll come to you for the next batch."
+refuse_lantern_lower,"That's the stuff they spray in our faces. And you want me to take it home?"
+refuse_lantern_revolution,"This is what they sprayed on us in the square last week. Better figure out whose side you're on."
+salt_ore_name,Rock Salt Ore
+liquid_salt,Salt
+gas_canister_name,Empty Gas Canister
+gas_canister_h2_name,Hydrogen Canister
+gas_canister_cl2_name,Chlorine Canister
+gas_canister_mix_name,Hydrogen-Chlorine Canister
+gas_canister_hcl_name,Hydrogen Chloride Canister
+gas_canister_desc,"A small steel cylinder with a valve that takes up to 5 L of compressed gas. Drag it onto another canister to move its gas over; with hydrogen chloride inside, drag it onto a container with water to make hydrochloric acid. Right-click to vent it."
+gas_h2,Hydrogen
+gas_cl2,Chlorine
+gas_hcl,Hydrogen chloride
+gas_canister_tooltip_gas,"{0}: {1} mL"
+gas_canister_tooltip_empty,Empty
+gas_canister_tooltip_total,"{0} / {1} mL, {2} C"
+gas_canister_vent,Vent
+gas_canister_vented,The canister is empty.
+gas_canister_full,That canister is full.
+gas_canister_needs_water,"Hydrogen chloride needs water in the container to become acid."
+gas_canister_saturated,"This acid is already at 40%; add water to dissolve more."
+gas_canister_container_full,The container is full.
+electrolyzer_name,Electrolyzer
+electrolyzer_desc,"Electrolyses brine into base, hydrogen and chlorine. Needs a battery and runs once a night; the container needs salt and water, and both product slots need a canister with room left."
+electrolyzer_manual_name,Electrolyzer Instructions
+electrolyzer_manual_short,The instructions that came with the electrolyzer.
+electrolyzer_manual_flavor,"1. A battery goes on the left; it draws 24 a night. 2. The brine slot takes a container of salt and water. 3. Product A takes an empty or hydrogen canister, product B an empty or chlorine one. 4. Each night it electrolyses 240 mL of salt: every mL of salt uses 0.3 mL of water and gives 1 mL of base (left in the brine container), 0.5 mL of hydrogen and 0.5 mL of chlorine. It stops without salt, water, power or canister room. 5. Takes universal modules: performance speeds it up, efficiency saves power, quality changes the yield."
+electrolyzer_label_module,Modules
+electrolyzer_label_container,Brine
+electrolyzer_label_products,Products A / B
+electrolyzer_lines_title,"Each night: 1 part salt + 0.3 part water"
+electrolyzer_lines_a,"Red line -> product A: 0.5 part hydrogen"
+electrolyzer_lines_b,"Blue line -> product B: 0.5 part chlorine"
+electrolyzer_lines_base,"Stays in the brine container: 1 part base"
+salt_ore_desc,"Rock salt mined from an underground salt bed: mostly sodium chloride, with a little clay and other minerals."
+salt_order_small,"I'll take {0} chunks of rock salt, delivered in {1} day."
+salt_order_large,"I'll take {0} chunks of rock salt, delivered in {1} days."
+electrolysis_notes_name,Brine Electrolysis Notes
+electrolysis_1,"- Rock salt ore: order it from GP Mining by phone (6 in 1 day; 12 in 2 days once you have spent 350 there). Any blender crushes it into about 80 mL of salt plus a little clay and mineral; fewer chem modules lose more"
+electrolysis_2,"- Electrolyzer: sold by Dr. Jackson with two empty gas canisters. Battery on the left, brine container in the middle, product A (hydrogen) top right, product B (chlorine) bottom right"
+electrolysis_3,"- Each night it electrolyses 240 mL of salt (more with performance): every mL of salt uses 0.3 mL of water and leaves 1 mL of base in the container, plus 0.5 mL each of hydrogen and chlorine. It stops without salt, water, power or canister room. Efficiency saves power; quality from -100 to +100 scales the products from half to one and a half"
+electrolysis_4,"- Filter the clay and mineral out of the base with a water filter, and boil off extra water in the evaporator"
+electrolysis_5,"- Mixing: drag the chlorine canister onto the hydrogen canister (or the other way round); the gas moves into the target, and what does not fit stays behind"
+electrolysis_6,"- Burning: put the mixed canister on a heating plate and heat it past 120 C (the plate needs at least 1 chem module); hydrogen and chlorine burn 1:1 into twice the volume of hydrogen chloride"
+electrolysis_7,"- Dissolving: drag the hydrogen chloride canister onto a container with water; it dissolves into acid up to 40% of the liquid (500 mL of water takes at most 333 mL of acid), and the rest stays in the canister. For weaker acid, measure out the strong acid with droppers or cylinders and add water"
+electrolysis_8,"- Do not pour hydrogen chloride into a container that still holds base: the base neutralizes the acid"
+electrolysis_9,"- A canister holds 5 L; right-click to vent it. The retired chemist sometimes sells empty canisters"
+lantern_notes_name,Incapacitant Production Notes
+lantern_1,"- The retired farmer sells Hollow's Lantern seeds. Annual, gives one seed back at harvest; hungry for nutrients, and its roots foul the water"
+lantern_2,"- Blend the chilis: you get capsaicin only, no water or protein"
+lantern_3,"- Add at least 4x as much alcohol. Below 4x, part of it turns into physical contaminant: share = (4 - alcohol/capsaicin) / 4"
+lantern_4,"- Heat above 50 C: capsaicin turns into Lantern Ester, using 0.1 part alcohol per part capsaicin. Alcohol boils at 78 C and burns off above that, so keep it at 50-78 C"
+lantern_5,"- Filter out the physical contaminant, then dry off the alcohol in the evaporator. Unreacted capsaicin stays behind and lowers purity"
+lantern_6,"- Press it in the Chem Finisher, dry: a small vial takes 2 mL"
+lantern_7,"- Legal goods. Upper Level and Security clients buy it, and so do mercenaries; the Lower Level, revolutionaries and everyone else refuse it"
+lantern_8,"- Sold to the Upper Level or Security, it wipes crimes from your security file: sold price x purity x 5, largest crime first; once all crimes are at zero, every full 100 left takes 1 off investigation progress"
+pu_battery_name,Plutonium Chemical Battery
+pu_battery_desc,"A 200 kJ battery with a window in its side. Drag plutonium ampoules onto it: each one adds 2 kJ of self-charge every night, up to 10."
+pu_battery_flavor,"Dr. Jackson insists it is a chemical battery, not a nuclear one. The difference is what goes on the invoice."
+pu_battery_tooltip_fuel,"Plutonium: {0} / {1} ampoules ({2} kJ self-charge each per night)"
+pu_battery_tooltip_hint,Drag a plutonium ampoule onto the battery to start self-charging.
+pu_battery_fuelled,"Plutonium added: {0} kJ self-charge per night ({1} / {2})"

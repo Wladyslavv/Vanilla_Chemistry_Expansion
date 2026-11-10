@@ -1,0 +1,93 @@
+"workshopitem"
+{
+	"appid"		"4348910"
+	"publishedfileid"		"3832077837"
+	"contentfolder"		"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Probably Stolen\\Mods\\vanilla_chem_ext"
+	"previewfile"		"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Probably Stolen\\Mods\\vanilla_chem_ext\\preview.png"
+	"visibility"		"0"
+	"title"		"原版化学扩展 / Vanilla Chemistry Expansion"
+	"description"		"You can buy alcohol, but you can't brew your own bootleg?
+Pumping out 2000 Dream Dust a day, and not even Wilde at level 3 plus Intimidating can keep you out of trouble?
+Droppers and measuring cylinders all over the bench, yet the only way to pure acid and base is fish?
+All you can do with nuclear waste is dump it at the junkyard, where it breaks immersion and someone just picks it back up?
+
+This mod builds on real-world chemical production to give the vanilla chemistry gameplay more to do, so that late in the game you can lean into being a chemist through (somewhat) involved chemistry.
+
+Main features:
+1. Dream Toxin: the legal product of Dream Caps, a high-end cosmetic treatment for the Upper Level.
+2. Make alcohol from starch and sugar, make ethyl acetate from plant matter, and edit genes so other crops produce sugar and starch too. Deep-space wine merchant: probably blended.
+3. Crush ore and use the minerals to purify the acid and base the profiteers sell you.
+4. Neutralize nuclear waste, extract the plutonium, and make Nuclear Cola!
+
+More chemistry is planned; I just need a little inspiration.
+Gunsmith players may also want: Ammo Printer https://steamcommunity.com/sharedfiles/filedetails/?id=3831394883
+
+[h2]Vanilla Chemistry Expansion[/h2]
+An expansion built on the vanilla chemistry system (extraction, heating, refrigeration, filtering, evaporation, pressing), without changing vanilla products or reactions.
+
+[h3]Advanced Chemistry Handbook[/h3]
+Every procedure below is in the Advanced Chemistry Handbook. Whenever you don't own one, the retired chemist and Dr. Jackson's shop always sell one (value 200). Other mods can add a chapter through the localization keys vce_handbook_title and vce_handbook_line_1..N.
+
+[h3]Dream Toxin[/h3]
+A legal medical use for Dream Caps and Nightmare Caps.
+[list]
+[*]Mix Dream Cap Extract and Nightmare Cap Extract 1:1, add acid to 0.5-5% of the total liquid, and leave it in the chill zone of a powered fridge (2-8 C) to form Dream Toxin.
+[*]The toxin is heat-stable: heat above 100 C to burn off leftover extract. Acid above 5% breaks the toxin down.
+[*]Press it into [b]Dream Toxin Injectors[/b] in the Chem Finisher: a legal cosmetic product for Upper Level clinics, base value 150.
+[*]Only pharma grade (90%+) is worth anything; it then earns about as much as street Dream Dust with its contraband markup, without the notoriety.
+[/list]
+
+[h3]Ore Chemistry: purifying acid and base[/h3]
+No filter removes the chemical contaminant and heavy metal in vanilla acid and base, so they end up in your drugs.
+[list]
+[*]Metal ore can be crushed in a [b]blender with all 4 chem modules[/b] into calcite, quartz sand and impurities; the amounts vary from ore to ore.
+[*]Graded filtering: Kotton fabric removes only the coarse quartz sand; a water filter catches every fine particle.
+[*][b]Purifying base[/b]: calcine calcite dry (150 C+) into quicklime and add it to base, which causticizes the chemical contaminant into base and calcium carbonate; heavy metal settles out of strong base on its own. Finish with a water filter.
+[*][b]Purifying acid[/b]: quartz sand and base turn into water glass at 120 C+; filter it, then add acid to precipitate silica gel. At 100 C+ silica gel drives the chemical contaminant in acid off as gas; then the fridge freezer removes heavy metal by freeze crystallization (losing an equal amount of acid). Finish with a water filter.
+[*]150 C and 120 C need an upgraded heating plate.
+[/list]
+
+[h3]Starch genes[/h3]
+Nutrifruit's starch and sugar now come from its innate Starch Production and Sugar Production genes, with the same totals as vanilla. The genes can be extracted onto DNA disks and spliced into other crops.
+
+[h3]Industrial alcohol[/h3]
+[list]
+[*]Blend nutrifruit, add acid making up about 1% of the total liquid and heat above 90 C to hydrolyse the starch into sugar; neutralize, cool, and drag yeast onto the container to dissolve it.
+[*]Yeast only grows and ferments overnight (20-35 C), turning sugar into alcohol 1:1 by volume. Wine yeast stops once alcohol is 12% of the total, super yeast at 18%, and red yeast at 15% and brings microbes.
+[*]Microbes in a fermenting mash turn into methanol; boil it off at 65-75 C. Water freezes in the fridge freezer; filter out the ice to concentrate the alcohol to at most about 25% of the total.
+[*]The analyzer shows container temperature; the mod settings adjust water boiling speed, yeast fermentation speed and fridge cooling speed (4x vanilla by default).
+[/list]
+
+[h3]Blended wine[/h3]
+[list]
+[*]Dry-distil plant matter into acetic acid, then esterify it with alcohol into ethyl acetate; press alcohol, water and ethyl acetate into wine in the Chem Finisher.
+[*]Quality follows the vanilla wine tiers, with two labels you can change with the labeler: wine quality and production method (genuine/blended).
+[*]Faking labels is risky: different clients see through different lies, and false labels sold unnoticed add up to fraud. Upper Level clients refuse wine labelled as blended and tell you why.
+[/list]
+
+[h3]Beer[/h3]
+[list]
+[*]The Chem Finisher fills any alcoholic liquid into a 2 L [b]Beer Keg[/b], graded premium, ordinary or undrinkable (quality table in the handbook).
+[*]Premium: alcohol 5-8% of the total, live yeast 0.1-1%, sugar up to 4%, protein up to 1%, other impurities up to 1% of water + impurities. Base water usually gives ordinary; high-quality or pure water gives premium.
+[*]Each double-click pours one serving: a [b]can[/b] at room temperature (6 per keg), or a [b]draft beer[/b] once the keg is chilled to 2-8 C in a powered fridge chill zone (4 per keg; the fridge needs two storage upgrades).
+[*]Draft beer sells best but goes flat overnight; cans get the fridge's chilled bonus. Beer also counts as water, so regular water buyers take it.
+[/list]
+
+[h3]Advanced Kotton fabric[/h3]
+A gold Kotton fabric that regains all its durability every day, sold and found wherever the vanilla advanced water filter is.
+
+[h3]Nuclear waste reprocessing[/h3]
+Pry open vanilla nuclear waste barrels, reprocess the spent fuel into plutonium with chemistry, and seal the fission products away.
+[list]
+[*]A crowbar opens a nuclear waste barrel: 500 mL of spent fuel, kept in the main inventory or sales areas. Only plutonium extract and evaporative liquids pour out; radioactive contents, acid and impurities stay inside.
+[*]Pour in about 500 mL of concentrated acid (above 98% of the non-radioactive liquid in the barrel) to dissolve the spent fuel; decay heat holds the barrel at 70 C. Add about 20 mL of reducing agent to adjust the valence, then at least 100 mL of ethyl acetate to extract the plutonium.
+[*]Pour out the extract and boil it dry above 100 C to get pure plutonium, then fill [b]Plutonium Ampoules[/b] in the Chem Finisher. Drag one onto any drink or wine to make a Nuclear drink worth +50. Only Upper Level clients and addicts buy it; other clients tell you why they won't.
+[*]Once the barrel is poured dry, decay heat takes it past 300 C; add about 50 mL of water glass to melt the fission products into glass and get harmless Vitrified Waste.
+[*][b]Radiation sickness[/b]: each night you spend with unprocessed opened waste costs 5% of your selling prices (up to 25%); genuine Immunivax eases it.
+[*]From day 7, a Waste Broker visits every 7 days and sells 1-3 nuclear waste barrels at 50 each.
+[/list]
+
+[h3]Compatibility[/h3]
+No extra capabilities. Vanilla content this mod changes: nutrifruit's starch and sugar come from genes; metal ore has chemical contents; yeast dissolves into containers; water freezes in the fridge freezer; fridges cool 4x faster by default; the analyzer shows temperature; crowbars open nuclear waste; Immunivax eases radiation sickness; regular water buyers take beer. Before uninstalling, get rid of this mod's liquids and items."
+	"changenote"		"1.4.0: Adds beer: the Chem Finisher fills 2 L Beer Kegs in three quality tiers; each double-click pours a can, or a draft beer once the keg is chilled to 2-8 C in a fridge; draft beer goes flat overnight; regular water buyers take beer; a Beer Brewing page and a quality table in the handbook. Also includes the 1.3.1 fixes: water quality labels and liquid names no longer get stuck in the system language when it differs from the game language (water could not be sold); old metal ore in saves is crushable and the blender says why an ore was not crushed; the handbook shows its background and page buttons. / 1.4.0：新增啤酒：化学制剂成型机灌装 2 升桶装啤酒，分三档品质；双击桶每次倒出一罐，冷藏到 2-8°C 后倒出扎啤；扎啤放一夜会跑气；常见买水顾客也会买啤酒；手册新增啤酒酿造笔记和品质表。另含 1.3.1 的修复：系统语言和游戏语言不一致时水质标签、液体名不再出错（水能正常卖出）；存档里的旧矿石可以打碎，矿石没被打碎时会提示原因；手册背景和翻页按钮正常显示。"
+}

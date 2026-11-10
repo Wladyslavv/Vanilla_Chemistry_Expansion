@@ -1,0 +1,100 @@
+"workshopitem"
+{
+	"appid"		"4348910"
+	"publishedfileid"		"3832077837"
+	"contentfolder"		"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Probably Stolen\\Mods\\vanilla_chem_ext"
+	"previewfile"		"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Probably Stolen\\Mods\\vanilla_chem_ext\\preview.png"
+	"visibility"		"0"
+	"title"		"原版化学扩展 / Vanilla Chemistry Expansion"
+	"description"		"Not a big mod, but a lot of mechanics. Bug reports, code, suggestions and wishes are welcome in the comments or the QQ group: https://qm.qq.com/q/imekxahuBW
+
+You can buy alcohol, but you can't brew your own bootleg?
+Pumping out 2000 Dream Dust a day, and not even Wilde at level 3 plus Intimidating can keep you out of trouble?
+Droppers and measuring cylinders all over the bench, yet the only way to pure acid and base is fish?
+All you can do with nuclear waste is dump it at the junkyard, where someone just picks it back up?
+
+This mod builds on real-world chemical production to give vanilla chemistry more to do, so late in the game you can lean into being a chemist through (somewhat) involved chemistry.
+
+Main features:
+1. Dream Toxin: the legal product of Dream Caps, a high-end cosmetic treatment for the Upper Level.
+2. [b]New![/b] Grow Xinke and refine the alkaloid in its leaves into Crackine. Pharma-grade product brings addicts back every day, with a bigger budget each time.
+3. Blend nutrifruit, brew beer with acid and yeast, and serve chilled draft beer!
+4. Make alcohol from starch and sugar, ethyl acetate from plant matter, and edit genes so other crops make sugar and starch. Deep-space wine merchant: probably blended.
+5. Crush ore and use the minerals to purify the acid and base the profiteers sell you.
+6. Neutralize nuclear waste, extract the plutonium, and make Nuclear Cola!
+
+More chemistry is planned; I just need a little inspiration.
+Gunsmiths may also want: Ammo Printer https://steamcommunity.com/sharedfiles/filedetails/?id=3831394883
+
+[h2]Vanilla Chemistry Expansion[/h2]
+Built on the vanilla chemistry system (extraction, heating, refrigeration, filtering, evaporation, pressing); vanilla products and reactions are unchanged.
+
+[h3]Advanced Chemistry Handbook[/h3]
+Every procedure below is in the Advanced Chemistry Handbook. While you don't own one, the retired chemist and Dr. Jackson's shop always sell one (value 200). Handbooks in existing saves update on load. Other mods can add a chapter through the localization keys vce_handbook_title and vce_handbook_line_1..N.
+
+[h3]Dream Toxin[/h3]
+[list]
+[*]Mix Dream Cap Extract and Nightmare Cap Extract 1:1, add acid to 0.5-5% of the liquid, and leave it in a powered fridge chill zone (2-8 C).
+[*]The toxin is heat-stable: boil off leftover extract above 100 C. Acid above 5% breaks it down.
+[*]Press [b]Dream Toxin Injectors[/b] in the Chem Finisher: legal, for Upper Level clinics, base value 150. Only pharma grade (90%+) pays: about as much as street Dream Dust with its markup, without the notoriety.
+[/list]
+
+[h3]Xinke and Crackine (new)[/h3]
+[list]
+[*][b]Xinke[/b]: a perennial, drought-tolerant, hardy shrub that keeps growing leaves after harvest. The retired farmer brings two seeds each visit; the shady farmer sells a few leaves.
+[*]Leaves carry an innate Alkaloid Production gene you can splice into other crops. A leaf is mild level 1 contraband, worth about half a Dream Dust.
+[*]Refining: blend the leaves, denature the protein with acid or base and filter, top up acid to about 5%, then boil dry above 100 C; below 1% water the alkaloid binds with acid into Crackine powder. Drive off leftover acid in the evaporator and press [b]Crackine[/b] in the Chem Finisher.
+[*]A small vial (0.25 mL) is worth about 1.5 Dream Dust; a large vial (1 mL) four times that. Level 2 contraband.
+[*][b]Regulars[/b]: a personal-use buyer who gets 90%+ real purity (whatever the label says) always returns the next day, with 25% more budget each consecutive day (up to 2000) and ever more desperate lines.
+[/list]
+
+[h3]Ore Chemistry: purifying acid and base[/h3]
+No filter removes the chemical contaminant and heavy metal in vanilla acid and base, so they end up in your drugs.
+[list]
+[*]Crush metal ore in a [b]blender with all 4 chem modules[/b] into calcite, quartz sand and impurities. Kotton fabric filters only the coarse quartz sand; a water filter catches every fine particle.
+[*][b]Base[/b]: calcine calcite dry (150 C+) into quicklime and add it to base to causticize the chemical contaminant; heavy metal settles out of strong base. Water-filter.
+[*][b]Acid[/b]: quartz sand and base form water glass at 120 C+; filter, add acid to precipitate silica gel. At 100 C+ silica gel drives the chemical contaminant out of acid; the fridge freezer then crystallizes out heavy metal (losing as much acid). Water-filter.
+[*]150 C and 120 C need an upgraded heating plate.
+[/list]
+
+[h3]Starch genes[/h3]
+Nutrifruit's starch and sugar come from innate Starch Production and Sugar Production genes (same totals), which can be spliced into other crops.
+
+[h3]Industrial alcohol[/h3]
+[list]
+[*]Blend nutrifruit, add acid to about 1% and heat above 90 C to hydrolyse starch into sugar; neutralize, cool, and drag yeast onto the container.
+[*]Yeast ferments overnight (20-35 C), sugar to alcohol 1:1 by volume, until 12% (wine yeast), 18% (super yeast) or 15% with microbes (red yeast).
+[*]Microbes become methanol; boil it off at 65-75 C. Freeze in the fridge and filter out the ice to concentrate alcohol to about 25%.
+[*]The analyzer shows temperature; settings adjust boiling, fermentation and fridge cooling speed (4x vanilla by default).
+[/list]
+
+[h3]Blended wine[/h3]
+[list]
+[*]Dry-distil plant matter into acetic acid, esterify it with alcohol into ethyl acetate, and press alcohol, water and ethyl acetate into wine in the Chem Finisher.
+[*]Two labels you can change with the labeler: quality and method (genuine/blended). Clients see through different lies; false labels sold unnoticed add up to fraud. Upper Level clients refuse blended wine.
+[/list]
+
+[h3]Beer[/h3]
+[list]
+[*]The Chem Finisher fills alcoholic liquid into a 2 L [b]Beer Keg[/b], graded premium, ordinary or undrinkable (table in the handbook). Base water usually gives ordinary; high-quality or pure water gives premium.
+[*]Each double-click pours a [b]can[/b] (6 per keg), or a [b]draft beer[/b] once chilled to 2-8 C in a fridge chill zone (4 per keg; needs two fridge upgrades).
+[*]Draft beer sells best but goes flat overnight; cans get the chilled bonus. Water buyers take beer too.
+[/list]
+
+[h3]Advanced Kotton fabric[/h3]
+A gold Kotton fabric that regains full durability every day, found wherever the vanilla advanced water filter is.
+
+[h3]Nuclear waste reprocessing[/h3]
+[list]
+[*]A crowbar opens a nuclear waste barrel: 500 mL of spent fuel, kept in the main inventory or sales areas. Only plutonium extract and evaporative liquids pour out.
+[*]Dissolve the fuel in about 500 mL of concentrated acid (decay heat holds 70 C), add about 20 mL of reducing agent, then 100+ mL of ethyl acetate to extract the plutonium.
+[*]Boil the extract dry above 100 C and fill [b]Plutonium Ampoules[/b]. Drag one onto any drink for a +50 Nuclear drink, bought only by Upper Level clients and addicts.
+[*]The drained barrel heats past 300 C; add about 50 mL of water glass to vitrify the fission products.
+[*][b]Radiation sickness[/b]: each night with unprocessed opened waste costs 5% of selling prices (up to 25%); genuine Immunivax eases it.
+[*]From day 7, a Waste Broker visits every 7 days selling 1-3 barrels at 50 each.
+[/list]
+
+[h3]Compatibility[/h3]
+No extra capabilities. Vanilla changes: nutrifruit starch and sugar come from genes; metal ore has chemical contents; yeast dissolves into containers; water freezes in the freezer; fridges cool 4x faster; the analyzer shows temperature; crowbars open nuclear waste; Immunivax eases radiation sickness; water buyers take beer; the evaporator removes acid from dry Crackine powder; farmers also sell Xinke. Before uninstalling, get rid of this mod's liquids and items."
+	"changenote"		"1.4.2: Xinke leaves harvested before 1.4.1 that are stuck in the hydroponic output (shown as not owned) become owned on load and can be taken out. 1.4.1: the handbook gets a Crackine Refining Notes chapter; harvested Xinke leaves are owned. / 1.4.2：1.4.1 之前收获、卡在水培产出格里（显示未拥有）的新柯叶，读档后变为已拥有，可以正常拿出。1.4.1：手册新增“快克因提纯笔记”一章；水培收获的新柯叶不再显示为未拥有。"
+}

@@ -1,0 +1,280 @@
+liquid_dream_toxin,梦魔菌毒素
+injector_name,梦魔菌毒素注射剂
+injector_desc,上层区美容诊所的抢手货。将提纯后的梦魔菌毒素以微克级剂量注入面部肌肉，数小时内就能抚平皱纹，把表情定格在最上镜的那一刻。只有药用级以上的产品才能通过诊所的验收。
+injector_flavor,微笑是可选配件。
+formula_name,梦魔菌毒素配方
+formula_step_1,- 分别制取梦帽菇萃取液和梦魇帽菇萃取液
+formula_step_2,- 将两种萃取液按1:1混合，加入少量酸使得环境成为微酸环境，酸应占容器内液体总量的0.5%-5%
+formula_step_3,- 使用冰箱冷藏区降温至2-8°C，反应产生梦魔菌毒素
+formula_step_4,- 如果还有萃取液剩下，加热到100°C以上把它烧掉，毒素本身耐热
+formula_step_5,- 加入等量的碱中和掉酸，过滤残渣，再用蒸发器蒸干
+formula_step_6,- 在化学制剂成型机中选择“梦魔菌毒素注射剂”
+liquid_calcite,方解石
+liquid_quartz,石英砂
+liquid_quicklime,生石灰
+liquid_calcium_carbonate,碳酸钙
+liquid_water_glass,水玻璃
+liquid_silica_gel,硅胶
+ore_notes_name,矿石化学笔记
+ore_notes_intro,- 只有装满4个化学模组的搅拌机才能打碎金属矿石。150°C和120°C需要升级过的加热板
+ore_notes_base,【提纯碱】
+ore_notes_base_1,- 打碎矿石，用韧棉织物滤掉石英砂
+ore_notes_base_2,- 保持干燥，加热到150°C以上，方解石煅烧成生石灰
+ore_notes_base_3,- 把生石灰倒进碱里（碱要占液体总量的一半以上），稍等片刻；加热到80-120°C会更快
+ore_notes_base_4,- 用滤水器滤掉碳酸钙和残渣
+ore_notes_acid,【提纯酸】
+ore_notes_acid_1,- 打碎矿石，加入和石英砂等量的碱（碱和石英砂1:1反应），加热到120°C以上，石英砂溶解成水玻璃
+ore_notes_acid_2,- 加水后用滤水器过滤，再加酸析出硅胶，用韧棉织物滤掉残渣
+ore_notes_acid_3,- 把少量硅胶倒进酸里（酸要占液体总量的八成以上），加热到100°C以上去除化学污染物
+ore_notes_acid_4,- 放进冰箱冷冻区去除重金属，再用滤水器过滤
+liquid_yeast_wine,活性酿酒酵母
+liquid_yeast_super,活性超级酵母
+liquid_yeast_red,活性红色酵母
+liquid_methanol,甲醇
+liquid_ice,冰
+yeast_hint,拖到容器上溶解：加入 {0} 毫升活性酵母。
+yeast_hint_microbes,拖到容器上溶解：加入 {0} 毫升活性酵母，另含 {1} 毫升微生物。
+yeast_hint_reusable,拖到容器上：加入 {0} 毫升活性酵母，不会消耗，每晚只能用一次。
+scanner_temperature,（{0}°C）
+liquid_acetic_acid,乙酸
+liquid_ethyl_acetate,乙酸乙酯
+recipe_blended_wine,勾兑葡萄酒（750 毫升）
+blended_wine_name,勾兑{0}
+blended_wine_desc,用酒精、水和乙酸乙酯勾兑的葡萄酒，标签如实注明。
+setting_water_boil,水的沸腾速度（%）
+setting_water_boil_tooltip,容器温度高于 100°C 时水蒸发的速度，100 为原版（每秒蒸发容器中水量的 2%，至少 0.1 毫升）。只影响加热沸腾，不影响蒸发器，也不影响其他液体。
+label_genuine,纯酿
+label_blended,勾兑
+category_blended_wine,葡萄酒品质
+category_wine_blend,酿造方式
+making_notes_name,勾兑酒酿造笔记
+making_1,- 乙酸：可食用梦帽菇搅碎，加热到100°C以上蒸干，再升到150°C以上干馏，植物质变成乙酸和木炭残渣
+making_2,- 乙酸乙酯：加入两倍于乙酸的酒精，再加入占液体总量至少1%的酸，保持60-75°C，乙酸和酒精生成乙酸乙酯
+making_3,- 提纯：加碱中和掉酸，用滤水器滤掉残渣，剩下的乙酸乙酯、酒精和水可以直接使用
+making_4,- 勾兑：酒精占总量的20%-25%，每升加1-2毫升乙酸乙酯，其他杂质不超过总量的1%
+making_5,- 灌装：在化学制剂成型机中选择“勾兑葡萄酒”，每瓶750毫升
+making_6,- 甲醇超过总量的0.1%会危害公共安全；勾兑酒不能陈酿
+selling_notes_name,勾兑酒销售须知
+selling_1,- 品质基础1分：酒精占总量20%-25%加3，5%-20%或超过25%加2，不足5%扣3；没有乙酸乙酯扣2，每升少于0.5或多于4毫升扣1，1-2毫升加1；杂质（水、酒精、乙酸乙酯以外的液体）超过总量的2%扣1，不超过1%加1
+selling_2,- 6分以上大师年份，5分珍藏级，3-4分量产酒，2分自酿酒，1分桶装酒
+selling_3,- 有两个标签可以用贴标机修改：葡萄酒品质、酿造方式（纯酿/勾兑）。标注勾兑售价降15个百分点，上层区客人不收
+selling_4,- 品质比实际高2级以上：任何客人都能识破；高1级：上层区客人、游客和懂化验的客人能识破
+selling_5,- 标成纯酿但品质如实：懂化验的客人能识破；实际4级以上且标低一级：没人能识破
+selling_6,- 交易板的订单会识破任何不实的标签
+selling_7,- 被识破按实际品质的勾兑酒结算；不实标签没被识破卖出去，会累积欺诈罪名
+making_alcohol,【酒精】
+making_alcohol_1,- 营养果搅碎，加入占液体总量约1%的酸（至少0.5%），加热到90°C以上，淀粉水解成糖（高温同时杀菌）
+making_alcohol_2,- 加碱中和，让酸碱加起来低于总量的1%，冷却到45°C以下
+making_alcohol_3,- 把酵母拖到容器上溶解，保持20-35°C过夜，酵母繁殖并把糖按体积1:1发酵成酒精。酒精占总量12%时酿酒酵母停止发酵，超级酵母则是18%，糖多时用超级酵母
+making_alcohol_4,- 红色酵母和没灭菌的发酵液会产生甲醇，加热到65-75°C可以蒸掉
+making_alcohol_5,- 放进冰箱冷冻区，水会结冰，直到水以外的液体占（不含冰的）液体总量约25%；用韧棉织物滤掉冰，酒精最多浓缩到约占总量25%；再用装了溶剂回收模组的蒸发器提纯
+making_ester,【乙酸乙酯】
+making_wine,【勾兑】
+advanced_fabric_name,高级韧棉织物
+advanced_fabric_desc,和韧棉织物一样滤掉大颗粒（孔径150），每天自动恢复1000点耐久。
+advanced_fabric_flavor,纤维里织进了自清洁涂层，洗都不用洗。
+effect_production,每 100 克果实 +{0} 毫升{1}（其他作物每个 +{2} 毫升）
+setting_fridge_cool,冰箱降温速度（%）
+setting_fridge_cool_tooltip,通电冰箱让容器降温（或升温）到目标温度的速度，100 为原版（冷藏区每秒 0.5°C，冷冻区每秒 1°C）。默认 400。
+setting_ferment,酵母发酵速度（%）
+setting_ferment_tooltip,过夜时酵母把糖变成酒精的速度。100 为默认：每毫升活酵母每晚把 24 毫升糖变成 24 毫升酒精。
+guide_book_name,进阶化学手册
+guide_book_desc,一位退休化学家整理的工艺笔记合集。
+guide_book_intro,本手册收录了以下工艺：梦魔菌毒素、矿石化学、勾兑酒的酿造与销售、核废料后处理。其他 Mod 的工艺附在最后。请在充分理解每一步之后再动手。
+guide_book_continued,{0}（续）
+liquid_spent_fuel,乏燃料
+liquid_pu_dissolved,溶解的钚
+liquid_fission_products,裂变产物
+liquid_pu_extract,钚萃取物
+liquid_plutonium,钚
+opened_waste_name,打开的核废料
+opened_waste_desc,装着500毫升乏燃料。有水、酒精、乙酸乙酯这类会蒸发的液体时，衰变热让它保持在70°C；乏燃料溶解完、把这些液体倒干后，会升到300°C以上。往外倒时只有钚萃取物和会蒸发的液体能出来，放射性物质、酸和其他杂质都留在桶里。只能放在主物品栏和里/外售货区。
+opened_waste_flavor,别盯着看太久。
+vitrified_name,玻璃固化体
+vitrified_desc,裂变产物已经熔进玻璃，封在不锈钢罐里。无害，可以丢弃。
+vitrified_flavor,一万年后再打开。
+ampoule_name,钚安瓿
+ampoule_desc,0.1毫升钚溶液。可以拖到任何饮料或葡萄酒上，让它价值+50，变成核子饮料；也可以拖到钚化学电池上，让它每晚自充 2 千焦。
+ampoule_flavor,标签上写着：请勿饮用。
+nuclear_drink_name,核子{0}
+merchant_name,废料掮客
+merchant_line,有人付钱让我处理掉这些桶，有人付钱让我把它们卖掉。你看起来像后一种人。
+radiation_notice,你醒来时感到恶心乏力。辐射病：卖出价格-{0}%。
+radiation_cured,免疫宁缓解了辐射病。现在：-{0}%。
+radiation_immunivax_no_effect,打完针没什么感觉，辐射病一点没好。这支可能不是真货。
+radiation_penalty,辐射病
+nightlog_radiation_new,你被核辐射照射了，患上辐射病：卖出价格-{0}%。
+nightlog_radiation_worse,辐射病加重：卖出价格-{0}%。
+nightlog_radiation_max,辐射病已经是最重的程度：卖出价格-{0}%。
+nc_notes_name,核废料后处理笔记
+nc_notes_warning,警告！请确保您有能力中和核废料后再开启！远离辐射病！
+nc_notes_1,* 开桶：请用撬棍谨慎地撬开核废料桶，并且请确保您只是用化学手段处理裂变产物。开封后的桶请随身保管，裂变产物不会随倾倒流出，也绝不应流出。
+nc_notes_2,* 溶解：向桶内注入约 500 毫升浓酸。确保酸占桶内非放射性液体的98%以上。
+nc_notes_3,* 调整价态：溶解完成后，加入约 20 毫升还原剂。
+nc_notes_4,* 萃取：倒入乙酸乙酯，用量不少于裂变产物的两倍，约 100 毫升。建议一次性加入100ml以最大限度地萃取钚。
+nc_notes_5,* 分离：将桶内液体倒入干净的容器。只有钚的萃取物与易挥发的液体会流出，酸与杂质会留在桶中。
+nc_notes_6,* 提钚：将倒出的液体加热至100°C 以上，蒸干水分、有机质和酒精。
+nc_notes_7,* 固化：倒尽桶内液体后，衰变热会让桶温升至 300°C 以上。此时加入50 毫升的水玻璃，裂变产物将熔入玻璃，封存于不锈钢罐中，可以安全处置。
+nc_notes_8,* 防护：切勿与未处理完的废料同处过夜，否则会罹患仅能用免疫宁治愈的辐射病。
+nc_notes_9,* 钚安瓿：纯钚溶液可在化学制剂成型机中灌装为钚安瓿。加入到任意饮料和酒水，即可获得价格增加50信用点的核子饮料。
+refuse_blended_wine,我们家的酒窖里不放这种东西。
+refuse_nuclear_drink,我可买不起这种饮料，给我普通的就行。
+refuse_nuclear_drink_lower,我可买不起这种饮料，给我普通的就行。
+ore_needs_modules,金属矿石只有在装满{0}个化学模组的搅拌机里才能打碎（这台现在有{1}个）。
+beer_keg_name,桶装啤酒
+beer_keg_desc,2升自酿啤酒。每次双击倒出一份：常温下是一罐啤酒（约333毫升），冷藏温度（2-8°C）下是一杯扎啤（500毫升）。
+beer_keg_flavor,桶底写着：请冷藏后饮用。
+beer_can_name,罐装啤酒
+beer_can_desc,一罐自酿啤酒。放进通电冰箱可以冰镇。
+beer_can_flavor,开罐时那一声最好听。
+draft_beer_name,扎啤
+draft_beer_desc,刚从冰桶里打出来的扎啤，泡沫还没消。放过一夜就会跑气。
+draft_beer_flavor,趁冰喝。
+flat_beer_name,跑了气的扎啤
+flat_beer_desc,泡沫早就没了，只能按罐装啤酒的价钱卖。
+beer_tier_undrinkable,完全不能喝
+beer_tier_normal,普通
+beer_tier_premium,上等
+category_beer_quality,啤酒品质
+recipe_beer_keg,桶装啤酒
+beer_tapped,倒出一杯扎啤，桶里还剩{0}毫升。
+beer_split,倒出一罐啤酒，桶里还剩{0}毫升。
+beer_keg_tooltip_cold,温度 {0}°C，还剩 {1} 毫升：已冷藏，双击倒出一杯扎啤。
+beer_keg_tooltip_warm,温度 {0}°C，还剩 {1} 毫升：双击倒出一罐啤酒；冷藏到2-8°C后倒出的是扎啤。
+beer_notes_name,啤酒酿造笔记
+beer_1,- 啤酒用化学制剂成型机灌装成2升一桶；液体里要有酒精
+beer_2,- 上等：酒精占总量5%-8%，活酵母0.1%-1%，糖不超过4%，蛋白质不超过1%；除水、酒精、酵母、糖、蛋白质以外的杂质不超过“水+杂质”的1%
+beer_3,- 普通：酒精8%-12%，活酵母低于0.1%或1%-2%，糖4%-8%，蛋白质1%-2%，杂质1%-2%；任一项超出就完全不能喝，甲醇超过总量0.1%也不能喝
+beer_4,- 做法：600-750克营养果做成醪液，水解、中和后先兑水到约1.2升，加一包酵母发酵两晚，再兑水到2升。用基础水兑就能做出普通啤酒；换成优质水或纯水可以做到上等
+beer_5,- 化学制剂成型机灌装啤酒时不会混进杂质，几个化学模组都可以
+beer_6,- 每次双击桶倒出一份：常温是一罐（一桶6罐）；放进通电冰箱冷藏区冷到2-8°C后是一杯扎啤（一桶4杯）。冰箱需要两次扩容才放得下桶
+beer_7,- 扎啤当天卖，放过一夜就跑气，只值一罐的钱；罐装啤酒放冰箱可以冰镇加价
+beer_keg_empty,倒出了最后一份，桶空了。
+beer_table_name,啤酒品质表
+beer_table_head,<b>指标</b><pos=26%><b>上等</b><pos=50%><b>普通</b><pos=75%><b>不能喝</b>
+beer_table_alcohol,酒精<pos=26%>5-8%<pos=50%>8-12%<pos=75%>其余
+beer_table_yeast,活酵母<pos=26%>0.1-1%<pos=50%>1-2% *<pos=75%>2%以上
+beer_table_sugar,残糖<pos=26%>≤4%<pos=50%>4-8%<pos=75%>8%以上
+beer_table_protein,蛋白质<pos=26%>≤1%<pos=50%>1-2%<pos=75%>2%以上
+beer_table_impurity,杂质 †<pos=26%>≤1%<pos=50%>1-2%<pos=75%>2%以上
+beer_table_methanol,甲醇<pos=26%>-<pos=50%>-<pos=75%>0.1%以上
+beer_table_note_1,- 除杂质外都按占整桶的比例算；整桶取最差一项的档次
+beer_table_note_2,- * 活酵母不足0.1%（没气泡）也算普通
+beer_table_note_3,- † 杂质：除水、酒精、酵母、糖、蛋白质以外的成分，按占“水+杂质”的比例算。用基础水兑一般是1-2%，即普通；优质水或纯水才能到上等
+liquid_alkaloid,生物碱
+xinke_plant_name,新柯树
+xinke_seed_name,新柯树种子
+xinke_seed_desc,一种常绿灌木的种子，耐旱，种下后可以反复采叶。每颗红色浆果里只有一枚种子。
+xinke_leaf_name,新柯叶
+xinke_leaf_name_s,小新柯叶
+xinke_leaf_name_l,大新柯叶
+xinke_leaf_desc,新柯树的革质长椭圆叶片，含有少量生物碱。下层区的人拿它嚼着提神，便宜，劲儿也小。
+xinke_leaf_flavor,"嚼上半天，舌头发麻，然后就不觉得累了。"
+liquid_crackine_powder,盐酸快克粉
+crackine_vial_name,一小瓶快克因
+crackine_vial_desc,从新柯叶里提纯出的淡黄色粉末，装在一个小玻璃瓶里。劲儿比嚼叶子大得多，也贵得多。
+crackine_vial_flavor,"一点点就够了。然后你会想要再来一点点。"
+crackine_vial_l_name,一大瓶快克因
+crackine_regular_1_1,昨天那瓶{0}……老实说，我从没碰过这么干净的货。
+crackine_regular_1_2,整个晚上，脑子都像被擦亮了一样。
+crackine_regular_1_3,还有吗？我带了{1}信用点。
+crackine_regular_2_1,又是我。{0}，跟昨天一样的就行。
+crackine_regular_2_2,我跟自己说今天就不来了。结果还是站在了你门口。
+crackine_regular_2_3,钱我多带了点，{1}信用点，够吗？
+crackine_regular_3_1,别问。给我{0}。
+crackine_regular_3_2,工作我先推了，房租也先放一放。没关系的，真的。
+crackine_regular_3_3,{1}信用点，全在这儿了。
+crackine_regular_4_1,{0}……求你了，只有你这儿的才行，别家的都不对劲。
+crackine_regular_4_2,我的手从早上抖到现在。
+crackine_regular_4_3,我凑了{1}信用点。卖了点东西。别问是什么。
+crackine_notes_name,快克因提纯笔记
+crackine_1,- 新柯叶用搅拌机打碎，得到水、蛋白质和生物碱的混合液
+crackine_2,- 加酸或碱让蛋白质变性，再过滤掉
+crackine_3,- 补酸，让酸占液体总量的5%左右
+crackine_4,- 加热到100°C以上蒸干：水降到1%以下后，生物碱和酸结合成盐酸快克粉，每份生物碱消耗0.1份酸
+crackine_5,- 蒸干后剩下的酸放进蒸发器蒸掉，只有干燥的快克粉里的酸能这样去掉
+crackine_6,- 在化学制剂成型机里压制，必须干燥：一小瓶0.25毫升，一大瓶1毫升
+crackine_7,- 纯度90%以上的快克因会让自用的顾客上瘾：第二天一定回来，连续每天来的话预算每天多25%，最多2000
+lantern_plant_name,空心灯
+lantern_seed_name,空心灯种子
+lantern_seed_desc,实验室培育的辣椒种子，产量高，但很吃营养液。根系会弄脏种植水。
+lantern_chili_name,空心灯
+lantern_chili_name_s,小空心灯
+lantern_chili_name_l,大空心灯
+lantern_chili_desc,实验室里提纯的辣椒。在酒精中加热会产出化学刺激剂，常用于高烈度的镇暴行动。
+lantern_chili_flavor,因为长时间的提纯，已经几乎无法当调味料使用了。不过空间站里大多数人反正也买不起调味料。
+liquid_capsaicin,辣椒素
+liquid_lantern_ester,辣酯
+incapacitant_vial_name,一小瓶失能剂
+incapacitant_vial_desc,从空心灯里提纯出的辣酯，装在一个小玻璃瓶里。雾化之后，能让一整条街的人睁不开眼。治安部和上层区的私人安保都在采购。
+incapacitant_vial_flavor,合法，正规，用途写在采购单上。
+lantern_sale_upper_clean,货不错。你的记录也挺干净，继续保持。
+lantern_sale_upper_partial,庄园的保安一直缺这个。我会跟治安部的朋友提一句你的名字。
+lantern_sale_upper_cleared,我打了个电话。你在治安部的档案，现在干干净净。
+lantern_sale_upper_slowed,档案清了，调查那边我也让人放慢些。上层区记得谁帮过它。
+lantern_sale_security_clean,装备科会喜欢这批货的。你一直很守规矩，这样很好。
+lantern_sale_security_partial,这批货我们收了。你档案里有几页，好像找不到了。
+lantern_sale_security_cleared,你的档案？我们这儿没有你的档案。
+lantern_sale_security_slowed,档案没了，调查组那边我也去打个招呼。下批货还找你。
+refuse_lantern_lower,这玩意儿是拿来往我们脸上喷的，你还想让我买回家？
+refuse_lantern_revolution,上周广场上喷我们的就是这个。你最好想清楚自己站哪边。
+salt_ore_name,盐矿石
+liquid_salt,食盐
+gas_canister_name,空气罐
+gas_canister_h2_name,氢气罐
+gas_canister_cl2_name,氯气罐
+gas_canister_mix_name,氢氯混合气罐
+gas_canister_hcl_name,氯化氢罐
+gas_canister_desc,一只小号钢瓶，带阀门，最多压进 5 升气体。拖到另一个气罐上可以把气体并过去；装着氯化氢时拖到有水的容器上，可以溶成盐酸。右键可以放气。
+gas_h2,氢气
+gas_cl2,氯气
+gas_hcl,氯化氢
+gas_canister_tooltip_gas,{0}：{1} 毫升
+gas_canister_tooltip_empty,空罐
+gas_canister_tooltip_total,共 {0} / {1} 毫升，{2}°C
+gas_canister_vent,放气
+gas_canister_vented,气罐已放空。
+gas_canister_full,这个气罐已经装满了。
+gas_canister_needs_water,容器里要有水，氯化氢才能溶成盐酸。
+gas_canister_saturated,这份盐酸已经到 40% 了，加点水才能继续溶。
+gas_canister_container_full,容器已经满了。
+electrolyzer_name,电解机
+electrolyzer_desc,电解食盐水，产出碱、氢气和氯气。需要电池组，每晚运行一次；容器里要有食盐和水，两个产物槽里要有没装满的气罐。
+electrolyzer_manual_name,电解机使用说明
+electrolyzer_manual_short,电解机附带的使用说明。
+electrolyzer_manual_flavor,1. 左边装电池组，每晚耗电 24。2. 盐水槽放装着食盐和水的容器。3. 产物 A 放空罐或氢气罐，产物 B 放空罐或氯气罐。4. 每晚电解 240 毫升食盐：每 1 毫升食盐耗 0.3 毫升水，生成 1 毫升碱（留在盐水容器里）、0.5 毫升氢气和 0.5 毫升氯气。缺盐、缺水、没电或气罐装满时停机。5. 可装通用模组：性能加快电解，效率省电，质量增减产物。
+electrolyzer_label_module,模组
+electrolyzer_label_container,盐水
+electrolyzer_label_products,产物 A / B
+electrolyzer_lines_title,每晚电解：1 份食盐 + 0.3 份水
+electrolyzer_lines_a,红线 → 产物 A：0.5 份氢气
+electrolyzer_lines_b,蓝线 → 产物 B：0.5 份氯气
+electrolyzer_lines_base,留在盐水容器里：1 份碱
+salt_ore_desc,从地下盐层开采的岩盐，主要成分是氯化钠，夹着少量泥土和其他矿物。
+salt_order_small,订 {0} 块盐矿石，{1} 天后送到。
+salt_order_large,订 {0} 块盐矿石，{1} 天后送到。
+electrolysis_notes_name,电解食盐水笔记
+electrolysis_1,- 盐矿石：打电话向 GP 矿业订购（6 块 1 天送到；12 块 2 天送到，累计花满 350 后解锁）。任何搅拌机都能打碎，每块约 80 毫升食盐，外加少量泥土和矿物质；模组越少损耗越多
+electrolysis_2,- 电解机：杰克逊博士出售，自带两个空气罐。左边装电池组，中间放盐水容器，右边上面是产物 A（氢气），下面是产物 B（氯气）
+electrolysis_3,- 每晚电解 240 毫升食盐（性能越高越多），每 1 毫升食盐耗 0.3 毫升水，生成 1 毫升碱留在原容器里，再加各 0.5 毫升的氢气和氯气。缺盐、缺水、没电或气罐装满时停机。效率越高越省电；质量从 -100 到 +100，产物从一半到一倍半
+electrolysis_4,- 碱里的泥土和矿物质用净水滤芯过滤掉，多余的水用蒸发器蒸掉
+electrolysis_5,- 混气：把氯气罐拖到氢气罐上（或反过来），气体会并进被拖到的罐里，装不下的留在原罐
+electrolysis_6,- 合成：把混合气罐放到加热板上，加热到 120°C 以上（加热板至少要装 1 个化学模组），氢气和氯气按 1:1 燃烧成两倍体积的氯化氢
+electrolysis_7,- 溶解：把氯化氢罐拖到有水的容器上，溶成盐酸，最多溶到酸占液体总量的 40%（500 毫升水最多溶 333 毫升酸），溶不下的留在罐里。要稀酸就用滴管、量筒取浓盐酸兑水
+electrolysis_8,- 别往还装着碱的容器里倒氯化氢，酸会被碱中和掉
+electrolysis_9,- 气罐最多装 5 升，右键可以放气。退休化学家偶尔出售空气罐
+lantern_notes_name,失能剂制取笔记
+lantern_1,- 空心灯种子由退休农夫出售。一年生，收获时返还一颗种子；很吃营养液，根系会弄脏种植水
+lantern_2,- 空心灯用搅拌机打碎，只得到辣椒素，没有水和蛋白质
+lantern_3,- 加入至少4倍体积的酒精。不足4倍时，有一部分会变成物理污染物：比例 =（4 − 酒精/辣椒素）÷ 4
+lantern_4,- 加热到50°C以上，辣椒素转化成辣酯，每份辣椒素消耗0.1份酒精。酒精78°C沸腾，温度再高会被烧掉，最好保持在50–78°C
+lantern_5,- 过滤掉物理污染物，再放进蒸发器蒸干酒精。没反应完的辣椒素会留下来，拉低纯度
+lantern_6,- 在化学制剂成型机里压制，必须干燥：一小瓶2毫升
+lantern_7,- 合法商品。上层区和治安部的人会买，雇佣兵也会买；下层区、革命军和其他人都拒收
+lantern_8,- 卖给上层区或治安部时，会冲减治安档案里的罪名：成交价×纯度×5，先扣最大的一项；罪名清零后，剩下的每满100点减1点调查进度
+pu_battery_name,钚化学电池
+pu_battery_desc,一节 200 千焦的电池，侧面开了个观察窗。把钚安瓿拖到它上面，每支让它每晚自充 2 千焦，最多 10 支。
+pu_battery_flavor,杰克逊博士说这是化学电池，不是核电池。区别在于发票上怎么写。
+pu_battery_tooltip_fuel,钚：{0} / {1} 支（每支每晚自充 {2} 千焦）
+pu_battery_tooltip_hint,把钚安瓿拖到电池上，启动自充电。
+pu_battery_fuelled,钚已注入：每晚自充 {0} 千焦（{1} / {2} 支）

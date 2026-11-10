@@ -1,0 +1,58 @@
+"workshopitem"
+{
+	"appid"		"4348910"
+	"publishedfileid"		"3832077837"
+	"contentfolder"		"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Probably Stolen\\Mods\\vanilla_chem_ext"
+	"previewfile"		"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Probably Stolen\\Mods\\vanilla_chem_ext\\preview.png"
+	"visibility"		"0"
+	"title"		"原版化学扩展 / Vanilla Chemistry Expansion"
+	"description"		"[h2]原版化学扩展[/h2]
+以原版化学系统（萃取、加热、冷藏、过滤、蒸发、成型）为基础的扩展，不改动原版产品和反应。
+
+[h3]梦魔菌毒素[/h3]
+梦帽菇和梦魇帽菇的合法医疗出路。
+[list]
+[*]梦帽菇萃取液和梦魇帽菇萃取液 1:1 混合，加酸到 0.5%-5%，放进通电冰箱的冷藏区（2-8°C）静置，生成梦魔菌毒素。
+[*]毒素耐高温：可以加热到 100°C 以上烧掉多出来的萃取液。酸度超过 5% 会让毒素分解。
+[*]在化学制剂成型机中压制成[b]梦魔菌毒素注射剂[/b]：上层区医美诊所的抢手货，合法医疗品，基础价 150。
+[*]只有药用级（90% 以上）才值钱。药用级以上的收益约等于含违禁加价的街头梦尘，但不产生恶名。
+[*]退休化学家会出售“梦魔菌毒素配方”（60% 概率）。
+[/list]
+
+[h3]矿石化学：提纯酸和碱[/h3]
+原版酸碱里的化学污染物和重金属任何过滤器都滤不掉，会被带进药品，让实验室纯很难做到。
+[list]
+[*]金属矿石可以在[b]装满 4 个化学模组的搅拌机[/b]里搅碎，得到方解石、石英砂和杂质，每块的比例会随机浮动。
+[*]分级过滤：韧棉织物只滤掉粗的石英砂；滤水器能滤掉所有细颗粒。
+[*][b]提纯碱[/b]：方解石干燥煅烧（≥150°C）成生石灰，加进碱里，把化学污染物苛化成碱和碳酸钙；重金属在浓碱里会自行沉淀。最后用滤水器过滤。
+[*][b]提纯酸[/b]：石英砂和碱在 ≥120°C 下变成水玻璃，过滤后加酸析出硅胶。硅胶在 ≥100°C 下把酸里的化学污染物变成气体赶走；再放进冰箱冷冻区，冷冻结晶去除重金属（会损失等量的酸）。最后用滤水器过滤。
+[*]150°C 和 120°C 需要升级过的加热板。
+[*]退休化学家会出售写着这些步骤的“矿石化学笔记”（60% 概率）。
+[/list]
+
+[h3]兼容性[/h3]
+不申请额外权限。原版金属矿石增加了化学成分；Harmony 补丁只作用于本 Mod 的液体、物品和矿石。卸载前请先处理掉含有本 Mod 液体的容器、注射剂和配方。
+
+[h2]Vanilla Chemistry Expansion[/h2]
+An expansion built on the vanilla chemistry system, without changing vanilla products or reactions.
+
+[h3]Dream Toxin[/h3]
+[list]
+[*]Mix Dream Cap Extract and Nightmare Cap Extract 1:1, add acid to 0.5-5%, and keep it in a powered fridge chill zone (2-8 C) to form Dream Toxin.
+[*]The toxin is heat-stable: heat above 100 C to burn off leftover extract. Acid above 5% degrades it.
+[*]Press it into [b]Dream Toxin Injectors[/b] in the Chem Finisher: a legal cosmetic medical product, base value 150. Only pharma grade (90%+) or better is worth anything.
+[*]The retired chemist sells the Dream Toxin Formula (60% chance).
+[/list]
+
+[h3]Ore Chemistry: purifying acid and base[/h3]
+[list]
+[*]Metal ore can be crushed in a [b]blender with all 4 chem modules[/b] into calcite, quartz sand and impurities (amounts vary per ore).
+[*]Graded filtering: Kotton fabric removes only the coarse quartz; water filters catch all fine solids.
+[*][b]Base[/b]: calcine calcite (dry, 150 C+) into quicklime and add it to base. It causticizes chemical contaminant back into base plus calcium carbonate; heavy metal settles out of strong base by itself. Finish with a water filter.
+[*][b]Acid[/b]: dissolve quartz in base at 120 C+ into water glass, filter, then add acid to precipitate silica gel. In strong acid, silica gel drives chemical contaminant off as gas at 100 C+; freezing then removes heavy metal at the cost of an equal amount of acid. Finish with a water filter.
+[*]150 C and 120 C need an upgraded heating plate.
+[*]The retired chemist sells the Ore Chemistry Notes with these steps (60% chance).
+[/list]
+No extra capabilities. Remove items containing this mod's liquids before uninstalling."
+	"changenote"		"1.1.0：新增矿石化学：金属矿石可在装满 4 个化学模组的搅拌机里搅碎；新增生石灰、硅胶等 6 种液体和配套反应，用于提纯酸和碱；冰箱冷冻区参与反应；退休化学家出售“矿石化学笔记”。 / Ore chemistry: metal ore can be crushed in a fully upgraded blender; six new liquids and reactions for purifying acid and base; the fridge freezer zone now takes part in reactions; the retired chemist sells the Ore Chemistry Notes."
+}
