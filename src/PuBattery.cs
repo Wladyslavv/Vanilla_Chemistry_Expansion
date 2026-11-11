@@ -171,6 +171,9 @@ public static class PuBattery
         {
             state.Enable().SetInt(recharge);
         }, true);
+        // Tag reads (IsTag, GetTagReadonly) see the validated state, which a skip-validate write leaves stale. Without
+        // this, every ampoule of one multi-select drop read the count from before the drop: all were used up for one.
+        item.ValidateShapeState();
     }
 
     // ---- fuelling with plutonium ampoules (called from Ampoule in NuclearWaste.cs) ------------------------------
@@ -216,6 +219,8 @@ public static class PuBattery
                 {
                     state.SetInt(charged);
                 }, true);
+                // A turbo boost runs the night's charge again right away: it must read this charge, not the old one.
+                item.ValidateShapeState();
                 PowerHelper.UpdateEnergyCreditSprite(item);
             }
         }

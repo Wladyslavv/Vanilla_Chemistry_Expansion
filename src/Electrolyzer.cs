@@ -174,8 +174,13 @@ public static class Electrolyzer
             MachineryHelper.InitMachinery(machine, POWER_PER_NIGHT, false);
             // Turbo boosters (all kinds) only target machines with STANDARD_MACHINE_TAG or this tag, then run the
             // machine's cycle-end funcs once more (MachineTurboBoosterAdv.BoostMachine): one extra night of
-            // electrolysis. STANDARD_MACHINE_TAG would also open the vanilla module-expansion paths, so not that one.
+            // electrolysis.
             machine.EnableTag(TURBO_ELIGIBLE_TAG, false);
+            // A standard machine as far as vanilla is concerned: the module bay expansion kit targets it and widens
+            // the module bay (MachineHelper.ExpandModule on body storage 1, which is the module bay: battery is 0), and
+            // a load restores the widened shape (MachineHelper.LoadUpgrade). The bay starts as the hydroponic
+            // machine's, which is the shape both expansion stages are drawn for.
+            machine.EnableTag(MachineHelper.STANDARD_MACHINE_TAG, false);
             machine.onCycleEndSlotItemFunc = delegate(GameItem item, GameInventory inventory, SlotMarker marker)
             {
                 try
@@ -224,6 +229,8 @@ public static class Electrolyzer
                 {
                     // Electrolyzers saved before 1.7.0 come back with their saved tags, without this one.
                     item.EnableTag(TURBO_ELIGIBLE_TAG, false);
+                    // Saved before the module bay could be expanded: never expanded, so the bay needs no reshaping.
+                    item.EnableTag(MachineHelper.STANDARD_MACHINE_TAG, false);
                     ApplySprite(item);
                 }
             }

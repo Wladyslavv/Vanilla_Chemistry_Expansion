@@ -668,7 +668,9 @@ public static class Ampoule
         drink.EnableTag(NUCLEAR_TAG, true);
         drink.name = NcText.Get("nuclear_drink_name", drink.name);
         ampoule.Destroy();
-        drink.Validate();
+        // Refresh the validated tags now: otherwise the next ampoule of the same multi-select drop still sees an
+        // unspiked drink (CanSpike reads IsTag) and spikes it again.
+        drink.ValidateShapeState();
     }
 
     public static void RegisterRecipe()
