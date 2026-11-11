@@ -467,25 +467,26 @@ public static class CartelContact
             .NextDialogue().SetText(name, Text.Get("cartel_contact_4"))
             .NextDialogue().SetText(name, Text.Get("cartel_contact_5"));
 
+        // Answers with no reply from him act in the choice action and end the visit there, as vanilla does (the
+        // nuclear waste client): an end action on the player's own line is never run, and the talk would hang.
+
         // Pay: needs the fee in hand.
         Dialogue pay = new Dialogue().SetText("PLAYER", Text.Get("cartel_contact_choice_pay", CartelNetwork.JOIN_FEE));
-        pay.SetEndAction(delegate
+        last.AddChoice(DirectoryMaster.Item("$", false), "", "", pay, delegate
         {
             CartelNetwork.PayAndJoin();
             Leave();
-        });
-        last.AddChoice(DirectoryMaster.Item("$", false), "", "", pay, null, () => PlayerStore.Instance.playerCash >= CartelNetwork.JOIN_FEE);
+        }, () => PlayerStore.Instance.playerCash >= CartelNetwork.JOIN_FEE);
 
         // Come back in two days: once.
         if (!CartelNetwork.HasPostponed())
         {
             Dialogue later = new Dialogue().SetText("PLAYER", Text.Get("cartel_contact_choice_later"));
-            later.SetEndAction(delegate
+            last.AddChoice(DirectoryMaster.Item("$", false), "", "", later, delegate
             {
                 CartelNetwork.Postpone();
                 Leave();
             });
-            last.AddChoice(DirectoryMaster.Item("$", false), "", "", later, null);
         }
 
         // Refuse: he laughs, and the label is set.
@@ -527,21 +528,22 @@ public static class CartelContact
             });
         last.AddChoice(DirectoryMaster.Item("$", false), "", "", pay, null, () => PlayerStore.Instance.playerCash >= CartelBoycott.SECOND_FEE);
 
+        // No reply: act in the choice action (see Create).
         Dialogue refuse = new Dialogue().SetText("PLAYER", Text.Get("cartel_contact_choice_refuse"));
-        refuse.SetEndAction(delegate
+        last.AddChoice(DirectoryMaster.Item("$", false), "", "", refuse, delegate
         {
             CartelBoycott.RefuseAgain();
             Leave();
         });
-        last.AddChoice(DirectoryMaster.Item("$", false), "", "", refuse, null);
 
         client.CompleteClientCreation();
         return client;
     }
 
-    private static void Leave()
+    // Vanilla's way out for a talk-only client.
+    public static void Leave()
     {
-        PlayerStore.Instance.DismissCurrentClient(false);
+        DialogUIManager.Instance.CurrentClientLeave();
     }
 }
 
@@ -836,20 +838,20 @@ public static class CartelRaid
                 CartelNetwork.SetData(answerKey, 1);
                 CartelNetwork.SetData(AGAINST_CARTEL_KEY, Math.Max(1, StoreStation.Instance.dayCounter));
                 Log.Info("cartel raid: the player reported the cartel (label " + AGAINST_CARTEL_KEY + ")");
-                PlayerStore.Instance.DismissCurrentClient(false);
+                CartelContact.Leave();
             });
         ask.AddChoice(DirectoryMaster.Item("$", false), "", "", report, null);
 
-        // Someone who has refused the cartel twice has nothing left to protect.
+        // Someone who has refused the cartel twice has nothing left to protect. No reply from him: act in the choice
+        // action (an end action on the player's own line is never run).
         if (CartelNetwork.Data(CartelBoycott.SECOND_REFUSED_KEY) == 0)
         {
             Dialogue decline = new Dialogue().SetText("PLAYER", Text.Get("cartel_raid_choice_decline"));
-            decline.SetEndAction(delegate
+            ask.AddChoice(DirectoryMaster.Item("$", false), "", "", decline, delegate
             {
                 CartelNetwork.SetData(answerKey, 2);
-                PlayerStore.Instance.DismissCurrentClient(false);
+                CartelContact.Leave();
             });
-            ask.AddChoice(DirectoryMaster.Item("$", false), "", "", decline, null);
         }
 
         client.CompleteClientCreation();
@@ -1033,15 +1035,21 @@ public static class CartelSweep
             client.clientBuyingTagList.Add("WEAPON");
         }
         StoreClient self = client;
-        client.OnDismiss = (Action)Delegate.Combine(client.OnDismiss, (Action)delegate { SaveBudget(self, false); });
+        client.OnDismiss = (Action)Delegate.Combine(client.OnDismiss, (Action)delegate { SaveBudget(self); });
         client.AddBasicDialog();
+        // Vanilla plays allDoneDialogue once a buyer's budget is at 0; that is his thank-you line, so it is said in
+        // vanilla's own place instead of competing with vanilla's "all done" line.
+        client.allDoneDialogue = new Dialogue().SetText(client.displayName, Text.Get("cartel_sweep_spent")).SetEndAction(delegate
+        {
+            PlayerStore.Instance.DismissCurrentClient(false);
+        });
         client.CompleteClientCreation();
         return client;
     }
 
     // After every sale to one of the buyers, and when he leaves: keep what is left of his budget. Running out ends
-    // his visits with a thank-you line (once).
-    public static void SaveBudget(StoreClient client, bool speak)
+    // his visits (his allDoneDialogue says the thank-you line).
+    public static void SaveBudget(StoreClient client)
     {
         if (!IsBuyer(client))
         {
@@ -1056,13 +1064,6 @@ public static class CartelSweep
         }
         CartelNetwork.SetData(DoneKey(medical), Math.Max(1, StoreStation.Instance.dayCounter));
         Log.Info("cartel sweep: " + (medical ? "medical" : "military") + " buyer's budget spent");
-        if (speak && DialogUIManager.Instance != null)
-        {
-            Dialogue line = new Dialogue();
-            line.SetText(client.displayName, Text.Get("cartel_sweep_spent"));
-            line.priority = 1;
-            DialogUIManager.Instance.StartDialogue(line);
-        }
         if (IsDone(true) && IsDone(false) && !IsCartelDestroyed())
         {
             CartelNetwork.SetData(DESTROYED_KEY, Math.Max(1, StoreStation.Instance.dayCounter));
@@ -1190,7 +1191,7 @@ public static class CartelSweepSalePatch
         {
             if (PlayerStore.Instance.currentClientInstance != null)
             {
-                CartelSweep.SaveBudget(PlayerStore.Instance.currentClientInstance.GetClientBlueprint(), true);
+                CartelSweep.SaveBudget(PlayerStore.Instance.currentClientInstance.GetClientBlueprint());
             }
         }
         catch (Exception e)
@@ -2312,13 +2313,12 @@ public static class CartelPeer
         }
         if (RNG.Roll(LARGE_BAY_CHANCE))
         {
-            PlayerStore.Instance.TryAddDirectSellingItemToTable(DirectoryMaster.Item(LARGE_BAY_ID, false), false, false, true, 0);
+            TryLay(DirectoryMaster.Item(LARGE_BAY_ID, false));
         }
         int misses = 0;
         for (int i = 0; i < MAX_ITEMS && misses < 4; i++)
         {
-            GameItem item = DirectoryMaster.Item(ids[RNG.GetRandomInt(0, ids.Count - 1)], false);
-            if (PlayerStore.Instance.TryAddDirectSellingItemToTable(item, false, false, true, 0))
+            if (TryLay(DirectoryMaster.Item(ids[RNG.GetRandomInt(0, ids.Count - 1)], false)))
             {
                 misses = 0;
             }
@@ -2327,6 +2327,21 @@ public static class CartelPeer
                 misses++;
             }
         }
+    }
+
+    // An item that does not fit is destroyed, not left behind.
+    private static bool TryLay(GameItem item)
+    {
+        if (item == null)
+        {
+            return false;
+        }
+        if (PlayerStore.Instance.TryAddDirectSellingItemToTable(item, false, false, true, 0))
+        {
+            return true;
+        }
+        item.Destroy();
+        return false;
     }
 
     public static StoreClient Create()
@@ -2393,7 +2408,6 @@ public static class CartelTourist
 
     public static void Enable()
     {
-        ModHook.OnGenerateCustomerVeryLate += OnGenerateCustomers;
         try
         {
             ModHelper.AddDebugFunction(DreamToxinMod.MOD_ID, "Modding", "Cartel merchants: Black Market Tourist now",
@@ -2407,7 +2421,6 @@ public static class CartelTourist
 
     public static void Disable()
     {
-        ModHook.OnGenerateCustomerVeryLate -= OnGenerateCustomers;
     }
 
     public static bool IsTourist(StoreClient client)
@@ -2425,8 +2438,10 @@ public static class CartelTourist
         return network != null && network.GetReputation() >= MIN_REPUTATION;
     }
 
-    // After the day's queue is built: swap one ordinary buyer (dismissable, buying, not scripted) for the tourist.
-    public static void OnGenerateCustomers(StoreClientManager manager)
+    // Right after vanilla adds the day's random buyers (StoreClientManager.HandleNormalClient): swap one of those for
+    // the tourist. Only clients that call added (before: the queue as it was), so story, request and other mods'
+    // characters queued elsewhere are never replaced.
+    public static void OnNormalClients(StoreClientManager manager, HashSet<StoreClient> before)
     {
         if (!IaSettings.CartelEnabled)
         {
@@ -2434,7 +2449,7 @@ public static class CartelTourist
         }
         try
         {
-            if (manager == null || manager.clientStack == null || !IsEligible() || !RNG.Roll(DAILY_CHANCE))
+            if (manager == null || manager.clientStack == null || before == null || !IsEligible() || !RNG.Roll(DAILY_CHANCE))
             {
                 return;
             }
@@ -2442,8 +2457,9 @@ public static class CartelTourist
             for (int i = 0; i < manager.clientStack.Count; i++)
             {
                 StoreClient c = manager.clientStack[i];
-                if (c != null && c.dismissable && c.clientIntent == StoreClient.ClientIntent.BUY && !c.isSecurity
-                    && !c.isSentenceOfficer && (c.identifier == null || !c.identifier.StartsWith("vce_")))
+                if (c != null && !before.Contains(c) && c.dismissable && c.clientIntent == StoreClient.ClientIntent.BUY
+                    && !c.isSecurity && !c.isSentenceOfficer && !c.isWanted && !c.isAug
+                    && (c.identifier == null || !c.identifier.StartsWith("vce_")))
                 {
                     candidates.Add(i);
                 }
@@ -2493,6 +2509,20 @@ public static class CartelTourist
         });
         client.CompleteClientCreation();
         return client;
+    }
+}
+
+[HarmonyPatch(typeof(StoreClientManager), "HandleNormalClient")]
+public static class CartelTouristNormalClientPatch
+{
+    private static void Prefix(StoreClientManager __instance, out HashSet<StoreClient> __state)
+    {
+        __state = __instance != null && __instance.clientStack != null ? new HashSet<StoreClient>(__instance.clientStack) : null;
+    }
+
+    private static void Postfix(StoreClientManager __instance, HashSet<StoreClient> __state)
+    {
+        CartelTourist.OnNormalClients(__instance, __state);
     }
 }
 
