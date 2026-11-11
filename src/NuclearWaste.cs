@@ -245,11 +245,12 @@ public static class Barrel
                     SpriteHelper.UpdateWaterContainerSprite(t);
                 }
             };
-            // Only the main inventory and the two sales areas (showcase and front shelves): no boxes,
-            // machines, counters, trash or afterhours bags.
+            // Only the main inventory, the showcase and both counters (outer: frontInvinvElement, inner:
+            // backInvinvElement): no boxes, machines, trash or afterhours bags.
             item.mayInventoryAddItemFunc = (GameItem it, GameInventory inv) =>
                 EmporiumEntry.Instance != null && (inv == EmporiumEntry.Instance.invElement
-                    || inv == EmporiumEntry.Instance.showcaseElement || inv == EmporiumEntry.Instance.frontInvinvElement);
+                    || inv == EmporiumEntry.Instance.showcaseElement || inv == EmporiumEntry.Instance.frontInvinvElement
+                    || inv == EmporiumEntry.Instance.backInvinvElement);
             NcLiquids.Set(item, NcLiquids.SPENT_FUEL, SPENT_FUEL_UL);
             item.ModifyTag("CONTAINER_TEMP_TAG", delegate(TagState state)
             {

@@ -310,22 +310,24 @@ public static class CrackineEvaporatorCyclePatch
     }
 }
 
-// Pharma-grade Crackine hooks its buyers: a personal-use buyer who got a vial at 90%+ real purity (whatever the
-// label says) always comes back the next day, wanting more. Each consecutive day the same buyer comes back,
-// the budget grows by 25%, up to 2000. These buyers get their own lines, which grow more desperate with the streak.
+// Pharma-grade Crackine hooks the street: on any day the player sells a vial at 90%+ real purity (whatever the label
+// says) to a personal-use buyer, exactly one Crackine buyer comes the next day, however many vials were sold. The
+// streak belongs to the store, not to a person: each consecutive day it triggers, the budget grows by 25%, up to
+// 2000. The buyer wears the face of the best-paying of yesterday's buyers and gets lines that grow more desperate
+// with the streak.
 public static class CrackineRegulars
 {
     public const double PHARMA_PURITY = 90.0;
     public const double BUDGET_GROWTH = 1.25;
     public const int BUDGET_CAP = 2000;
-    private const string KEY_PREFIX = "crackine_regular|";
+    private const string STREAK_KEY = "crackine_regular_streak";
 
     public static bool IsCrackine(string itemId)
     {
         return itemId == Crackine.ITEM_ID || itemId == Crackine.LARGE_ID;
     }
 
-    // Before vanilla handles yesterday's sales: queue our regulars and keep vanilla from also reacting to them.
+    // Before vanilla handles yesterday's sales: queue today's one Crackine buyer and keep vanilla from also reacting.
     public static void QueueRegulars()
     {
         List<SoldItem> sold = PlayerStore.Instance.soldItemsTracker;
@@ -333,8 +335,8 @@ public static class CrackineRegulars
         {
             return;
         }
-        int today = StoreStation.Instance.dayCounter;
-        HashSet<string> queued = new HashSet<string>();
+        List<SoldItem> hooked = new List<SoldItem>();
+        SoldItem face = null;
         foreach (SoldItem soldItem in sold)
         {
             if (soldItem == null || !IsCrackine(soldItem.itemId) || !soldItem.CanReturn || !soldItem.isPersonalUse
@@ -347,27 +349,30 @@ public static class CrackineRegulars
             {
                 continue;
             }
-            string person = PersonKey(soldItem);
-            if (!queued.Add(person))
+            hooked.Add(soldItem);
+            if (face == null || soldItem.soldPrice > face.soldPrice)
             {
-                continue;
-            }
-            int streak = NextStreak(person, today);
-            StoreClient client = CreateRegular(soldItem, streak);
-            if (client != null)
-            {
-                PlayerStore.Instance.storeClientManager.chemicalFeedbackStack.Add(client);
-                IaLog.Info("Crackine regular queued: " + soldItem.clientName + ", day " + streak + ", budget " + client.GetBudget());
+                face = soldItem;
             }
         }
-        if (queued.Count == 0)
+        if (face == null)
         {
             return;
         }
-        // The same buyer should not also show up through vanilla's own feedback for anything else they bought.
+        int streak = NextStreak(StoreStation.Instance.dayCounter);
+        StoreClient client = CreateRegular(face, streak);
+        if (client != null)
+        {
+            PlayerStore.Instance.storeClientManager.chemicalFeedbackStack.Add(client);
+            IaLog.Info("Crackine buyer queued: day " + streak + ", budget " + client.GetBudget() + ", face " + face.clientName
+                + " (" + hooked.Count + " qualifying sale(s) yesterday)");
+        }
+        // Vanilla should not also send yesterday's Crackine buyers back for it, nor bring the chosen face a second
+        // time for anything else that person bought.
+        string faceKey = PersonKey(face);
         foreach (SoldItem soldItem in sold)
         {
-            if (soldItem != null && queued.Contains(PersonKey(soldItem)))
+            if (soldItem != null && (hooked.Contains(soldItem) || PersonKey(soldItem) == faceKey))
             {
                 soldItem.CanReturn = false;
                 soldItem.CanReturnAsBuyer = false;
@@ -380,10 +385,11 @@ public static class CrackineRegulars
         return soldItem.clientName + "|" + soldItem.clientSprite;
     }
 
-    // Consecutive days: yesterday's queue for this person makes today's day count + 1, otherwise it starts over.
-    private static int NextStreak(string person, int today)
+    // Consecutive days: if a Crackine buyer was queued yesterday, today's count is one more; otherwise it starts over.
+    // (1.6.1 and older kept one key per person, "crackine_regular|name|sprite"; those are simply no longer read.)
+    private static int NextStreak(int today)
     {
-        string key = KEY_PREFIX + person;
+        string key = STREAK_KEY;
         int streak = 1;
         string saved = ModHelper.GetModData(DreamToxinMod.MOD_ID, key, null);
         if (!string.IsNullOrEmpty(saved))

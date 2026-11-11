@@ -188,7 +188,7 @@
 
 把原版的核废料桶撬开，用化学手段把乏燃料后处理成钚，再把裂变产物固化封存。步骤也收录在进阶化学手册里。
 
-1. **开桶**：用撬棍对准原版核废料桶，得到“打开的核废料”，里面装着 500 毫升乏燃料。打开的桶只能放在主物品栏和里/外售货区。往外倒时只有钚萃取物和会蒸发的液体（水、酒精、乙酸乙酯等）能出来，放射性物质、酸和其他杂质都留在桶里。
+1. **开桶**：用撬棍对准原版核废料桶，得到“打开的核废料”，里面装着 500 毫升乏燃料。打开的桶只能放在主物品栏、展示柜和里/外柜台。往外倒时只有钚萃取物和会蒸发的液体（水、酒精、乙酸乙酯等）能出来，放射性物质、酸和其他杂质都留在桶里。
 2. **溶解**：倒入约 500 毫升浓酸，保持酸占桶内液体 98% 以上。桶里有会蒸发的液体时，衰变热让它保持在 70°C；乏燃料每次结算溶解 5%，一整桶得到 2 毫升溶解的钚和 50 毫升裂变产物。
 3. **调整价态**：加入还原剂，用量约为钚的 10 倍（约 20 毫升）。
 4. **萃取**：倒入乙酸乙酯，用量至少为裂变产物的 2 倍（约 100 毫升，建议一次加够），钚进入有机相成为钚萃取物。
@@ -321,7 +321,7 @@ An expansion built on the vanilla chemistry system, without changing vanilla pro
 
 **Beer**: the Chem Finisher fills 2 L of alcoholic liquid into a Beer Keg (no finisher impurity), graded premium, ordinary or undrinkable by alcohol (premium 5-8%), live yeast (0.1-1%), sugar (up to 4%), protein (up to 1%) and impurities (up to 1% of water + impurities; base water usually gives ordinary). Each double-click pours a can (6 per keg), or a draft beer (4 per keg) once the keg is chilled to 2-8 C in a powered fridge chill zone. Draft beer goes flat overnight. Beer counts as water, so regular water buyers take it.
 
-**Nuclear waste reprocessing**: pry open vanilla nuclear waste with a crowbar (500 mL spent fuel, main inventory and sales areas only). Dissolve it in about 500 mL of concentrated acid (keep acid above 98%; decay heat holds the barrel at 70 C), add reducing agent (about 10x the plutonium), then ethyl acetate (at least 2x the fission products). Only the plutonium extract and evaporative liquids pour out; boil them off above 100 C to get plutonium, and press 90%+ plutonium into Plutonium Ampoules in the Chem Finisher. An ampoule turns any drink or wine into a Nuclear drink worth +50, bought only by Upper Level clients and addicts. Once the barrel runs dry it heats past 300 C; add water glass (or silica gel) 1:1 with the radioactive contents to vitrify it into harmless waste. Every night with unprocessed opened waste adds 5% radiation sickness (max 25% sell penalty), eased by genuine Immunivax. A Waste Broker sells 1-3 barrels at 50 each every 7 days from day 7.
+**Nuclear waste reprocessing**: pry open vanilla nuclear waste with a crowbar (500 mL spent fuel, main inventory, showcase and inner/outer counters only). Dissolve it in about 500 mL of concentrated acid (keep acid above 98%; decay heat holds the barrel at 70 C), add reducing agent (about 10x the plutonium), then ethyl acetate (at least 2x the fission products). Only the plutonium extract and evaporative liquids pour out; boil them off above 100 C to get plutonium, and press 90%+ plutonium into Plutonium Ampoules in the Chem Finisher. An ampoule turns any drink or wine into a Nuclear drink worth +50, bought only by Upper Level clients and addicts. Once the barrel runs dry it heats past 300 C; add water glass (or silica gel) 1:1 with the radioactive contents to vitrify it into harmless waste. Every night with unprocessed opened waste adds 5% radiation sickness (max 25% sell penalty), eased by genuine Immunivax. A Waste Broker sells 1-3 barrels at 50 each every 7 days from day 7.
 
 Other mods can add a handbook section with the localization keys `vce_handbook_title` and `vce_handbook_line_1`, `vce_handbook_line_2`, ... (read until the first missing key); no code needed.
 

@@ -52,7 +52,7 @@ Every procedure below is in the Advanced Chemistry Handbook. The chemist start c
 [list]
 [*][b]Xinke[/b]: a perennial, drought-tolerant shrub that keeps growing leaves. The retired farmer brings seeds; the shady farmer sells leaves. Its Alkaloid Production gene can be spliced into other crops.
 [*]Blend the leaves, remove the protein, add acid and boil dry into Crackine powder, then press [b]Crackine[/b] vials (level 2 contraband, a small vial worth about 1.5 Dream Dust).
-[*][b]Regulars[/b]: a buyer who gets 90%+ real purity returns the next day, with 25% more budget each consecutive day (up to 2000) and ever more desperate lines.
+[*][b]Regulars[/b]: sell 90%+ real purity Crackine to a personal-use buyer and one Crackine buyer comes the next day. Keep selling every day and the budget grows by 25% a day (up to 2000), with ever more desperate lines.
 [/list]
 
 [h3]Ore Chemistry: purifying acid and base[/h3]

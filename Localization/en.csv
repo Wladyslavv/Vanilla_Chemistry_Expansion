@@ -88,7 +88,7 @@ liquid_fission_products,Fission Products
 liquid_pu_extract,Plutonium Extract
 liquid_plutonium,Plutonium
 opened_waste_name,Opened Nuclear Waste
-opened_waste_desc,"Holds 500 mL of spent fuel. While it holds evaporative liquids (water, alcohol, ethyl acetate) decay heat keeps it at 70 C; once the fuel is dissolved and those are poured off it heats past 300 C. Only plutonium extract and evaporative liquids pour out; radioactive contents, acid and other impurities stay inside. Only fits in the main inventory and the sales areas."
+opened_waste_desc,"Holds 500 mL of spent fuel. While it holds evaporative liquids (water, alcohol, ethyl acetate) decay heat keeps it at 70 C; once the fuel is dissolved and those are poured off it heats past 300 C. Only plutonium extract and evaporative liquids pour out; radioactive contents, acid and other impurities stay inside. Only fits in the main inventory, the showcase and the inner and outer counters."
 opened_waste_flavor,Don't stare at it for too long.
 vitrified_name,Vitrified Waste
 vitrified_desc,"The fission products are melted into glass and sealed in a steel canister. Harmless; you can throw it away."
@@ -194,7 +194,7 @@ crackine_3,"- Top up the acid to about 5% of the liquid"
 crackine_4,"- Boil it dry above 100 C: once water is below 1%, the alkaloid binds with the acid into Crackine HCl powder, using 0.1 part acid per part alkaloid"
 crackine_5,"- Drive off the leftover acid in the evaporator; it only does this for dry Crackine powder"
 crackine_6,"- Press it in the Chem Finisher, dry: a small vial takes 0.25 mL, a large vial 1 mL"
-crackine_7,"- Crackine at 90%+ purity hooks personal-use buyers: they always come back the next day, and each consecutive day their budget grows by 25%, up to 2000"
+crackine_7,"- Crackine at 90%+ purity hooks the street: sell one to a personal-use buyer and a Crackine buyer comes the next day; sell some every day and that buyer's budget grows by 25% a day, up to 2000"
 lantern_plant_name,Hollow's Lantern
 lantern_seed_name,Hollow's Lantern Seeds
 lantern_seed_desc,"A lab-bred chili seed. High-yielding but hungry for nutrients, and its roots foul the water."

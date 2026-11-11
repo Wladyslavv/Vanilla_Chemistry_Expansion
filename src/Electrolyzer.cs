@@ -46,6 +46,9 @@ public static class Electrolyzer
     // Set once the manual and the two canisters have been put in, so they are never added twice.
     public const string STOCKED_TAG = "VCE_ELECTROLYZER_STOCKED_TAG";
 
+    // Vanilla MachineTurboBoosterAdv.TURBO_BOOST_ELIGIBLE_TAG.
+    public const string TURBO_ELIGIBLE_TAG = "TURBO_BOOST_ELIGIBLE_TAG";
+
     public const string MODULE_BAY_SHAPE = "10000010001000001110000010001000001";
     public const int MODULE_BAY_WIDTH = 7;
 
@@ -169,6 +172,10 @@ public static class Electrolyzer
             };
 
             MachineryHelper.InitMachinery(machine, POWER_PER_NIGHT, false);
+            // Turbo boosters (all kinds) only target machines with STANDARD_MACHINE_TAG or this tag, then run the
+            // machine's cycle-end funcs once more (MachineTurboBoosterAdv.BoostMachine): one extra night of
+            // electrolysis. STANDARD_MACHINE_TAG would also open the vanilla module-expansion paths, so not that one.
+            machine.EnableTag(TURBO_ELIGIBLE_TAG, false);
             machine.onCycleEndSlotItemFunc = delegate(GameItem item, GameInventory inventory, SlotMarker marker)
             {
                 try
@@ -215,6 +222,8 @@ public static class Electrolyzer
             {
                 if (IsElectrolyzer(item))
                 {
+                    // Electrolyzers saved before 1.7.0 come back with their saved tags, without this one.
+                    item.EnableTag(TURBO_ELIGIBLE_TAG, false);
                     ApplySprite(item);
                 }
             }
