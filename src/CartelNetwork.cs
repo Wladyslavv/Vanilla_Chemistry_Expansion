@@ -1513,7 +1513,7 @@ public static class CartelNetworkDistrust
     }
 }
 
-[HarmonyPatch(typeof(ItemFeatureList), "ContrabandLowMarkUp")]
+// Patches ItemFeatureList.ContrabandLowMarkUp, installed late by DeferredPatches (not at load: see DreamToxinMod.cs).
 public static class CartelDistrustLowPatch
 {
     private static void Postfix(ItemFeature __result)
@@ -1522,7 +1522,7 @@ public static class CartelDistrustLowPatch
     }
 }
 
-[HarmonyPatch(typeof(ItemFeatureList), "ContrabandMidMarkUp")]
+// Patches ItemFeatureList.ContrabandMidMarkUp, installed late by DeferredPatches (not at load: see DreamToxinMod.cs).
 public static class CartelDistrustMidPatch
 {
     private static void Postfix(ItemFeature __result)
@@ -1531,7 +1531,7 @@ public static class CartelDistrustMidPatch
     }
 }
 
-[HarmonyPatch(typeof(ItemFeatureList), "ContrabandHighMarkUp")]
+// Patches ItemFeatureList.ContrabandHighMarkUp, installed late by DeferredPatches (not at load: see DreamToxinMod.cs).
 public static class CartelDistrustHighPatch
 {
     private static void Postfix(ItemFeature __result)
@@ -1540,7 +1540,7 @@ public static class CartelDistrustHighPatch
     }
 }
 
-[HarmonyPatch(typeof(ItemFeatureList), "ContrabandCriticalMarkUp")]
+// Patches ItemFeatureList.ContrabandCriticalMarkUp, installed late by DeferredPatches (not at load: see DreamToxinMod.cs).
 public static class CartelDistrustCriticalPatch
 {
     private static void Postfix(ItemFeature __result)

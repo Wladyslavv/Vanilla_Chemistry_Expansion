@@ -171,6 +171,55 @@ public class DreamToxinMod : IMod
     }
 }
 
+// Patches on methods of ItemFeatureList and ChemFinisherRecipe are not applied with the rest at load (their classes
+// carry no [HarmonyPatch]); they are installed here, once the game language is set.
+// Why: installing a patch makes Mono resolve the patched method (GetFunctionPointer), which runs the static
+// initializer of the method's own class. Both classes translate texts there, synchronously (ItemFeatureList's
+// CategoryNames, ChemFinisherRecipe's InitRecipes). At load the localization system may not be initialized yet: then
+// Unity throws "Attempting to use an invalid operation handle" and the game's localization stays broken, the whole
+// game stuck in English. It only happens sometimes, depending on how far localization got (a player's log showed it
+// on CartelDistrustLowPatch). Same Harmony ID as the loader's ("mod." + mod ID), so unloading the mod removes these
+// patches too.
+public static class DeferredPatches
+{
+    private static bool applied;
+
+    public static void Apply()
+    {
+        if (applied)
+        {
+            return;
+        }
+        applied = true;
+        Harmony harmony = new Harmony("mod." + DreamToxinMod.MOD_ID);
+        Patch(harmony, typeof(ItemFeatureList), "ContrabandLowMarkUp", typeof(CartelDistrustLowPatch));
+        Patch(harmony, typeof(ItemFeatureList), "ContrabandMidMarkUp", typeof(CartelDistrustMidPatch));
+        Patch(harmony, typeof(ItemFeatureList), "ContrabandHighMarkUp", typeof(CartelDistrustHighPatch));
+        Patch(harmony, typeof(ItemFeatureList), "ContrabandCriticalMarkUp", typeof(CartelDistrustCriticalPatch));
+        Patch(harmony, typeof(ChemFinisherRecipe), "CanOutput", typeof(AmpouleRecipePatch));
+    }
+
+    private static void Patch(Harmony harmony, Type target, string method, Type patchClass)
+    {
+        try
+        {
+            System.Reflection.MethodInfo original = AccessTools.Method(target, method);
+            System.Reflection.MethodInfo postfix = AccessTools.Method(patchClass, "Postfix");
+            if (original == null || postfix == null)
+            {
+                Log.Info("deferred patch skipped, method not found: " + target.Name + "." + method);
+                return;
+            }
+            harmony.Patch(original, null, new HarmonyMethod(postfix));
+            Log.Info("deferred patch installed: " + target.Name + "." + method);
+        }
+        catch (Exception e)
+        {
+            Log.Error("deferred patch " + target.Name + "." + method + " failed", e);
+        }
+    }
+}
+
 // Content is registered once, at the first item directory init or new game: by then the game language is
 // set, and no item (saved ones included) has been built yet. Registration also re-translates vanilla texts
 // that were cached in the system language during mod loading (see VanillaTextRepair.cs); in 1.3.0 and older,
@@ -186,6 +235,7 @@ public static class Content
             return;
         }
         Registered = true;
+        DeferredPatches.Apply();
         try
         {
             ToxinLiquid.Register();

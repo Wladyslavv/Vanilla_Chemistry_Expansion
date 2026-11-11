@@ -704,7 +704,7 @@ public static class Ampoule
 }
 
 // The finisher only presses an ampoule from liquid that is at least 90% plutonium.
-[HarmonyPatch(typeof(ChemFinisherRecipe), "CanOutput")]
+// Patches ChemFinisherRecipe.CanOutput, installed late by DeferredPatches (not at load: see DreamToxinMod.cs).
 public static class AmpouleRecipePatch
 {
     private static void Postfix(ChemFinisherRecipe __instance, GameItem container, ref bool __result)

@@ -1,5 +1,6 @@
 // Re-translates vanilla texts that are built once and cached in static fields: liquid names, the water
-// quality labels and item feature category names.
+// quality labels, item feature category names, the Chem Finisher's vanilla recipe names and the module effects'
+// names and descriptions. (Vanilla's other static tables translate lazily, inside lambdas, and need nothing.)
 //
 // Why: when a mod's Harmony patches are applied (ModLoader.Awake, before the game applies the player's
 // language), Mono compiles the patched vanilla methods, and that runs the static initializers of the classes
@@ -58,9 +59,34 @@ public static class VanillaTextRepair
         { "CATEGORY_SHABBY", "item_feature_category_shabby" }, { "CATEGORY_SECOND_HAND", "mech_condition_second_hand" }
     };
 
+    // ChemFinisherRecipe.InitRecipes: vanilla recipe -> item name key (the product names in the Chem Finisher).
+    private static readonly string[,] RecipeKeys =
+    {
+        { "dream_dust", "item_dream_dust_name" }, { "nightmare_dust", "item_nightmare_dust_name" },
+        { "caffeine_pill", "item_caffeine_pill_name" }, { "zyanide_pill", "item_zyanide_pill_name" },
+        { "birth_control_pill", "item_birth_control_pill_name" }, { "fanta_pill", "item_fanta_pill_name" },
+        { "pink_alt_injector", "item_pink_alt_injector_name" }
+    };
+
+    // ModuleEffectHelper.moduleEffects: effect -> name key, description key and the description's arguments, as
+    // vanilla builds them. Only these entries are touched: other mods may have added effects of their own.
+    private static readonly object[][] ModuleEffectKeys =
+    {
+        new object[] { "MODULE_EFFECT_PREMIUM", "mech_module_effect_premium_name", "mech_module_effect_premium_desc", new object[] { 20 } },
+        new object[] { "MODULE_EFFECT_INFERIOR", "mech_module_effect_inferior_name", "mech_module_effect_inferior_desc", new object[] { 19 } },
+        new object[] { "MODULE_EFFECT_RECEIVER", "mech_module_effect_receiver_name", "mech_module_effect_receiver_desc", new object[] { 10 } },
+        new object[] { "MODULE_EFFECT_TOP_MOUNT", "mech_module_effect_top_mount_name", "mech_module_effect_top_mount_desc", new object[] { 20 } },
+        new object[] { "MODULE_EFFECT_SIDE_MOUNT", "mech_module_effect_side_mount_name", "mech_module_effect_side_mount_desc", new object[] { 20 } },
+        new object[] { "MODULE_EFFECT_OVERVOLTED", "mech_module_effect_overvolted_name", "mech_module_effect_overvolted_desc", new object[] { 200, 10 } },
+        new object[] { "MODULE_EFFECT_DEGRADING", "mech_module_effect_degrading_name", "mech_module_effect_degrading_desc", new object[] { 1 } },
+        new object[] { "MODULE_EFFECT_LEARNING_ALGORITHM", "mech_module_effect_learning_algorithm_name", "mech_module_effect_learning_algorithm_desc", new object[] { 1 } },
+        new object[] { "MODULE_EFFECT_NEGATIVE_FEEDBACK", "mech_module_effect_negative_feedback_name", "mech_module_effect_negative_feedback_desc", new object[] { 25, 25 } },
+        new object[] { "NODE_EFFECT_SUPPORT", "mech_module_effect_support_node_name", "mech_module_effect_support_node_desc", new object[] { 20 } },
+    };
+
     public static void Run()
     {
-        int liquids = 0, water = 0, categories = 0;
+        int liquids = 0, water = 0, categories = 0, recipes = 0, effects = 0;
         try
         {
             for (int i = 0; i < LiquidKeys.GetLength(0); i++)
@@ -107,7 +133,57 @@ public static class VanillaTextRepair
         {
             Log.Error("re-translating feature categories failed", e);
         }
-        Log.Info("re-translated vanilla texts: " + liquids + " liquid names, " + water + " water labels, " + categories + " categories");
+        try
+        {
+            for (int i = 0; i < RecipeKeys.GetLength(0); i++)
+            {
+                ChemFinisherRecipe recipe = FinisherRecipes.Find(RecipeKeys[i, 0]);
+                string name = TranslateItem(RecipeKeys[i, 1]);
+                if (recipe != null && name != null && name != recipe.displayName)
+                {
+                    recipe.displayName = name;
+                    recipes++;
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Log.Error("re-translating finisher recipe names failed", e);
+        }
+        try
+        {
+            foreach (object[] entry in ModuleEffectKeys)
+            {
+                ModuleEffectHelper.ModuleEffect effect;
+                if (!ModuleEffectHelper.moduleEffects.TryGetValue((string)entry[0], out effect) || effect == null)
+                {
+                    continue;
+                }
+                string name = Translate((string)entry[1]);
+                string desc = TranslateMechanic((string)entry[2], (object[])entry[3]);
+                bool changed = false;
+                if (name != null && name != effect.displayName)
+                {
+                    effect.displayName = name;
+                    changed = true;
+                }
+                if (desc != null && desc != effect.description)
+                {
+                    effect.description = desc;
+                    changed = true;
+                }
+                if (changed)
+                {
+                    effects++;
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Log.Error("re-translating module effects failed", e);
+        }
+        Log.Info("re-translated vanilla texts: " + liquids + " liquid names, " + water + " water labels, " + categories
+            + " categories, " + recipes + " finisher recipes, " + effects + " module effects");
     }
 
     private static int RepairWater()
@@ -166,6 +242,18 @@ public static class VanillaTextRepair
     private static string Translate(string key)
     {
         string text = LocHelper.GetLocalizedMechanic(key);
+        return string.IsNullOrEmpty(text) || text == key ? null : text;
+    }
+
+    private static string TranslateMechanic(string key, object[] args)
+    {
+        string text = LocHelper.GetLocalizedMechanic(key, args);
+        return string.IsNullOrEmpty(text) || text == key ? null : text;
+    }
+
+    private static string TranslateItem(string key)
+    {
+        string text = LocHelper.GetLocalizedItem(key);
         return string.IsNullOrEmpty(text) || text == key ? null : text;
     }
 }
