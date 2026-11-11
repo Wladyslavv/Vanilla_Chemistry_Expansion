@@ -2200,15 +2200,23 @@ public static class CartelFriendsFineRepPatch
 // Cartel merchants, only for Cartel Network members.
 //
 // "Peer" (同行): a seller with vanilla's thief look (the shady sprites vanilla thieves use). He lays random contraband
-// on the outer counter until it is full, at its plain value (no markup), and says nothing but "......" when the player
-// buys. The contraband pool is every item vanilla or a mod marks as contraband with a value, scanned once from the item
-// directory, plus a 10% chance of a large hidden compartment. Visits: a 20% chance each day, at most once every 3 days.
+// on the outer counter until it is full or holds MAX_ITEMS of his (so a mod that enlarges the counter does not get a
+// flood), at its plain value (no markup), and says nothing but "......" when the player buys. The contraband pool is
+// every item vanilla or a mod marks as contraband with a value, scanned once from the item directory, minus vanilla's
+// unimplemented items (UnusedDirectory) and story items (IMPORTANT_TAG, including the ones vanilla tags only on load)
+// and display-only props; plus a 10% chance of a large hidden compartment. Visits: a 20% chance each day, at most once
+// every 3 days.
 public static class CartelPeer
 {
     public const string CLIENT_ID = "vce_cartel_peer";
     public const int DAILY_CHANCE = 20;
     public const int MIN_DAYS_BETWEEN = 3;
-    public const int MAX_ITEMS = 60;
+    // Items laid per visit, the large hidden compartment included.
+    public const int MAX_ITEMS = 20;
+    // Draws before giving up: big items may not fit while small ones still do.
+    public const int MAX_TRIES = 60;
+    // Vanilla's directory of items that are defined but not in the game.
+    public const string UNUSED_DIRECTORY = "UnusedDirectory";
     public const string LAST_VISIT_KEY = "cartel_peer_last_visit";
     // Now and then a large hidden compartment (vanilla smuggler_bay_mod), laid first so it still fits.
     public const string LARGE_BAY_ID = "smuggler_bay_mod";
@@ -2276,13 +2284,25 @@ public static class CartelPeer
             return pool;
         }
         pool = new List<string>();
+        HashSet<string> unused = new HashSet<string>(DirectoryMaster.GetIdentifierList<GameItem>(UNUSED_DIRECTORY));
         foreach (string id in DirectoryMaster.GetIdentifierList<GameItem>(null))
         {
+            if (unused.Contains(id))
+            {
+                continue;
+            }
             GameItem item = null;
             try
             {
                 item = DirectoryMaster.Item(id, false);
-                if (item != null && ContrabandHelper.IsContraband(item) && item.unitValue > 0 && !item.IsTag("IMPORTANT_TAG"))
+                if (item == null)
+                {
+                    continue;
+                }
+                // Some story items get IMPORTANT_TAG only when a save loads, not in their factory.
+                GeneralHelper.LoadImportantStoryItemTag(item);
+                if (ContrabandHelper.IsContraband(item) && item.unitValue > 0
+                    && !item.IsTag("IMPORTANT_TAG") && !item.IsTag(GeneralHelper.DISPLAY_ONLY_TAG))
                 {
                     pool.Add(id);
                 }
@@ -2298,12 +2318,12 @@ public static class CartelPeer
                 }
             }
         }
-        Log.Info("cartel merchants: " + pool.Count + " contraband items in the Peer's pool");
+        Log.Info("cartel merchants: " + pool.Count + " contraband items in the Peer's pool: " + string.Join(", ", pool.ToArray()));
         return pool;
     }
 
     // Random contraband until the outer counter takes no more (a few misses in a row: big items may not fit while
-    // small ones still do).
+    // small ones still do) or MAX_ITEMS are laid.
     private static void LayOut()
     {
         List<string> ids = Pool();
@@ -2311,15 +2331,17 @@ public static class CartelPeer
         {
             return;
         }
-        if (RNG.Roll(LARGE_BAY_CHANCE))
+        int laid = 0;
+        if (RNG.Roll(LARGE_BAY_CHANCE) && TryLay(DirectoryMaster.Item(LARGE_BAY_ID, false)))
         {
-            TryLay(DirectoryMaster.Item(LARGE_BAY_ID, false));
+            laid++;
         }
         int misses = 0;
-        for (int i = 0; i < MAX_ITEMS && misses < 4; i++)
+        for (int i = 0; i < MAX_TRIES && laid < MAX_ITEMS && misses < 4; i++)
         {
             if (TryLay(DirectoryMaster.Item(ids[RNG.GetRandomInt(0, ids.Count - 1)], false)))
             {
+                laid++;
                 misses = 0;
             }
             else
