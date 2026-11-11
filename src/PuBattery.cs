@@ -32,6 +32,13 @@ public static class PuBattery
     // Dr. Jackson: 30% per restock.
     public const int JACKSON_CHANCE = 30;
 
+    // Wherever vanilla can hand out an ordinary battery (energy_credit), this one can show up instead:
+    //   - loot tables (store sellers and other table rolls): added next to energy_credit at this share of its weight;
+    //   - code-built drop tables (raids and stations): each dropped energy_credit is swapped at this chance.
+    public const string VANILLA_BATTERY = "energy_credit";
+    public const double LOOT_SHARE = 0.10;
+    public const int DROP_SWAP_PERCENT = 10;
+
     private static readonly int[] Levels = { 100, 80, 60, 40, 20, 10, 0 };
 
     public static void Enable()
@@ -39,6 +46,8 @@ public static class PuBattery
         ModHook.OnCreateTooltipLate += OnCreateTooltip;
         ModHook.OnGameLoadedLate += FixLoadedItems;
         ModHook.OnPlaceInventorInventoryItemEarly += OnPlaceInventorInventory;
+        ModHook.OnLootTablesLoaded += AddToLootTables;
+        AddToLootTables();
         try
         {
             ModHelper.AddDebugFunction(DreamToxinMod.MOD_ID, "Modding", "Nuclear: plutonium battery", delegate { Give(0); }, false);
@@ -55,6 +64,56 @@ public static class PuBattery
         ModHook.OnCreateTooltipLate -= OnCreateTooltip;
         ModHook.OnGameLoadedLate -= FixLoadedItems;
         ModHook.OnPlaceInventorInventoryItemEarly -= OnPlaceInventorInventory;
+        ModHook.OnLootTablesLoaded -= AddToLootTables;
+    }
+
+    // Every loot table that can roll an ordinary battery can also roll this one. The loot registry replays mod edits
+    // whenever the vanilla tables reload, so a table that already lists this battery is skipped.
+    public static void AddToLootTables()
+    {
+        try
+        {
+            int added = 0;
+            foreach (string tableId in new List<string>(LootRegistry.TableIds))
+            {
+                List<LootEntry> entries = ModHelper.GetLootEntries(tableId);
+                if (entries == null || entries.Exists(e => e.id == ITEM_ID))
+                {
+                    continue;
+                }
+                LootEntry vanilla = entries.Find(e => e.id == VANILLA_BATTERY);
+                if (vanilla == null || vanilla.weight <= 0f)
+                {
+                    continue;
+                }
+                ModHelper.AddLootEntry(DreamToxinMod.MOD_ID, tableId, ITEM_ID, (float)(vanilla.weight * LOOT_SHARE));
+                added++;
+            }
+            if (added > 0)
+            {
+                Log.Info("plutonium battery added to " + added + " loot table(s) next to the ordinary battery");
+            }
+        }
+        catch (Exception e)
+        {
+            Log.Error("adding the plutonium battery to loot tables failed", e);
+        }
+    }
+
+    // A code-built drop table (raids, stations) just dropped an ordinary battery: sometimes it is this one instead.
+    public static GameItem MaybeSwap(GameItem dropped)
+    {
+        if (dropped == null || dropped.identifier != VANILLA_BATTERY || !RNG.Roll(DROP_SWAP_PERCENT))
+        {
+            return dropped;
+        }
+        GameItem battery = DirectoryMaster.Item(ITEM_ID, GeneralHelper.IsItemOwned(dropped));
+        if (battery == null)
+        {
+            return dropped;
+        }
+        dropped.Destroy();
+        return battery;
     }
 
     public static void AddItems(ModItemDirectory directory)
@@ -257,6 +316,30 @@ public static class PuBattery
         catch (Exception e)
         {
             Log.Error("plutonium battery debug kit failed", e);
+        }
+    }
+}
+
+// Raid and station loot comes from code-built drop tables (DropDirectory / DropTableDirectory), not the loot registry.
+[HarmonyPatch(typeof(DropTable), "GetDropped")]
+public static class PuBatteryDropPatch
+{
+    private static void Postfix(List<GameItem> __result)
+    {
+        try
+        {
+            if (__result == null)
+            {
+                return;
+            }
+            for (int i = 0; i < __result.Count; i++)
+            {
+                __result[i] = PuBattery.MaybeSwap(__result[i]);
+            }
+        }
+        catch (Exception e)
+        {
+            Log.Error("plutonium battery drop swap failed", e);
         }
     }
 }

@@ -278,3 +278,94 @@ pu_battery_flavor,"Dr. Jackson insists it is a chemical battery, not a nuclear o
 pu_battery_tooltip_fuel,"Plutonium: {0} / {1} ampoules ({2} kJ self-charge each per night)"
 pu_battery_tooltip_hint,Drag a plutonium ampoule onto the battery to start self-charging.
 pu_battery_fuelled,"Plutonium added: {0} kJ self-charge per night ({1} / {2})"
+cartel_network_name,Cartel Network
+cartel_network_joined,"Your debt to the cartel is finally settled. Now the cartel wants to work with you, and the choice may not rest with either of you alone."
+cartel_note_name,Note
+cartel_note_desc,"A folded envelope, its black wax seal pressed with an eye."
+cartel_note_background,vce_cartel_note_en
+cartel_note_found,There is an envelope on the counter.
+cartel_network_joined_paid,"You paid. From today the Cartel Network counts you as one of its own, for now at least."
+cartel_contact_name,Cartel Contact
+cartel_contact_1,I hope our last encounter didn't scare you.
+cartel_contact_2,We've been watching you for a long time.
+cartel_contact_3,Nobody moves product under the cartel's eye without being noticed.
+cartel_contact_4,"Now you'd better pay for protection, and one day we may let you become our partner."
+cartel_contact_5,Refusing is not an option.
+cartel_contact_choice_pay,[Pay {0} credits to join the Cartel Network]
+cartel_contact_choice_later,[Ask him to come back in two days]
+cartel_contact_choice_refuse,[Refuse the cartel]
+cartel_contact_refused_1,"Ha, funny."
+cartel_contact_refused_2,No one alive refuses the cartel.
+cartel_boycott_line,"Sorry, but we can't take goods from you."
+cartel_contact_return_1,I think someone has learned their lesson.
+cartel_contact_return_2,But some lessons in life only come once.
+cartel_contact_return_choice_pay,[Pay {0} credits to join the cartel]
+cartel_contact_return_welcome,Welcome aboard. (sneers)
+cartel_raid_officer_name,Security Officer
+cartel_raid_officer_1,"Citizen, we've noticed cartel activity in the area lately. Report anything suspicious."
+cartel_raid_choice_report,[Report the cartel]
+cartel_raid_choice_decline,[Don't report the cartel]
+cartel_raid_officer_report_1,"Good. Security has decided to run a sweep of local illegal organizations soon."
+cartel_raid_officer_report_2,"Any... voluntary donations... from concerned citizens are highly encouraged."
+cartel_sweep_medical_name,Security Medical Procurement
+cartel_sweep_military_name,Security Quartermaster
+cartel_sweep_medical_1,"Citizen, on behalf of Security I am openly procuring medical supplies for the fight against local organized crime."
+cartel_sweep_military_1,"Citizen, on behalf of Security I am openly procuring military supplies for the fight against local organized crime."
+cartel_sweep_spent,"Very good. On behalf of Security, thanks to every citizen for their generous donations."
+cartel_sweep_discount,Security requisition
+cartel_sweep_thanks_name,Security Logistics Officer
+cartel_sweep_thanks_1,"Citizen, Security's sweep in this area was a great success."
+cartel_sweep_thanks_2,"Security Logistics thanks everyone who supported the operation,"
+cartel_sweep_thanks_3,"especially local businesses for their paid sponsorship of Logistics."
+cartel_sweep_thanks_4,"Those supplies did not come cheap, but on a station this short of everything they helped Security a great deal."
+rep_perk_logistics_name,Logistics' Gratitude
+rep_perk_logistics_desc,Security pays a 15% tip on anything it buys.
+rep_perk_logistics_flavor,Some people in Logistics will remember which shops cooperated.
+rep_perk_net_retired_name,Settled Accounts
+rep_perk_net_retired_desc,"When your Cartel Network reputation falls to -100, someone comes to settle accounts the next morning. Game over."
+rep_perk_net_retired_flavor,The Cartel Network never fires anyone.
+rep_perk_net_boycott_name,Boycott
+rep_perk_net_boycott_desc,Other black market traders no longer come to your shop.
+rep_perk_net_boycott_flavor,The cartel's likes and dislikes are enough to decide whether its peers dare to deal with you.
+rep_perk_net_distrust_name,Under Suspicion
+rep_perk_net_distrust_desc,The cartel's suspicion means your contraband is no longer trusted.
+rep_perk_net_distrust_flavor,"In a deal, the label on the vial is rarely the only measure of its price; the seller's name and the trust they've earned often matter more."
+cartel_distrust_suffix, (distrusted)
+rep_perk_net_open_trade_name,Open Trade
+rep_perk_net_open_trade_desc,The cartel's trading network draws two contraband traders to your shop every week.
+rep_perk_net_open_trade_flavor,"Ironically, dangerous trades sometimes have more community spirit... in a way that harms everyone else."
+rep_perk_net_tight_lips_name,Tight Lips
+rep_perk_net_tight_lips_desc,Customers are less likely to complain about the quality of your goods.
+rep_perk_net_tight_lips_flavor,One economic study found that customers who know they are buying on cartel turf are more satisfied with the quality.
+cartel_trader_name,Cartel Trader
+cartel_trader_1,People in the network say you've got goods.
+cartel_trader_2,"I take any contraband, any grade. I brought {0} credits today, but the network takes five percent."
+cartel_trader_cut,Cartel cut
+rep_perk_net_no_strangers_name,No Strangers
+rep_perk_net_no_strangers_desc,Thieves no longer come to cartel turf.
+rep_perk_net_no_strangers_flavor,"The cartel isn't in every illegal racket, but everyone in the rackets gives them a wide berth."
+rep_perk_net_supply_name,Supply Network
+rep_perk_net_supply_desc,"The Cartel Network supplies the raw materials you need: order by phone, at a good price."
+rep_perk_net_supply_flavor,"Some people like the illegal, dangerous trades; there are always others who prefer the illegal but less dangerous part of the chain."
+cartel_supply_name,Cartel Network
+cartel_supply_ask,What do you need?
+cartel_supply_ready,Tomorrow. Better not let the courier remember you.
+cartel_supply_wrong_number,[Wrong number]
+cartel_supply_silence,......
+cartel_supply_cooldown,The last batch hasn't moved yet. Call back in {0} days.
+cartel_courier_name,Cartel Courier
+cartel_courier_1,Your order. Don't look at my face.
+cartel_courier_done,Delivered. I was never here.
+rep_perk_net_friends_name,Friends in High Places
+rep_perk_net_friends_desc,"Thanks to the cartel's mediation, any investigation into you can now be settled with money."
+rep_perk_net_friends_flavor,"Another day, another Security spokesperson denying any private dealings with the cartel. Everyone knows it's just an understanding."
+cartel_peer_name,Peer
+cartel_peer_1,I thought you might be interested in these.
+cartel_peer_silence,......
+cartel_tourist_name,Black Market Tourist
+cartel_tourist_1,"I knew it. Down here, all that chaos breeds the most special little shops."
+cartel_tourist_2,"Your higher-ups sent me... you know what I mean, right?"
+cartel_tourist_more,Is that all?
+cartel_tourist_done,Ignoring the law feels amazing!
+setting_cartel,Enable the cartel expansion
+setting_cartel_tooltip,"The Cartel Network, being watched for contraband sales, the boycott, Security's route against the cartel, and the cartel merchants. While off, none of it has any effect. Off by default."

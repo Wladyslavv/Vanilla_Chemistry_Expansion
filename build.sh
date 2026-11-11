@@ -26,7 +26,9 @@ done
 DIST="$PROJECT/dist/vanilla_chem_ext"
 rm -rf "$DIST"
 mkdir -p "$DIST/Localization" "$DIST/Textures/Items" "$DIST/Textures/Paper"
-cp "$BUILD/VanillaChemExt.dll" "$PROJECT/manifest.xml" "$PROJECT/README.md" "$PROJECT/preview.png" "$DIST/"
+cp "$BUILD/VanillaChemExt.dll" "$PROJECT/manifest.xml" "$PROJECT/preview.png" "$DIST/"
+# The mod folder keeps the full player guide as its README (the repository README is about the cartel system).
+cp "$PROJECT/docs/MOD_GUIDE.md" "$DIST/README.md"
 cp "$PROJECT"/Localization/*.csv "$DIST/Localization/"
 # ModLoader turns every Textures/Items/*.png into a pixel-art item sprite keyed by file name.
 cp "$PROJECT"/Textures/Items/*.png "$DIST/Textures/Items/"

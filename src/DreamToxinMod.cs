@@ -31,6 +31,14 @@ public class DreamToxinMod : IMod
         GasCanister.Enable();
         Electrolyzer.Enable();
         PuBattery.Enable();
+        CartelNetwork.Enable();
+        CartelRaid.Enable();
+        CartelSweep.Enable();
+        CartelNetworkPerks.Enable();
+        CartelTrader.Enable();
+        CartelSupply.Enable();
+        CartelPeer.Enable();
+        CartelTourist.Enable();
         // Liquids, recipes, genes and wine labels are registered later, in Content.EnsureRegistered.
         ModHook.OnModItemDirectoryInit += OnItemDirectoryInit;
         ModHook.OnModAssetsLoaded += OnModAssetsLoaded;
@@ -74,6 +82,14 @@ public class DreamToxinMod : IMod
         GasCanister.Disable();
         Electrolyzer.Disable();
         PuBattery.Disable();
+        CartelNetwork.Disable();
+        CartelRaid.Disable();
+        CartelSweep.Disable();
+        CartelNetworkPerks.Disable();
+        CartelTrader.Disable();
+        CartelSupply.Disable();
+        CartelPeer.Disable();
+        CartelTourist.Disable();
         try
         {
             ModHelper.RemoveDebugFunctions(MOD_ID);
@@ -102,6 +118,7 @@ public class DreamToxinMod : IMod
             GasCanister.AddItems(directory);
             Electrolyzer.AddItems(directory);
             PuBattery.AddItems(directory);
+            CartelNetwork.AddItems(directory);
             directory.Add(GuideBook.ITEM_ID, GuideBook.CreateItem);
             // Registered as its own item so it survives saves and shows up in item spawners;
             // the note still reads like any vanilla handnote (the reader only looks at its tags).
@@ -127,6 +144,7 @@ public class DreamToxinMod : IMod
         }
         RefreshLocalizedNames();
         GuideBook.Register();
+        CartelNote.Register();
     }
 
     private static void OnNewGameStarted(string scenarioId)
@@ -180,6 +198,7 @@ public static class Content
             SaltOre.Register();
             DreamToxinMod.RefreshLocalizedNames();
             GuideBook.Register();
+            CartelNote.Register();
             Log.Info("content registered on " + trigger);
         }
         catch (Exception e)

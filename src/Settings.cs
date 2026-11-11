@@ -13,6 +13,16 @@ public static class IaSettings
     private static ConfigEntry<int> fridgeCoolPercent;
     private static ConfigEntry<int> fermentPercent;
 
+    public const string CARTEL_SECTION = "卡特尔 / Cartel";
+    private static ConfigEntry<bool> cartelEnabled;
+
+    // The cartel expansion (CartelNetwork.cs): the Cartel Network, the watching path, the boycott, Security's route
+    // against the cartel and the cartel merchants. Off by default; while off none of it does anything.
+    public static bool CartelEnabled
+    {
+        get { return cartelEnabled != null && cartelEnabled.Value; }
+    }
+
     // Speed at which yeast turns sugar into alcohol overnight, as a percentage of the base rate (24 uL of
     // sugar per uL of yeast per night).
     public static int FermentPercent
@@ -47,6 +57,8 @@ public static class IaSettings
             fermentPercent = config.Define("ferment_percent", 100, FERMENT_SECTION,
                 () => IaText.Get("setting_ferment"), (int?)25, (int?)1000,
                 () => IaText.Get("setting_ferment_tooltip"), false);
+            cartelEnabled = config.Define("cartel_expansion", false, CARTEL_SECTION,
+                () => IaText.Get("setting_cartel"), () => IaText.Get("setting_cartel_tooltip"), false);
         }
         catch (Exception e)
         {

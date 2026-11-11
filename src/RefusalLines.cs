@@ -33,7 +33,11 @@ public static class RefusalLinesPatch
                 return;
             }
             string key = null;
-            if (BlendedWineRefusePatch.Refuses(client, item))
+            if (CartelBoycott.OnItemShown(client, item))
+            {
+                key = "cartel_boycott_line";  // the cartel's boycott, said once per client (CartelNetwork.cs)
+            }
+            else if (BlendedWineRefusePatch.Refuses(client, item))
             {
                 key = "refuse_blended_wine";
             }

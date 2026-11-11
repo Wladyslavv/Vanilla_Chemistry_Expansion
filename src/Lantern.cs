@@ -602,6 +602,7 @@ public static class LanternEvidence
         {
             return;
         }
+        CartelRaid.MarkIncapacitantSold();  // one of the ways into the route against the cartel (CartelNetwork.cs)
         SecData sec = PlayerStore.Instance.secData;
         if (sec == null || sec.crimeAmount == null)
         {
