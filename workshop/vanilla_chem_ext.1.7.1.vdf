@@ -1,0 +1,115 @@
+"workshopitem"
+{
+	"appid"		"4348910"
+	"publishedfileid"		"3832077837"
+	"contentfolder"		"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Probably Stolen\\Mods\\vanilla_chem_ext"
+	"previewfile"		"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Probably Stolen\\Mods\\vanilla_chem_ext\\preview.png"
+	"visibility"		"0"
+	"title"		"原版化学扩展 / Vanilla Chemistry Expansion"
+	"description"		"Not a big mod, but a lot of mechanics. Bug reports, code, suggestions and wishes are welcome in the QQ group: https://qm.qq.com/q/imekxahuBW
+
+[b]Major update: Cartel expansion, beta 0.5[/b]
+[list]
+[*]Any start can now join the cartel. Sell too much chemical contraband and the cartel takes notice.
+[*]Work with Security to bring the cartel down!
+[*]Plenty of cartel mechanics.
+[*]Still being tested and updated, so it is [b]off by default[/b] in the mod settings.
+[/list]
+The cartel storyline (spoilers!): [url=https://github.com/Wladyslavv/Vanilla_Chemistry_Expansion]https://github.com/Wladyslavv/Vanilla_Chemistry_Expansion[/url]
+
+You can buy alcohol, but you can't brew your own bootleg?
+Pumping out 2000 Dream Dust a day, and not even Wilde at level 3 plus Intimidating can keep you out of trouble?
+Droppers and measuring cylinders all over the bench, yet the only way to pure acid and base is fish?
+All you can do with nuclear waste is dump it at the junkyard, where someone just picks it back up?
+
+Inspired by real chemical production, this mod gives vanilla chemistry more to do, so late game you can really play the chemist through (somewhat) involved chemistry.
+
+Main features:
+1. Brine electrolysis: order rock salt from GP Mining, electrolyse brine into base, hydrogen and chlorine, burn the gases into hydrogen chloride and dissolve it into acid. Pure acid and base in bulk. Purifying acid with fish never felt right, did it?
+2. Hollow's Lantern: grow a lab-bred chili and refine a legal riot-control incapacitant. Sell it to the Upper Level or Security and your crimes disappear; once they are gone, the investigation slows too. (Did nobody catch the Outer Wilds nod?)
+3. Dream Toxin: the legal product of Dream Caps, a high-end cosmetic treatment for the Upper Level.
+4. Possibly the new ice: grow Xinke and make Crackine, high-profit and not counted as medical. It draws a Crackine buyer back the next day, and the buyer's budget grows 25% every day the streak goes on.
+5. Blend nutrifruit, brew beer with acid and yeast, and serve chilled draft beer!
+6. Make alcohol from starch and sugar, ethyl acetate from plant matter, and edit genes so other crops make sugar and starch. Deep-space wine merchant: probably blended.
+7. Crush ore and use the minerals to purify the acid and base the profiteers sell you.
+8. Neutralize nuclear waste, extract the plutonium, and make Nuclear Cola!
+
+More chemistry is planned; I just need a little inspiration.
+Gunsmiths may also want: Ammo Printer [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3831394883]https://steamcommunity.com/sharedfiles/filedetails/?id=3831394883[/url]
+
+[h2]Vanilla Chemistry Expansion[/h2]
+Built on the vanilla chemistry system (extraction, heating, refrigeration, filtering, evaporation, pressing); vanilla products and reactions are unchanged.
+
+[h3]Advanced Chemistry Handbook[/h3]
+Full steps are in the Advanced Chemistry Handbook; below is only the outline. The chemist start comes with one; otherwise the retired chemist and Dr. Jackson sell it (value 200). Other mods can add chapters via the localization keys vce_handbook_title and vce_handbook_line_1..N.
+
+[h3]Dream Toxin (handbook chapter 1)[/h3]
+A legal medical outlet for Dream Caps and Nightmare Caps.
+[list]
+[*]Mix the extracts 1:1 with a little acid and chill it in a fridge; burn off leftover extract, filter, dry and press [b]Dream Toxin Injectors[/b].
+[*]Legal, for Upper Level clinics, base value 150. Only pharma grade (90%+) pays: about as much as street Dream Dust, without the notoriety.
+[/list]
+
+[h3]Brine electrolysis (new, handbook chapter 10)[/h3]
+A simplified chlor-alkali process: 1 part salt + 0.3 part water ends up as 1 part base and 1 part acid, free of chemical contaminant and heavy metal.
+
+[h3]Hollow's Lantern and Incapacitant (handbook chapter 9)[/h3]
+A lab-bred chili, and the legal riot-control agent refined from it.
+[list]
+[*][b]Hollow's Lantern[/b]: annual, innate Capsaicin Production III gene (spliceable). The retired farmer brings two seeds each visit.
+[*]Blend for capsaicin, heat with 4x as much alcohol to 50-78 C into Lantern Ester, filter, dry off the alcohol and press [b]A Small Vial of Incapacitant[/b].
+[*][b]Wiping your record[/b]: each vial sold to the Upper Level or Security removes price x purity x 5 from your crimes; with none left, every full 100 takes 1 off investigation progress.
+[/list]
+
+[h3]Xinke and Crackine (handbook chapter 8)[/h3]
+A new crop, and the new ice refined from the alkaloid in its leaves. No medical tag: raw leaves earn less than Dream Dust, refined Crackine a little more.
+[list]
+[*][b]Xinke[/b]: perennial, drought-tolerant, innate Alkaloid Production gene (spliceable). The retired farmer brings seeds; the shady farmer sells leaves.
+[*]Blend the leaves, remove the protein, add acid, boil dry, drive off leftover acid in the evaporator and press [b]Crackine[/b] (a small vial is worth about 1.5 Dream Dust; a large one is four small ones).
+[*][b]Regulars[/b]: sell 90%+ real purity Crackine to a personal-use buyer and one Crackine buyer comes the next day. Keep selling every day and the budget grows 25% a day (up to 2000), with ever more desperate lines.
+[/list]
+
+[h3]Ore chemistry: purifying acid and base (handbook chapter 2)[/h3]
+No filter removes the chemical contaminant and heavy metal in vanilla acid and base, which keeps drugs from lab-pure grade.
+[list]
+[*]Crush metal ore in a [b]blender with all 4 chem modules[/b] into calcite and quartz sand.
+[*][b]Base[/b]: calcine calcite into quicklime and add it to base; heavy metal settles out. Filter.
+[*][b]Acid[/b]: quartz sand to water glass to silica gel, which drives the contaminant out of hot acid; freezing removes heavy metal. Filter.
+[*]Needs an upgraded heating plate.
+[/list]
+
+[h3]Starch genes[/h3]
+Nutrifruit's starch and sugar come from innate genes that can be spliced into other crops.
+
+[h3]Industrial alcohol (handbook chapter 3)[/h3]
+[list]
+[*]Hydrolyse blended nutrifruit with acid, neutralize, add yeast: it ferments into alcohol overnight.
+[*]Boil off methanol; freeze and filter out ice to reach about 25%. Mod settings adjust boiling, fermentation and fridge speed.
+[/list]
+
+[h3]Blended wine (handbook chapters 3 and 4)[/h3]
+[list]
+[*]Plant matter to acetic acid to ethyl acetate, pressed with alcohol and water into wine.
+[*]A labeller changes two labels: quality and method (genuine/blended). False labels are risky: sold unnoticed they add up to fraud, and Upper Level clients refuse blended wine.
+[/list]
+
+[h3]Beer (handbook chapters 5 and 6)[/h3]
+[list]
+[*]The Chem Finisher fills alcoholic liquid into a 2 L [b]Beer Keg[/b], graded premium, ordinary or undrinkable.
+[*]Double-click the keg to pour one: a [b]can[/b] at room temperature, [b]draft beer[/b] once chilled in the fridge. Draft sells best but goes flat overnight.
+[*]Beer counts as water: water buyers take it too.
+[/list]
+
+[h3]Advanced Kotton fabric[/h3]
+A gold Kotton fabric that regains full durability every day, found wherever the vanilla advanced water filter is.
+
+[h3]Nuclear waste reprocessing (handbook chapter 7)[/h3]
+[list]
+[*]Pry open a barrel, dissolve the spent fuel in acid, add reducing agent, extract the plutonium with ethyl acetate, boil dry and fill [b]Plutonium Ampoules[/b].
+[*]An ampoule dragged onto a drink makes a +50 Nuclear drink; only Upper Level clients and addicts buy it.
+[*]Vitrify the leftover fission products with water glass into harmless glass.
+[*][b]Radiation sickness[/b]: unprocessed waste in the shop overnight lowers your selling prices; genuine Immunivax eases it.
+[*]A Waste Broker sells barrels every 7 days from day 7.
+[/list]"
+	"changenote"		"1.7.1: Fixed the game sometimes starting stuck in English: some of this mod's patches were installed before the game's localization was ready and broke it; they are now installed later. Fixed the Cartel Contact and Security officer dialogues hanging on answers he does not reply to. Dragging several plutonium ampoules onto a battery at once now counts every ampoule, and one drop can no longer spike the same drink twice. The vanilla module bay expansion kit now works on the Electrolyzer. The Peer lays out at most 20 items, and never unimplemented or story items. The Black Market Tourist only takes the place of ordinary random buyers, never story characters or other mods' clients. With a system language different from the game language, Chem Finisher recipe names and module effects now show in the game language. / 1.7.1：修复游戏偶尔启动后锁定为英文：本 mod 的部分补丁在游戏本地化就绪前安装，导致本地化损坏；现在改为稍后安装。修复卡特尔接头人和治安部警员的对话在他不回话的选项上卡死。一次拖多支钚安瓿到电池上，现在每支都会计入；一次拖放也不会再把同一瓶饮料加料两次。原版模组扩展工具现在可以升级电解机。同行每次最多摆 20 件，且不会再摆出未实装物品或剧情物品。黑市游客只会顶替普通的随机买家，不会再顶替剧情角色或其他 mod 的客人。系统语言与游戏语言不同时，化学成型机的配方名和模组效果现在按游戏语言显示。"
+}
