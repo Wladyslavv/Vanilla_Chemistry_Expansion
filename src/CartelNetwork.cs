@@ -1513,36 +1513,60 @@ public static class CartelNetworkDistrust
     }
 }
 
-// Patches ItemFeatureList.ContrabandLowMarkUp, installed late by DeferredPatches (not at load: see DreamToxinMod.cs).
+// Installed late (DeferredPatches, DreamToxinMod.cs): Prepare keeps the loader from installing it at load.
+[HarmonyPatch(typeof(ItemFeatureList), "ContrabandLowMarkUp")]
 public static class CartelDistrustLowPatch
 {
+    private static bool Prepare()
+    {
+        return DeferredPatches.Ready;
+    }
+
     private static void Postfix(ItemFeature __result)
     {
         CartelNetworkDistrust.Halve(__result, PlayerStore.Instance.contrabandMarkupLow, "item_feature_contraband_low");
     }
 }
 
-// Patches ItemFeatureList.ContrabandMidMarkUp, installed late by DeferredPatches (not at load: see DreamToxinMod.cs).
+// Installed late (DeferredPatches, DreamToxinMod.cs): Prepare keeps the loader from installing it at load.
+[HarmonyPatch(typeof(ItemFeatureList), "ContrabandMidMarkUp")]
 public static class CartelDistrustMidPatch
 {
+    private static bool Prepare()
+    {
+        return DeferredPatches.Ready;
+    }
+
     private static void Postfix(ItemFeature __result)
     {
         CartelNetworkDistrust.Halve(__result, PlayerStore.Instance.contrabandMarkupMid, "item_feature_contraband_mid");
     }
 }
 
-// Patches ItemFeatureList.ContrabandHighMarkUp, installed late by DeferredPatches (not at load: see DreamToxinMod.cs).
+// Installed late (DeferredPatches, DreamToxinMod.cs): Prepare keeps the loader from installing it at load.
+[HarmonyPatch(typeof(ItemFeatureList), "ContrabandHighMarkUp")]
 public static class CartelDistrustHighPatch
 {
+    private static bool Prepare()
+    {
+        return DeferredPatches.Ready;
+    }
+
     private static void Postfix(ItemFeature __result)
     {
         CartelNetworkDistrust.Halve(__result, PlayerStore.Instance.contrabandMarkupHigh, "item_feature_contraband_high");
     }
 }
 
-// Patches ItemFeatureList.ContrabandCriticalMarkUp, installed late by DeferredPatches (not at load: see DreamToxinMod.cs).
+// Installed late (DeferredPatches, DreamToxinMod.cs): Prepare keeps the loader from installing it at load.
+[HarmonyPatch(typeof(ItemFeatureList), "ContrabandCriticalMarkUp")]
 public static class CartelDistrustCriticalPatch
 {
+    private static bool Prepare()
+    {
+        return DeferredPatches.Ready;
+    }
+
     private static void Postfix(ItemFeature __result)
     {
         CartelNetworkDistrust.Halve(__result, PlayerStore.Instance.contrabandMarkupCritial, "item_feature_contraband_critical");
