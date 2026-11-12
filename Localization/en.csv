@@ -3,12 +3,12 @@ injector_name,Dream Toxin Injector
 injector_desc,"A hot commodity in Upper Level aesthetic clinics. Micro-doses of purified Dream Toxin injected into facial muscles smooth out wrinkles within hours and freeze your expression at its most camera-ready. Clinics only accept pharma grade or better."
 injector_flavor,Smiling is an optional accessory.
 formula_name,Dream Toxin Formula
-formula_step_1,- Prepare Dream Cap Extract and Nightmare Cap Extract separately
-formula_step_2,"- Mix the two extracts 1:1 and add a little Acid to make it slightly acidic, keeping the Acid at 0.5%-5% of all the liquid in the container"
-formula_step_3,- Cool it to 2-8C in the chill zone of a fridge so it reacts into Dream Toxin
-formula_step_4,"- If any extract is left over, heat above 100C to burn it off, the toxin itself is heat-stable"
-formula_step_5,"- Neutralize the acid with an equal amount of Base, filter the debris, then dry it in the Evaporator"
-formula_step_6,- Select Dream Toxin Injector in the Chem Finisher
+formula_step_1,"[[section:Step 1: Ingredients]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Prepare Dream Cap Extract and Nightmare Extract separately\n- See the Dream Dust section of the Chemistry 101 Guide for how"
+formula_step_2,"[[gap:-4]]\n[[section:Step 2: Mix and chill]]\n[[image:vanilla_chem_ext:fridge|w=24|h=24|gap=6|float=left]]\n- Mix the two extracts 1:1\n- Add a little acid for a slightly acidic mix: acid should be 0.5%-5% of all the liquid in the container"
+formula_step_3,"- Chill it to 2-8°C in the fridge Chill Zone; the ingredients turn into Dream Toxin"
+formula_step_4,"[[section:Step 3: Clean-up (optional)]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- (Optional) Burn off any leftover extract by heating above 100°C; Dream Toxin itself is heat-stable\n- (Optional) Add as much base as there is acid to neutralize it, and filter out the debris"
+formula_step_5,"[[section:Step 4: Evaporate]]\n[[image:vanilla_chem_ext:evaporator_b|w=24|h=24|gap=6|float=left]]\n- Put the container in the Evaporator\n- Make sure the Evaporator has an Energy Cell for power\n- Wait until the next day for the Evaporator to finish"
+formula_step_6,"[[section:Step 5: Finish]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- (Required) Once all water and alcohol have evaporated, put the container in the Chem Finisher\n- Select the Dream Toxin Injector recipe\n- Press Output\n- (Optional) Check the purity with a Composition Spectrometer"
 liquid_calcite,Calcite
 liquid_quartz,Quartz Sand
 liquid_quicklime,Quicklime
@@ -16,17 +16,17 @@ liquid_calcium_carbonate,Calcium Carbonate
 liquid_water_glass,Water Glass
 liquid_silica_gel,Silica Gel
 ore_notes_name,Ore Chemistry Notes
-ore_notes_intro,- Only a blender with all 4 chem modules can crush metal ore. 150C and 120C need an upgraded heating plate
-ore_notes_base,"[Purifying base]"
-ore_notes_base_1,"- Crush the ore, then filter out the quartz sand with Kotton fabric"
-ore_notes_base_2,"- Keep it dry and heat above 150C, the calcite calcines into quicklime"
-ore_notes_base_3,"- Pour the quicklime into base (base must be over half of all the liquid) and wait a moment, heating to 80-120C makes it faster"
-ore_notes_base_4,- Filter out the calcium carbonate and debris with a water filter
-ore_notes_acid,"[Purifying acid]"
-ore_notes_acid_1,"- Crush the ore, add as much base as there is quartz sand (they react 1:1) and heat above 120C, the quartz sand dissolves into water glass"
-ore_notes_acid_2,"- Add water and filter with a water filter, then add acid to precipitate silica gel and filter the debris with Kotton fabric"
-ore_notes_acid_3,"- Pour a little silica gel into acid (acid must be over 80% of all the liquid) and heat above 100C to remove the chemical contaminant"
-ore_notes_acid_4,"- Put it in the fridge freezer to remove heavy metal, then filter with a water filter"
+ore_notes_intro,"[[section:Introduction]]\n[[image:vanilla_chem_ext:chem_module|w=24|h=24|gap=6|float=left]]\n- Only a Blender with 4 Chemical Equipment Modules can crush metal ore\n- Only a Heating Plate with a Chemical Equipment Module can reach 120°C and 150°C"
+ore_notes_base,"[[section:Branch 1: Purifying base|fill=#41603F]]"
+ore_notes_base_1,"[[section:Step 1: Ingredients]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Attach a liquid container to the Blender\n- Add some metal ore\n- Blend it into calcite\n- (Optional) Filter the result through Kotton Fabric to remove the quartz sand"
+ore_notes_base_2,"[[section:Step 2: Calcine]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Take the container from the previous step\n- Put it on the Heating Plate\n- Heat the mix above 150°C to calcine the calcite into quicklime\n[[gap:4]]\n[[text:Note: keep it dry while making quicklime.|color=#853737|align=center]]"
+ore_notes_base_3,"[[gap:-4]]\n[[section:Step 3: Purify]]\n- Add the quicklime to the base (note: base must be over 50% of all the liquid) and wait for it to react completely.\n- With base above 50%, heavy metal settles out on its own as hydroxide debris.\n- (Optional) Heat the mix to 80-120°C to speed it up\n- (Optional) Filter out the calcium carbonate and debris with a Water Filter"
+ore_notes_base_4,"[[section:Step 4: Collect the purified base]]\n- Keep the purified base\n- (Optional) Check the purity with a Composition Spectrometer"
+ore_notes_acid,"[[page]]\n[[section:Branch 2: Purifying acid|fill=#41603F]]"
+ore_notes_acid_1,"[[section:Step 1: Ingredients]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Put metal ore in the Blender\n- Blend it into quartz sand"
+ore_notes_acid_2,"[[section:Step 2: Heat]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Take the container from the previous step\n- Put it on the Heating Plate\n- Add as much base as there is quartz sand (note: base and quartz sand react 1:1)\n- Heat above 120°C to dissolve the quartz sand into water glass"
+ore_notes_acid_3,"[[gap:-8]]\n[[section:Step 3: Purify]]\n- Take the container from the previous step\n- Add clean water and filter the solution with a Water Filter\n- Add acid and wait for silica gel to form\n- (Optional) Remove coarse contaminants with Kotton Fabric\n- Add a little silica gel to the acid and heat above 100°C (acid must be over 80% of all the liquid), then wait for it to react completely\n[[section:Step 4: Clean-up (optional)]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- (Optional) Heat the mix above 100°C to remove the chemical contaminant\n- (Optional) Put the container in the fridge Freeze Zone to remove heavy metal\n- (Optional) Filter the solution with a Water Filter"
+ore_notes_acid_4,"[[section:Step 5: Collect the purified acid]]\n- Keep the purified acid\n- (Optional) Check the purity with a Composition Spectrometer"
 liquid_yeast_wine,Live Wine Yeast
 liquid_yeast_super,Live Super Yeast
 liquid_yeast_red,Live Red Yeast
@@ -34,7 +34,7 @@ liquid_methanol,Methanol
 liquid_ice,Ice
 yeast_hint,"Drag onto a container to dissolve: adds {0} mL of live yeast."
 yeast_hint_microbes,"Drag onto a container to dissolve: adds {0} mL of live yeast and {1} mL of microbes."
-yeast_hint_reusable,"Drag onto a container: adds {0} mL of live yeast. Not used up; once per night."
+yeast_hint_reusable,"Drag onto a container: adds {0} mL of live yeast. Never used up; works any number of times."
 scanner_temperature," ({0} °C)"
 liquid_acetic_acid,Acetic Acid
 liquid_ethyl_acetate,Ethyl Acetate
@@ -48,28 +48,28 @@ label_blended,Blended
 category_blended_wine,Wine Quality
 category_wine_blend,Production
 making_notes_name,Blended Wine Recipe
-making_1,"- Acetic acid: blend edible Dream Caps, boil dry above 100 C, then dry-distill above 150 C into acetic acid and char"
-making_2,"- Ethyl acetate: add twice as much alcohol as acetic acid, plus acid making up at least 1% of all the liquid, hold at 60-75 C"
-making_3,"- Clean up: neutralize the acid with base and run it through a water filter; the remaining ethyl acetate, alcohol and water can be used as is"
-making_4,"- Blend: alcohol 20-25% of the total, 1-2 mL ethyl acetate per litre, other impurities at most 1% of the total"
-making_5,"- Bottle: choose Blended Wine in the Chem Finisher, 750 mL per bottle"
-making_6,"- Methanol over 0.1% of the total endangers the public; blended wine does not age"
+making_1,"[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Attach a liquid container to the Blender\n- Add a few edible Dream Caps\n- Blend them into edible Dream Cap mash\n[[section:Step 8: Make acetic acid]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Take the container from the previous step\n- Put it on the Heating Plate\n- Boil it dry above 100°C, then dry-distill it above 150°C: the plant matter turns into acetic acid and char"
+making_2,"[[section:Step 9: Make ethyl acetate]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Add twice as much alcohol as there is acetic acid\n- Add acid making up 1% of all the liquid\n- Heat the mix to 60-75°C: the acetic acid and alcohol form ethyl acetate"
+making_3,"[[section:Step 10: Purify the product (optional)]]\n- Neutralize with base and filter out the debris with a Water Filter; the ethyl acetate, alcohol and water left can all be used as they are"
+making_4,"- Blend to 20-25% alcohol of all the liquid, with 1-2 mL of ethyl acetate per 1000 mL of liquid, and other impurities no more than 1% of the liquid"
+making_5,"[[section:Step 12: Finish]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- Put the container in the Chem Finisher\n- Select the Blended Wine recipe\n- Press Output\n- (Optional) Check the purity with a Composition Spectrometer\n[[gap:8]]\n[[text:Note: blended wine cannot be aged; each bottle holds 750 mL|color=#3D823F|align=center]]"
+making_6,"[[section:Warning: over 0.1% methanol is a public hazard|fill=#853737|color=#FFFFFF]]"
 selling_notes_name,Selling Blended Wine
-selling_1,"- Quality starts at 1: alcohol 20-25% of the total +3, 5-20% or over 25% +2, under 5% -3; no ethyl acetate -2, under 0.5 or over 4 mL per litre -1, 1-2 mL +1; impurities (anything but water, alcohol and ethyl acetate) over 2% of the total -1, at most 1% +1"
-selling_2,"- 6+ master vintage, 5 reserve, 3-4 production, 2 homebrew, 1 bucket brew"
-selling_3,"- Two labels can be changed with the labeler: wine quality and production (genuine/blended). Labelled blended sells for 15 points less; Upper Level clients refuse it"
-selling_4,"- Quality labelled 2+ tiers too high: anyone notices; 1 tier too high: Upper Level clients, tourists and clients who test chemicals notice"
-selling_5,"- Labelled genuine at its real quality: clients who test chemicals notice; real tier 4+ labelled one tier lower: nobody notices"
+selling_1,"[[section:Blended wine quality score]]\n- Base: +1\n- Alcohol over 25% of the liquid: +2\n- Alcohol 20%-25% of the liquid: +3\n- Alcohol 5%-20% of the liquid: +2\n- Alcohol under 5% of the liquid: -3\n- No ethyl acetate: -2\n- Under 0.5 mL of ethyl acetate per 1000 mL of liquid: -1\n- Over 4 mL of ethyl acetate per 1000 mL of liquid: -1\n- 1-2 mL of ethyl acetate per 1000 mL of liquid: +1\n- Impurities (anything but water, alcohol and ethyl acetate) over 2% of the liquid: -1\n- Impurities under 1% of the liquid: +1"
+selling_2,"[[gap:4]]\n[[section:Blended wine quality tiers]]\n- 6 or more: Master Vintage\n- 5: Reserve\n- 3-4: Production Wine\n- 2: Homebrew\n- 1: Bucket Brew"
+selling_3,"[[section:Blended wine labels]]\n- Blended wine has two labels the Labeler can change: wine quality and production (genuine/blended)\n- Labelled blended: price -15%\n- Upper Levels clients don't buy blended wine"
+selling_4,"[[page]]\n[[section:When false labels are caught]]\n- Quality labelled 2+ tiers too high: any client notices\n- Quality labelled 1 tier too high: Upper Levels clients, tourists and clients who test chemicals notice"
+selling_5,"- Labelled genuine at its real quality: only clients who test chemicals notice\n- Real quality tier 4 or higher labelled 1 tier lower: nobody notices"
 selling_6,"- Trade board orders catch any false label"
-selling_7,"- Once caught it sells as blended wine of its real quality; false labels sold unnoticed add up to fraud"
-making_alcohol,"[Alcohol]"
-making_alcohol_1,"- Blend nutrifruit, add acid making up about 1% of all the liquid (at least 0.5%) and heat above 90 C: the starch hydrolyses into sugar (and the heat sterilises it)"
-making_alcohol_2,"- Neutralize with base until acid and base together are under 1% of the volume, then cool below 45 C"
-making_alcohol_3,"- Drag yeast onto the container to dissolve it and keep it at 20-35 C overnight: the yeast grows and ferments the sugar into alcohol 1:1 by volume. Wine yeast stops once alcohol is 12% of the total, super yeast at 18%; use super yeast for sugary mash"
-making_alcohol_4,"- Red yeast and unsterilised mash make methanol; heat to 65-75 C to boil it off"
-making_alcohol_5,"- In a fridge freezer water turns to ice until everything else is about 25% of the liquid (ice not counted); filter the ice out with Kotton fabric to concentrate the alcohol to at most about 25% of the total, then purify it in an evaporator with the solvent recovery module"
-making_ester,"[Ethyl acetate]"
-making_wine,"[Blending]"
+selling_7,"- When caught, it sells as blended wine of its real quality\n- False labels that are sold without being caught add up to fraud"
+making_alcohol,"[[section:Step 1: Ingredients]]"
+making_alcohol_1,"[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Attach a liquid container to the Blender\n- Add a few Nutrifruit\n- Blend them into nutrifruit mash"
+making_alcohol_2,"[[section:Step 2: Make sugar]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Take the container from the previous step\n- Put it on the Heating Plate\n- Add acid making up 0.5%-1% of the liquid\n- Heat the mix above 90°C to hydrolyse the starch into sugar\n[[gap:8]]\n[[text:Note: the heat of this step also kills microbes|color=#3D823F|align=center]]"
+making_alcohol_3,"[[gap:-4]]\n[[section:Step 3: Neutralize]]\n- Add base until acid and base together are under 1% of the liquid\n[[section:Step 4: Ferment]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Cool it below 45°C"
+making_alcohol_4,"- Dissolve yeast in the container and keep it at 20-35°C overnight: the yeast grows and ferments the sugar into alcohol 1:1 by volume\n- Wine Yeast stops fermenting at 12% alcohol, Super Yeast at 18%\n- For sugary mash, Super Yeast is recommended\n[[gap:8]]\n[[text:Note: Red Yeast and mash that was not fully sterilised make methanol while fermenting; heat to 65-75°C to boil it off|color=#853737]]"
+making_alcohol_5,"[[gap:-4]]\n[[section:Step 5: Concentrate the alcohol]]\n[[image:vanilla_chem_ext:fridge|w=24|h=24|gap=6|float=left]]\n- Put the container in the fridge Freeze Zone and let the water freeze; take it out once everything else is about 25% of the liquid (ice not counted)\n- Filter out the ice with Kotton Fabric; the alcohol is concentrated to at most about 25% of the total\n[[section:Step 6: Purify the alcohol (optional)]]\n[[image:vanilla_chem_ext:evaporator_b|w=24|h=24|gap=6|float=left]]\n- Put the container in an Evaporator with an Evaporator Solvent Recovery Module\n- Make sure the Evaporator has an Energy Cell for power\n- Wait until the next day for the Evaporator to finish"
+making_ester,"[[section:Step 7: Ingredients for acetic acid]]"
+making_wine,"[[section:Step 11: Blend]]"
 advanced_fabric_name,Advanced Kotton Fabric
 advanced_fabric_desc,"Filters out coarse particles like Kotton fabric (pore 150) and regains 1000 durability every day."
 advanced_fabric_flavor,"Woven with a self-cleaning coating. No washing required."
@@ -80,7 +80,7 @@ setting_ferment,Yeast fermentation speed (%)
 setting_ferment_tooltip,"How fast yeast turns sugar into alcohol overnight. 100 is the default: each mL of live yeast turns 24 mL of sugar into 24 mL of alcohol per night."
 guide_book_name,Advanced Chemistry Handbook
 guide_book_desc,A retired chemist's collected process notes.
-guide_book_intro,"This handbook covers Dream Toxin, ore chemistry, making and selling blended wine, and nuclear waste reprocessing. Other mods may add their own sections at the end. Understand each step before you start."
+guide_book_intro,"[[gap:6]]\nThis handbook covers Dream Toxin, ore chemistry, making and selling blended wine, nuclear waste reprocessing, beer brewing, Crackine refining, incapacitant production and brine electrolysis."
 liquid_spent_fuel,Spent Fuel
 liquid_pu_dissolved,Dissolved Plutonium
 liquid_fission_products,Fission Products
@@ -106,16 +106,16 @@ nightlog_radiation_new,"You were exposed to radiation and caught radiation sickn
 nightlog_radiation_worse,"Your radiation sickness got worse: -{0}% when selling."
 nightlog_radiation_max,"Your radiation sickness is as bad as it gets: -{0}% when selling."
 nc_notes_name,Nuclear Waste Reprocessing Notes
-nc_notes_warning,"WARNING! Only open it if you can neutralize nuclear waste! Stay clear of radiation sickness!"
-nc_notes_1,"* Opening: pry the barrel open carefully with a crowbar, and make sure you deal with the fission products by chemical means only. Keep the opened barrel on your person; fission products do not pour out, and never should."
-nc_notes_2,"* Dissolution: add about 500 mL of concentrated acid. Keep acid above 98% of the non-radioactive liquid in the barrel."
-nc_notes_3,"* Valence adjustment: once dissolved, add about 20 mL of reducing agent."
-nc_notes_4,"* Extraction: pour in ethyl acetate, at least twice the fission products, about 100 mL. Add all 100 mL at once to extract as much plutonium as possible."
-nc_notes_5,"* Separation: pour the barrel into a clean container. Only the plutonium extract and volatile liquids come out; acid and impurities stay in the barrel."
-nc_notes_6,"* Plutonium: heat the liquid above 100 C to drive off water, organics and alcohol."
-nc_notes_7,"* Vitrification: once the barrel is emptied, decay heat takes it above 300 C. Add 50 mL of water glass; the fission products melt into glass, sealed in a steel canister, and can be disposed of safely."
-nc_notes_8,"* Protection: never spend the night with unprocessed waste, or you will catch radiation sickness that only Immunivax can cure."
-nc_notes_9,"* Plutonium ampoule: pure plutonium solution can be filled into plutonium ampoules in the Chem Finisher. Add one to any drink or wine to make a nuclear drink worth 50 credits more."
+nc_notes_warning,"[[section:Warning: open only if you can neutralize it!|fill=#853737|color=#FFFFFF|w=259|h=16|align=center]]"
+nc_notes_1,"[[section:Step 1: Open]]\n- Pry the barrel open carefully with a Crowbar, and make sure you deal with the fission products by chemical means in the steps that follow\n- Keep the opened barrel safe: the fission products do not pour out, and never should"
+nc_notes_2,"[[gap:-4]]\n[[section:Step 2: Dissolve]]\n- Pour about 500 mL of strong acid into the barrel and wait for it to react completely. Acid must be over 98% of the non-radioactive liquid in the barrel"
+nc_notes_3,"[[section:Step 3: Adjust the oxidation state]]\n- Pour about 20 mL of Reducing Agent into the barrel and wait for it to react completely"
+nc_notes_4,"[[section:Step 4: Extract]]\n- Pour in ethyl acetate twice the volume of the fission products, about 100 mL\n[[gap:4]]\n[[text:Tip: add all 100 mL at once for the best extraction|color=#3D823F|align=center]]"
+nc_notes_5,"[[gap:-4]]\n[[section:Step 5: Separate]]\n- Pour the barrel's liquid into an empty, clean container. Only the plutonium extract and volatile liquids come out; acid and impurities stay in the barrel"
+nc_notes_6,"[[section:Step 6: Recover the plutonium]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Take the container from the previous step\n- Put it on the Heating Plate\n- Heat the mix above 100°C to drive off the water, organics and alcohol"
+nc_notes_7,"[[section:Step 7: Vitrify]]\n- Repeat steps 5-6 until the barrel's liquid is used up; decay heat then takes the barrel above 300°C\n- Pour 50 mL of water glass into the barrel to melt the fission products into glass\n- The fission products are sealed in the stainless steel can and can be disposed of safely"
+nc_notes_8,"[[section:Step 8: Plutonium]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- Put the container with the pure plutonium solution in the Chem Finisher and select the Plutonium Ampoule recipe\n- Press Output\n[[gap:4]]\n[[text:Tip: a Plutonium Ampoule added to any drink or wine makes a nuclear drink worth 50 credits more|color=#3D823F|align=center]]"
+nc_notes_9,"[[gap:-2]]\n[[section:Safety: protection|fill=#853737]]\n- Never spend the night with unprocessed waste, or you will catch radiation sickness that only Immunivax can cure."
 refuse_blended_wine,"That doesn't go in our cellar."
 refuse_nuclear_drink,"I can't afford a drink like that. Just give me a regular one."
 refuse_nuclear_drink_lower,"I can't afford a drink like that. Just give me a regular one."
@@ -141,13 +141,13 @@ beer_split,"Poured a can of beer; {0} mL left in the keg."
 beer_keg_tooltip_cold,"Temperature {0} C, {1} mL left: chilled, double-click to pour a draft beer."
 beer_keg_tooltip_warm,"Temperature {0} C, {1} mL left: double-click to pour a can; chill it to 2-8 C to pour draft beer."
 beer_notes_name,Beer Brewing Notes
-beer_1,"- The Chem Finisher fills beer into 2 L kegs; the liquid must contain alcohol"
+beer_1,"[[section:Step 1: Ingredients]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Attach a liquid container to the Blender\n- Add 600-750 g of Nutrifruit\n- Blend it into nutrifruit mash\n[[section:Step 2: Brew]]\n- Hydrolyse and neutralize the mash from the previous step\n- See steps 2-3 of the Blended Wine Recipe in this handbook for how\n- (Optional) Add water up to 1.2 L to give the yeast a better environment for fermenting\n- Add a pack of yeast and wait two nights for it to ferment into a wash (the fermented liquid that contains alcohol)\n- Add clean water to bring the liquid to 2000 mL\n[[gap:6]]\n[[text:Note: Basewater in these steps gives ordinary beer; High-Quality Water or Pure Water gives premium beer|color=#3D823F|align=center]]"
 beer_2,"- Premium: alcohol 5-8% of the total, live yeast 0.1-1%, sugar up to 4%, protein up to 1%; impurities (anything but water, alcohol, yeast, sugar and protein) at most 1% of water + impurities"
 beer_3,"- Ordinary: alcohol 8-12%, live yeast below 0.1% or 1-2%, sugar 4-8%, protein 1-2%, impurities 1-2%; anything beyond is undrinkable, as is methanol above 0.1% of the total"
-beer_4,"- Recipe: mash 600-750 g of nutrifruit, hydrolyse and neutralize, dilute to about 1.2 L, add a packet of yeast and ferment for two nights, then dilute to 2 L. Base water is enough for ordinary beer; high-quality or pure water makes it premium"
-beer_5,"- The Chem Finisher adds no impurity when filling beer, however many chem modules it has"
-beer_6,"- Each double-click pours one serving: a can at room temperature (6 per keg), or a draft beer once chilled to 2-8 C in a powered fridge chill zone (4 per keg). The fridge needs two storage upgrades to fit the keg"
-beer_7,"- Sell draft beer the same day: overnight it goes flat and is only worth a can; cans can be chilled in a fridge for a bonus"
+beer_4,"[[gap:-2]]\n[[section:Step 3: Finish]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- (Required) Make sure there is more than 2000 mL of liquid and that it contains alcohol\n- Put the container in the Chem Finisher\n- Select the Beer Keg recipe\n- Press Output"
+beer_5,"[[gap:6]]\n[[text:Note: the Chem Finisher adds no impurities when it fills a beer keg, so no Chemical Equipment Modules are needed.|color=#3D823F|align=center]]"
+beer_6,"[[gap:-2]]\n[[section:About beer]]\n- Tip: double-click a room-temperature keg to pour 1 can of beer, up to 6 cans per keg\n- Put the keg in a powered fridge Chill Zone; once it is at 2-8°C, double-click it to pour a draft beer, up to 4 per keg\n- The fridge needs two storage upgrades to fit a keg"
+beer_7,"- Draft beer only keeps for the day: overnight most of its fizz is gone and it sells for no more than a can\n- Cans can be chilled in the fridge to sell for more"
 beer_keg_empty,"Poured the last serving; the keg is empty."
 beer_table_name,Beer Quality Table
 beer_table_head,"[[table:fills=#D8C6A2,#7F916C,#B99A63,#95645D|colors=#3A3A3A,#F4EEDB,#2F2A24,#F4EEDB|w=230|rowh=10.5|rowgap=1|cellgap=1|size=5.6|padding=2.5|align=left,center,center,center]]\n[[row:Measure|Premium|Ordinary|Undrinkable|fill=#665441|color=#F5EAD1|head=1]]"
@@ -155,11 +155,11 @@ beer_table_alcohol,"[[row:Alcohol|5-8%|8-12%|other]]"
 beer_table_yeast,"[[row:Live yeast|0.1-1%|1-2% *|over 2%]]"
 beer_table_sugar,"[[row:Sugar|up to 4%|4-8%|over 8%]]"
 beer_table_protein,"[[row:Protein|up to 1%|1-2%|over 2%]]"
-beer_table_impurity,"[[row:Impurities †|up to 1%|1-2%|over 2%]]"
+beer_table_impurity,"[[row:Impurities **|up to 1%|1-2%|over 2%]]"
 beer_table_methanol,"[[row:Methanol|-|-|over 0.1%]]"
-beer_table_note_1,"- All shares are of the whole keg except impurities; the keg gets the tier of its worst measure"
-beer_table_note_2,"- * Less than 0.1% live yeast (no fizz) is also ordinary"
-beer_table_note_3,"- † Impurities: anything but water, alcohol, yeast, sugar and protein, as a share of water + impurities. Diluting with base water usually gives 1-2%, i.e. ordinary; high-quality or pure water reaches premium"
+beer_table_note_1,"[[gap:6]]\n- All shares are of the whole keg except impurities; the keg gets the tier of its worst measure"
+beer_table_note_2,"- * Less than 0.1% live yeast (no fizz) also counts as ordinary"
+beer_table_note_3,"- ** Impurities: anything but water, alcohol, yeast, sugar and protein, as a share of water + impurities. Brewed with Basewater this is usually 1-2%, i.e. ordinary; only High-Quality Water or Pure Water can reach premium"
 liquid_alkaloid,Alkaloid
 xinke_plant_name,Xinke Shrub
 xinke_seed_name,Xinke Seeds
@@ -187,13 +187,13 @@ crackine_regular_4_1,"{0}... please. Only yours works. Everyone else's feels wro
 crackine_regular_4_2,"My hands have been shaking since this morning."
 crackine_regular_4_3,"I scraped together {1} credits. Sold a few things. Don't ask what."
 crackine_notes_name,Crackine Refining Notes
-crackine_1,"- Blend Xinke leaves into a mix of water, protein and alkaloid"
-crackine_2,"- Add acid or base to denature the protein, then filter it out"
-crackine_3,"- Top up the acid to about 5% of the liquid"
-crackine_4,"- Boil it dry above 100 C: once water is below 1%, the alkaloid binds with the acid into Crackine HCl powder, using 0.1 part acid per part alkaloid"
-crackine_5,"- Drive off the leftover acid in the evaporator; it only does this for dry Crackine powder"
-crackine_6,"- Press it in the Chem Finisher, dry: a small vial takes 0.25 mL, a large vial 1 mL"
-crackine_7,"- Crackine at 90%+ purity hooks the street: sell one to a personal-use buyer and a Crackine buyer comes the next day; sell some every day and that buyer's budget grows by 25% a day, up to 2000"
+crackine_1,"[[section:Step 1: Ingredients]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Attach a liquid container to the Blender\n- Add some Xinke Leaves\n- Blend them to get the alkaloid\n- (Optional) Coagulate the protein with acid or base, and remove the coarse contaminants with Kotton Fabric"
+crackine_2,"[[section:Step 2: Heat]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Take the container from the previous step\n- Put it on the Heating Plate"
+crackine_3,"- Add a little acid for an acidic mix: acid should be about 5% of all the liquid in the container"
+crackine_4,"- Heat the mix above 100°C to boil off the water\n- Once water is under 1%, the alkaloid binds with the acid into Crackine Hydrochloride Powder, using 0.1 part of acid per part of alkaloid"
+crackine_5,"[[section:Step 3: Evaporate]]\n[[image:vanilla_chem_ext:evaporator_b|w=24|h=24|gap=6|float=left]]\n- Put the container in the Evaporator\n- Make sure the Evaporator has an Energy Cell for power\n- Wait until the next day for the Evaporator to finish\n[[gap:4]]\n[[text:Tip: Crackine powder is special: leftover acid in dry Crackine powder can be evaporated off|color=#3D823F|align=center]]"
+crackine_6,"[[gap:-2]]\n[[section:Step 4: Finish]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- (Required) Once all the water has evaporated, put the container in the Chem Finisher\n- Select the A Small Vial of Crackine or A Large Vial of Crackine recipe\n- Press Output\n- (Optional) Check the purity with a Composition Spectrometer"
+crackine_7,"[[page]]\n[[section:Appendix: the product]]\n- Crackine of pharma grade or better is highly addictive\n- Sell high-purity Crackine one day and a regular is sure to come back the next day\n- Keep selling high-purity Crackine every day and the buyer's budget grows 25% a day, up to 2000"
 lantern_plant_name,Hollow's Lantern
 lantern_seed_name,Hollow's Lantern Seeds
 lantern_seed_desc,"A lab-bred chili seed. High-yielding but hungry for nutrients, and its roots foul the water."
@@ -253,24 +253,24 @@ salt_ore_desc,"Rock salt mined from an underground salt bed: mostly sodium chlor
 salt_order_small,"I'll take {0} chunks of rock salt, delivered in {1} day."
 salt_order_large,"I'll take {0} chunks of rock salt, delivered in {1} days."
 electrolysis_notes_name,Brine Electrolysis Notes
-electrolysis_1,"- Rock salt ore: order it from GP Mining by phone (6 in 1 day; 12 in 2 days once you have spent 350 there). Any blender crushes it into about 80 mL of salt plus a little clay and mineral; fewer chem modules lose more"
-electrolysis_2,"- Electrolyzer: sold by Dr. Jackson with two empty gas canisters. Battery on the left, brine container in the middle, product A (hydrogen) top right, product B (chlorine) bottom right"
-electrolysis_3,"- Each night it electrolyses 240 mL of salt (more with performance): every mL of salt uses 0.3 mL of water and leaves 1 mL of base in the container, plus 0.5 mL each of hydrogen and chlorine. It stops without salt, water, power or canister room. Efficiency saves power; quality from -100 to +100 scales the products from half to one and a half"
-electrolysis_4,"- Filter the clay and mineral out of the base with a water filter, and boil off extra water in the evaporator"
-electrolysis_5,"- Mixing: drag the chlorine canister onto the hydrogen canister (or the other way round); the gas moves into the target, and what does not fit stays behind"
-electrolysis_6,"- Burning: put the mixed canister on a heating plate and heat it past 120 C (the plate needs at least 1 chem module); hydrogen and chlorine burn 1:1 into twice the volume of hydrogen chloride"
-electrolysis_7,"- Dissolving: drag the hydrogen chloride canister onto a container with water; it dissolves into acid up to 40% of the liquid (500 mL of water takes at most 333 mL of acid), and the rest stays in the canister. For weaker acid, measure out the strong acid with droppers or cylinders and add water"
-electrolysis_8,"- Do not pour hydrogen chloride into a container that still holds base: the base neutralizes the acid"
-electrolysis_9,"- A canister holds 5 L; right-click to vent it. The retired chemist sometimes sells empty canisters"
+electrolysis_1,"[[section:Step 1: Ingredients]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Attach a liquid container to the Blender\n- Add some Rock Salt Ore\n- Blend it into sodium chloride (table salt)"
+electrolysis_2,"[[section:Step 2: Electrolyse]]\n[[image:vanilla_chem_ext:icon_electrolyzer|w=24|h=24|gap=6|float=left]]\n- Take the container from the previous step\n- Put it in the Electrolyzer\n- Make sure the Electrolyzer has an Energy Cell for power\n- Wait until the next day, then collect the hydrogen and chlorine from the two gas canisters"
+electrolysis_3,"[[section:Step 3: Mix the gases]]\n- Drag the hydrogen canister onto the chlorine canister (or the other way round) to combine the gases; whatever does not fit stays in the canister it came from"
+electrolysis_4,"[[section:Step 4: Make hydrogen chloride]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Take the mixed gas canister from the previous step\n- Put it on the Heating Plate\n- Heat it above 120°C: hydrogen and chlorine burn 1:1 into twice the volume of hydrogen chloride"
+electrolysis_5,"[[section:Step 5: Make strong or weak acid]]\n- Drag the hydrogen chloride canister onto a container with water to dissolve it into acid\n- It dissolves until acid is 40% of the liquid (500 mL of water takes at most 333 mL of acid); the rest of the gas stays in the canister\n- For weaker acid, measure out the strong acid with a Dropper or Graduated Cylinder and add water\n[[gap:4]]\n[[text:Note: hydrogen chloride poured into a container with base is used up neutralizing the base|color=#853737|align=center]]"
+electrolysis_6,"[[section:Step 6: Recover the base]]\n[[image:vanilla_chem_ext:evaporator_b|w=24|h=24|gap=6|float=left]]\n- Take the brine container from step 2, after electrolysis\n- (Optional) Filter out the clay, mineral and other physical contaminants with a Water Filter\n- Put the container in the Evaporator\n- Make sure the Evaporator has an Energy Cell for power\n- Wait until the next day for the Evaporator to finish"
+electrolysis_7,"[[section:Appendix: ingredients]]\n- Order Rock Salt Ore from GP Mining by phone (6 in 1 day; 12 in 2 days, unlocked once you have spent 350)\n- Any Blender crushes Rock Salt Ore; each gives about 80 mL of salt plus a little clay and mineral\n- The Retired Chemist sometimes sells Empty Gas Canisters\n- A canister holds 5 L; right-click it to vent it"
+electrolysis_8,"[[section:Appendix: the machine]]\n[[text:<u>Electrolyzer</u>|align=left|size=9]]\n[[gap:8]]\n[[image:vanilla_chem_ext:icon_electrolyzer|w=24|h=24|gap=6|float=left]]\n- Sold by Dr. Jackson with two Empty Gas Canisters\n- Battery on the left, brine container in the middle, product A (hydrogen) top right, product B (chlorine) bottom right\n- Electrolyses 240 mL of salt a night (more with higher performance)\n- Each mL of salt uses 0.3 mL of water and leaves 1 mL of base in the container, plus 0.5 mL each of hydrogen and chlorine\n- Stops when it runs out of salt, water or power, or a canister is full\n- Quality from -100 to +100 scales the output from x0.5 to x1.5"
+electrolysis_9,"[[omit]]"
 lantern_notes_name,Incapacitant Production Notes
-lantern_1,"- The retired farmer sells Hollow's Lantern seeds. Annual, gives one seed back at harvest; hungry for nutrients, and its roots foul the water"
-lantern_2,"- Blend the chilis: you get capsaicin only, no water or protein"
-lantern_3,"- Add at least 4x as much alcohol. Below 4x, part of it turns into physical contaminant: share = (4 - alcohol/capsaicin) / 4"
-lantern_4,"- Heat above 50 C: capsaicin turns into Lantern Ester, using 0.1 part alcohol per part capsaicin. Alcohol boils at 78 C and burns off above that, so keep it at 50-78 C"
-lantern_5,"- Filter out the physical contaminant, then dry off the alcohol in the evaporator. Unreacted capsaicin stays behind and lowers purity"
-lantern_6,"- Press it in the Chem Finisher, dry: a small vial takes 2 mL"
-lantern_7,"- Legal goods. Upper Level and Security clients buy it, and so do mercenaries; the Lower Level, revolutionaries and everyone else refuse it"
-lantern_8,"- Sold to the Upper Level or Security, it wipes crimes from your security file: sold price x purity x 5, largest crime first; once all crimes are at zero, every full 100 left takes 1 off investigation progress"
+lantern_1,"[[section:Step 1: Ingredients]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Attach a liquid container to the Blender\n- Add some Hollow's Lanterns\n- Blend them into capsaicin"
+lantern_2,"[[section:Step 2: Extract]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Take the container from the previous step\n- Put it on the Heating Plate\n- Add alcohol 4 times the volume of the capsaicin\n- Heat the mix above 50°C to turn the capsaicin into Lantern Ester\n[[gap:4]]\n[[text:Note: with less than 4 times as much alcohol, the extraction makes physical contaminant; its share = (4 - alcohol/capsaicin) / 4|color=#853737]]\n[[gap:4]]\n[[text:Tip: each part of capsaicin uses 0.1 part of alcohol. Alcohol boils at 78°C and too much heat wastes it; 50-78°C is best|color=#3D823F|align=center]]"
+lantern_3,"[[section:Step 3: Evaporate]]\n[[image:vanilla_chem_ext:evaporator_b|w=24|h=24|gap=6|float=left]]\n- (Optional) Filter out the physical contaminant with a Water Filter\n- Put the container in the Evaporator\n- Make sure the Evaporator has an Energy Cell for power\n- Wait until the next day for the Evaporator to finish"
+lantern_4,"[[section:Step 4: Finish]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- (Required) Once all the alcohol has evaporated, put the container in the Chem Finisher\n- Select the A Small Vial of Incapacitant recipe\n- Press Output\n- (Optional) Check the purity with a Composition Spectrometer"
+lantern_5,"[[page]]\n[[section:Appendix: ingredients]]\n- The Retired Farmer sells Hollow's Lantern Seeds\n- Hollow's Lantern is an annual and gives one seed back at harvest\n- It uses a lot of nutrients while growing, and its roots foul its surroundings"
+lantern_6,"[[section:Appendix: the product]]\n- Incapacitant is legal goods: the Upper Levels and Security buy it, and mercenaries often want it too\n- The Lower Levels, the Revolution and most ordinary people refuse it"
+lantern_7,"- Selling incapacitant to the Upper Levels or Security cancels crimes in your Security record: price x purity x 5, the most serious crime first"
+lantern_8,"- Once your crimes are cleared, every full 100 of that lowers investigation progress by 1"
 pu_battery_name,Plutonium Chemical Battery
 pu_battery_desc,"A 200 kJ battery with a window in its side. Drag plutonium ampoules onto it: each one adds 2 kJ of self-charge every night, up to 10."
 pu_battery_flavor,"Dr. Jackson insists it is a chemical battery, not a nuclear one. The difference is what goes on the invoice."

@@ -10,7 +10,5 @@
   <Assemblies>
     <Assembly>VanillaChemExt.dll</Assembly>
   </Assemblies>
-  <Capabilities>
-    <Capability>reflection-external</Capability>
-  </Capabilities>
+  <Capabilities />
 </Manifest>

@@ -2,7 +2,7 @@ liquid_dream_toxin,梦魔菌毒素
 injector_name,梦魔菌毒素注射剂
 injector_desc,上层区美容诊所的抢手货。将提纯后的梦魔菌毒素以微克级剂量注入面部肌肉，数小时内就能抚平皱纹，把表情定格在最上镜的那一刻。只有药用级以上的产品才能通过诊所的验收。
 injector_flavor,微笑是可选配件。
-formula_name,梦魔菌毒素
+formula_name,梦魔菌毒素配方
 formula_step_1,"[[section:第1步：原料准备]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- 分别制取梦帽菇萃取液和梦魇帽菇萃取液\n- 具体步骤可参照《化学入门指南-梦尘》"
 formula_step_2,"[[gap:-4]]\n[[section:第2步：混合冷藏]]\n[[image:vanilla_chem_ext:fridge|w=24|h=24|gap=6|float=left]]\n- 将两种萃取液按1:1混合\n- 加入少量酸形成微酸环境，酸应占容器内液体总量的0.5%-5%"
 formula_step_3,"- 使用冰箱冷藏区降温至2-8°C，使原料转化为梦魔菌毒素"
@@ -20,12 +20,12 @@ ore_notes_intro,"[[section:前言]]\n[[image:vanilla_chem_ext:chem_module|w=24|h
 ore_notes_base,"[[section:分支1：提纯碱液|fill=#41603F]]"
 ore_notes_base_1,"[[section:第1步：原料准备]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- 将液体容器接到搅拌机上\n- 加入若干金属矿石\n- 搅拌原料，制成方解石\n（可选）- 使用韧棉织物过滤上一步所得溶液，以除去石英砂"
 ore_notes_base_2,"[[section:第2步：煅烧]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- 取下上一步使用的容器\n- 将其放入加热板\n- 将混合物加热到150°C以上，将方解石煅烧成生石灰\n[[gap:4]]\n[[text:注意：制取生石灰的过程中应保持干燥。|color=#853737|align=center]]"
-ore_notes_base_3,"[[gap:-4]]\n[[section:第3步：提纯]]\n- 将生石灰加入到碱液中（注：碱成分需要占液体总量的50%以上），等候其反应完全\n- （可选）加热混合物至80-120°C，以提高反应速度\n- （可选）使用滤水器除去碳酸钙和残渣"
+ore_notes_base_3,"[[gap:-4]]\n[[section:第3步：提纯]]\n- 将生石灰加入到碱液中（注：碱成分需要占液体总量的50%以上），等候其反应完全。\n- 当碱浓度高于50%时，重金属会以氢氧化物的形式自行沉淀成残渣。\n- （可选）加热混合物至80-120°C，以提高反应速度\n- （可选）使用滤水器除去碳酸钙和残渣"
 ore_notes_base_4,"[[section:第4步：获取纯化碱液]]\n- 保存纯化后的碱液\n- （可选）使用成分光谱仪检查纯度"
 ore_notes_acid,"[[page]]\n[[section:分支2：提纯酸液|fill=#41603F]]"
 ore_notes_acid_1,"[[section:第1步：原料准备]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- 将金属矿石装入搅拌机\n- 搅拌原料，制成石英砂"
 ore_notes_acid_2,"[[section:第2步：加热]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- 取下上一步使用的容器\n- 将其放入加热板\n- 往容器中加入与石英砂等量的碱（注：碱和石英砂1:1发生反应）\n- 加热至120°C以上，将石英砂溶解成水玻璃"
-ore_notes_acid_3,"[[gap:-8]]\n[[section:第3步：提纯]]\n- 取下上一步使用的容器\n- 加入净水，并使用滤水器过滤容器内溶液\n- 加入酸液，等候硅胶析出\n- （可选）使用韧棉织物除去大颗粒污染物\n- 将少量硅胶加入到酸液中（酸成分需要占液体总量的80%以上），等候其反应完全\n[[section:第4步：除杂（可选）]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- （可选）将混合物加热到100°C以上，除去化学污染物\n- （可选）将容器放进冰箱冷冻区，以除去重金属\n- （可选）使用滤水器过滤容器内溶液"
+ore_notes_acid_3,"[[gap:-8]]\n[[section:第3步：提纯]]\n- 取下上一步使用的容器\n- 加入净水，并使用滤水器过滤容器内溶液\n- 加入酸液，等候硅胶析出\n- （可选）使用韧棉织物除去大颗粒污染物\n- 将少量硅胶加入到酸液中并加热至100°C以上（酸成分需要占液体总量的80%以上），等候其反应完全\n[[section:第4步：除杂（可选）]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- （可选）将混合物加热到100°C以上，除去化学污染物\n- （可选）将容器放进冰箱冷冻区，以除去重金属\n- （可选）使用滤水器过滤容器内溶液"
 ore_notes_acid_4,"[[section:第5步：获取纯化酸液]]\n- 保存纯化后的酸液\n- （可选）使用成分光谱仪检查纯度"
 liquid_yeast_wine,活性酿酒酵母
 liquid_yeast_super,活性超级酵母
@@ -34,7 +34,7 @@ liquid_methanol,甲醇
 liquid_ice,冰
 yeast_hint,拖到容器上溶解：加入 {0} 毫升活性酵母。
 yeast_hint_microbes,拖到容器上溶解：加入 {0} 毫升活性酵母，另含 {1} 毫升微生物。
-yeast_hint_reusable,拖到容器上：加入 {0} 毫升活性酵母，不会消耗，每晚只能用一次。
+yeast_hint_reusable,拖到容器上：加入 {0} 毫升活性酵母，不会消耗，可以无限次使用。
 scanner_temperature,（{0}°C）
 liquid_acetic_acid,乙酸
 liquid_ethyl_acetate,乙酸乙酯
@@ -55,7 +55,7 @@ making_4,"- 勾兑应使酒精占液体总量的20%-25%，每1000毫升液体需
 making_5,"[[section:第12步：成型封装]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- 将容器放入化学制剂成型机\n- 选择“勾兑葡萄酒”配方\n- 按下“输出”按钮\n- （可选）使用成分光谱仪检查纯度\n[[gap:8]]\n[[text:注意：勾兑酒不能陈酿，体积为每瓶750毫升|color=#3D823F|align=center]]"
 making_6,"[[section:警告：甲醇超过液体总量的0.1%时，会危害公共安全|fill=#853737|color=#FFFFFF]]"
 selling_notes_name,勾兑酒销售须知
-selling_1,"[[section:勾兑酒品质评分标准]]\n- 基础：+1分\n- 酒精占液体总量25%以上：+2分\n- 酒精占液体总量20%-25%：+3分\n- 酒精占液体总量5%-20%：+2分\n- 酒精占液体总量5%以下：-3分\n- 不含乙酸乙酯：-2分\n- 每1000毫升酒精对应的乙酸乙酯少于0.5毫升：-1分\n- 每1000毫升酒精对应的乙酸乙酯多于4毫升：-1分\n- 每1000毫升酒精对应的乙酸乙酯为1-2毫升：+1分\n- 杂质（水、酒精、乙酸乙酯以外的液体）超过液体总量的2%：-1分\n- 杂质（水、酒精、乙酸乙酯以外的液体）少于液体总量的1%：+1分"
+selling_1,"[[section:勾兑酒品质评分标准]]\n- 基础：+1分\n- 酒精占液体总量25%以上：+2分\n- 酒精占液体总量20%-25%：+3分\n- 酒精占液体总量5%-20%：+2分\n- 酒精占液体总量5%以下：-3分\n- 不含乙酸乙酯：-2分\n- 每1000毫升液体对应的乙酸乙酯少于0.5毫升：-1分\n- 每1000毫升液体对应的乙酸乙酯多于4毫升：-1分\n- 每1000毫升液体对应的乙酸乙酯为1-2毫升：+1分\n- 杂质（水、酒精、乙酸乙酯以外的液体）超过液体总量的2%：-1分\n- 杂质（水、酒精、乙酸乙酯以外的液体）少于液体总量的1%：+1分"
 selling_2,"[[gap:4]]\n[[section:勾兑酒品质评分级别]]\n- 6分及以上：大师年份\n- 5分：珍藏级\n- 3-4分：量产酒\n- 2分：自酿酒\n- 1分：桶装酒"
 selling_3,"[[section:勾兑酒标签]]\n- 勾兑酒有两个可用标签打印机修改的标签：葡萄酒品质、酿造方式（纯酿/勾兑）\n- 标注勾兑时，售价-15%\n- 上层区客人不会购买勾兑酒"
 selling_4,"[[page]]\n[[section:勾兑酒标签识破]]\n- 品质比实际高2级以上：任何客人都能识破\n- 品质比实际高1级：上层区客人、游客和懂化验的客人能够识破"
@@ -80,7 +80,7 @@ setting_ferment,酵母发酵速度（%）
 setting_ferment_tooltip,过夜时酵母把糖变成酒精的速度。100 为默认：每毫升活酵母每晚把 24 毫升糖变成 24 毫升酒精。
 guide_book_name,进阶化学手册
 guide_book_desc,一位退休化学家整理的工艺笔记合集。
-guide_book_intro,"[[gap:6]]\n本手册收录了以下工艺：梦魔菌毒素、矿石化学、勾兑酒的酿造与销售、核废料后处理。其他 Mod 的工艺附在最后。请在充分理解每一步之后再动手。"
+guide_book_intro,"[[gap:6]]\n本手册收录了以下工艺：梦魔菌毒素、矿石化学、勾兑酒的酿造与销售、核废料后处理、啤酒酿造、快克因提纯、失能剂制取、电解食盐水。"
 liquid_spent_fuel,乏燃料
 liquid_pu_dissolved,溶解的钚
 liquid_fission_products,裂变产物
@@ -114,7 +114,7 @@ nc_notes_4,"[[section:第4步：萃取]]\n- 向桶内注入相当于裂变产物
 nc_notes_5,"[[gap:-4]]\n[[section:第5步：分离]]\n- 将桶内液体倒入空置干净的容器。只有钚的萃取物与易挥发的液体会进入到容器里，酸与杂质会留在桶中"
 nc_notes_6,"[[section:第6步：提钚]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- 取下上一步使用的容器\n- 将其放入加热板\n- 将混合物加热到100°C以上，以除去水分、有机质和酒精"
 nc_notes_7,"[[section:第7步：固化]]\n- 重复第5-6步，直至耗尽桶内液体，衰变热会让桶温升至 300°C 以上\n- 向桶内注入 50 毫升的水玻璃，使裂变产物熔入玻璃\n- 裂变产物将封存于不锈钢罐中，可以安全处置"
-nc_notes_8,"[[section:第8步：钚循环]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- 将第6步使用的容器放入化学制剂成型机\n- 选择“钚安瓿”配方\n- 按下“输出”按钮\n[[gap:4]]\n[[text:提示：钚安瓿可加入到任意饮料和酒水中，用以制取价值增加50信用点的核子饮料|color=#3D823F|align=center]]"
+nc_notes_8,"[[section:第8步：钚循环]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- 将含有纯钚溶液的容器放入化学制剂成型机，选择“钚安瓿”配方\n- 按下“输出”按钮\n[[gap:4]]\n[[text:提示：钚安瓿可加入到任意饮料和酒水中，用以制取价值增加50信用点的核子饮料|color=#3D823F|align=center]]"
 nc_notes_9,"[[gap:-2]]\n[[section:注意事项：防护|fill=#853737]]\n- 切勿与未处理完的废料同处过夜，否则会罹患仅能用免疫宁治愈的辐射病。"
 refuse_blended_wine,我们家的酒窖里不放这种东西。
 refuse_nuclear_drink,我可买不起这种饮料，给我普通的就行。
@@ -141,12 +141,12 @@ beer_split,倒出一罐啤酒，桶里还剩{0}毫升。
 beer_keg_tooltip_cold,温度 {0}°C，还剩 {1} 毫升：已冷藏，双击倒出一杯扎啤。
 beer_keg_tooltip_warm,温度 {0}°C，还剩 {1} 毫升：双击倒出一罐啤酒；冷藏到2-8°C后倒出的是扎啤。
 beer_notes_name,啤酒酿造笔记
-beer_1,"[[section:第1步：原料准备]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- 将液体容器接到搅拌机上\n- 加入600-750克营养果\n- 搅拌原料，制成营养果糊\n[[section:第2步：制取成品]]\n- 使上一步中获取的原料进行水解、中和\n- 上述步骤可参考《进阶化学手册-勾兑酒酿造笔记》中第2-3步\n- 加入一包酵母，等待两晚用以发酵，制取醪液\n- 加入净水，使液体体积达到2000毫升\n[[gap:6]]\n[[text:注意：上述步骤中，加入基础水能够制得普通啤酒，加入优质水/纯水能够制得上等啤酒|color=#3D823F|align=center]]"
+beer_1,"[[section:第1步：原料准备]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- 将液体容器接到搅拌机上\n- 加入600-750克营养果\n- 搅拌原料，制成营养果糊\n[[section:第2步：制取成品]]\n- 使上一步中获取的原料进行水解、中和\n- 上述步骤可参考《进阶化学手册-勾兑酒酿造笔记》中第2-3步\n- （可选）加入水至1.2L，以为酵母提供更好的发酵环境\n- 加入一包酵母，等待两晚用以发酵，制取醪液（指含有酒精的发酵液）\n- 加入净水，使液体体积达到2000毫升\n[[gap:6]]\n[[text:注意：上述步骤中，加入基础水能够制得普通啤酒，加入优质水/纯水能够制得上等啤酒|color=#3D823F|align=center]]"
 beer_2,- 上等：酒精占总量5%-8%，活酵母0.1%-1%，糖不超过4%，蛋白质不超过1%；除水、酒精、酵母、糖、蛋白质以外的杂质不超过“水+杂质”的1%
 beer_3,- 普通：酒精8%-12%，活酵母低于0.1%或1%-2%，糖4%-8%，蛋白质1%-2%，杂质1%-2%；任一项超出就完全不能喝，甲醇超过总量0.1%也不能喝
 beer_4,"[[gap:-2]]\n[[section:第3步：成型封装]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- （必需）确保液体体积高于2000毫升，且必须含有酒精\n- 将容器放入化学制剂成型机\n- 选择“桶装啤酒”配方\n- 按下“输出”按钮"
 beer_5,"[[gap:6]]\n[[text:注意：输出桶装啤酒的过程中，化学制剂成型机不会混进杂质，无需准备化学设备模组。|color=#3D823F|align=center]]"
-beer_6,"[[gap:-2]]\n[[section:啤酒说明]]\n- 提示：双击常温桶装啤酒可倒出1罐啤酒，每桶最多产出最多6罐\n- 桶装啤酒置入通电冰箱冷藏区，降温至2-8°C后，双击冷藏桶装啤酒可倒出一杯扎啤，每桶最多产出最多4杯\n- 冰箱需要两次扩容才能容纳桶装啤酒"
+beer_6,"[[gap:-2]]\n[[section:啤酒说明]]\n- 提示：双击常温桶装啤酒可倒出1罐啤酒，每桶最多产出6罐\n- 桶装啤酒置入通电冰箱冷藏区，降温至2-8°C后，双击冷藏桶装啤酒可倒出一杯扎啤，每桶最多产出4杯\n- 冰箱需要两次扩容才能容纳桶装啤酒"
 beer_7,"- 扎啤保质期仅限当天，过夜后气泡会大量减少，售价也将降低至与罐装啤酒一致\n- 罐装啤酒可以使用冰箱冰镇以加价"
 beer_keg_empty,倒出了最后一份，桶空了。
 beer_table_name,啤酒品质表
@@ -189,7 +189,7 @@ crackine_regular_4_3,我凑了{1}信用点。卖了点东西。别问是什么�
 crackine_notes_name,快克因提纯笔记
 crackine_1,"[[section:第1步：原料准备]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- 将液体容器接到搅拌机上\n- 加入若干新柯叶\n- 搅拌原料，制成生物碱\n- （可选）使用酸碱凝聚蛋白质，并使用韧棉织物除去大颗粒污染物"
 crackine_2,"[[section:第2步：加热]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- 取下上一步使用的容器\n- 将其放入加热板"
-crackine_3,"- 加入少量酸形成酸性环境，酸应占容器内液体总量的-5%"
+crackine_3,"- 加入少量酸形成酸性环境，酸应占容器内液体总量约 5%"
 crackine_4,"- 将混合物加热到100°C以上，蒸干水分\n- 水占比降低至1%以下后，生物碱将会和酸结合生成盐酸快克粉，每份生物碱消耗0.1份酸"
 crackine_5,"[[section:第3步：蒸发]]\n[[image:vanilla_chem_ext:evaporator_b|w=24|h=24|gap=6|float=left]]\n- 将容器放入蒸发器\n- 确保蒸发器装有能量电池供电\n- 等到第二天，让蒸发器完成处理\n[[gap:4]]\n[[text:提示：快克粉性质特殊，干燥快克粉里的杂质酸可通过蒸发除去|color=#3D823F|align=center]]"
 crackine_6,"[[gap:-2]]\n[[section:第4步：成型封装]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- （必需）待水全部蒸发后，将容器放入化学制剂成型机\n- 选择“一小瓶快克因”配方或“一大瓶快克因”配方\n- 按下“输出”按钮\n- （可选）使用成分光谱仪检查纯度"
@@ -264,7 +264,7 @@ electrolysis_8,"[[section:附录：机器介绍]]\n[[text:<u>电解机</u>|align
 electrolysis_9,"[[omit]]"
 lantern_notes_name,失能剂制取笔记
 lantern_1,"[[section:第1步：原料准备]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- 将液体容器接到搅拌机上\n- 加入若干空心灯\n- 搅拌原料，制成辣椒素"
-lantern_2,"[[section:第2步：萃取]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- 取下上一步使用的容器\n- 将其放入加热板\n- 加入相当于辣椒素4倍体积的酒精\n- 将混合物加热至50°C以上，使辣椒素转化成辣酯\n[[gap:4]]\n[[text:注意：酒精体积不足4倍时，萃取过程会产出物理污染物，污染物比例 =（4 − 酒精/辣椒素）/ 4|color=#853737]]\n[[gap:4]]\n[[text:提示：转化过程中，每份辣椒素消耗0.1份酒精。酒精的沸点是78°C，温度过高会产生损耗，最好保持在50–78°C|color=#3D823F|align=center]]"
+lantern_2,"[[section:第2步：萃取]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- 取下上一步使用的容器\n- 将其放入加热板\n- 加入相当于辣椒素4倍体积的酒精\n- 将混合物加热至50°C以上，使辣椒素转化成辣酯\n[[gap:4]]\n[[text:注意：酒精体积不足4倍时，萃取过程会产出物理污染物，污染物比例 =（4 − 酒精/辣椒素）/ 4|color=#853737]]\n[[gap:4]]\n[[text:提示：转化过程中，每份辣椒素消耗0.1份酒精。酒精的沸点是78°C，温度过高会产生损耗，最好保持在50–78°C|color=#3D823F|align=center]]"
 lantern_3,"[[section:第3步：蒸发]]\n[[image:vanilla_chem_ext:evaporator_b|w=24|h=24|gap=6|float=left]]\n- （可选）使用滤水器过滤，除去物理污染物\n- 将容器放入蒸发器\n- 确保蒸发器装有能量电池供电\n- 等到第二天，让蒸发器完成处理"
 lantern_4,"[[section:第4步：成型封装]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- （必需）待酒精全部蒸发后，将容器放入化学制剂成型机\n- 选择“失能剂”配方\n- 按下“输出”按钮\n- （可选）使用成分光谱仪检查纯度"
 lantern_5,"[[page]]\n[[section:附录：原料介绍]]\n- 空心灯种子由退休农夫出售\n- 空心灯为一年生植物，收获时会返还一颗种子\n- 空心灯生长过程中会消耗大量营养，根系会污染其所在环境"

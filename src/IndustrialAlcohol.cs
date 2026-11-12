@@ -507,7 +507,6 @@ public static class Fermentation
 public static class YeastItems
 {
     public const string BIOREACTOR_ID = "wine_yeast_infinite";
-    public const string BIOREACTOR_USED_TAG = "IA_BIOREACTOR_USED_BOOL";
     public const string HINT_TAG = "IA_YEAST_HINT_STRING";
 
     public static void Setup(GameItem item)
@@ -564,17 +563,6 @@ public static class YeastItems
         }
     }
 
-    public static void ResetBioreactors()
-    {
-        foreach (GameItem item in EmporiumEntry.Instance.GetAllItems())
-        {
-            if (item != null && item.IsTag(BIOREACTOR_USED_TAG))
-            {
-                item.DisableTag(BIOREACTOR_USED_TAG, true);
-            }
-        }
-    }
-
     private static string Format(int ul)
     {
         return (ul / 1000.0).ToString("0.#");
@@ -611,10 +599,6 @@ public static class YeastItems
         {
             return false;
         }
-        if (source.IsTag(BIOREACTOR_USED_TAG))
-        {
-            return false;
-        }
         return WaterHelper.GetFreeCapacity(target) >= YeastUl(source) + MicrobeUl(source);
     }
 
@@ -632,12 +616,8 @@ public static class YeastItems
         }
         WaterFeatureHelper.UpdateWaterFeature(target, false);
         SpriteHelper.UpdateWaterContainerSprite(target);
-        if (source.IsTag("WINE_YEAST_REUSABLE_TAG"))
-        {
-            // The bioreactor keeps working but only once per night.
-            source.EnableTag(BIOREACTOR_USED_TAG, true);
-        }
-        else
+        // The bioreactor (reusable yeast) is never used up and can be used any number of times.
+        if (!source.IsTag("WINE_YEAST_REUSABLE_TAG"))
         {
             source.Destroy();
         }
@@ -724,14 +704,6 @@ public static class NightSimulationPatch
     private static void Finalizer()
     {
         Fermentation.IsNight = false;
-        try
-        {
-            YeastItems.ResetBioreactors();
-        }
-        catch (Exception e)
-        {
-            IaLog.Error("resetting bioreactors failed", e);
-        }
     }
 }
 

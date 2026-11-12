@@ -2010,10 +2010,14 @@ public static class GuideBook
             }
             if (name == "notebook_manual" || name.StartsWith("paper_buttons", StringComparison.Ordinal))
             {
+                // Vanilla sprites: a 2x point-filtered copy of our own, the shared original stays untouched.
                 image.sprite = GetCrispSprite(name, original);
             }
-            else
+            else if (IsOwnPaperTexture(original.texture))
             {
+                // Filtering is a property of the texture, shared by everything drawn from it, so it is only changed
+                // on this mod's own paper textures (each its own texture, used only by this mod's papers). Vanilla's
+                // and other mods' textures keep their filtering (vanilla loads paper textures bilinear on purpose).
                 original.texture.filterMode = FilterMode.Point;
                 original.texture.anisoLevel = 0;
                 image.sprite = original;
@@ -2024,6 +2028,41 @@ public static class GuideBook
                 && !name.StartsWith("paper_buttons", StringComparison.Ordinal);
             image.SetAllDirty();
         }
+    }
+
+    // This mod's paper textures: the loader keeps each one in the mod's Textures under "Paper/<file name>".
+    private static HashSet<Texture> ownPaperTextures;
+
+    private static bool IsOwnPaperTexture(Texture texture)
+    {
+        if (texture == null)
+        {
+            return false;
+        }
+        if (ownPaperTextures == null)
+        {
+            HashSet<Texture> found = new HashSet<Texture>();
+            foreach (LoadedMod mod in ModLoader.Mods)
+            {
+                if (mod == null || mod.Manifest == null || mod.Manifest.ID != DreamToxinMod.MOD_ID || mod.Textures == null)
+                {
+                    continue;
+                }
+                foreach (KeyValuePair<string, Texture2D> entry in mod.Textures)
+                {
+                    if (entry.Value != null && entry.Key.StartsWith("Paper/", StringComparison.Ordinal))
+                    {
+                        found.Add(entry.Value);
+                    }
+                }
+            }
+            if (found.Count == 0)
+            {
+                return false;  // textures not loaded yet: look again next time
+            }
+            ownPaperTextures = found;
+        }
+        return ownPaperTextures.Contains(texture);
     }
 
     private static Sprite GetCrispSprite(string key, Sprite source)
@@ -2043,12 +2082,13 @@ public static class GuideBook
         int height = Mathf.Max(1, Mathf.RoundToInt(source.rect.height));
         int scaledWidth = width * 2;
         int scaledHeight = height * 2;
+        // Not linear: the pixels read back are the sprite's sRGB colours, like any other UI texture.
         Texture2D texture = new Texture2D(
             scaledWidth,
             scaledHeight,
             TextureFormat.RGBA32,
             false,
-            true);
+            false);
         texture.filterMode = FilterMode.Point;
         texture.wrapMode = TextureWrapMode.Clamp;
         texture.anisoLevel = 0;

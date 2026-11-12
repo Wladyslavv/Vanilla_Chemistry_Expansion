@@ -16,8 +16,10 @@ mkdir -p "$BUILD"
 cp "$PROJECT"/src/*.cs "$BUILD/"
 
 refs=()
-# UnityEngine.UI: the electrolyzer's window connector subclasses a vanilla UI element (SpritePixelElement).
-for dll in mscorlib netstandard System System.Core Assembly-CSharp UnityEngine.CoreModule UnityEngine.UI 0Harmony; do
+# UnityEngine.UI: the electrolyzer's window connector subclasses a vanilla UI element (SpritePixelElement), and the
+# handbook styles the paper UI's images (Canvas is in UnityEngine.UIModule). Unity.TextMeshPro: the handbook styles its
+# page number text.
+for dll in mscorlib netstandard System System.Core Assembly-CSharp UnityEngine.CoreModule UnityEngine.UI UnityEngine.UIModule Unity.TextMeshPro 0Harmony; do
     refs+=("-r:$MANAGED/$dll.dll")
 done
 
