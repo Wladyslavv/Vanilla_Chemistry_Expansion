@@ -17,12 +17,12 @@ liquid_water_glass,Water Glass
 liquid_silica_gel,Silica Gel
 ore_notes_name,Ore Chemistry Notes
 ore_notes_intro,- Only a blender with all 4 chem modules can crush metal ore. 150C and 120C need an upgraded heating plate
-ore_notes_base,[Purifying base]
+ore_notes_base,"[Purifying base]"
 ore_notes_base_1,"- Crush the ore, then filter out the quartz sand with Kotton fabric"
 ore_notes_base_2,"- Keep it dry and heat above 150C, the calcite calcines into quicklime"
 ore_notes_base_3,"- Pour the quicklime into base (base must be over half of all the liquid) and wait a moment, heating to 80-120C makes it faster"
 ore_notes_base_4,- Filter out the calcium carbonate and debris with a water filter
-ore_notes_acid,[Purifying acid]
+ore_notes_acid,"[Purifying acid]"
 ore_notes_acid_1,"- Crush the ore, add as much base as there is quartz sand (they react 1:1) and heat above 120C, the quartz sand dissolves into water glass"
 ore_notes_acid_2,"- Add water and filter with a water filter, then add acid to precipitate silica gel and filter the debris with Kotton fabric"
 ore_notes_acid_3,"- Pour a little silica gel into acid (acid must be over 80% of all the liquid) and heat above 100C to remove the chemical contaminant"
@@ -62,14 +62,14 @@ selling_4,"- Quality labelled 2+ tiers too high: anyone notices; 1 tier too high
 selling_5,"- Labelled genuine at its real quality: clients who test chemicals notice; real tier 4+ labelled one tier lower: nobody notices"
 selling_6,"- Trade board orders catch any false label"
 selling_7,"- Once caught it sells as blended wine of its real quality; false labels sold unnoticed add up to fraud"
-making_alcohol,[Alcohol]
+making_alcohol,"[Alcohol]"
 making_alcohol_1,"- Blend nutrifruit, add acid making up about 1% of all the liquid (at least 0.5%) and heat above 90 C: the starch hydrolyses into sugar (and the heat sterilises it)"
 making_alcohol_2,"- Neutralize with base until acid and base together are under 1% of the volume, then cool below 45 C"
 making_alcohol_3,"- Drag yeast onto the container to dissolve it and keep it at 20-35 C overnight: the yeast grows and ferments the sugar into alcohol 1:1 by volume. Wine yeast stops once alcohol is 12% of the total, super yeast at 18%; use super yeast for sugary mash"
 making_alcohol_4,"- Red yeast and unsterilised mash make methanol; heat to 65-75 C to boil it off"
 making_alcohol_5,"- In a fridge freezer water turns to ice until everything else is about 25% of the liquid (ice not counted); filter the ice out with Kotton fabric to concentrate the alcohol to at most about 25% of the total, then purify it in an evaporator with the solvent recovery module"
-making_ester,[Ethyl acetate]
-making_wine,[Blending]
+making_ester,"[Ethyl acetate]"
+making_wine,"[Blending]"
 advanced_fabric_name,Advanced Kotton Fabric
 advanced_fabric_desc,"Filters out coarse particles like Kotton fabric (pore 150) and regains 1000 durability every day."
 advanced_fabric_flavor,"Woven with a self-cleaning coating. No washing required."
@@ -81,7 +81,6 @@ setting_ferment_tooltip,"How fast yeast turns sugar into alcohol overnight. 100 
 guide_book_name,Advanced Chemistry Handbook
 guide_book_desc,A retired chemist's collected process notes.
 guide_book_intro,"This handbook covers Dream Toxin, ore chemistry, making and selling blended wine, and nuclear waste reprocessing. Other mods may add their own sections at the end. Understand each step before you start."
-guide_book_continued,{0} (continued)
 liquid_spent_fuel,Spent Fuel
 liquid_pu_dissolved,Dissolved Plutonium
 liquid_fission_products,Fission Products
@@ -151,13 +150,13 @@ beer_6,"- Each double-click pours one serving: a can at room temperature (6 per 
 beer_7,"- Sell draft beer the same day: overnight it goes flat and is only worth a can; cans can be chilled in a fridge for a bonus"
 beer_keg_empty,"Poured the last serving; the keg is empty."
 beer_table_name,Beer Quality Table
-beer_table_head,<b>Measure</b><pos=30%><b>Premium</b><pos=53%><b>Ordinary</b><pos=77%><b>Undrinkable</b>
-beer_table_alcohol,Alcohol<pos=30%>5-8%<pos=53%>8-12%<pos=77%>other
-beer_table_yeast,Live yeast<pos=30%>0.1-1%<pos=53%>1-2% *<pos=77%>over 2%
-beer_table_sugar,Sugar<pos=30%>up to 4%<pos=53%>4-8%<pos=77%>over 8%
-beer_table_protein,Protein<pos=30%>up to 1%<pos=53%>1-2%<pos=77%>over 2%
-beer_table_impurity,Impurities †<pos=30%>up to 1%<pos=53%>1-2%<pos=77%>over 2%
-beer_table_methanol,Methanol<pos=30%>-<pos=53%>-<pos=77%>over 0.1%
+beer_table_head,"[[table:fills=#D8C6A2,#7F916C,#B99A63,#95645D|colors=#3A3A3A,#F4EEDB,#2F2A24,#F4EEDB|w=230|rowh=10.5|rowgap=1|cellgap=1|size=5.6|padding=2.5|align=left,center,center,center]]\n[[row:Measure|Premium|Ordinary|Undrinkable|fill=#665441|color=#F5EAD1|head=1]]"
+beer_table_alcohol,"[[row:Alcohol|5-8%|8-12%|other]]"
+beer_table_yeast,"[[row:Live yeast|0.1-1%|1-2% *|over 2%]]"
+beer_table_sugar,"[[row:Sugar|up to 4%|4-8%|over 8%]]"
+beer_table_protein,"[[row:Protein|up to 1%|1-2%|over 2%]]"
+beer_table_impurity,"[[row:Impurities †|up to 1%|1-2%|over 2%]]"
+beer_table_methanol,"[[row:Methanol|-|-|over 0.1%]]"
 beer_table_note_1,"- All shares are of the whole keg except impurities; the keg gets the tier of its worst measure"
 beer_table_note_2,"- * Less than 0.1% live yeast (no fizz) is also ordinary"
 beer_table_note_3,"- † Impurities: anything but water, alcohol, yeast, sugar and protein, as a share of water + impurities. Diluting with base water usually gives 1-2%, i.e. ordinary; high-quality or pure water reaches premium"
