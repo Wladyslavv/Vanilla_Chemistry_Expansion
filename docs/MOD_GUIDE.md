@@ -243,6 +243,51 @@
 - **合成氯化氢**：混合气罐可以放到加热板上（加热板至少要 1 个化学模组才能超过 99°C），温度 ≥ 120°C 时每秒把 10%（至少 1 毫升）的氢气和氯气按 1:1 燃烧成两倍体积的氯化氢。
 - **溶成盐酸**：把装着氯化氢的气罐拖到有水的液体容器上，溶成原版的“酸”，最多溶到酸占液体总量的 40%（500 毫升水最多 333 毫升酸），溶不下的留在罐里。容器里有碱时会被中和，别往刚电解完的碱里倒。
 
+## 进阶化学手册排版
+
+进阶化学手册的正文和普通笔记物品共用同一组本地化键。不要再维护一套 `_layout_*` 副本；排版标记直接写进 `formula_step_*`、`beer_*`、`ore_notes_*` 等原始键。普通笔记物品显示时会移除这些标记，只有手册会解释它们。
+
+游戏 ModLoader 按物理行读取 CSV，所以一个值里的换行必须写成字面量 `\n`：
+
+```csv
+formula_step_2,"[[section:第2步：混合与冷藏]]\n[[image:vanilla_chem_ext:fridge|w=24|h=24|gap=6|float=left]]\n- 将两种萃取液按1:1混合"
+```
+
+可用标记：
+
+- `[[page]]`：从这里开始新页。
+- `[[br]]`：插入一个正文空行。
+- `[[gap:6]]`：插入指定设计像素数的垂直间距。允许负数；例如正文到分栏的自动间距是 `9`，再写 `[[gap:-4]]` 会得到最终间距 `5`。手写的 gap 与自动间距相加，不会覆盖自动间距。
+- `[[section:标题]]`：创建黄色分栏标题；标题按原文显示，不会自动删除 `【】`。
+- `[[section:标题|fill=#853737|color=#FFFFFF|w=238|h=16|align=center]]`：设置分栏底色、文字色、宽高和对齐方式。水资源交易手册的警告条使用 `#853737`；其他常见颜色有 `#81AAA7`、`#41603F`、`#A4715D`、`#9B4A3D`、`#3D823F`、`#7AB053`、`#CCB987`、`#BA8953`、`#B26B4E`。
+- `[[text:注意：咖啡因的耐热性很强。|color=#3D823F|align=center|size=7]]`：插入无背景文字块，可设置颜色、对齐、字号、宽度和间距。
+- `[[text:<u>成分光谱仪（化学扫描仪）</u>|align=center]]`：文字内容支持 TMP 富文本，`<b>粗体</b>`、`<u>下划线</u>` 等标签可以直接使用。
+- `[[table:fills=#D8C6A2,#7F916C,#B99A63,#95645D|colors=#3A3A3A,#F4EEDB,#2F2A24,#F4EEDB|w=230|rowh=10.5|rowgap=1|cellgap=1|size=6.1|padding=3|align=left,center,center,center]]`：开始一个带独立单元格底色的表格。`fills`、`colors`、`align` 按列填写；`rowh` 是行高，`rowgap` 和 `cellgap` 是行、列间隙。
+- `[[row:指标|上等|普通|不能喝|fill=#665441|color=#F5EAD1|head=1]]`：向当前表格添加一行；`fill`/`color` 整行覆盖列颜色，`fills`/`colors` 可按格覆盖，`head=1` 自动加粗。
+- `[[/table]]`：显式结束表格；普通正文或其他排版标记也会自动结束当前表格。
+- `[[icon:vanilla_chem_ext:图名]]`：给紧随其后的分栏标题添加图标；没有自动图标映射，必须显式写标记。
+- `[[image:vanilla_chem_ext:图名|w=48|h=48|align=center|gap=6]]`：插入独立图片。`align` 可用 `left`、`center`、`right`；填写 `x`/`y` 时使用 `314×402` 设计坐标绝对定位。
+- `[[image:vanilla_chem_ext:图名|w=48|h=48|gap=6|float=left]]`：左图右文布局；后续连续正文在图片右侧换行，遇到下一个排版标记结束。默认左边距为 `51`，可用 `x=45` 单独调整；横向图文间距最低为 `0`。
+- `[[overlay:vanilla_chem_ext:图名|x=0|y=0|w=16|h=16]]`：在当前 `float=left` 底图上叠加 Sprite，坐标以底图左上角为原点。
+- `[[omit]]`：从手册中移除当前键对应的条目，同时避免缺失翻译回退到英文。
+
+彩色表格示例：
+
+```csv
+beer_table_head,"[[table:fills=#D8C6A2,#7F916C,#B99A63,#95645D|colors=#3A3A3A,#F4EEDB,#2F2A24,#F4EEDB|w=230|rowh=10.5|rowgap=1|cellgap=1|size=6.1|padding=3|align=left,center,center,center]]\n[[row:指标|上等|普通|不能喝|fill=#665441|color=#F5EAD1|head=1]]"
+beer_table_alcohol,"[[row:酒精|5-8%|8-12%|其余]]"
+```
+
+增删和追加：
+
+- 固有条目按 `Notes` 中登记的顺序读取。
+- 每篇笔记末尾的编号组支持继续追加，例如 `formula_step_7`、`ore_notes_acid_5`、`making_7`、`selling_8`、`beer_8`、`nc_notes_10`、`beer_table_note_4`、`crackine_8`、`lantern_9`、`electrolysis_10`。读取从已有最大编号继续，遇到第一个不存在的键就停止。
+- 删除已有条目时使用 `[[omit]]`，不要直接删除固定键，否则可能触发当前语言的英文回退。
+- 在两个固定步骤之间插入内容时，把新增内容放进前一个步骤，并用字面量 `\n` 分隔。
+- 如果整篇笔记的固定键都是同一前缀的连续编号，例如 `formula_step_1..6`，无编号的 `formula_step` 会作为可选首行读取。
+
+原版化学手册中的机器和材料 Sprite 放在 `Textures/Paper`，通过 `vanilla_chem_ext:<文件名>` 引用。机器包括 `blender_b`、`heating_plate_b`、`evaporator_b`、`chem_finisher_b`、`chem_scanner`、`chem_module`、`fridge`；材料包括 `chemical1`、`chemical2`、`dream_cap`、`dream_dust`、`100ml75`、`med_bottle_violet`、`coffee_bean`。
+
 ## 兼容性
 
 - 新增液体：`dream_toxin`，以及 `vce_calcite`、`vce_quartz`、`vce_quicklime`、`vce_calcium_carbonate`、`vce_water_glass`、`vce_silica_gel`；`ia_yeast_wine`、`ia_yeast_super`、`ia_yeast_red`、`ia_methanol`、`ia_ice`、`ia_acetic_acid`、`ia_ethyl_acetate`。
@@ -256,7 +301,7 @@
 - 空心灯：新增液体 `vce_capsaicin`、`vce_lantern_ester`；新增物品 `vce_chili_seed`、`vce_chili`、`vce_incapacitant_vial`、`vce.lantern_notes`；新增基因 `production_vce_capsaicin` 和一条化学制剂成型机配方。Harmony 补丁：`StoreClient.IsClientRefusingItem`、`StoreClient.IsClientBuyingThisItem`（谁买失能剂）、`SecData.CheckSoldContraband`（冲减罪名，并把这笔交易的成交台词换成专属台词）、`PlayerStore.SellItemFromTable`、`PlayerStore.AcceptBarter`（还原没播出来的专属台词）。卖失能剂会直接改动治安档案里的罪名和调查进度。
 - 电解食盐水：新增液体 `vce_salt`；新增物品 `vce_salt_ore`、`vce_gas_canister`、`vce_electrolyzer`、`vce.electrolysis_notes`。Harmony 补丁：`PhoneDialogList.MiningRegular`、`StoreClientListSupplier.CreateCourrierMining`（订购盐矿）、`MachineHeatingPlate.HeatingPlate`（加热板也收气罐）、`ItemContextHandler.SetButtonColor`（气罐右键显示“放气”）、`GeneralHelper.SetItemOwned`（买下电解机时里面的气罐和说明书一起归玩家）、`StoreClientListSpec.CreateRetiredChemist`（卖空气罐）。
 - 免疫宁：`ConsumableHelper.InitImmunivax`，有辐射病时非哨兵开局也能注射。
-- 不申请额外权限，不读写文件。
+- 申请 `reflection-external`，用于延迟安装 Harmony 补丁以及调用原版私有的罚款对话；不读写文件。
 - 卸载前请先处理掉含有本 Mod 液体的容器、注射剂、钚安瓿、打开的核废料和配方便条。
 
 ## 开发者调试（调试面板的 Modding 分类）
@@ -325,6 +370,37 @@ An expansion built on the vanilla chemistry system, without changing vanilla pro
 
 **Nuclear waste reprocessing**: pry open vanilla nuclear waste with a crowbar (500 mL spent fuel, main inventory, showcase and inner/outer counters only). Dissolve it in about 500 mL of concentrated acid (keep acid above 98%; decay heat holds the barrel at 70 C), add reducing agent (about 10x the plutonium), then ethyl acetate (at least 2x the fission products). Only the plutonium extract and evaporative liquids pour out; boil them off above 100 C to get plutonium, and press 90%+ plutonium into Plutonium Ampoules in the Chem Finisher. An ampoule turns any drink or wine into a Nuclear drink worth +50, bought only by Upper Level clients and addicts. Once the barrel runs dry it heats past 300 C; add water glass (or silica gel) 1:1 with the radioactive contents to vitrify it into harmless waste. Every night with unprocessed opened waste adds 5% radiation sickness (max 25% sell penalty), eased by genuine Immunivax. A Waste Broker sells 1-3 barrels at 50 each every 7 days from day 7.
 
+### Advanced Chemistry Handbook layout
+
+The handbook and ordinary note items share one canonical set of localization keys. Do not maintain separate `_layout_*` copies; put layout markers directly into keys such as `formula_step_*`, `beer_*`, and `ore_notes_*`. Readable note items strip the markers automatically.
+
+The ModLoader reads CSV one physical line at a time, so line breaks inside a value must use the literal sequence `\n`:
+
+```csv
+formula_step_2,"[[section:Step 2: Mix and chill]]\n[[image:vanilla_chem_ext:fridge|w=24|h=24|gap=6|float=left]]\n- Mix the two extracts 1:1"
+```
+
+Available markers:
+
+- `[[page]]`: start a new page.
+- `[[br]]`: insert one blank body line.
+- `[[gap:6]]`: insert vertical space in PaperUI design pixels. Negative values are allowed and combine additively with automatic spacing.
+- `[[section:Title]]`: create an ochre section heading without changing the title text.
+- `[[section:Title|fill=#853737|color=#FFFFFF|w=238|h=16|align=center]]`: set fill, text color, dimensions, and alignment.
+- `[[text:Note|color=#3D823F|align=center|size=7]]`: insert a background-free text block. The text accepts TMP rich text such as `<b>bold</b>` and `<u>underline</u>`.
+- `[[table:fills=#D8C6A2,#7F916C,#B99A63,#95645D|colors=#3A3A3A,#F4EEDB,#2F2A24,#F4EEDB|w=230|rowh=10.5|rowgap=1|cellgap=1|size=5.6|padding=2.5|align=left,center,center,center]]`: start a table with independently tinted cells. `fills`, `colors`, and `align` are column lists.
+- `[[row:Measure|Premium|Ordinary|Undrinkable|fill=#665441|color=#F5EAD1|head=1]]`: add a row. `fill`/`color` override the whole row, `fills`/`colors` override individual cells, and `head=1` makes the row bold.
+- `[[/table]]`: close the table explicitly; body text or another marker also closes it.
+- `[[icon:vanilla_chem_ext:file_name]]`: attach an icon to the next section heading.
+- `[[image:vanilla_chem_ext:file_name|w=48|h=48|align=center|gap=6]]`: insert a block image. Use the PaperUI `314x402` design space when specifying `x`/`y`.
+- `[[image:vanilla_chem_ext:file_name|w=48|h=48|gap=6|float=left]]`: left image, right text. The default left offset is `51`; `x=45` moves only the image edge. The horizontal gap is clamped to a minimum of `0`.
+- `[[overlay:vanilla_chem_ext:file_name|x=0|y=0|w=16|h=16]]`: add a Sprite layer to the current floating image.
+- `[[omit]]`: remove the current key without falling back to another language.
+
+Numbered groups at the end of each note can be extended, for example `formula_step_7`, `ore_notes_acid_5`, `making_7`, `selling_8`, `beer_8`, `nc_notes_10`, `beer_table_note_4`, `crackine_8`, `lantern_9`, and `electrolysis_10`. The loader starts after the highest existing number and stops at the first missing key.
+
+Original handbook machine and material sprites live in `Textures/Paper` and are referenced as `vanilla_chem_ext:<file_name>`. Machine sprites: `blender_b`, `heating_plate_b`, `evaporator_b`, `chem_finisher_b`, `chem_scanner`, `chem_module`, `fridge`. Material sprites: `chemical1`, `chemical2`, `dream_cap`, `dream_dust`, `100ml75`, `med_bottle_violet`, `coffee_bean`.
+
 Other mods can add a handbook section with the localization keys `vce_handbook_title` and `vce_handbook_line_1`, `vce_handbook_line_2`, ... (read until the first missing key); no code needed.
 
-No extra capabilities. Remove items containing this mod's liquids before uninstalling.
+The mod requests `reflection-external` for deferred Harmony patch installation and calling vanilla's private fine dialogue. It does not read or write files. Remove items containing this mod's liquids before uninstalling.

@@ -714,7 +714,7 @@ public class HandNote
         List<string> lines = new List<string>();
         foreach (string key in LineKeys)
         {
-            lines.Add(Text.Get(key));
+            lines.Add(GuideBook.StripLayoutMarkup(Text.Get(key)));
         }
         return string.Join("\n", lines.ToArray());
     }
@@ -724,7 +724,7 @@ public class HandNote
         List<string> lines = new List<string>();
         foreach (string key in LineKeys)
         {
-            lines.Add(Text.Get(key));
+            lines.Add(GuideBook.StripLayoutMarkup(Text.Get(key)));
         }
         GameItem note = PreBuiltItemHelper.CreateHandnote(string.Join("\n", lines.ToArray()), Text.Get(TitleKey), "", 2);
         note.name = Text.Get(NameKey);
