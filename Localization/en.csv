@@ -368,3 +368,49 @@ cartel_tourist_more,Is that all?
 cartel_tourist_done,Ignoring the law feels amazing!
 setting_cartel,Enable the cartel expansion
 setting_cartel_tooltip,"The Cartel Network, being watched for contraband sales, the boycott, Security's route against the cartel, and the cartel merchants. While off, none of it has any effect. Off by default."
+liquid_cephalosporin,Cephalosporin C
+liquid_bioliquid_waste,Bioliquid waste
+strain_name,Acremonium strain
+strain_desc,"Acremonium chrysogenum on a petri dish. Breed it in a fermenter, or blend it for cephalosporin C."
+strain_flavor,That cream-coloured fuzz on the agar is the whole production line.
+strain_frozen_name,Frozen Acremonium strain
+strain_frozen_desc,"A cryogenic dewar. Double-click for a strain identical to the one that went in; it never runs out."
+strain_frozen_flavor,"The master seed bank. Everything the line is worth sits in this can."
+strain_target_liquid,Liquid phase
+strain_target_surface,Cell surface
+strain_target_intracellular,Intracellular
+strain_tooltip_genome,"Genome: {0}"
+strain_tooltip_traits,"Purity {0} / Yield {1} / Growth {2} / Carbon use {3}"
+strain_tooltip_target,"Extraction target: {0}"
+strain_tooltip_inoculate,Double-click for one strain
+strain_tooltip_seed,"Seed stock: blends to protein only"
+antibiotic_name,Antibiotic tablet
+antibiotic_desc,"Pressed from cephalosporin C. Below pharma grade nobody will take it."
+antibiotic_flavor,"One sheet of tablets, the far end of a whole production line."
+antibiotic_grade_lab,Lab pure
+antibiotic_grade_pharma,Pharma grade
+antibiotic_grade_reject,Off-spec
+antibiotic_tooltip_genome,"Genome: {0}"
+antibiotic_tooltip_target,"Extraction target: {0}"
+antibiotic_tooltip_resistance,"Resistance has set in: {0}% off the price"
+antibiotic_tooltip_sales,"Cumulative sales for this genome: {0}"
+antibiotic_resistance_feature,Resistance
+antibiotic_resistance_line,This one hasn't been working lately.
+fermenter_name,Fermenter
+fermenter_desc,"A fermenter for Acremonium. It draws 12 power a night plus the strain's own calories from the feed dispenser bolted into it. At standard traits a batch runs two nights and turns one strain into four."
+fermenter_flavor,"The impeller never stops. Listen long enough and it sounds like breathing."
+fermenter_label_module,Modules
+fermenter_label_feed,Carbon
+fermenter_label_strain,Strain
+fermenter_label_output,Harvest
+fermenter_tooltip_idle,"Idle: put a strain in to start a batch"
+fermenter_tooltip_batch,"Batch: night {0} of {1}, {2} strain(s) expected"
+fermenter_tooltip_draw,"{0} power and {1} kcal a night"
+fermenter_tooltip_feed,"Dispenser: {0} kcal left"
+fermenter_manual_name,Fermenter manual
+fermenter_manual_short,How to run an Acremonium fermenter.
+fermenter_manual_flavor,"1. Feed: put any food in the dispenser; it only counts calories.\n2. Inoculate: one strain in the strain slot. It is used up at the end of the batch.\n3. Harvest: at standard traits, four strains at the end of the second night. Higher growth speed shortens the batch; higher yield means more strains.\n4. Modules: efficiency, performance and quality all do the same thing here, taking power off the draw, down to zero.\n5. Note: a harvested strain has mutated away from its parent, and over time mostly for the worse. Keep your stock in a dewar."
+antibiotic_notes_name,Strain breeding notes
+abx_1,"[[section:Genome and resistance]]\n[[image:vanilla_chem_ext:icon_antibiotic|w=24|h=24|gap=6|float=left]]\n- Every strain carries a 12-letter genome. It decides resistance and nothing else - not yield, not quality\n- Antibiotics you sell are booked against their own genome; the higher the cumulative sales, the likelier resistance becomes\n- Once it sets in, tablets of that genome fetch far less, and customers say the drug hasn't been working lately\n- Four letters of difference or more and a genome is untouched; fewer and it takes a share of the penalty\n- Stop selling for a while and the cumulative figure falls away on its own, taking the resistance with it\n[[gap:4]]\n[[text:Tip: rotating a few sufficiently different genomes beats pushing one of them|color=#3D823F|align=center]]"
+abx_2,"[[section:Keeping stock]]\n[[image:vanilla_chem_ext:icon_strain_frozen|w=24|h=24|gap=6|float=left]]\n- A strain left overnight in a fridge's freezer zone becomes a frozen strain\n- A frozen strain takes 3x3 cells, so clear the space before freezing\n- Double-click it for one strain, identical to the one that went in, as often as you like\n- A strain taken out that way is only good for inoculating: blending it yields a little protein and nothing else\n- A strain harvested from a fermenter has already mutated away from its parent, over time mostly for the worse\n[[gap:4]]\n[[text:Note: once you breed a good strain, freeze one before you put it to work|color=#853737|align=center]]"
+abx_3,"[[section:Mutagens]]\n[[image:vanilla_chem_ext:icon_strain|w=24|h=24|gap=6|float=left]]\n- Drop a container holding about 5 mL of a reagent on a strain: the reagent is used up, the container stays\n- The reagent has to be the largest component in the container, and pure enough\n[[gap:3]]\n[[table:fills=#D8C6A2,#7F916C|colors=#3A3A3A,#F4EEDB|w=230|rowh=10.5|rowgap=1|cellgap=1|size=6.1|padding=3|align=left,left]]\n[[row:Reagent|Effect|fill=#665441|color=#F5EAD1|head=1]]\n[[row:Acid, base|Small swing, as likely up as down]]\n[[row:Fanta, N-methylol base|Large swing, as likely up as down]]\n[[row:Acetic acid, ethyl acetate|Large swing, as likely up as down]]\n[[row:Dream cap extract|Small swing, tends to improve]]\n[[row:Nightmare cap extract|Sometimes moves the extraction target]]\n[[row:Dream toxin|Rewrites the genome, leaves traits alone]]\n[[row:Plutonium|Violent swing, leans slightly up]]\n[[/table]]\n[[gap:3]]\n[[text:Note: wrong dose, not pure enough, or anything not on this list still changes the strain - only ever for the worse|color=#853737]]"

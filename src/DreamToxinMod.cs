@@ -31,6 +31,10 @@ public class DreamToxinMod : IMod
         GasCanister.Enable();
         Electrolyzer.Enable();
         PuBattery.Enable();
+        Strain.Enable();
+        Fermenter.Enable();
+        Antibiotics.Enable();
+        Resistance.Enable();
         CartelNetwork.Enable();
         CartelRaid.Enable();
         CartelSweep.Enable();
@@ -82,6 +86,10 @@ public class DreamToxinMod : IMod
         GasCanister.Disable();
         Electrolyzer.Disable();
         PuBattery.Disable();
+        Strain.Disable();
+        Fermenter.Disable();
+        Antibiotics.Disable();
+        Resistance.Disable();
         CartelNetwork.Disable();
         CartelRaid.Disable();
         CartelSweep.Disable();
@@ -118,6 +126,9 @@ public class DreamToxinMod : IMod
             GasCanister.AddItems(directory);
             Electrolyzer.AddItems(directory);
             PuBattery.AddItems(directory);
+            Strain.AddItems(directory);
+            Fermenter.AddItems(directory);
+            Antibiotics.AddItems(directory);
             CartelNetwork.AddItems(directory);
             directory.Add(GuideBook.ITEM_ID, GuideBook.CreateItem);
             // Registered as its own item so it survives saves and shows up in item spawners;
@@ -168,6 +179,7 @@ public class DreamToxinMod : IMod
         NuclearWaste.RefreshNames();
         Lantern.RefreshNames();
         SaltOre.RefreshNames();
+        Antibiotics.RefreshNames();
     }
 }
 
@@ -242,6 +254,7 @@ public static class Content
             NuclearWaste.RegisterContent();  // after IndustrialAlcohol: it uses ethyl acetate
             Lantern.Register();
             SaltOre.Register();
+            Antibiotics.Register();
             DreamToxinMod.RefreshLocalizedNames();
             GuideBook.Register();
             CartelNote.Register();
@@ -267,6 +280,7 @@ public static class Content
         IndustrialAlcohol.UnregisterContent();
         NuclearWaste.UnregisterContent();
         Lantern.Unregister();
+        Antibiotics.Unregister();
         Registered = false;
     }
 }
@@ -857,7 +871,16 @@ public static class Notes
         }
     };
 
-    public static readonly HandNote[] All = new HandNote[] { ToxinFormula, OreNotes, WineMaking, WineSelling, BeerBrewing, BeerTable, Reprocessing, CrackineNotes, LanternNotes, ElectrolysisNotes };
+    public static readonly HandNote AntibioticNotes = new HandNote
+    {
+        ItemId = "vce.antibiotic_notes",
+        Tag = "VCE_ANTIBIOTIC_NOTES_TAG",
+        NameKey = "antibiotic_notes_name",
+        TitleKey = "antibiotic_notes_name",
+        LineKeys = new string[] { "abx_1", "abx_2", "abx_3" }
+    };
+
+    public static readonly HandNote[] All = new HandNote[] { ToxinFormula, OreNotes, WineMaking, WineSelling, BeerBrewing, BeerTable, Reprocessing, CrackineNotes, LanternNotes, ElectrolysisNotes, AntibioticNotes };
 }
 
 // The retired chemist always brings the advanced chemistry handbook while the player has none.

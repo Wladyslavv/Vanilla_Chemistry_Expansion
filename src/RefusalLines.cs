@@ -45,6 +45,10 @@ public static class RefusalLinesPatch
             {
                 key = client.IsFaction("FACTION_LOWER_LEVEL") ? "refuse_nuclear_drink_lower" : "refuse_nuclear_drink";
             }
+            else if (Resistance.OnItemShown(client, item))
+            {
+                key = "antibiotic_resistance_line";  // "this one hasn't been working lately" (Resistance.cs)
+            }
             else if (LanternBuyers.Refuses(client, item))
             {
                 key = LanternBuyers.RefusalKey(client);
