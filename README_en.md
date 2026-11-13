@@ -1,6 +1,6 @@
 # Cartel Expansion
 
-**[中文版](README.md)** · The full player guide for the whole mod (in Chinese) is [docs/MOD_GUIDE.md](docs/MOD_GUIDE.md)
+**[中文版](README.md)** · The full player guide for the whole mod (in Chinese) is [docs/MOD_GUIDE.md](docs/MOD_GUIDE.md) · The design for the planned antibiotics and strain-breeding system (in Chinese) is [docs/ANTIBIOTICS_DESIGN.md](docs/ANTIBIOTICS_DESIGN.md)
 
 The cartel system of *Vanilla Chemistry Expansion*, a mod for Probably Stolen. Besides vanilla's cartel, which belongs to the chemist start, it adds a **Cartel Network** that every start can run into: join it, be boycotted by it, or help Security tear it out by the roots.
 

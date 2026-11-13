@@ -1,6 +1,6 @@
 # 卡特尔扩展 / Cartel Expansion
 
-**[English version](README_en.md)** · 整个 mod 的完整玩家说明见 [docs/MOD_GUIDE.md](docs/MOD_GUIDE.md)
+**[English version](README_en.md)** · 整个 mod 的完整玩家说明见 [docs/MOD_GUIDE.md](docs/MOD_GUIDE.md) · 规划中的抗生素与菌种选育系统设计见 [docs/ANTIBIOTICS_DESIGN.md](docs/ANTIBIOTICS_DESIGN.md)
 
 《原版化学扩展》（Vanilla Chemistry Expansion，Probably Stolen 模组）的卡特尔系统。它在原版化学家开局的卡特尔之外，新增了一个所有开局都能接触到的**卡特尔网络**：加入它、被它抵制、或者帮治安部把它连根拔起。
 
