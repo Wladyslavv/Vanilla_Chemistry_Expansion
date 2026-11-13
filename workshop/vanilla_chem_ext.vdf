@@ -8,6 +8,14 @@
 	"title"		"原版化学扩展 / Vanilla Chemistry Expansion"
 	"description"		"Not a big mod, but a lot of mechanics. Bug reports, code, suggestions and wishes are welcome in the QQ group: https://qm.qq.com/q/imekxahuBW
 
+[b]Major update: Antibiotics, strain breeding and drug resistance[/b]
+[list]
+[*]Breed Acremonium strains with visible traits, in a fermenter that turns one strain into four.
+[*]Freeze a good strain and it keeps for ever; a line re-seeded from its own harvest drifts downhill.
+[*]Ten reagents mutate a strain on purpose, plutonium included.
+[*]Every genome you sell under wears out: push one too hard and the whole city stops responding to it.
+[/list]
+
 [b]Major update: Cartel expansion, beta 0.5[/b]
 [list]
 [*]Any start can now join the cartel. Sell too much chemical contraband and the cartel takes notice.
@@ -25,14 +33,15 @@ All you can do with nuclear waste is dump it at the junkyard, where someone just
 Inspired by real chemical production, this mod gives vanilla chemistry more to do, so late game you can really play the chemist through (somewhat) involved chemistry.
 
 Main features:
-1. Brine electrolysis: order rock salt from GP Mining, electrolyse brine into base, hydrogen and chlorine, burn the gases into hydrogen chloride and dissolve it into acid. Pure acid and base in bulk. Purifying acid with fish never felt right, did it?
-2. Hollow's Lantern: grow a lab-bred chili and refine a legal riot-control incapacitant. Sell it to the Upper Level or Security and your crimes disappear; once they are gone, the investigation slows too. (Did nobody catch the Outer Wilds nod?)
-3. Dream Toxin: the legal product of Dream Caps, a high-end cosmetic treatment for the Upper Level.
-4. Possibly the new ice: grow Xinke and make Crackine, high-profit and not counted as medical. It draws a Crackine buyer back the next day, and the buyer's budget grows 25% every day the streak goes on.
-5. Blend nutrifruit, brew beer with acid and yeast, and serve chilled draft beer!
-6. Make alcohol from starch and sugar, ethyl acetate from plant matter, and edit genes so other crops make sugar and starch. Deep-space wine merchant: probably blended.
-7. Crush ore and use the minerals to purify the acid and base the profiteers sell you.
-8. Neutralize nuclear waste, extract the plutonium, and make Nuclear Cola!
+1. Antibiotics: breed Acremonium strains, ferment them for cephalosporin C and press antibiotic tablets. Sell too much under one genome and resistance catches up with it - then you mutate your way to a new one.
+2. Brine electrolysis: order rock salt from GP Mining, electrolyse brine into base, hydrogen and chlorine, burn the gases into hydrogen chloride and dissolve it into acid. Pure acid and base in bulk. Purifying acid with fish never felt right, did it?
+3. Hollow's Lantern: grow a lab-bred chili and refine a legal riot-control incapacitant. Sell it to the Upper Level or Security and your crimes disappear; once they are gone, the investigation slows too. (Did nobody catch the Outer Wilds nod?)
+4. Dream Toxin: the legal product of Dream Caps, a high-end cosmetic treatment for the Upper Level.
+5. Possibly the new ice: grow Xinke and make Crackine, high-profit and not counted as medical. It draws a Crackine buyer back the next day, and the buyer's budget grows 25% every day the streak goes on.
+6. Blend nutrifruit, brew beer with acid and yeast, and serve chilled draft beer!
+7. Make alcohol from starch and sugar, ethyl acetate from plant matter, and edit genes so other crops make sugar and starch. Deep-space wine merchant: probably blended.
+8. Crush ore and use the minerals to purify the acid and base the profiteers sell you.
+9. Neutralize nuclear waste, extract the plutonium, and make Nuclear Cola!
 
 More chemistry is planned; I just need a little inspiration.
 Gunsmiths may also want: Ammo Printer [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3831394883]https://steamcommunity.com/sharedfiles/filedetails/?id=3831394883[/url]
@@ -50,7 +59,18 @@ A legal medical outlet for Dream Caps and Nightmare Caps.
 [*]Legal, for Upper Level clinics, base value 150. Only pharma grade (90%+) pays: about as much as street Dream Dust, without the notoriety.
 [/list]
 
-[h3]Brine electrolysis (new, handbook chapter 10)[/h3]
+[h3]Antibiotics, breeding and resistance (new, handbook chapter 11)[/h3]
+A production line where the real work is breeding, not chemistry.
+[list]
+[*][b]Strains[/b]: Acremonium chrysogenum, carrying a 12-letter genome and five visible traits - purity, yield, growth speed, carbon-source efficiency and the extraction target. The retired chemist and the retired farmer each have a one-in-five chance of bringing one.
+[*][b]Fermenter[/b] (400, from Dr. Jackson and the retired chemist): a vanilla feed dispenser is bolted into it as the carbon source. Two nights a batch, one strain in and four out, each of them mutated away from its parent and on average for the worse.
+[*][b]Keeping stock[/b]: leave a strain in a powered freezer overnight and it becomes a frozen strain, which double-clicks out an identical strain for ever. Those clones only inoculate; the fermenter is the only way to product.
+[*][b]Product[/b]: blend a strain for cephalosporin C, press 5 mL into an [b]antibiotic tablet[/b]. Three purity tiers only - lab pure, pharma grade, and below that nobody will take it.
+[*][b]Mutation[/b]: drop about 5 mL of a pure reagent on a strain to mutate it. Acid and base nudge it, fanta and the esters swing it hard, dream cap extract tends to improve it, plutonium does anything at all.
+[*][b]Resistance[/b]: antibiotics are booked against their genome. Sell enough under one and resistance sets in, taking up to half the price and drawing a line from the customer. Breed four letters away and you are clear again; stop selling and it fades.
+[/list]
+
+[h3]Brine electrolysis (handbook chapter 10)[/h3]
 A simplified chlor-alkali process: 1 part salt + 0.3 part water ends up as 1 part base and 1 part acid, free of chemical contaminant and heavy metal.
 
 [h3]Hollow's Lantern and Incapacitant (handbook chapter 9)[/h3]
@@ -111,5 +131,5 @@ A gold Kotton fabric that regains full durability every day, found wherever the 
 [*][b]Radiation sickness[/b]: unprocessed waste in the shop overnight lowers your selling prices; genuine Immunivax eases it.
 [*]A Waste Broker sells barrels every 7 days from day 7.
 [/list]"
-	"changenote"		"1.7.1: Fixed the game sometimes starting stuck in English: some of this mod's patches were installed before the game's localization was ready and broke it; they are now installed later. Fixed the Cartel Contact and Security officer dialogues hanging on answers he does not reply to. Dragging several plutonium ampoules onto a battery at once now counts every ampoule, and one drop can no longer spike the same drink twice. The vanilla module bay expansion kit now works on the Electrolyzer. The Peer lays out at most 20 items, and never unimplemented or story items. The Black Market Tourist only takes the place of ordinary random buyers, never story characters or other mods' clients. With a system language different from the game language, Chem Finisher recipe names and module effects now show in the game language. / 1.7.1：修复游戏偶尔启动后锁定为英文：本 mod 的部分补丁在游戏本地化就绪前安装，导致本地化损坏；现在改为稍后安装。修复卡特尔接头人和治安部警员的对话在他不回话的选项上卡死。一次拖多支钚安瓿到电池上，现在每支都会计入；一次拖放也不会再把同一瓶饮料加料两次。原版模组扩展工具现在可以升级电解机。同行每次最多摆 20 件，且不会再摆出未实装物品或剧情物品。黑市游客只会顶替普通的随机买家，不会再顶替剧情角色或其他 mod 的客人。系统语言与游戏语言不同时，化学成型机的配方名和模组效果现在按游戏语言显示。"
+	"changenote"		"1.8.0: Adds the antibiotics line. Breed Acremonium strains in a fermenter: every strain carries a 12-letter genome and five visible traits (purity, yield, growth speed, carbon-source efficiency and the extraction target), and a batch turns one strain into four, each mutated away from its parent and on average for the worse. Freeze a strain in a powered freezer and it keeps its traits exactly, inoculating for ever. Blend a strain for cephalosporin C and press 5 mL into an antibiotic tablet, which has three purity tiers instead of seven and is unsellable below pharma grade. Ten reagents mutate a strain on purpose when about 5 mL of them is dropped on it, from acid and base up to plutonium. Antibiotics are booked against their genome: sell enough under one and resistance sets in, taking up to half the price until you breed four letters away or stop selling. New handbook chapter. / 1.8.0：新增抗生素产业链。在发酵罐里选育枝顶孢霉菌：每支菌种带 12 位基因组和五项可见性状（纯度、产量、生长速度、碳源利用效率、萃取目标），一轮把一支菌种变成四支，每支相对亲本都发生过突变，长期多半变差。把菌种放进通电冰箱的冷冻区过夜会变成冷冻菌种，性状完全保真，可以无限次接种。搅拌机打碎菌种得到头孢菌素 C，5 毫升压成一片抗生素片；药片只分三档纯度，低于药用级无法出售。十种试剂可以定向诱变，把约 5 毫升倒在菌种上即可，从酸碱一直到钚。抗生素按基因组记账：同一组卖得太多就会产生抗药性，最多扣掉一半售价，直到你育出差 4 位以上的新基因组或者停售一段时间。手册新增一章。"
 }
