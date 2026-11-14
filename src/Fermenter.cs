@@ -215,6 +215,8 @@ public static class Fermenter
                 {
                     item.EnableTag(TURBO_ELIGIBLE_TAG, false);
                     item.EnableTag(MachineHelper.STANDARD_MACHINE_TAG, false);
+                    // Fermenters saved before this sync existed hold vanilla's efficiency-only figure.
+                    SyncPowerTag(item);
                     ApplySprite(item);
                 }
             }
@@ -236,6 +238,30 @@ public static class Fermenter
             + MachineryHelper.GetCurrentQualityBonus(machine);
         double usage = POWER_PER_NIGHT * (1.0 - sum / 100.0);
         return Math.Max(0, (int)Math.Round(usage, MidpointRounding.AwayFromZero));
+    }
+
+    // Vanilla keeps its own figure in machinery_drawn_power, recomputed whenever a module goes in or out
+    // (ModuleHelper.ApplyBasicModuleEffect: base x (1 - efficiency), at least 1). The machine tooltip shows that
+    // tag as "energy required" and warns "insufficient power" from it, so it is overwritten with ours; otherwise a
+    // fermenter full of performance modules draws nothing at night but claims to need 54 and to be short of power.
+    public const string DRAWN_POWER_TAG = "machinery_drawn_power";
+
+    public static void SyncPowerTag(GameItem machine)
+    {
+        if (!IsFermenter(machine))
+        {
+            return;
+        }
+        int usage = PowerUsage(machine);
+        if (machine.GetTagReadonly(DRAWN_POWER_TAG).GetInt() == usage)
+        {
+            return;
+        }
+        machine.ModifyTag(DRAWN_POWER_TAG, delegate(TagState state)
+        {
+            state.Enable().SetInt(usage);
+        }, true);
+        machine.ValidateShapeState();
     }
 
     public static int StoredKcal(GameItem machine)
@@ -320,6 +346,7 @@ public static class Fermenter
         }
         // Same as the blender: a strain put in before its first tick still gets a genome before it breeds.
         Strain.EnsureIdentity(strain);
+        SyncPowerTag(machine);
         int kcal = StrainTraits.KcalPerNight(strain);
         if (StoredKcal(machine) < kcal)
         {
@@ -587,6 +614,26 @@ public static class Fermenter
         catch (Exception e)
         {
             Log.Error("fermenter debug night failed", e);
+        }
+    }
+}
+
+// After vanilla recomputes a machine's power draw for a module change (efficiency only), the fermenter puts back its
+// own figure (efficiency + performance + quality), so the tooltip and the "insufficient power" warning match what
+// the machine actually draws at night. The parameter name has to match vanilla's: ApplyBasicModuleEffect(
+// GameInventory invModule, GameItem item, GameItem system).
+[HarmonyPatch(typeof(ModuleHelper), "ApplyBasicModuleEffect")]
+public static class FermenterPowerDisplayPatch
+{
+    private static void Postfix(GameItem system)
+    {
+        try
+        {
+            Fermenter.SyncPowerTag(system);
+        }
+        catch (Exception e)
+        {
+            Log.Error("syncing the fermenter's power draw failed", e);
         }
     }
 }
