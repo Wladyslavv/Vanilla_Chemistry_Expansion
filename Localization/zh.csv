@@ -72,7 +72,7 @@ making_ester,"[[section:第7步：乙酸原料准备]]"
 making_wine,"[[section:第11步：勾兑]]"
 advanced_fabric_name,高级韧棉织物
 advanced_fabric_desc,和韧棉织物一样滤掉大颗粒（孔径150），每天自动恢复1000点耐久。
-advanced_fabric_flavor,纤维里织进了自清洁涂层，洗都不用洗。
+advanced_fabric_flavor,纤维里织进了自清洁涂层，无需清洗。
 effect_production,每 100 克果实 +{0} 毫升{1}（其他作物每个 +{2} 毫升）
 setting_fridge_cool,冰箱降温速度（%）
 setting_fridge_cool_tooltip,通电冰箱让容器降温（或升温）到目标温度的速度，100 为原版（冷藏区每秒 0.5°C，冷冻区每秒 1°C）。默认 400。
@@ -90,10 +90,10 @@ opened_waste_name,打开的核废料
 opened_waste_desc,装着500毫升乏燃料。有水、酒精、乙酸乙酯这类会蒸发的液体时，衰变热让它保持在70°C；乏燃料溶解完、把这些液体倒干后，会升到300°C以上。往外倒时只有钚萃取物和会蒸发的液体能出来，放射性物质、酸和其他杂质都留在桶里。只能放在主物品栏、展示柜和里/外柜台。
 opened_waste_flavor,别盯着看太久。
 vitrified_name,玻璃固化体
-vitrified_desc,裂变产物已经熔进玻璃，封在不锈钢罐里。无害，可以丢弃。
+vitrified_desc,裂变产物已经熔进玻璃，封存在不锈钢罐里。无害，可以丢弃。
 vitrified_flavor,一万年后再打开。
 ampoule_name,钚安瓿
-ampoule_desc,0.1毫升钚溶液。可以拖到任何饮料或葡萄酒上，让它价值+50，变成核子饮料；也可以拖到钚化学电池上，让它每晚自充 2 千焦。
+ampoule_desc,0.1毫升钚溶液。可以对任何饮料或葡萄酒使用，使其价值+50，变成核子饮料；也可以对钚化学电池使用，使其每晚自充 2 kJ。
 ampoule_flavor,标签上写着：请勿饮用。
 nuclear_drink_name,核子{0}
 merchant_name,废料掮客
@@ -108,12 +108,12 @@ nightlog_radiation_max,辐射病已经是最重的程度：卖出价格-{0}%。
 nc_notes_name,核废料后处理笔记
 nc_notes_warning,"[[section:警告：请确保具备能力中和核废料再开启！当心辐射病！|fill=#853737|color=#FFFFFF|w=259|h=16|align=center]]"
 nc_notes_1,"[[section:第1步：开封]]\n- 使用撬棍谨慎地撬开核废料桶，确保在之后的流程中使用化学手段处理裂变产物\n- 请妥善保管开封后的核废料桶，裂变产物不会随倾倒流出，也绝不应流出"
-nc_notes_2,"[[gap:-4]]\n[[section:第2步：溶解]]\n- 向桶内注入约 500 毫升浓酸，等待反应完全。确保酸占桶内非放射性液体的98%以上"
+nc_notes_2,"[[gap:-4]]\n[[section:第2步：溶解]]\n- 向桶内注入约 500 毫升浓酸（酸占比80%以上），等待反应完全。确保酸占桶内非放射性液体的98%以上"
 nc_notes_3,"[[section:第3步：调整价态]]\n- 向桶内注入约 20 毫升还原剂，等待反应完全"
 nc_notes_4,"[[section:第4步：萃取]]\n- 向桶内注入相当于裂变产物体积2倍的乙酸乙酯，即约 100 毫升\n[[gap:4]]\n[[text:建议：一次性加入100 毫升以实现最大限度萃取|color=#3D823F|align=center]]"
 nc_notes_5,"[[gap:-4]]\n[[section:第5步：分离]]\n- 将桶内液体倒入空置干净的容器。只有钚的萃取物与易挥发的液体会进入到容器里，酸与杂质会留在桶中"
 nc_notes_6,"[[section:第6步：提钚]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- 取下上一步使用的容器\n- 将其放入加热板\n- 将混合物加热到100°C以上，以除去水分、有机质和酒精"
-nc_notes_7,"[[section:第7步：固化]]\n- 重复第5-6步，直至耗尽桶内液体，衰变热会让桶温升至 300°C 以上\n- 向桶内注入 50 毫升的水玻璃，使裂变产物熔入玻璃\n- 裂变产物将封存于不锈钢罐中，可以安全处置"
+nc_notes_7,"[[section:第7步：固化]]\n- 重复第5-6步，直至耗尽桶内液体，衰变热会让桶温升至 300°C 以上\n- 向桶内注入 50 毫升的水玻璃，使裂变产物熔入玻璃\n- 裂变产物将自动封存于不锈钢罐中，可以安全处置"
 nc_notes_8,"[[section:第8步：钚循环]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- 将含有纯钚溶液的容器放入化学制剂成型机，选择“钚安瓿”配方\n- 按下“输出”按钮\n[[gap:4]]\n[[text:提示：钚安瓿可加入到任意饮料和酒水中，用以制取价值增加50信用点的核子饮料|color=#3D823F|align=center]]"
 nc_notes_9,"[[gap:-2]]\n[[section:注意事项：防护|fill=#853737]]\n- 切勿与未处理完的废料同处过夜，否则会罹患仅能用免疫宁治愈的辐射病。"
 refuse_blended_wine,我们家的酒窖里不放这种东西。
@@ -141,7 +141,7 @@ beer_split,倒出一罐啤酒，桶里还剩{0}毫升。
 beer_keg_tooltip_cold,温度 {0}°C，还剩 {1} 毫升：已冷藏，双击倒出一杯扎啤。
 beer_keg_tooltip_warm,温度 {0}°C，还剩 {1} 毫升：双击倒出一罐啤酒；冷藏到2-8°C后倒出的是扎啤。
 beer_notes_name,啤酒酿造笔记
-beer_1,"[[section:第1步：原料准备]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- 将液体容器接到搅拌机上\n- 加入600-750克营养果\n- 搅拌原料，制成营养果糊\n[[section:第2步：制取成品]]\n- 使上一步中获取的原料进行水解、中和\n- 上述步骤可参考《进阶化学手册-勾兑酒酿造笔记》中第2-3步\n- （可选）加入水至1.2L，以为酵母提供更好的发酵环境\n- 加入一包酵母，等待两晚用以发酵，制取醪液（指含有酒精的发酵液）\n- 加入净水，使液体体积达到2000毫升\n[[gap:6]]\n[[text:注意：上述步骤中，加入基础水能够制得普通啤酒，加入优质水/纯水能够制得上等啤酒|color=#3D823F|align=center]]"
+beer_1,"[[section:第1步：原料准备]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- 将液体容器接到搅拌机上\n- 加入600-750克营养果\n- 搅拌原料，制成营养果糊\n[[section:第2步：制取成品]]\n- 使上一步中获取的原料进行水解、中和\n- 上述步骤可参考《进阶化学手册-勾兑酒酿造笔记》中第2-3步\n- （可选）加入净水至1200毫升，以提供更好的酵母发酵环境\n- 加入一包酵母，等待两晚用以发酵，制取醪液（指含有酒精的发酵液）\n- 加入净水，使液体体积达到2000毫升\n[[text:注意：上述各步骤中，加入基础水能够制得普通啤酒，加入优质水/纯水能够制得上等啤酒|color=#3D823F|align=center]]"
 beer_2,- 上等：酒精占总量5%-8%，活酵母0.1%-1%，糖不超过4%，蛋白质不超过1%；除水、酒精、酵母、糖、蛋白质以外的杂质不超过“水+杂质”的1%
 beer_3,- 普通：酒精8%-12%，活酵母低于0.1%或1%-2%，糖4%-8%，蛋白质1%-2%，杂质1%-2%；任一项超出就完全不能喝，甲醇超过总量0.1%也不能喝
 beer_4,"[[gap:-2]]\n[[section:第3步：成型封装]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- （必需）确保液体体积高于2000毫升，且必须含有酒精\n- 将容器放入化学制剂成型机\n- 选择“桶装啤酒”配方\n- 按下“输出”按钮"
@@ -167,11 +167,11 @@ xinke_seed_desc,一种常绿灌木的种子，耐旱，种下后可以反复采�
 xinke_leaf_name,新柯叶
 xinke_leaf_name_s,小新柯叶
 xinke_leaf_name_l,大新柯叶
-xinke_leaf_desc,新柯树的革质长椭圆叶片，含有少量生物碱。下层区的人拿它嚼着提神，便宜，劲儿也小。
+xinke_leaf_desc,新柯树的革质长椭圆叶片，含有少量生物碱，价格低廉，效力微弱。有些下层区的人会拿它咀嚼提神。
 xinke_leaf_flavor,"嚼上半天，舌头发麻，然后就不觉得累了。"
 liquid_crackine_powder,盐酸快克粉
 crackine_vial_name,一小瓶快克因
-crackine_vial_desc,从新柯叶里提纯出的淡黄色粉末，装在一个小玻璃瓶里。劲儿比嚼叶子大得多，也贵得多。
+crackine_vial_desc,从新柯叶里提纯出的淡黄色粉末，装在一个小玻璃瓶里。效力比咀嚼叶子更强烈，但价格也更昂贵。
 crackine_vial_flavor,"一点点就够了。然后你会想要再来一点点。"
 crackine_vial_l_name,一大瓶快克因
 crackine_regular_1_1,昨天那瓶{0}……老实说，我从没碰过这么干净的货。
@@ -196,12 +196,12 @@ crackine_6,"[[gap:-2]]\n[[section:第4步：成型封装]]\n[[image:vanilla_chem
 crackine_7,"[[page]]\n[[section:附录：产物说明]]\n- 药用级及以上纯度的快克因具备强成瘾性\n- 当天售出高纯度快克因后，次日必定会产生回头客\n- 每天连续售出高纯度快克因时，顾客的预算将每日增加25%，最多增至2000"
 lantern_plant_name,空心灯
 lantern_seed_name,空心灯种子
-lantern_seed_desc,实验室培育的辣椒种子，产量高，但很吃营养液。根系会弄脏种植水。
+lantern_seed_desc,实验室培育的辣椒种子，产量高，但需要大量养分。根系会污染种植水。
 lantern_chili_name,空心灯
 lantern_chili_name_s,小空心灯
 lantern_chili_name_l,大空心灯
-lantern_chili_desc,实验室里提纯的辣椒。在酒精中加热会产出化学刺激剂，常用于高烈度的镇暴行动。
-lantern_chili_flavor,因为长时间的提纯，已经几乎无法当调味料使用了。不过空间站里大多数人反正也买不起调味料。
+lantern_chili_desc,实验室里提纯的辣椒。在酒精中加热会产出化学刺激剂，产物常用于高烈度的镇暴行动。
+lantern_chili_flavor,因为长时间的提纯，已经几乎无法当调味料使用了。不过反正空间站里大多数人也买不起调味料。
 liquid_capsaicin,辣椒素
 liquid_lantern_ester,辣酯
 incapacitant_vial_name,失能剂
@@ -249,9 +249,9 @@ electrolyzer_lines_title,每晚电解：1 份食盐 + 0.3 份水
 electrolyzer_lines_a,红线 → 产物 A：0.5 份氢气
 electrolyzer_lines_b,蓝线 → 产物 B：0.5 份氯气
 electrolyzer_lines_base,留在盐水容器里：1 份碱
-salt_ore_desc,从地下盐层开采的岩盐，主要成分是氯化钠，夹着少量泥土和其他矿物。
-salt_order_small,订 {0} 块盐矿石，{1} 天后送到。
-salt_order_large,订 {0} 块盐矿石，{1} 天后送到。
+salt_ore_desc,从地下盐层开采的岩盐，主要成分是氯化钠，夹杂少量泥土和其他矿物。
+salt_order_small,订购 {0} 份盐矿石，{1} 天后送达
+salt_order_large,订购 {0} 份盐矿石，{1} 天后送达
 electrolysis_notes_name,电解食盐水笔记
 electrolysis_1,"[[section:第1步：原料准备]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- 将液体容器接到搅拌机上\n- 加入若干盐矿石\n- 搅拌原料，制成氯化钠（即食盐）"
 electrolysis_2,"[[section:第2步：电解]]\n[[image:vanilla_chem_ext:icon_electrolyzer|w=24|h=24|gap=6|float=left]]\n- 取下上一步使用的容器\n- 将其放入电解机\n- 确保电解机装有能量电池供电\n- 等到第二天，从两侧的气罐中收集氢气和氯气"
@@ -272,11 +272,11 @@ lantern_6,"[[section:附录：产物介绍]]\n- 失能剂是合法商品，上�
 lantern_7,"- 向上层区和治安部售出失能剂时，治安档案里的罪名会被冲减。具体计算逻辑为 成交价×纯度×5，最严重的罪名会优先抵减"
 lantern_8,"- 罪名清零后继续售出失能剂时，上述计算逻辑每满100点将降低1点调查进度"
 pu_battery_name,钚化学电池
-pu_battery_desc,一节 200 千焦的电池，侧面开了个观察窗。把钚安瓿拖到它上面，每支让它每晚自充 2 千焦，最多 10 支。
-pu_battery_flavor,杰克逊博士说这是化学电池，不是核电池。区别在于发票上怎么写。
-pu_battery_tooltip_fuel,钚：{0} / {1} 支（每支每晚自充 {2} 千焦）
+pu_battery_desc,一节 200 kJ的电池，侧面开了个观察窗。对其使用钚安瓿，会让它每晚自充 2 kJ，最多 10 支。
+pu_battery_flavor,杰克逊博士声称这是化学电池而非核电池，但实际区别只在发票上。
+pu_battery_tooltip_fuel,钚：{0} / {1} 支（每支每晚自充 {2} kJ）
 pu_battery_tooltip_hint,把钚安瓿拖到电池上，启动自充电。
-pu_battery_fuelled,钚已注入：每晚自充 {0} 千焦（{1} / {2} 支）
+pu_battery_fuelled,钚已注入：每晚自充 {0} kJ（{1} / {2} 支）
 cartel_network_name,卡特尔网络
 cartel_network_joined,你和卡特尔的债终于勾销了。现在，卡特尔希望与你合作，而决定的权力可能不单单在你们任何一方的手上。
 cartel_note_name,字条
@@ -397,8 +397,8 @@ antibiotic_tooltip_sales,该基因组累计销售额：{0}
 antibiotic_resistance_feature,抗药性
 antibiotic_resistance_line,这个药最近不怎么管用。
 fermenter_name,发酵罐
-fermenter_desc,培养枝顶孢霉菌的发酵罐。每晚耗电 12 点，并从固定的饲料分配器里取用热量。标准性状下两晚一轮，一轮把一支菌种变成四支。
-fermenter_flavor,搅拌桨一夜不停。听久了会觉得它在呼吸。
+fermenter_desc,培养枝顶孢霉菌的发酵罐，会从固定的饲料分配器里取用热量。标准性状下两晚一轮，一轮产出四支菌种。
+fermenter_flavor,搅拌桨一夜不停，听久了会觉得它在呼吸。
 fermenter_label_module,模组
 fermenter_label_feed,碳源
 fermenter_label_strain,菌种
@@ -409,9 +409,9 @@ fermenter_tooltip_draw,"每晚耗电 {0} 点，耗热 {1} 千卡"
 fermenter_tooltip_feed,分配器余量：{0} 千卡
 fermenter_manual_name,发酵罐说明书
 fermenter_manual_short,枝顶孢霉菌发酵罐操作要点。
-fermenter_manual_flavor,"一、装料：往饲料分配器里投任何食物即可，它只看热量。\n二、接种：菌种输入格放一支菌种。它会在本轮结束时被消耗。\n三、收获：标准性状下第二晚结束出四支菌种。生长速度越高，轮次越短；产量越高，收获越多。\n四、模组：效率、性能、质量三项都只降低耗电，可以降到零。\n五、注意：收获的菌种相对亲本会有突变，长期多半变差。保种请用冷冻罐。"
+fermenter_manual_flavor,"一、装料：往饲料分配器里投入任意食物。\n二、接种：在菌种输入格放入一支菌种，它会在本轮结束时被消耗。\n三、收获：标准性状下，第二晚结束后产出四支菌种。生长速度越高，轮次越短；产量越高，收获越多。\n四、模组：效率、性能、质量三项都只降低耗电，可以降到零。\n五、注意：收获的菌种相对亲本会有突变，长期多半变差。可使用冷冻罐保存菌种。"
 antibiotic_notes_name,抗生素育种笔记
-abx_1,"[[section:冷冻保种]]\n[[image:vanilla_chem_ext:icon_strain_frozen|w=24|h=24|gap=6|float=left]]\n- 请确保冰箱冷冻区有3×3的空间\n- 把菌种放进冷冻区\n- 确保冰箱装有能量电池供电\n- 等到第二天，菌种会冻成冷冻菌种\n- 双击冷冻菌种，取出一支相同的菌种，可以反复取用\n[[gap:4]]\n[[text:注意：取出的菌种只能用来接种，打碎只能得到蛋白质|color=#853737]]\n[[gap:4]]\n[[text:提示：发酵罐产出的菌种会逐代变差，好的菌种请尽早冻存|color=#3D823F|align=center]]"
-abx_2,"[[section:诱变]]\n[[image:vanilla_chem_ext:icon_strain|w=24|h=24|gap=6|float=left]]\n- 用滴管或量筒量取约 5 毫升试剂\n- 移动盛有试剂的容器到菌种上，试剂会被全部用掉\n[[gap:3]]\n[[table:fills=#D8C6A2,#7F916C|colors=#3A3A3A,#F4EEDB|w=230|rowh=10.5|rowgap=1|cellgap=1|size=6.1|padding=3|align=left,left]]\n[[row:试剂|效果|fill=#665441|color=#F5EAD1|head=1]]\n[[row:酸、碱|小幅变化]]\n[[row:芬太、N-甲基碱|大幅变化]]\n[[row:乙酸、乙酸乙酯|大幅变化]]\n[[row:梦帽菇萃取液|小幅变化，多半变好]]\n[[row:梦魇帽菇萃取液|可能改变萃取目标]]\n[[row:梦魔菌毒素|改变基因组]]\n[[row:钚|剧烈变化，略偏向变好]]\n[[/table]]\n[[gap:3]]\n[[text:注意：用量不对或试剂不纯时，菌种照样会变化，而且只会变差|color=#853737]]"
-abx_3,"[[section:附录：抗药性]]\n[[image:vanilla_chem_ext:icon_antibiotic|w=24|h=24|gap=6|float=left]]\n- 每支菌种都有一组基因组，例如AGCTTAGCGATC。\n- 同一组基因组的抗生素卖得越多，越容易产生抗药性\n- 产生抗药性后，这组基因组的抗生素售价减半。\n- 基因组相近的抗生素也会受影响。研究表明，30%以上的基因不同时，既有抗药性不再发挥作用。\n- 停售一段时间，抗药性会自行消失\n- 可以用梦魔菌毒素改变菌种的基因组"
+abx_1,"[[section:第1步：冷冻保种]]\n[[image:vanilla_chem_ext:icon_strain_frozen|w=24|h=24|gap=6|float=left]]\n- 确保冰箱冷冻区有至少3×3的可用空间\n- 把菌种放进冷冻区\n- 确保冰箱装有能量电池供电\n- 等到第二天，菌种会冻成冷冻菌种\n- 双击冷冻菌种以取出一支相同的菌种，可以反复取用\n[[gap:4]]\n[[text:注意：取出的菌种只能用来接种，打碎会得到蛋白质|color=#853737|align=center]]\n[[gap:4]]\n[[text:提示：发酵罐产出的菌种会逐代变差，应尽早冻存优质菌种|color=#3D823F|align=center]]"
+abx_2,"[[section:第2步：诱变]]\n[[image:vanilla_chem_ext:icon_strain|w=24|h=24|gap=6|float=left]]\n- 从上一步的容器里，量取约 5 毫升试剂\n- 移动盛有试剂的容器到菌种上，试剂会被全部消耗\n[[gap:3]]\n[[table:fills=#D8C6A2,#7F916C|colors=#3A3A3A,#F4EEDB|w=230|rowh=10.5|rowgap=1|cellgap=1|size=6.1|padding=3|align=left,left]]\n[[row:试剂|效果|fill=#665441|color=#F5EAD1|head=1]]\n[[row:酸、碱|小幅变化]]\n[[row:芬太、N-甲基碱|大幅变化]]\n[[row:乙酸、乙酸乙酯|大幅变化]]\n[[row:梦帽菇萃取液|小幅变化，多半变好]]\n[[row:梦魇帽菇萃取液|可能改变萃取目标]]\n[[row:梦魔菌毒素|改变基因组]]\n[[row:钚|剧烈变化，略偏向变好]]\n[[/table]]\n[[gap:3]]\n[[text:注意：用量不对或试剂不纯时，菌种将会劣化|color=#853737]]"
+abx_3,"[[section:附录：抗药性]]\n[[image:vanilla_chem_ext:icon_antibiotic|w=24|h=24|gap=6|float=left]]\n- 每支菌种都有一组基因组，例如AGCTTAGCGATC。\n- 同一组基因组的抗生素售出越多，越容易产生抗药性\n- 产生抗药性后，这组基因组的抗生素售价减半。\n- 基因组相近的抗生素同样会受影响。研究表明，30%以上的基因不同时，既有抗药性将不再发挥作用。\n- 停售一段时间，抗药性会自行消失\n- 可以用梦魔菌毒素改变菌种的基因组"
 antibiotic_genome_unknown,未知
