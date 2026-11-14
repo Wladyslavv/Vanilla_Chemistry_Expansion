@@ -4,53 +4,97 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Drawing.Text;
 
-// Cover.cs <cover in> <envelope png> <cover out> <crop out>
-// Replaces the bottom-middle card (Plutonium Ampoule) of the workshop cover with the cartel envelope.
-// Layout measured from the original cover: card interior x 364..660, y 620..822, background #222831; icons are item
-// sprites at 4x, centred on (512, 693.5); title Noto Sans SC Bold 24 px #F5F5F5 with its ink top at y 770;
-// subtitle 14.5 px #96A0AC with its ink top at y 802; both centred on x 512.
+// Cover.cs <cover in> <tablet png> <fermenter png> <cover out> <crop out>
+// 1.8.0: replaces the top-right card (Advanced Chemistry Handbook) of the workshop cover with antibiotics and the
+// fermenter. (1.7.1 replaced the bottom-middle card with the cartel envelope; see git history.)
+//
+// Layout measured from the cover (art/cover, Measure.cs in the commit message): the cards are 296 px wide, 224 px
+// apart vertically, background #222831; the top-right card's interior is x 682..978, y 172..374, centred on x 830.
+// Icons are centred on y 245.5 (the bottom row's 693.5 minus two rows). Big sprites are drawn at 2x like the
+// electrolyzer and the hydroponic machine; a pair sits side by side, bottoms aligned, 10 px apart, centred as a
+// group (the "Rock Salt & Electrolyzer" card). Title Noto Sans SC Bold 24 px #F5F5F5, ink top y 322; subtitle
+// 14.5 px #96A0AC, ink top y 354; both centred on x 830.
 public static class Cover
 {
-    const int CENTRE_X = 512;
+    const int CENTRE_X = 830;
+    const double ICON_CENTRE_Y = 245.5;
+    const int SCALE = 2;
+    const int PAIR_GAP = 10;
+
+    // The tablet's ink inside its 16x16 sprite, and the pile: 3 at the bottom, 2 above, 1 on top.
+    const int TAB_INK_X = 1, TAB_INK_Y = 3, TAB_INK_W = 15, TAB_INK_H = 11;
+    const int TAB_STEP_X = 12;   // sprite pixels between neighbours in a row (3 px overlap); even, so a half step
+                                 // stays on whole sprite pixels and the pile keeps to the 2x pixel grid
+    const int TAB_STEP_Y = 7;    // sprite pixels each row sits above the one below
+
+    // The fermenter's ink inside its 48x64 sprite.
+    const int FER_INK_X = 3, FER_INK_Y = 0, FER_INK_W = 42, FER_INK_H = 64;
 
     public static void Main(string[] args)
     {
         Bitmap cover = new Bitmap(args[0]);
-        Bitmap envelope = new Bitmap(args[1]);
+        Bitmap tablet = new Bitmap(args[1]);
+        Bitmap fermenter = new Bitmap(args[2]);
         using (Graphics g = Graphics.FromImage(cover))
         {
-            // Clear the card's contents, inside its border.
+            // Clear the card's contents, inside its border (same box as the 1.7.1 card, moved to this card).
             using (SolidBrush bg = new SolidBrush(ColorTranslator.FromHtml("#222831")))
             {
-                g.FillRectangle(bg, 366, 622, 293, 199);
+                g.FillRectangle(bg, 684, 174, 293, 199);
             }
-
-            // Envelope: opaque box x 4..28, y 8..26 of the 32x32 sprite, drawn at 4x and centred like the other icons.
-            const int SCALE = 4;
-            double boxCentreX = (4 + 28 + 1) / 2.0;
-            double boxCentreY = (8 + 26 + 1) / 2.0;
-            int left = (int)Math.Round(CENTRE_X - boxCentreX * SCALE);
-            int top = (int)Math.Round(693.5 - boxCentreY * SCALE);
             g.InterpolationMode = InterpolationMode.NearestNeighbor;
             g.PixelOffsetMode = PixelOffsetMode.Half;
-            g.DrawImage(envelope, new Rectangle(left, top, envelope.Width * SCALE, envelope.Height * SCALE));
-            Console.WriteLine("envelope sprite at " + left + "," + top + " (ink " + (left + 4 * SCALE) + ".." + (left + 29 * SCALE - 1) + ", " + (top + 8 * SCALE) + ".." + (top + 27 * SCALE - 1) + ")");
 
-            DrawCentred(cover, "卡特尔扩展", 24f, ColorTranslator.FromHtml("#F5F5F5"), 770, TextRenderingHint.AntiAliasGridFit);
-            DrawCentred(cover, "Cartel Expansion", 14.5f, ColorTranslator.FromHtml("#96A0AC"), 802, TextRenderingHint.AntiAlias);
+            // Sizes on the cover, in cover pixels.
+            int pileW = (TAB_STEP_X * 2 + TAB_INK_W) * SCALE;
+            int pileH = (TAB_STEP_Y * 2 + TAB_INK_H) * SCALE;
+            int ferW = FER_INK_W * SCALE;
+            int ferH = FER_INK_H * SCALE;
+
+            int groupLeft = (int)Math.Round(CENTRE_X - (pileW + PAIR_GAP + ferW) / 2.0);
+            int bottom = (int)Math.Round(ICON_CENTRE_Y + ferH / 2.0);   // exclusive
+
+            // Fermenter on the right, its ink box at (ferLeft, bottom - ferH).
+            int ferLeft = groupLeft + pileW + PAIR_GAP;
+            DrawSprite(g, fermenter, ferLeft - FER_INK_X * SCALE, bottom - ferH - FER_INK_Y * SCALE);
+            Console.WriteLine("fermenter ink x " + ferLeft + ".." + (ferLeft + ferW - 1) + ", y " + (bottom - ferH) + ".." + (bottom - 1));
+
+            // Tablet pile on the left, bottoms aligned with the fermenter; lower rows first so upper ones sit on top.
+            int[][] rows = { new int[] { 0, 1, 2 }, new int[] { 0, 1 }, new int[] { 0 } };
+            for (int row = 0; row < rows.Length; row++)
+            {
+                foreach (int i in rows[row])
+                {
+                    // Each row is shifted half a step to the right so the tablets rest in the gaps below.
+                    int inkLeft = groupLeft + (i * TAB_STEP_X + row * TAB_STEP_X / 2) * SCALE;
+                    int inkTop = bottom - (TAB_INK_H + row * TAB_STEP_Y) * SCALE;
+                    DrawSprite(g, tablet, inkLeft - TAB_INK_X * SCALE, inkTop - TAB_INK_Y * SCALE);
+                }
+            }
+            Console.WriteLine("tablet pile ink x " + groupLeft + ".." + (groupLeft + pileW - 1) + ", y " + (bottom - pileH) + ".." + (bottom - 1));
+
+            DrawCentred(cover, "抗生素 / 发酵罐", 24f, ColorTranslator.FromHtml("#F5F5F5"), 322, TextRenderingHint.AntiAliasGridFit);
+            DrawCentred(cover, "Antibiotics & Fermenter", 14.5f, ColorTranslator.FromHtml("#96A0AC"), 354, TextRenderingHint.AntiAlias);
         }
-        cover.Save(args[2], ImageFormat.Png);
+        Bitmap original = new Bitmap(args[0]);
+        Legend.Relayout(original, cover);
+        cover.Save(args[3], ImageFormat.Png);
 
-        // A 2x crop of the whole bottom row for checking.
-        Rectangle row = new Rectangle(40, 612, 944, 220);
-        using (Bitmap crop = new Bitmap(row.Width * 2, row.Height * 2))
+        // A 2x crop of the whole top row for checking.
+        Rectangle row1 = new Rectangle(40, 164, 944, 220);
+        using (Bitmap crop = new Bitmap(row1.Width * 2, row1.Height * 2))
         using (Graphics g = Graphics.FromImage(crop))
         {
             g.InterpolationMode = InterpolationMode.NearestNeighbor;
             g.PixelOffsetMode = PixelOffsetMode.Half;
-            g.DrawImage(cover, new Rectangle(0, 0, crop.Width, crop.Height), row, GraphicsUnit.Pixel);
-            crop.Save(args[3], ImageFormat.Png);
+            g.DrawImage(cover, new Rectangle(0, 0, crop.Width, crop.Height), row1, GraphicsUnit.Pixel);
+            crop.Save(args[4], ImageFormat.Png);
         }
+    }
+
+    static void DrawSprite(Graphics g, Bitmap sprite, int left, int top)
+    {
+        g.DrawImage(sprite, new Rectangle(left, top, sprite.Width * SCALE, sprite.Height * SCALE));
     }
 
     // Renders the text off-screen, finds its ink box, and copies it so the ink is centred on CENTRE_X with its top at inkTop.
