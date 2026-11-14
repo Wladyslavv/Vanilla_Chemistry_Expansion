@@ -44,6 +44,8 @@ public static class GuideBook
     private const float SECTION_GAP = 5f;
     private const float BODY_TO_SECTION_GAP = 4f;
     private const float BODY_LINE_HEIGHT = 9f;
+    private const float PAGE_INDICATOR_FONT_SIZE = 15f;
+    private const float ENGLISH_PAGE_INDICATOR_FONT_SIZE = 12.5f;
     private const string TITLE_INK = "#373541";
     private const string BODY_INK = "#3A3A3A";
     private const string SECTION_INK = "#D5D2B8";
@@ -1916,11 +1918,13 @@ public static class GuideBook
             int number = Math.Max(0, pageIndex) + 1;
             int count = Math.Max(1, paper.PageCount);
             string code = LocHelper.GetCurrentLocaleCode();
-            ApplyPageIndicatorStyle(indicator);
             indicator.SetText(
                 IsEnglishCode(code)
                     ? "Page\n" + number + "/" + count
                     : number + "/" + count);
+            // Apply after SetText so TMP cannot leave the final layout with the
+            // page_number style's default size or weight.
+            ApplyPageIndicatorStyle(indicator);
         }
     }
 
@@ -1935,8 +1939,13 @@ public static class GuideBook
         {
             indicator.text.font = loader.caveat;
         }
-        indicator.text.fontSize = 15f;
-        indicator.text.fontStyle = FontStyles.Bold;
+        bool english = IsEnglishCode(LocHelper.GetCurrentLocaleCode());
+        indicator.text.fontSize = english
+            ? ENGLISH_PAGE_INDICATOR_FONT_SIZE
+            : PAGE_INDICATOR_FONT_SIZE;
+        indicator.text.fontStyle = english
+            ? FontStyles.Normal
+            : FontStyles.Bold;
         indicator.SetTextColor(new Color32(121, 116, 110, 255));
 
         // PaperUI adds a locale font switcher to every text element. The vanilla
