@@ -35,6 +35,7 @@ public class DreamToxinMod : IMod
         Fermenter.Enable();
         Antibiotics.Enable();
         Resistance.Enable();
+        AntibioticTestKit.Enable();
         CartelNetwork.Enable();
         CartelRaid.Enable();
         CartelSweep.Enable();
@@ -90,6 +91,7 @@ public class DreamToxinMod : IMod
         Fermenter.Disable();
         Antibiotics.Disable();
         Resistance.Disable();
+        AntibioticTestKit.Disable();
         CartelNetwork.Disable();
         CartelRaid.Disable();
         CartelSweep.Disable();

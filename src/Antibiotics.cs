@@ -418,6 +418,12 @@ public static class Antibiotics
             {
                 builder.AddLine(Text.Get("antibiotic_tooltip_genome", genome), true, RenderHandler.ColorPalette.LightCyan);
             }
+            else if (tablet)
+            {
+                // A tablet always says which genome it is; one that lost its record says so instead of nothing.
+                builder.AddLine(Text.Get("antibiotic_tooltip_genome", Text.Get("antibiotic_genome_unknown")), true,
+                    RenderHandler.ColorPalette.LightCyan);
+            }
             int target = CephData.DominantTarget(item);
             if (target > StrainTraits.TARGET_LIQUID)
             {
@@ -465,6 +471,23 @@ public static class Antibiotics
 [HarmonyPatch(typeof(ChemicalHelper), "BlendInto")]
 public static class StrainBlendPatch
 {
+    // A strain straight out of the item spawner may not have had its first tick yet: give it its identity now,
+    // before vanilla empties it into the container.
+    private static void Prefix(GameItem chemicalItem)
+    {
+        try
+        {
+            if (Strain.IsStrain(chemicalItem))
+            {
+                Strain.EnsureIdentity(chemicalItem);
+            }
+        }
+        catch (Exception e)
+        {
+            Log.Error("preparing a strain for the blender failed", e);
+        }
+    }
+
     // The parameter names have to match vanilla's exactly; Harmony binds them by name.
     private static void Postfix(GameItem chemicalItem, GameItem liquidContainer, int loss)
     {
@@ -481,6 +504,8 @@ public static class StrainBlendPatch
             }
             CephData.Add(liquidContainer, added, StrainTraits.Genome(chemicalItem),
                 StrainTraits.Purity(chemicalItem), StrainTraits.Target(chemicalItem));
+            Log.Info("blended a strain: genome " + StrainTraits.Genome(chemicalItem) + ", " + added
+                + " uL cephalosporin C, container now " + CephData.Genome(liquidContainer));
         }
         catch (Exception e)
         {
@@ -516,6 +541,8 @@ public static class CephTransferPatch
             double fraction = (double)moved / cephBefore;
             CephData.CopyShare(container, chemicalItem, fraction);
             CephData.RemoveShare(container, fraction);
+            Log.Info("pressed from cephalosporin C: genome " + CephData.Genome(chemicalItem) + ", "
+                + moved + " uL moved");
         }
         catch (Exception e)
         {

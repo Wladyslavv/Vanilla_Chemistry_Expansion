@@ -6,6 +6,7 @@
 // Written for C# 5 (see DreamToxinMod.cs).
 using System;
 using System.Collections.Generic;
+using HarmonyLib;
 
 public class Mutagen
 {
@@ -17,6 +18,15 @@ public class Mutagen
     public int MinGenes;
     public int MaxGenes;
     public int TargetChance;
+    // Percent chance that a negative total is drawn again, once. Leaves the range alone and lifts the mean:
+    // on a symmetric range of +-R it moves the mean to chance% of R/2 (plutonium: 20% of 50 = +5 points).
+    public int RerollNegativeChance;
+
+    public Mutagen WithNegativeReroll(int chance)
+    {
+        RerollNegativeChance = chance;
+        return this;
+    }
 
     public static Mutagen Traits(string liquidId, int minTenths, int maxTenths)
     {
@@ -89,7 +99,8 @@ public static class StrainMutation
                     // Dream toxin rewrites the strain's identity: the way to outrun resistance.
                     Mutagen.Genes(ToxinLiquid.ID, 1, 2),
                     // Plutonium: anything can happen, and on average it is an improvement.
-                    Mutagen.Traits(NcLiquids.PLUTONIUM, -1000, 1000)
+                    // The range is symmetric, so the lean comes from re-drawing some of the negative results.
+                    Mutagen.Traits(NcLiquids.PLUTONIUM, -1000, 1000).WithNegativeReroll(20)
                 };
             }
             return mutagens;
@@ -181,7 +192,7 @@ public static class StrainMutation
 
             if (!right)
             {
-                MutateTraits(strain, BOTCHED_MIN_TENTHS, BOTCHED_MAX_TENTHS);
+                MutateTraits(strain, BOTCHED_MIN_TENTHS, BOTCHED_MAX_TENTHS, 0, "botched dose");
                 Log.Info("botched mutagen dose on a strain: " + total + " uL, largest " + largest
                     + " at " + (share * 100).ToString("0") + "%");
                 return;
@@ -210,14 +221,19 @@ public static class StrainMutation
         {
             if (RNG.Roll(mutagen.TargetChance))
             {
-                StrainTraits.SetTarget(strain, RNG.GetRandomInt(StrainTraits.TARGET_LIQUID, StrainTraits.TARGET_INTRACELLULAR));
-                Log.Info("mutagen " + mutagen.LiquidId + " moved the extraction target to "
-                    + StrainTraits.Target(strain));
+                // "Changes the target" means it ends up somewhere else: one of the other two, never the same one.
+                int was = StrainTraits.Target(strain);
+                int now = (was + RNG.GetRandomInt(1, 2)) % 3;
+                StrainTraits.SetTarget(strain, now);
+                Log.Info("mutagen " + mutagen.LiquidId + " moved the extraction target " + was + " -> " + now);
+            }
+            else
+            {
+                Log.Info("mutagen " + mutagen.LiquidId + " left the extraction target where it was");
             }
             return;
         }
-        MutateTraits(strain, mutagen.MinTenths, mutagen.MaxTenths);
-        Log.Info("mutagen " + mutagen.LiquidId + " shifted the traits of a strain");
+        MutateTraits(strain, mutagen.MinTenths, mutagen.MaxTenths, mutagen.RerollNegativeChance, mutagen.LiquidId);
     }
 
     // ---- the mechanics --------------------------------------------------------------------------------------------
@@ -255,13 +271,18 @@ public static class StrainMutation
 
     // Draws a total somewhere in [minTenths, maxTenths] and spreads it at random over the four numeric traits.
     // No single trait moves further than the total's own range allows.
-    public static void MutateTraits(GameItem strain, int minTenths, int maxTenths)
+    public static void MutateTraits(GameItem strain, int minTenths, int maxTenths, int rerollNegativeChance = 0,
+        string cause = "natural")
     {
         if (strain == null || minTenths > maxTenths)
         {
             return;
         }
         int total = RNG.GetRandomInt(minTenths, maxTenths);
+        if (total < 0 && rerollNegativeChance > 0 && RNG.Roll(rerollNegativeChance))
+        {
+            total = RNG.GetRandomInt(minTenths, maxTenths);
+        }
         int[] deltas = Spread(total, minTenths, maxTenths, StrainTraits.NUMERIC_TAGS.Length);
         for (int i = 0; i < StrainTraits.NUMERIC_TAGS.Length; i++)
         {
@@ -270,6 +291,12 @@ public static class StrainMutation
                 StrainTraits.AddTenths(strain, StrainTraits.NUMERIC_TAGS[i], deltas[i]);
             }
         }
+        // Before and after, so a log shows what each mutation actually did (purity / yield / speed / carbon).
+        Log.Info("mutation (" + cause + "): total " + StrainTraits.Format(total) + ", changes "
+            + StrainTraits.Format(deltas[0]) + " / " + StrainTraits.Format(deltas[1]) + " / "
+            + StrainTraits.Format(deltas[2]) + " / " + StrainTraits.Format(deltas[3]) + " -> now "
+            + StrainTraits.Format(StrainTraits.Purity(strain)) + " / " + StrainTraits.Format(StrainTraits.Yield(strain)) + " / "
+            + StrainTraits.Format(StrainTraits.Speed(strain)) + " / " + StrainTraits.Format(StrainTraits.Carbon(strain)));
         // Carbon-source efficiency may reach the point where a batch costs nothing, but never less than nothing;
         // the night's draw is clamped where it is used (StrainTraits.KcalPerNight), so nothing to do here.
     }
@@ -302,5 +329,33 @@ public static class StrainMutation
             sum += step;
         }
         return deltas;
+    }
+}
+
+// Item-on-item targeting is vetoed by any party that says no: the container's own rule only allows other liquid
+// containers, drains and faucets, so on its own it refuses every strain, whatever the strain says. The rule's
+// funcs are OR-ed together, so adding one that says yes for a dose on a strain lets it through without changing
+// anything else a container may target. The dose itself is done by the strain (Strain.Create, onItemTargetThisFunc);
+// the container's own action only acts on containers, drains and faucets, so it does nothing here.
+[HarmonyPatch(typeof(WaterHelper), "InitLiquidContainerItem")]
+public static class MutagenContainerPatch
+{
+    private static void Postfix(GameItem item)
+    {
+        try
+        {
+            if (item == null)
+            {
+                return;
+            }
+            item.mayThisTargetItemFunc = (Func<GameItem, GameItem, bool>)Delegate.Combine(item.mayThisTargetItemFunc,
+                (Func<GameItem, GameItem, bool>)((GameItem s, GameItem t) => StrainMutation.CanDose(s, t)));
+            item.canThisTargetItemFunc = (Func<GameItem, GameItem, bool>)Delegate.Combine(item.canThisTargetItemFunc,
+                (Func<GameItem, GameItem, bool>)((GameItem s, GameItem t) => StrainMutation.CanDose(s, t)));
+        }
+        catch (Exception e)
+        {
+            Log.Error("letting liquid containers dose strains failed", e);
+        }
     }
 }

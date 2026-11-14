@@ -318,6 +318,8 @@ public static class Fermenter
         {
             return;
         }
+        // Same as the blender: a strain put in before its first tick still gets a genome before it breeds.
+        Strain.EnsureIdentity(strain);
         int kcal = StrainTraits.KcalPerNight(strain);
         if (StoredKcal(machine) < kcal)
         {
@@ -376,7 +378,7 @@ public static class Fermenter
                     + ", target " + StrainTraits.Target(child)
                     + ", seed " + StrainTraits.IsSeedStock(child)
                     + ", ceph " + IaLiquids.Get(child, Antibiotics.CEPH_ID) + " uL");
-                if (GraphUtils.TryAcceptAll(s.Output, child) <= 0)
+                if (!ItemPlacement.TryPut(s.Output, child))
                 {
                     // The harvest grid is full: the rest of the batch is lost rather than spilled over the shop.
                     child.Destroy();
@@ -528,37 +530,45 @@ public static class Fermenter
         }
     }
 
-    // An owned fermenter with a charged battery, a fed dispenser and a standard strain in it.
+    // An owned fermenter with a charged battery, a fed dispenser and a strain in it.
     public static void SpawnKit()
     {
         try
         {
             GameItem machine = DirectoryMaster.Item(ITEM_ID, true);
-            AddFixtures(machine, true);
-            Slots s = SlotsOf(machine);
-            if (s != null)
-            {
-                GraphUtils.TryAcceptAll(s.Battery, PreBuiltItemHelper.EnergyCredit(100));
-                GameItem dispenser = s.Feed.childItem;
-                if (dispenser != null)
-                {
-                    dispenser.ModifyTag(STORED_KCAL_TAG, delegate(TagState state)
-                    {
-                        state.Enable().SetInt(20000);
-                    }, true);
-                    dispenser.ValidateShapeState();
-                }
-                GameItem strain = Strain.Spawn(true, null, false);
-                if (strain != null)
-                {
-                    GraphUtils.TryAcceptAll(s.StrainInput, strain);
-                }
-            }
+            StockForTesting(machine, 20000);
             ModHelper.MoveItemToInventory(machine);
         }
         catch (Exception e)
         {
             Log.Error("fermenter debug kit failed", e);
+        }
+    }
+
+    // Fixtures, a charged battery, kcal in the dispenser and a random strain inside (also AntibioticTestKit.cs).
+    public static void StockForTesting(GameItem machine, int kcal)
+    {
+        AddFixtures(machine, true);
+        Slots s = SlotsOf(machine);
+        if (s == null)
+        {
+            return;
+        }
+        GraphUtils.TryAcceptAll(s.Battery, PreBuiltItemHelper.EnergyCredit(100));
+        GameItem dispenser = s.Feed.childItem;
+        if (dispenser != null)
+        {
+            int stored = kcal;
+            dispenser.ModifyTag(STORED_KCAL_TAG, delegate(TagState state)
+            {
+                state.Enable().SetInt(stored);
+            }, true);
+            dispenser.ValidateShapeState();
+        }
+        GameItem strain = Strain.Spawn(true, null, false);
+        if (strain != null)
+        {
+            GraphUtils.TryAcceptAll(s.StrainInput, strain);
         }
     }
 

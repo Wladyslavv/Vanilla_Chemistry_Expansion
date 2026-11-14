@@ -518,7 +518,7 @@ public static class Strain
         if (parent != null)
         {
             parent.Expel(strain);
-            if (GraphUtils.TryAcceptAll(parent, dewar) > 0)
+            if (ItemPlacement.TryPut(parent, dewar))
             {
                 strain.Destroy();
                 return true;
@@ -526,6 +526,7 @@ public static class Strain
             // No room for 3x3 where the strain was: put it back and leave it alone.
             GraphUtils.TryAcceptAll(parent, strain);
             dewar.Destroy();
+            Log.Info("a strain stayed unfrozen: no 3x3 room for the dewar where it was (a stock freezer zone is 3x2)");
             return false;
         }
         GraphUtils.EmporiumTryAdd(dewar);
@@ -544,7 +545,7 @@ public static class Strain
                 return;
             }
             GameInventory target = inventory ?? dewar.parentInventory;
-            if (target != null && GraphUtils.TryAcceptAll(target, strain) > 0)
+            if (ItemPlacement.TryPut(target, strain))
             {
                 return;
             }
@@ -631,6 +632,28 @@ public static class Strain
         catch (Exception e)
         {
             Log.Error("standard strain debug kit failed", e);
+        }
+    }
+}
+
+// The fridge only takes liquid containers, drinks and frozen food, and refuses anything typed STORAGE. Strains have
+// to go in to be frozen, and the dewar a strain turns into overnight is put back in the same place, so both are let
+// in; without the dewar, freezing would fail every night and quietly leave the strain as it was.
+[HarmonyPatch(typeof(MachineFridge), "MayZoneAcceptItem")]
+public static class StrainFridgeAcceptPatch
+{
+    private static void Postfix(GameItem item, ref bool __result)
+    {
+        try
+        {
+            if (!__result && (Strain.IsStrain(item) || Strain.IsFrozen(item)) && GeneralHelper.IsItemOwned(item))
+            {
+                __result = true;
+            }
+        }
+        catch (Exception e)
+        {
+            Log.Error("letting a strain into the fridge failed", e);
         }
     }
 }

@@ -583,13 +583,67 @@ public static class CrowbarPatch
         return target != null && target.identifier == Barrel.WASTE_ID && GeneralHelper.IsItemOwned(target);
     }
 
+    // The opened barrel takes the sealed one's place: same shape, so the cell it frees is the first choice. Failing
+    // that, the four places an opened barrel may sit at all, in order. Only once the opened barrel is down is the
+    // sealed one destroyed; if it fits nowhere, the sealed barrel goes back where it was and nothing is lost.
+    // (1.7.x destroyed the barrel first and only tried the main inventory, so with that full the waste vanished.)
     private static void Pry(GameItem waste)
     {
-        GameItem opened = DirectoryMaster.Item(Barrel.OPENED_ID, true);
-        waste.Destroy();
-        ModHelper.SetItemOwnerShip(opened, true);
-        ModHelper.MoveItemToInventory(opened);
-        AudioHelper.UseWaterFilter();
+        try
+        {
+            GameItem opened = DirectoryMaster.Item(Barrel.OPENED_ID, true);
+            if (opened == null)
+            {
+                return;
+            }
+            ModHelper.SetItemOwnerShip(opened, true);
+            GameInventory home = waste.parentInventory;
+            if (home != null)
+            {
+                home.Expel(waste);
+            }
+            if (!PlaceOpened(opened, home))
+            {
+                if (home != null)
+                {
+                    GraphUtils.TryAcceptAll(home, waste);
+                }
+                opened.Destroy();
+                NcLog.Info("no room to open the nuclear waste barrel; left it sealed");
+                return;
+            }
+            waste.Destroy();
+            AudioHelper.UseWaterFilter();
+        }
+        catch (Exception e)
+        {
+            NcLog.Error("prying open nuclear waste failed", e);
+        }
+    }
+
+    private static bool PlaceOpened(GameItem opened, GameInventory home)
+    {
+        EmporiumEntry shop = EmporiumEntry.Instance;
+        List<GameInventory> targets = new List<GameInventory>();
+        if (home != null)
+        {
+            targets.Add(home);
+        }
+        if (shop != null)
+        {
+            targets.Add(shop.invElement);
+            targets.Add(shop.showcaseElement);
+            targets.Add(shop.frontInvinvElement);
+            targets.Add(shop.backInvinvElement);
+        }
+        foreach (GameInventory target in targets)
+        {
+            if (ItemPlacement.TryPut(target, opened))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
 
