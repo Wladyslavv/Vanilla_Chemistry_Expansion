@@ -6,5 +6,86 @@
 	"previewfile"		"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Probably Stolen\\Mods\\vanilla_chem_ext\\preview.png"
 	"visibility"		"0"
 	"title"		"原版化学扩展 / Vanilla Chemistry Expansion"
+	"description"		"Not a big mod, but a lot of mechanics. Bug reports, code, suggestions and wishes are welcome in the QQ group:
+[url=https://qm.qq.com/q/imekxahuBW]https://qm.qq.com/q/imekxahuBW[/url]
+
+2026/11/13 update: antibiotics are in, with strain breeding, gene mutation and drug resistance.
+
+You can buy alcohol, but you can't brew your own bootleg?
+Pumping out 2000 Dream Dust a day, and not even Wilde at level 3 plus Intimidating can keep you out of trouble?
+Droppers and measuring cylinders all over the bench, yet the only way to pure acid and base is fish?
+All you can do with nuclear waste is dump it at the junkyard, where it feels like nothing and someone just picks it back up?
+
+Inspired by real chemical production, this mod gives vanilla chemistry more to do, so late game you can really play the chemist through (somewhat) involved chemistry.
+
+Main features:
+0.1. Antibiotics: make antibiotics from strains, mutate their genes with chemicals, breed a super strain and fight drug resistance.
+1. Brine electrolysis: electrolyse brine from GP Mining rock salt into base, hydrogen and chlorine; burn the gases into hydrogen chloride and dissolve it into acid. Pure acid and base in bulk. Purifying acid with fish never felt right, did it?
+2. Hollow's Lantern: grow a lab-bred chili and refine a legal riot-control incapacitant. Sell it to the Upper Level or Security and your crimes disappear; once they are gone, the investigation slows too.
+(Did nobody catch the Outer Wilds nod? 😭)
+3. Dream Toxin: the legal product of Dream Caps, a high-end cosmetic treatment for the Upper Level.
+4. Possibly the new ice: grow Xinke and make high-profit new ice that isn't medical. It brings a regular back the next day, whose budget grows 25% a day.
+5. Blend nutrifruit, brew beer with acid and yeast, and serve chilled draft beer!
+6. Make alcohol from starch and sugar, ethyl acetate from plant matter, and edit genes so other crops make sugar and starch. Deep-space wine merchant: probably blended.
+7. Crush ore and use the minerals to purify the acid and base the profiteers sell you.
+8. Neutralize nuclear waste, extract the plutonium, and make Nuclear Cola!
+9. Cartel expansion, beta 0.5:
+[list][*]Any start can join the cartel. Sell too much chemical contraband and the cartel takes notice.
+[*]Work with Security to bring the cartel down!
+[*]Plenty of cartel mechanics.
+[*]Still in testing, so it is off by default in the mod settings.[/list]
+The cartel storyline (spoilers!): [url=https://github.com/Wladyslavv/Vanilla_Chemistry_Expansion]GitHub[/url]
+More chemistry is planned; I just need a little inspiration.
+Gunsmiths may also want: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3831394883]Ammo Printer[/url]
+
+[h2]Vanilla Chemistry Expansion[/h2]
+Built on the vanilla chemistry system (extraction, heating, refrigeration, filtering, evaporation, pressing); vanilla products and reactions are unchanged.
+
+[h3]Dream Toxin (handbook chapter 1)[/h3]
+A legal medical outlet for Dream Caps and Nightmare Caps.
+[list][*]Mix the two extracts 1:1 with a little acid and chill it in a fridge; burn off leftover extract, filter, dry and press [b]Dream Toxin Injectors[/b].
+[*]Popular with Upper Level cosmetic clinics; a legal medical item, base value 150. Only pharma grade (90%+) pays: about street Dream Dust money, without the notoriety.[/list]
+[h3]Brine electrolysis (new, handbook chapter 10)[/h3]
+A simplified chlor-alkali process: 1 part salt + 0.3 part water ends up as 1 part base and 1 part acid, both free of chemical contaminant and heavy metal.
+
+[h3]Hollow's Lantern and Incapacitant (handbook chapter 9)[/h3]
+A lab-bred chili, and the legal riot-control agent refined from it.
+[list][*][b]Hollow's Lantern[/b]: annual, innate Capsaicin Production III gene, spliceable into other crops. The retired farmer brings two seeds each visit.
+[*]Blend for capsaicin, add at least 4x the alcohol and heat to 50-78°C for Lantern Ester (too little alcohol leaves physical contaminant); filter, evaporate the alcohol and press [b]A Small Vial of Incapacitant[/b].
+[*][b]Wiping your record[/b]: each vial sold to the Upper Level or Security takes price × purity × 5 off your crimes; once those are cleared, every full 100 left takes 1 off investigation progress.[/list]
+[h3]Xinke and Crackine (handbook chapter 8)[/h3]
+A new crop, and the new ice refined from the alkaloid in its leaves. No medical tag: raw leaves earn less than Dream Dust, refined Crackine a little more.
+[list][*][b]Xinke[/b]: perennial, drought-tolerant, no replanting after picking. Innate Alkaloid Production gene, spliceable into other crops. The retired farmer brings seeds; the shady farmer sells leaves.
+[*]Blend the leaves, remove the protein, add acid, boil dry, drive off leftover acid in the evaporator and press [b]Crackine[/b] (a small vial ≈ 1.5 Dream Dust; a large one = four small).
+[*][b]Regulars[/b]: a personal-use buyer who gets 90%+ Crackine comes back the next day; each daily visit after that adds 25% to their budget (up to 2000), with special lines.[/list]
+[h3]Ore chemistry: purifying acid and base (handbook chapter 2)[/h3]
+No filter removes the chemical contaminant and heavy metal in vanilla acid and base, which keeps drugs from lab-pure grade.
+[list][*]Crush metal ore in a [b]blender with all 4 chem modules[/b] for calcite and quartz sand.
+[*][b]Purifying base[/b]: calcine calcite into quicklime and add it to base to remove the chemical contaminant; heavy metal settles out on its own. Filter.
+[*][b]Purifying acid[/b]: quartz sand and base make water glass; add acid to precipitate silica gel. Heated silica gel drives the contaminant out of acid; freezing removes heavy metal. Filter.
+[*]Needs an upgraded heating plate.[/list]
+[h3]Starch genes[/h3]
+Nutrifruit's starch and sugar now come from innate Starch and Sugar Production genes: same totals, spliceable into other crops.
+
+[h3]Industrial alcohol (handbook chapter 3)[/h3]
+[list][*]Blend nutrifruit, hydrolyse the starch into sugar with acid and heat, neutralize, add yeast: alcohol by morning. Each yeast tolerates a different strength.
+[*]Boil off the methanol; freeze and filter out ice to concentrate to about 25%.
+[*]The chem scanner shows a container's temperature; mod settings adjust boiling, fermentation and fridge cooling speed.[/list]
+[h3]Blended wine (handbook chapters 3 and 4)[/h3]
+[list][*]Dry-distil plant matter into acetic acid, esterify it with alcohol into ethyl acetate, then press it with alcohol and water into wine.
+[*]A labeller sets two labels: quality and method (genuine/blended). Lying is risky: unnoticed sales add up to fraud, and Upper Level clients refuse blended wine.[/list]
+[h3]Beer (handbook chapters 5 and 6)[/h3]
+[list][*]The Chem Finisher fills weak nutrifruit brew into a 2 L [b]Beer Keg[/b], graded premium, ordinary or undrinkable; dilute with good or pure water for premium.
+[*]Double-click the keg to pour one: a [b]can of beer[/b] at room temperature, [b]draft beer[/b] once chilled. Draft sells best but goes flat overnight.
+[*]Beer counts as water: water buyers take it too.[/list]
+[h3]Advanced Kotton fabric[/h3]
+A gold Kotton fabric that regains full durability every day, found wherever the vanilla advanced water filter is.
+
+[h3]Nuclear waste reprocessing (handbook chapter 7)[/h3]
+[list][*]Pry a barrel open with a crowbar, dissolve the spent fuel in strong acid, add reducing agent, extract the plutonium with ethyl acetate, boil dry and fill [b]Plutonium Ampoules[/b].
+[*]An ampoule dragged onto a drink makes a Nuclear drink worth +50; only Upper Level clients and addicts buy it.
+[*]Vitrify the leftover fission products with water glass.
+[*][b]Radiation sickness[/b]: nuclear waste left unprocessed overnight lowers your selling prices; genuine Immunivax eases it.
+[*]A Waste Broker comes every 7 days from day 7, selling nuclear waste.[/list]"
 	"changenote"		"1.8.0: Adds the antibiotics line. Breed Acremonium strains in a fermenter: every strain carries a 12-letter genome and five visible traits (purity, yield, growth speed, carbon-source efficiency and the extraction target), and a batch turns one strain into four, each mutated away from its parent and on average for the worse. Freeze a strain in a powered freezer and it keeps its traits exactly, inoculating for ever. Blend a strain for cephalosporin C and press 5 mL into an antibiotic tablet, which has three purity tiers instead of seven and is unsellable below pharma grade. Ten reagents mutate a strain on purpose when about 5 mL of them is dropped on it, from acid and base up to plutonium. Antibiotics are booked against their genome: sell enough under one and resistance sets in, taking up to half the price until you breed four letters away or stop selling. New handbook chapter. / 1.8.0：新增抗生素产业链。在发酵罐里选育枝顶孢霉菌：每支菌种带 12 位基因组和五项可见性状（纯度、产量、生长速度、碳源利用效率、萃取目标），一轮把一支菌种变成四支，每支相对亲本都发生过突变，长期多半变差。把菌种放进通电冰箱的冷冻区过夜会变成冷冻菌种，性状完全保真，可以无限次接种。搅拌机打碎菌种得到头孢菌素 C，5 毫升压成一片抗生素片；药片只分三档纯度，低于药用级无法出售。十种试剂可以定向诱变，把约 5 毫升倒在菌种上即可，从酸碱一直到钚。抗生素按基因组记账：同一组卖得太多就会产生抗药性，最多扣掉一半售价，直到你育出差 4 位以上的新基因组或者停售一段时间。手册新增一章。"
 }
