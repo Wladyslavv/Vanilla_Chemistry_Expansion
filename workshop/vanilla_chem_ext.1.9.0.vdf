@@ -1,0 +1,77 @@
+"workshopitem"
+{
+	"appid"		"4348910"
+	"publishedfileid"		"3832077837"
+	"contentfolder"		"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Probably Stolen\\Mods\\vanilla_chem_ext"
+	"previewfile"		"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Probably Stolen\\Mods\\vanilla_chem_ext\\preview.png"
+	"visibility"		"0"
+	"title"		"原版化学扩展 / Vanilla Chemistry Expansion"
+	"description"		"For questions regarding chemical reactions, item crafting, or bug reports, we recommend that you first consult or use the discussion forum.
+
+You can buy alcohol, but you can't brew your own bootleg?
+Pumping out 2000 Dream Dust a day, and not even Wilde at level 3 plus Intimidating can keep you out of trouble?
+Droppers and measuring cylinders all over the bench, yet the only way to pure acid and base is fish?
+All you can do with nuclear waste is dump it at the junkyard, where it feels like nothing and someone just picks it back up?
+
+Inspired by real chemical production, this mod gives vanilla chemistry more to do, so late game you can really play the chemist through (somewhat) involved chemistry.
+
+Main features:
+0.0.1. Explosives: make TNT from nitric acid and toluene and sell it to the Revolution so they can go big! Press your spare propellant into your own ammunition!
+0.1. Antibiotics: make antibiotics from strains, mutate their genes with chemicals, breed a super strain and fight drug resistance.
+1. Brine electrolysis: electrolyse brine from GP Mining rock salt into base, hydrogen and chlorine; burn the gases into hydrogen chloride and dissolve it into acid. Pure acid and base in bulk. Purifying acid with fish never felt right, did it?
+2. Hollow's Lantern: grow a lab-bred chili and refine a legal riot-control incapacitant. Sell it to the Upper Level or Security and your crimes disappear; once they are gone, the investigation slows too.
+(Did nobody catch the Outer Wilds nod? 😭)
+3. Dream Toxin: the legal product of Dream Caps, a high-end cosmetic treatment for the Upper Level.
+4. Possibly the new ice: grow Xinke and make high-profit new ice that isn't medical. It brings a regular back the next day, whose budget grows 25% a day.
+5. Blend nutrifruit, brew beer with acid and yeast, and serve chilled draft beer!
+6. Make alcohol from starch and sugar, ethyl acetate from plant matter, and edit genes so other crops make sugar and starch. Deep-space wine merchant: probably blended.
+7. Crush ore and use the minerals to purify the acid and base the profiteers sell you.
+8. Neutralize nuclear waste, extract the plutonium, and make Nuclear Cola!
+9. Cartel expansion, beta 0.5:
+[list][*]Any start can join the cartel. Sell too much chemical contraband and the cartel takes notice.
+[*]Work with Security to bring the cartel down!
+[*]Plenty of cartel mechanics.
+[*]Still in testing, so it is off by default in the mod settings.[/list]
+The cartel storyline (spoilers!): https://github.com/Wladyslavv/Vanilla_Chemistry_Expansion
+More chemistry is planned; I just need a little inspiration.
+Gunsmiths may also want: Ammo Printer https://steamcommunity.com/sharedfiles/filedetails/?id=3831394883
+
+[h2]Vanilla Chemistry Expansion[/h2]Built on the vanilla chemistry system (extraction, heating, refrigeration, filtering, evaporation, pressing); vanilla products and reactions are unchanged.
+
+[h3]Dream Toxin (handbook chapter 1)[/h3]A legal medical outlet for Dream Caps and Nightmare Caps.
+[list][*]Mix the two extracts 1:1 with a little acid and chill it in a fridge; burn off leftover extract, filter, dry and press [b]Dream Toxin Injectors[/b].
+[*]Popular with Upper Level cosmetic clinics; a legal medical item, base value 150. Only pharma grade (90%+) pays: about street Dream Dust money, without the notoriety.[/list]
+[h3]Brine electrolysis (new, handbook chapter 10)[/h3]A simplified chlor-alkali process: 1 part salt + 0.3 part water ends up as 1 part base and 1 part acid, both free of chemical contaminant and heavy metal.
+
+[h3]Hollow's Lantern and Incapacitant (handbook chapter 9)[/h3]A lab-bred chili, and the legal riot-control agent refined from it.
+[list][*][b]Hollow's Lantern[/b]: annual, innate Capsaicin Production III gene, spliceable into other crops. The Cartel Vendor brings two seeds each visit.
+[*]Making it: blend for capsaicin, add at least 4x the alcohol and heat to 50-78°C for Lantern Ester (too little alcohol leaves physical contaminant); filter, evaporate the alcohol and press [b]A Small Vial of Incapacitant[/b].
+[*][b]Wiping your record[/b]: each vial sold to the Upper Level or Security takes price × purity × 5 off your crimes; once those are cleared, every full 100 left takes 1 off investigation progress.[/list]
+[h3]Xinke and Crackine (handbook chapter 8)[/h3]A new crop, and the new ice refined from the alkaloid in its leaves. No medical tag: raw leaves earn less than Dream Dust, refined Crackine a little more.
+[list][*][b]Xinke[/b]: perennial, drought-tolerant, no replanting after picking. Innate Alkaloid Production gene, spliceable into other crops. The Cartel Vendor brings seeds; the shady farmer sells leaves.
+[*]Refining: blend the leaves, remove the protein, add acid and boil dry into Crackine powder, drive off the leftover acid in the evaporator and press [b]Crackine[/b] (a small vial ≈ 1.5 Dream Dust; a large one = four small).
+[*][b]Regulars[/b]: a personal-use buyer who gets 90%+ Crackine comes back the next day; each daily visit after that adds 25% to their budget (up to 2000), with special lines.[/list]
+[h3]Ore chemistry: purifying acid and base (handbook chapter 2)[/h3]No filter removes the chemical contaminant and heavy metal in vanilla acid and base, which keeps drugs from lab-pure grade.
+[list][*]Crush metal ore in a [b]blender with all 4 chem modules[/b] for calcite and quartz sand.
+[*][b]Purifying base[/b]: calcine calcite into quicklime and add it to base to remove the chemical contaminant; heavy metal settles out on its own. Filter.
+[*][b]Purifying acid[/b]: quartz sand and base make water glass; add acid to precipitate silica gel. Heated silica gel drives the chemical contaminant out of acid; freezing removes heavy metal. Filter.
+[*]Needs an upgraded heating plate.[/list]
+[h3]Starch genes[/h3]Nutrifruit's starch and sugar now come from innate Starch Production and Sugar Production genes: same totals, spliceable into other crops.
+
+[h3]Industrial alcohol (handbook chapter 3)[/h3][list][*]Blend nutrifruit, hydrolyse the starch into sugar with acid and heat, neutralize, add yeast: alcohol by morning. Each yeast tolerates a different strength.
+[*]Boil off the methanol; freeze and filter out ice to concentrate to about 25%.
+[*]The composition analyzer shows a container's temperature; mod settings adjust boiling, fermentation and fridge cooling speed.[/list]
+[h3]Blended wine (handbook chapters 3 and 4)[/h3][list][*]Dry-distil plant matter into acetic acid, esterify it with alcohol into ethyl acetate, then press it with alcohol and water into wine.
+[*]A labeller can change two labels: quality and method (genuine/blended). Lying is risky: unnoticed sales add up to fraud, and Upper Level clients refuse blended wine.[/list]
+[h3]Beer (handbook chapters 5 and 6)[/h3][list][*]The Chem Finisher fills weak nutrifruit brew into a 2 L [b]Beer Keg[/b], graded premium, ordinary or undrinkable; dilute with good or pure water for premium.
+[*]Double-click the keg to pour one: a [b]can of beer[/b] at room temperature, [b]draft beer[/b] once chilled. Draft sells best but goes flat overnight.
+[*]Beer counts as water: water buyers take it too.[/list]
+[h3]Advanced Kotton fabric[/h3]A gold Kotton fabric that regains full durability every day, found wherever the vanilla advanced water filter is.
+
+[h3]Nuclear waste reprocessing (handbook chapter 7)[/h3][list][*]Pry a barrel open with a crowbar, dissolve the spent fuel in strong acid, add reducing agent, extract the plutonium with ethyl acetate, boil dry and fill [b]Plutonium Ampoules[/b].
+[*]An ampoule dragged onto a drink makes a Nuclear drink worth +50; only Upper Level clients and addicts buy it.
+[*]Vitrify the leftover fission products with water glass.
+[*][b]Radiation sickness[/b]: nuclear waste left unprocessed overnight lowers your selling prices; genuine Immunivax eases it.
+[*]A Waste Broker comes every 7 days from day 7, selling nuclear waste.[/list]"
+	"changenote"		"1.9.0: Explosives. The Electrolyzer gets an on/off switch on its feed panel (off by default); switched on with nothing in the feed slot, it makes nitric oxide, which dissolves in water into nitric acid. Caffeine turns into fat at 150°C, and with a liquid container in product A the Electrolyzer turns fat into toluene. Toluene and nitric acid (1:3) with at least 10% acid as catalyst nitrate into trinitrotoluene at 50°C or more; the Chem Finisher presses 250 mL of it into a Bundle of Dynamite (weapon, high-level contraband). Selling two or more bundles to the Lower Levels or the Revolution in one day always sets off one of the vanilla price-rise events the next day. Nitric acid dragged onto Kotton fiber turns it into nitrocellulose, the propellant for the new Reloading Press (sold by the Cartel Vendor), which presses .22 and heavy pistol rounds, non-lethal, normal or armour-piercing; armour-piercing rounds also take trinitrotoluene. The handbook has a new Explosives Production Notes chapter with its own bookmark. Acetic acid now neutralizes with base, after the vanilla acid. Fixed gas canisters looking empty until they were moved. New textures for the opened nuclear waste barrel, vitrified waste, beer can and mugs, Dream Toxin injector and antibiotic tablets. Incapacitant is no longer bought by every Upper Level and Security client, only by those who shop for medical goods or weapons. Fixed the plutonium chemical battery showing a placeholder picture in the recharger. / 1.9.0：火药工业。电解机的原料面板新增开关（默认关闭）；打开开关且原料栏为空时，电解机会产出一氧化氮，一氧化氮溶于水生成硝酸。咖啡因在 150°C 以上会变成油脂；产物 A 放液体容器时，电解机会把油脂电解成甲苯。甲苯与硝酸按 1:3 混合，加入占总量 10% 以上的酸作催化剂，加热到 50°C 以上生成三硝基甲苯；化学制剂成型机用 250 毫升三硝基甲苯压成一捆炸药（武器，高危违禁品）。同一天向下层区或革命军售出两捆以上炸药，第二天必定触发一个原版的涨价事件。把硝酸拖到韧棉纤维上可以制成硝酸纤维素，作为新机器子弹复装机（卡特尔小贩出售）的发射药，可压制 .22 手枪弹和重型手枪弹的非致命弹、普通弹、穿甲弹；穿甲弹还要消耗三硝基甲苯。手册新增《炸药制取笔记》一章及其书签。乙酸现在可以与碱中和（碱先中和原版的酸）。修复气罐在拖动前显示为空的问题。更换了打开的核废料桶、玻璃固化体、罐装啤酒和啤酒杯、梦魔菌毒素注射剂、抗生素片的贴图。失能剂不再被所有上层区和治安部顾客购买，只有采购医疗品或武器的顾客才会买。修复钚化学电池放进充电器后显示为占位图的问题。"
+}

@@ -9,6 +9,7 @@
 using System;
 using System.Collections.Generic;
 using HarmonyLib;
+using UnityEngine;
 
 public static class PuBattery
 {
@@ -245,6 +246,28 @@ public static class PuBattery
         {
             Log.Error("plutonium battery debug kit failed", e);
         }
+    }
+}
+
+// Machines that draw what is inside them (the recharger draws each battery on its base) load the item's sprite with
+// RenderHandler.LoadFromAtlas(item.spriteAtlasPath, item.spritePath). A mod sprite keeps the mod's ID as its atlas
+// path, which vanilla cannot find, so it drew the placeholder. Serve this mod's own sprites from the mod instead.
+[HarmonyPatch(typeof(RenderHandler), "LoadFromAtlas")]
+public static class ModAtlasSpritePatch
+{
+    private static bool Prefix(string atlasPath, string name, ref Sprite __result)
+    {
+        if (atlasPath != DreamToxinMod.MOD_ID || name == null)
+        {
+            return true;
+        }
+        Sprite sprite = Xinke.ModSprite(name);
+        if (sprite == null)
+        {
+            return true;
+        }
+        __result = sprite;
+        return false;
     }
 }
 

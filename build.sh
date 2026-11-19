@@ -23,7 +23,18 @@ for dll in mscorlib netstandard System System.Core Assembly-CSharp UnityEngine.C
     refs+=("-r:$MANAGED/$dll.dll")
 done
 
-(cd "$BUILD" && "$CSC" -nologo -noconfig -nostdlib -target:library -optimize+ -out:VanillaChemExt.dll "${refs[@]}" *.cs)
+# The Out of Stock Sign (OutOfStockSignHelper) is only in newer game builds. Compile its section (OutOfStockSign.cs)
+# in only when the installed game has it, instead of reaching for it through reflection at run time: the game's mod
+# scan flags that (reflection-external), and it is one of the capabilities the next update refuses.
+defines=()
+if grep -qa "OutOfStockSignHelper" "$MANAGED/Assembly-CSharp.dll"; then
+    defines+=("-define:VCE_OUT_OF_STOCK_SIGN")
+    echo "Out of Stock Sign found in the game: its chemistry expansion section is compiled in"
+else
+    echo "No Out of Stock Sign in this game build: its chemistry expansion section is left out"
+fi
+
+(cd "$BUILD" && "$CSC" -nologo -noconfig -nostdlib -target:library -optimize+ -out:VanillaChemExt.dll "${refs[@]}" "${defines[@]+"${defines[@]}"}" *.cs)
 
 DIST="$PROJECT/dist/vanilla_chem_ext"
 rm -rf "$DIST"

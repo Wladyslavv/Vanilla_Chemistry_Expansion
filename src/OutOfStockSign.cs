@@ -1,6 +1,15 @@
+// Compiled in only when the installed game has the Out of Stock Sign (build.sh defines VCE_OUT_OF_STOCK_SIGN).
+// A DLL built that way must still run on older game builds without the sign: no attribute names OutOfStockSignHelper
+// (Harmony decodes every patch attribute at load, and a missing type there threw TypeLoadException), the two sign
+// patches decline in Prepare() when the class is missing, and nothing else reaches it unless it is there.
+// No reflection on the class (the game's mod scan flags that): only direct references, inside methods that are only
+// run once SignPresent has said yes.
+#if VCE_OUT_OF_STOCK_SIGN
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 using HarmonyLib;
 using UnityEngine;
 
@@ -62,10 +71,53 @@ public static class OutOfStockSignPatch
             delegate { return RandomVisitLabel(); })
     };
 
+    // Whether this game build has the sign. Touching the type is kept in a method of its own, never inlined: on a
+    // build without it, calling that method throws TypeLoadException, caught here.
+    private static bool? signPresent;
+
+    public static bool SignPresent
+    {
+        get
+        {
+            if (!signPresent.HasValue)
+            {
+                try
+                {
+                    signPresent = ProbeSign();
+                }
+                catch (TypeLoadException)
+                {
+                    signPresent = false;
+                }
+                catch (MissingMethodException)
+                {
+                    signPresent = false;
+                }
+            }
+            return signPresent.Value;
+        }
+    }
+
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    private static bool ProbeSign()
+    {
+        return typeof(OutOfStockSignHelper) != null;
+    }
+
     // The last vanilla row when there are no inspectable items.
-    [HarmonyPatch(typeof(OutOfStockSignHelper), "AddRandomRow")]
+    [HarmonyPatch]
     public static class AddRandomRowPatch
     {
+        private static bool Prepare()
+        {
+            return SignPresent;
+        }
+
+        private static MethodBase TargetMethod()
+        {
+            return AccessTools.Method(typeof(OutOfStockSignHelper), "AddRandomRow");
+        }
+
         private static void Postfix(object[] __args)
         {
             if (__args == null || __args.Length < 4)
@@ -85,9 +137,19 @@ public static class OutOfStockSignPatch
     }
 
     // The last vanilla row when inspectable item rows are present.
-    [HarmonyPatch(typeof(OutOfStockSignHelper), "AddKindRow")]
+    [HarmonyPatch]
     public static class AddKindRowPatch
     {
+        private static bool Prepare()
+        {
+            return SignPresent;
+        }
+
+        private static MethodBase TargetMethod()
+        {
+            return AccessTools.Method(typeof(OutOfStockSignHelper), "AddKindRow");
+        }
+
         private static void Postfix(object[] __args)
         {
             if (__args == null || __args.Length < 3)
@@ -124,7 +186,7 @@ public static class OutOfStockSignPatch
 
     public static bool ShouldTurnAway(string clientId)
     {
-        if (!IsChemistryExpansionClient(clientId))
+        if (!SignPresent || !IsChemistryExpansionClient(clientId))
         {
             return false;
         }
@@ -134,6 +196,11 @@ public static class OutOfStockSignPatch
 
     public static void Enable()
     {
+        if (!SignPresent)
+        {
+            Log.Info("this game build has no Out of Stock Sign; its chemistry expansion section is off");
+            return;
+        }
         ModHook.OnGameLoadedLate += RefreshTurnedAwayIds;
     }
 
@@ -305,3 +372,4 @@ public static class OutOfStockSignPatch
         }
     }
 }
+#endif

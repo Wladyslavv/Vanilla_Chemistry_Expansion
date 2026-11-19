@@ -2692,10 +2692,12 @@ public static class CartelTourist
             {
                 return;
             }
+#if VCE_OUT_OF_STOCK_SIGN
             if (OutOfStockSignPatch.ShouldTurnAway(CLIENT_ID))
             {
                 return;
             }
+#endif
             List<int> candidates = new List<int>();
             for (int i = 0; i < manager.clientStack.Count; i++)
             {

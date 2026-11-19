@@ -1,8 +1,5 @@
 For questions regarding chemical reactions, item crafting, or bug reports, we recommend that you first consult or use the discussion forum.
 
-2026/11/13 update: antibiotics are in, with strain breeding, gene mutation and drug resistance.
-Cartel Vendor: the mod's machines, handbook, strains and seeds are all sold by the Cartel Vendor, who first comes on day 5 and then every 7 days.
-
 You can buy alcohol, but you can't brew your own bootleg?
 Pumping out 2000 Dream Dust a day, and not even Wilde at level 3 plus Intimidating can keep you out of trouble?
 Droppers and measuring cylinders all over the bench, yet the only way to pure acid and base is fish?
@@ -11,6 +8,7 @@ All you can do with nuclear waste is dump it at the junkyard, where it feels lik
 Inspired by real chemical production, this mod gives vanilla chemistry more to do, so late game you can really play the chemist through (somewhat) involved chemistry.
 
 Main features:
+0.0.1. Explosives: make TNT from nitric acid and toluene and sell it to the Revolution so they can go big! Press your spare propellant into your own ammunition!
 0.1. Antibiotics: make antibiotics from strains, mutate their genes with chemicals, breed a super strain and fight drug resistance.
 1. Brine electrolysis: electrolyse brine from GP Mining rock salt into base, hydrogen and chlorine; burn the gases into hydrogen chloride and dissolve it into acid. Pure acid and base in bulk. Purifying acid with fish never felt right, did it?
 2. Hollow's Lantern: grow a lab-bred chili and refine a legal riot-control incapacitant. Sell it to the Upper Level or Security and your crimes disappear; once they are gone, the investigation slows too.
@@ -25,34 +23,42 @@ Main features:
 [list][*]Any start can join the cartel. Sell too much chemical contraband and the cartel takes notice.
 [*]Work with Security to bring the cartel down!
 [*]Plenty of cartel mechanics.
-[*]Still in testing, so it is off by default in the mod settings.[/list]The cartel storyline (spoilers!): [url=https://github.com/Wladyslavv/Vanilla_Chemistry_Expansion]GitHub[/url]
+[*]Still in testing, so it is off by default in the mod settings.[/list]
+The cartel storyline (spoilers!): https://github.com/Wladyslavv/Vanilla_Chemistry_Expansion
 More chemistry is planned; I just need a little inspiration.
-Gunsmiths may also want: [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3831394883]Ammo Printer[/url]
+Gunsmiths may also want: Ammo Printer https://steamcommunity.com/sharedfiles/filedetails/?id=3831394883
 
 [h2]Vanilla Chemistry Expansion[/h2]Built on the vanilla chemistry system (extraction, heating, refrigeration, filtering, evaporation, pressing); vanilla products and reactions are unchanged.
 
 [h3]Dream Toxin (handbook chapter 1)[/h3]A legal medical outlet for Dream Caps and Nightmare Caps.
 [list][*]Mix the two extracts 1:1 with a little acid and chill it in a fridge; burn off leftover extract, filter, dry and press [b]Dream Toxin Injectors[/b].
-[*]Popular with Upper Level cosmetic clinics; a legal medical item, base value 150. Only pharma grade (90%+) pays: about street Dream Dust money, without the notoriety.[/list][h3]Brine electrolysis (new, handbook chapter 10)[/h3]A simplified chlor-alkali process: 1 part salt + 0.3 part water ends up as 1 part base and 1 part acid, both free of chemical contaminant and heavy metal.
+[*]Popular with Upper Level cosmetic clinics; a legal medical item, base value 150. Only pharma grade (90%+) pays: about street Dream Dust money, without the notoriety.[/list]
+[h3]Brine electrolysis (new, handbook chapter 10)[/h3]A simplified chlor-alkali process: 1 part salt + 0.3 part water ends up as 1 part base and 1 part acid, both free of chemical contaminant and heavy metal.
 
 [h3]Hollow's Lantern and Incapacitant (handbook chapter 9)[/h3]A lab-bred chili, and the legal riot-control agent refined from it.
 [list][*][b]Hollow's Lantern[/b]: annual, innate Capsaicin Production III gene, spliceable into other crops. The Cartel Vendor brings two seeds each visit.
-[*]Blend for capsaicin, add at least 4x the alcohol and heat to 50-78°C for Lantern Ester (too little alcohol leaves physical contaminant); filter, evaporate the alcohol and press [b]A Small Vial of Incapacitant[/b].
-[*][b]Wiping your record[/b]: each vial sold to the Upper Level or Security takes price × purity × 5 off your crimes; once those are cleared, every full 100 left takes 1 off investigation progress.[/list][h3]Xinke and Crackine (handbook chapter 8)[/h3]A new crop, and the new ice refined from the alkaloid in its leaves. No medical tag: raw leaves earn less than Dream Dust, refined Crackine a little more.
+[*]Making it: blend for capsaicin, add at least 4x the alcohol and heat to 50-78°C for Lantern Ester (too little alcohol leaves physical contaminant); filter, evaporate the alcohol and press [b]A Small Vial of Incapacitant[/b].
+[*][b]Wiping your record[/b]: each vial sold to the Upper Level or Security takes price × purity × 5 off your crimes; once those are cleared, every full 100 left takes 1 off investigation progress.[/list]
+[h3]Xinke and Crackine (handbook chapter 8)[/h3]A new crop, and the new ice refined from the alkaloid in its leaves. No medical tag: raw leaves earn less than Dream Dust, refined Crackine a little more.
 [list][*][b]Xinke[/b]: perennial, drought-tolerant, no replanting after picking. Innate Alkaloid Production gene, spliceable into other crops. The Cartel Vendor brings seeds; the shady farmer sells leaves.
-[*]Blend the leaves, remove the protein, add acid, boil dry, drive off leftover acid in the evaporator and press [b]Crackine[/b] (a small vial ≈ 1.5 Dream Dust; a large one = four small).
-[*][b]Regulars[/b]: a personal-use buyer who gets 90%+ Crackine comes back the next day; each daily visit after that adds 25% to their budget (up to 2000), with special lines.[/list][h3]Ore chemistry: purifying acid and base (handbook chapter 2)[/h3]No filter removes the chemical contaminant and heavy metal in vanilla acid and base, which keeps drugs from lab-pure grade.
+[*]Refining: blend the leaves, remove the protein, add acid and boil dry into Crackine powder, drive off the leftover acid in the evaporator and press [b]Crackine[/b] (a small vial ≈ 1.5 Dream Dust; a large one = four small).
+[*][b]Regulars[/b]: a personal-use buyer who gets 90%+ Crackine comes back the next day; each daily visit after that adds 25% to their budget (up to 2000), with special lines.[/list]
+[h3]Ore chemistry: purifying acid and base (handbook chapter 2)[/h3]No filter removes the chemical contaminant and heavy metal in vanilla acid and base, which keeps drugs from lab-pure grade.
 [list][*]Crush metal ore in a [b]blender with all 4 chem modules[/b] for calcite and quartz sand.
 [*][b]Purifying base[/b]: calcine calcite into quicklime and add it to base to remove the chemical contaminant; heavy metal settles out on its own. Filter.
-[*][b]Purifying acid[/b]: quartz sand and base make water glass; add acid to precipitate silica gel. Heated silica gel drives the contaminant out of acid; freezing removes heavy metal. Filter.
-[*]Needs an upgraded heating plate.[/list][h3]Starch genes[/h3]Nutrifruit's starch and sugar now come from innate Starch and Sugar Production genes: same totals, spliceable into other crops.
+[*][b]Purifying acid[/b]: quartz sand and base make water glass; add acid to precipitate silica gel. Heated silica gel drives the chemical contaminant out of acid; freezing removes heavy metal. Filter.
+[*]Needs an upgraded heating plate.[/list]
+[h3]Starch genes[/h3]Nutrifruit's starch and sugar now come from innate Starch Production and Sugar Production genes: same totals, spliceable into other crops.
 
 [h3]Industrial alcohol (handbook chapter 3)[/h3][list][*]Blend nutrifruit, hydrolyse the starch into sugar with acid and heat, neutralize, add yeast: alcohol by morning. Each yeast tolerates a different strength.
 [*]Boil off the methanol; freeze and filter out ice to concentrate to about 25%.
-[*]The chem scanner shows a container's temperature; mod settings adjust boiling, fermentation and fridge cooling speed.[/list][h3]Blended wine (handbook chapters 3 and 4)[/h3][list][*]Dry-distil plant matter into acetic acid, esterify it with alcohol into ethyl acetate, then press it with alcohol and water into wine.
-[*]A labeller sets two labels: quality and method (genuine/blended). Lying is risky: unnoticed sales add up to fraud, and Upper Level clients refuse blended wine.[/list][h3]Beer (handbook chapters 5 and 6)[/h3][list][*]The Chem Finisher fills weak nutrifruit brew into a 2 L [b]Beer Keg[/b], graded premium, ordinary or undrinkable; dilute with good or pure water for premium.
+[*]The composition analyzer shows a container's temperature; mod settings adjust boiling, fermentation and fridge cooling speed.[/list]
+[h3]Blended wine (handbook chapters 3 and 4)[/h3][list][*]Dry-distil plant matter into acetic acid, esterify it with alcohol into ethyl acetate, then press it with alcohol and water into wine.
+[*]A labeller can change two labels: quality and method (genuine/blended). Lying is risky: unnoticed sales add up to fraud, and Upper Level clients refuse blended wine.[/list]
+[h3]Beer (handbook chapters 5 and 6)[/h3][list][*]The Chem Finisher fills weak nutrifruit brew into a 2 L [b]Beer Keg[/b], graded premium, ordinary or undrinkable; dilute with good or pure water for premium.
 [*]Double-click the keg to pour one: a [b]can of beer[/b] at room temperature, [b]draft beer[/b] once chilled. Draft sells best but goes flat overnight.
-[*]Beer counts as water: water buyers take it too.[/list][h3]Advanced Kotton fabric[/h3]A gold Kotton fabric that regains full durability every day, found wherever the vanilla advanced water filter is.
+[*]Beer counts as water: water buyers take it too.[/list]
+[h3]Advanced Kotton fabric[/h3]A gold Kotton fabric that regains full durability every day, found wherever the vanilla advanced water filter is.
 
 [h3]Nuclear waste reprocessing (handbook chapter 7)[/h3][list][*]Pry a barrel open with a crowbar, dissolve the spent fuel in strong acid, add reducing agent, extract the plutonium with ethyl acetate, boil dry and fill [b]Plutonium Ampoules[/b].
 [*]An ampoule dragged onto a drink makes a Nuclear drink worth +50; only Upper Level clients and addicts buy it.

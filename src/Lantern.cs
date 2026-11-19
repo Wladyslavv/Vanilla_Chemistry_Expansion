@@ -549,19 +549,8 @@ public static class LanternRefusePatch
     }
 }
 
-// Every Upper Level and Security buyer wants it, whatever their usual shopping list.
-[HarmonyPatch(typeof(StoreClient), "IsClientBuyingThisItem", new Type[] { typeof(GameItem), typeof(bool) })]
-public static class LanternBuyingPatch
-{
-    private static void Postfix(StoreClient __instance, GameItem gameItem, bool ignoreContents, ref bool __result)
-    {
-        if (!__result && Lantern.IsVial(gameItem) && LanternBuyers.IsAuthority(__instance)
-            && !__instance.IsClientRefusingItem(gameItem, ignoreContents))
-        {
-            __result = true;
-        }
-    }
-}
+// Who wants it is left to the clients' own shopping lists: the vial is MEDICAL and WEAPON, so Upper Level and Security
+// buyers after either take it, the rest of them pass (1.9.0; before that every one of them bought it).
 
 // ---- evidence wipe on sale ------------------------------------------------------------------------------------
 
