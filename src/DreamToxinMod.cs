@@ -50,6 +50,7 @@ public class DreamToxinMod : IMod
         CartelSupply.Enable();
         CartelPeer.Enable();
         CartelTourist.Enable();
+        OutOfStockSignPatch.Enable();
         // Liquids, recipes, genes and wine labels are registered later, in Content.EnsureRegistered.
         ModHook.OnModItemDirectoryInit += OnItemDirectoryInit;
         ModHook.OnModAssetsLoaded += OnModAssetsLoaded;
@@ -109,6 +110,7 @@ public class DreamToxinMod : IMod
         CartelSupply.Disable();
         CartelPeer.Disable();
         CartelTourist.Disable();
+        OutOfStockSignPatch.Disable();
         try
         {
             ModHelper.RemoveDebugFunctions(MOD_ID);

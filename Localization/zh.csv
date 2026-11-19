@@ -97,6 +97,7 @@ ampoule_desc,0.1毫升钚溶液。可以对任何饮料或葡萄酒使用，使�
 ampoule_flavor,标签上写着：请勿饮用。
 nuclear_drink_name,核子{0}
 merchant_name,废料掮客
+out_of_stock_sign_section_vce,化学扩展
 merchant_line,有人付钱让我处理掉这些桶，有人付钱让我把它们卖掉。你看起来像后一种人。
 radiation_notice,你醒来时感到恶心乏力。辐射病：卖出价格-{0}%。
 radiation_cured,免疫宁缓解了辐射病。现在：-{0}%。

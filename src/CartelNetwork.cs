@@ -2692,6 +2692,10 @@ public static class CartelTourist
             {
                 return;
             }
+            if (OutOfStockSignPatch.ShouldTurnAway(CLIENT_ID))
+            {
+                return;
+            }
             List<int> candidates = new List<int>();
             for (int i = 0; i < manager.clientStack.Count; i++)
             {

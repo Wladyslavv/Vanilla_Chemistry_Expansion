@@ -97,6 +97,7 @@ ampoule_desc,"0.1 mL of plutonium solution. Drag onto any drink or wine to add 5
 ampoule_flavor,"The label says: do not drink."
 nuclear_drink_name,Nuclear {0}
 merchant_name,Waste Broker
+out_of_stock_sign_section_vce,Chemistry Expansion
 merchant_line,"Some people pay me to get rid of these barrels. Some people pay me to sell them. You look like the second kind."
 radiation_notice,"You wake up nauseous and weak. Radiation sickness: -{0}% when selling."
 radiation_cured,"The Immunivax eases your radiation sickness. Now: -{0}%."
