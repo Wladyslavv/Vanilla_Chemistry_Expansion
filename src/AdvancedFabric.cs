@@ -26,9 +26,15 @@ public static class AdvancedFabric
             item.SetGameItemType("LUXURY_ITEM");
             item.unitValue = VALUE;
             DurabilityHelper.InitItemWithDurability(item, MAX_DURABILITY);
+            // The nightly repair is the mod setting "advanced fabric repair" (default DAILY_REPAIR, a full repair),
+            // read each night so a change applies without a restart.
             item.onCycleEndSlotItemFunc = delegate(GameItem curItem, GameInventory inventory, SlotMarker slot)
             {
-                DurabilityHelper.ChangeDurability(curItem, DAILY_REPAIR);
+                int repair = IaSettings.AdvancedFabricRepair;
+                if (repair > 0)
+                {
+                    DurabilityHelper.ChangeDurability(curItem, repair);
+                }
             };
             ApplySprite(item);
             ModHelper.SetSource(item, DreamToxinMod.MOD_ID, DreamToxinMod.MOD_NAME);

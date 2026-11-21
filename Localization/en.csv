@@ -225,7 +225,7 @@ gas_canister_h2_name,Hydrogen Canister
 gas_canister_cl2_name,Chlorine Canister
 gas_canister_mix_name,Hydrogen-Chlorine Canister
 gas_canister_hcl_name,Hydrogen Chloride Canister
-gas_canister_desc,"A small steel cylinder with a valve that takes up to 5 L of compressed gas. Drag it onto another canister to move its gas over; with hydrogen chloride or nitric oxide inside, drag it onto a container with water to make hydrochloric or nitric acid. Right-click to vent it."
+gas_canister_desc,"A small steel cylinder with a valve that takes up to 5 L of compressed gas. Drag it onto another canister to move its gas over; with hydrogen chloride or nitric oxide inside, drag it onto a container with water to make hydrochloric or nitric acid; with methanol vapour inside, drag it onto any liquid container to condense it into methanol. Heat a hydrogen canister on a heating plate to 150°C or more and the hydrogen takes carbon dioxide from the air to make methanol vapour. Right-click to vent it."
 gas_h2,Hydrogen
 gas_cl2,Chlorine
 gas_hcl,Hydrogen chloride
@@ -437,6 +437,10 @@ electrolyzer_switch_on,"On. Click to switch off"
 electrolyzer_switch_off,"Off. Click to switch on"
 gas_no,Nitric oxide
 gas_canister_no_name,Nitric Oxide Canister
+gas_meoh,Methanol vapour
+gas_canister_meoh_name,Methanol Vapour Canister
+chlorine_tablets_name,Disinfectant tablets
+chlorine_tablets_desc,Freshly pressed disinfectant tablets, about to go into a box of water purification tablets.
 gas_canister_mixed_name,Mixed Gas Canister
 electrolyzer_lines_no,"Feed slot empty: nitric oxide from air (A), 375 mL a night"
 liquid_nitric_acid,Nitric Acid
@@ -479,4 +483,42 @@ explosives_8,"[[section:Step 8: Finish]]\n[[image:vanilla_chem_ext:chem_finisher
 explosives_9,[[page]]\n[[section:Appendix: ingredients]]\n- One Coffee Bean gives about 8 mL of fat and 4.4 mL of caffeine; extracting with alcohol turns up to 75% of the coffee mush into caffeine\n- Each mL of fat electrolyses into 0.8 mL of toluene; each mL of toluene takes 3 mL of nitric acid and gives 1 mL of trinitrotoluene\n- A bundle of dynamite takes about 10 Coffee Beans and two nights of nitric oxide from the Electrolyzer
 explosives_10,"[[section:Appendix: the product]]\n- Dynamite is high-level contraband; the Lower Levels and the Revolution buy it\n- After selling two or more bundles to the Lower Levels or the Revolution in one day, something always gets more expensive the next day"
 explosives_11,"[[section:Appendix: nitrocellulose]]\n- Drag a container of nitric acid onto Kotton fiber to turn it into nitrocellulose\n- Small, normal and large Kotton fiber take 30, 40 and 50 mL of nitric acid\n- Nitrocellulose is the propellant for the Reloading Press"
-explosives_12,"[[section:Appendix: the machine]]\n[[text:<u>Reloading Press</u>|align=left|size=9]]\n[[gap:8]]\n- Sold by the Cartel Vendor\n- Nitrocellulose on the left, a liquid container in the middle, the output and the controls on the right\n- Nitrocellulose put in is tipped into the hopper: small, normal and large give 54, 69 and 90 propellant; the hopper holds 300\n- Pick the calibre (.22 pistol, heavy pistol) and type (non-lethal, normal, armour-piercing) on the controls; each Press makes one round\n- Each round takes as much propellant as its price: 14, 20 and 26 for .22 pistol rounds, 24, 30 and 36 for heavy pistol rounds\n- Armour-piercing rounds also take trinitrotoluene from the container: 3 mL for a .22 pistol round, 4 mL for a heavy pistol round\n- It cannot press without enough propellant or trinitrotoluene, or with the output full"
+explosives_12,"[[section:Appendix: the machine]]\n[[text:<u>Reloading Press</u>|align=left|size=9]]\n[[gap:8]]\n- Sold by the Cartel Vendor\n- Nitrocellulose on the left, a liquid container in the middle, the output and the controls on the right\n- Nitrocellulose put in is tipped into the hopper: small, normal and large give 54, 69 and 90 propellant; the hopper holds 3000\n- Pick the calibre (.22 pistol, heavy pistol) and type (non-lethal, normal, armour-piercing) on the controls; each Press makes one round\n- Each round takes as much propellant as its price: 14, 20 and 26 for .22 pistol rounds, 24, 30 and 36 for heavy pistol rounds\n- Armour-piercing rounds also take trinitrotoluene from the container: 3 mL for a .22 pistol round, 4 mL for a heavy pistol round\n- It cannot press without enough propellant or trinitrotoluene, or with the output full"
+setting_filter_residue,Recoverable filter residue
+setting_filter_residue_tooltip,"When on, Kotton fabric, advanced Kotton fabric, water filters, advanced water filters and hydroreed filters keep what they catch, and you can pour it into a container. When off, it simply disappears, as in vanilla; whatever a filter already holds can still be poured out."
+setting_fabric_repair,Advanced Kotton fabric nightly repair
+setting_fabric_repair_tooltip,"Durability the advanced Kotton fabric regains each night: a whole number from 0 to 1000. 1000 is the default, a full repair; 0 means none; values outside the range count as the nearest end."
+hplc_name,HPLC
+hplc_desc,"An analytical instrument that splits a liquid mixture by polarity. Methanol of 99% or better goes on the left as the mobile phase, the filtered sample beside it; its solutes are split by polarity into the four collection containers on the right, least polar at the bottom. It uses up methanol as it runs: the more polar the sample's most polar solute, the more."
+hplc_manual_name,HPLC Manual
+hplc_manual_short,Operating notes for the chromatograph and how to make methanol.
+hplc_manual_flavor,"1. Mobile phase: put in methanol of at least 99% purity to start.\n2. Sample: put in the mixture to separate. It must hold at least:\n1) a solvent: water, alcohol or methanol\n2) solutes: what is to be separated.\nThe sample must hold no particles larger than 22 (what a water filter catches).\n3. Column: the solutes are split by polarity into the four collection slots, lowest polarity in the bottom slot, rising upward. Up to four solutes take at most one slot each; with more than four, solutes of close polarity share a slot. The polarity table shows each solute's slot beforehand.\n4. Speed: up to 5 mL of solute a second. Each mL of solute leaves with 1 mL of solvent, in the sample's solvent proportions.\n5. Cost: each mL of solute separated uses 0.06 x (50 + the highest polarity in the sample) mL of methanol, 3 to 9 mL. The methanol needed is shown under the polarity table.\n6. Polarity table: lists each solute with its polarity. Put in a sample to see its solutes.\n7. Making methanol: burn hydrogen on a heating plate above 150°; it takes carbon dioxide from the air to make methanol vapour. Once the vapour has cooled (important), drag the canister onto a liquid container and the vapour condenses into methanol."
+hplc_label_sample,Sample
+hplc_label_solvent,Mobile phase
+hplc_label_column,Column
+hplc_label_table,Polarity
+hplc_head_name,Name
+hplc_head_polarity,Pol.
+hplc_head_slot,Slot
+hplc_sort_asc, ▲
+hplc_sort_desc, ▼
+hplc_table_all,"All solutes; with a sample in, only its own. Click a header to sort."
+hplc_table_solvent,"(solvent: leaves first, with the solvent front)"
+hplc_table_particle,"(particles: filter before injecting)"
+hplc_table_cost,Methanol needed: {0} mL
+hplc_column_title,Column
+hplc_column_line_1,"Methanol carries the sample through the column; the most polar parts come out first"
+hplc_column_line_2,What comes out is split in turn into the four collection containers on the right
+hplc_status_running,Separating
+hplc_status_no_methanol,The mobile phase must be 99% methanol or better
+hplc_status_low_methanol,Not enough methanol
+hplc_status_no_sample,Put in a sample
+hplc_status_particles,"The sample holds particles; filter it first"
+hplc_status_no_solute,The sample holds nothing to separate
+hplc_status_no_solvent,"The sample has no solvent to carry its solutes"
+hplc_status_slot_1,Collection slot 1 has no container or is full
+hplc_status_slot_2,Collection slot 2 has no container or is full
+hplc_status_slot_3,Collection slot 3 has no container or is full
+hplc_status_slot_4,Collection slot 4 has no container or is full
+setting_wine_genuine,Blended wine labelled genuine by default
+setting_wine_genuine_tooltip,"When on, blended wine from the Chem Finisher comes out labelled genuine, so you do not have to relabel every bottle. It is still blended: the risks of a fake label stay the same, and sales that go unnoticed add up to fraud."

@@ -419,7 +419,14 @@ public static class BlendedWine
         item.RemoveFeatureByCategory(BlendedWineLabels.QUALITY);
         item.RemoveFeatureByCategory(BlendedWineLabels.BLEND);
         item.AddItemFeature(BlendedWineLabels.CreateFeature(BlendedWineLabels.QUALITY, BlendedWineLabels.Quality(TierFromScore(score))));
-        item.AddItemFeature(BlendedWineLabels.CreateFeature(BlendedWineLabels.BLEND, BlendedWineLabels.Blend(true)));
+        ItemFeature blendLabel = BlendedWineLabels.CreateFeature(BlendedWineLabels.BLEND, BlendedWineLabels.Blend(true));
+        // Mod setting "blended wine labelled genuine": the bottle comes out already labelled genuine (still blended
+        // underneath), as if relabelled by hand, with the same risks (fraud if sold uncaught).
+        if (IaSettings.BlendedWineDefaultGenuine)
+        {
+            blendLabel.SetConditions(BlendedWineLabels.Blend(false), BlendedWineLabels.Blend(true));
+        }
+        item.AddItemFeature(blendLabel);
 
         int total = Total(blend);
         int methanol;
@@ -806,15 +813,25 @@ public static class BlendedWineRefusePatch
 [HarmonyPatch(typeof(SecData), "CheckSoldEndangermentItem")]
 public static class BlendedWineFraudPatch
 {
-    // Like mislabelled water, selling a lying label that nobody caught counts toward fraud.
+    // Like mislabelled water, selling a lying label that nobody caught counts toward fraud. Blended wine (quality and
+    // blend labels) and beer (its quality label: keg, can or mug) alike.
     private static void Postfix(SecData __instance, GameItem gameItem, StoreClient client)
     {
-        if (!BlendedWine.IsBlendedWine(gameItem) || (client != null && client.isNoContributeToEvidence))
+        if (gameItem == null || (client != null && client.isNoContributeToEvidence))
         {
             return;
         }
-        if (BlendedWine.IsLying(gameItem.FindItemFeatureByCategory(BlendedWineLabels.QUALITY))
-            || BlendedWine.IsLying(gameItem.FindItemFeatureByCategory(BlendedWineLabels.BLEND)))
+        bool lying = false;
+        if (BlendedWine.IsBlendedWine(gameItem))
+        {
+            lying = BlendedWine.IsLying(gameItem.FindItemFeatureByCategory(BlendedWineLabels.QUALITY))
+                || BlendedWine.IsLying(gameItem.FindItemFeatureByCategory(BlendedWineLabels.BLEND));
+        }
+        else if (Beer.IsBeer(gameItem))
+        {
+            lying = BlendedWine.IsLying(gameItem.FindItemFeatureByCategory(BeerQuality.CATEGORY));
+        }
+        if (lying)
         {
             __instance.badChemTrackerFraud += (int)gameItem.GetNegociatedValue();
         }

@@ -1,7 +1,7 @@
 // The Cartel Vendor: the only seller of this mod's machines, handbook and starting stock. He first comes on day 5
 // and then every 7 days, and every visit lays out the whole range on the front counter, big items first:
-//   fermenter, electrolyzer (each only 50% of visits once the player owns one), the handbook (only while the player
-//   has none), a plutonium battery, an empty gas canister, a random strain, two Xinke seeds, two Hollow's Lantern
+//   fermenter, electrolyzer (each only 50% of visits once the player owns one), the HPLC and the handbook (each only
+//   while the player has none), reloading press (50% once owned), a plutonium battery, an empty gas canister, a random strain, two Xinke seeds, two Hollow's Lantern
 //   seeds.
 // These used to come from Dr. Jackson, the retired chemist, the retired farmer and battery loot; none of them carry
 // these goods any more. He does not depend on the Cartel Expansion setting (the handbook must stay obtainable), and
@@ -99,6 +99,11 @@ public static class CartelVendor
             if (!Owns(Electrolyzer.IsElectrolyzer) || RNG.Roll(OWNED_MACHINE_CHANCE))
             {
                 stock.Add(Electrolyzer.CreateForSale());
+            }
+            // The HPLC, like the handbook, only while the player has none.
+            if (!Owns(Hplc.IsHplc))
+            {
+                stock.Add(DirectoryMaster.Item(Hplc.ITEM_ID, false));
             }
             if (!Owns(ReloadingPress.IsReloadingPress) || RNG.Roll(OWNED_MACHINE_CHANCE))
             {

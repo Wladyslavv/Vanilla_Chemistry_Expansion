@@ -1,14 +1,17 @@
 // Gas canister for the brine electrolysis line (art/salt/DESIGN.md): its own item, NOT a vanilla liquid container,
 // so none of the vanilla liquid paths (pouring, machine container slots, drains, water buyers, purifiers, pipette
-// mods) can put anything into it. It holds hydrogen, chlorine, hydrogen chloride and nitric oxide in its own tags
+// mods) can put anything into it. It holds hydrogen, chlorine, hydrogen chloride, nitric oxide and methanol vapour in its own tags
 // (uL, 5 L in all).
 //   - The electrolyzer fills empty or pure canisters (product A hydrogen, product B chlorine; product A nitric oxide
 //     when its feed slot is empty).
 //   - Drag one canister onto another: its gases move into the target, as far as there is room.
 //   - On a heating plate (patched below) it warms up; at 120 C+ hydrogen and chlorine burn 1:1 into twice the volume
 //     of hydrogen chloride, 10% a second (at least 1000 uL), like the faster reactions of this mod.
+//     At 150 C+ the hydrogen left takes carbon dioxide from the air (taken as always there): 3 parts of hydrogen make
+//     1 part of methanol vapour, at the same rate.
 //   - Drag it onto a liquid container with water: hydrogen chloride dissolves into vanilla acid and nitric oxide into
 //     nitric acid, each up to 40% of the liquid; what does not dissolve stays in the canister.
+//     Methanol vapour needs no water: it condenses 1:1 into liquid methanol, as far as the container has room.
 //   - Right-click "Vent" (the vanilla toggle button) empties it.
 // Written for C# 5 (see DreamToxinMod.cs).
 using System;
@@ -24,13 +27,16 @@ public static class GasCanister
     public const string SPRITE_MIX = "vce_gas_canister_mix";
     public const string SPRITE_HCL = "vce_gas_canister_hcl";
     public const string SPRITE_NO = "vce_gas_canister_no";
+    public const string SPRITE_MEOH = "vce_gas_canister_meoh";
 
     public const string HYDROGEN = "h2";
     public const string CHLORINE = "cl2";
     public const string HCL = "hcl";
     // Nitric oxide: the electrolyzer's arc makes it from air when its feed slot is empty (Electrolyzer.RunNoCycle).
     public const string NITRIC_OXIDE = "no";
-    private static readonly string[] Gases = { HYDROGEN, CHLORINE, HCL, NITRIC_OXIDE };
+    // Methanol vapour: hydrogen heated to 150 C+ with the carbon dioxide of the air (taken as always there).
+    public const string METHANOL = "meoh";
+    private static readonly string[] Gases = { HYDROGEN, CHLORINE, HCL, NITRIC_OXIDE, METHANOL };
 
     public const string TEMP_TAG = "CONTAINER_TEMP_TAG";  // same tag as liquid containers: the heating plate shows it
 
@@ -49,6 +55,10 @@ public static class GasCanister
     public const double REACT_RATE = 0.1;
     public const int REACT_MIN_UL = 1000;
 
+    // 3 H2 (+ CO2 from the air) -> methanol vapour: 3 parts of hydrogen make 1 part of vapour, at 150 C+, at the same rate.
+    public const double METHANOL_TEMP = 150.0;
+    public const int METHANOL_H2_PER_PART = 3;
+
     // Hydrogen chloride dissolves until acid makes up 40% of the liquid: acid <= other liquids x 2/3.
     public const double SOLUBILITY = 0.4;
 
@@ -64,6 +74,7 @@ public static class GasCanister
             ModHelper.AddDebugFunction(id, "Modding", "Gas: full chlorine canister", delegate { Give(CHLORINE, null); }, false);
             ModHelper.AddDebugFunction(id, "Modding", "Gas: hydrogen + chlorine canister", delegate { Give(HYDROGEN, CHLORINE); }, false);
             ModHelper.AddDebugFunction(id, "Modding", "Gas: full nitric oxide canister", delegate { Give(NITRIC_OXIDE, null); }, false);
+            ModHelper.AddDebugFunction(id, "Modding", "Gas: full methanol vapour canister", delegate { Give(METHANOL, null); }, false);
         }
         catch (Exception e)
         {
@@ -242,15 +253,20 @@ public static class GasCanister
 
     // ---- name, sprite, tooltip ----------------------------------------------------------------------------------
 
-    // Nitric oxide mixed with anything is a plain mixed canister; otherwise hydrogen chloride takes priority, then the
+    // Nitric oxide or methanol vapour mixed with anything is a plain mixed canister; otherwise hydrogen chloride takes priority, then the
     // hydrogen / chlorine mix, then a single gas.
     public static void Apply(GameItem item)
     {
         int h2 = Amount(item, HYDROGEN), cl2 = Amount(item, CHLORINE), hcl = Amount(item, HCL), no = Amount(item, NITRIC_OXIDE);
+        int meoh = Amount(item, METHANOL);
         string name, sprite;
-        if (no > 0 && h2 + cl2 + hcl > 0)
+        if ((no > 0 && h2 + cl2 + hcl + meoh > 0) || (meoh > 0 && h2 + cl2 + hcl > 0))
         {
             name = "gas_canister_mixed_name"; sprite = SPRITE_MIX;
+        }
+        else if (meoh > 0)
+        {
+            name = "gas_canister_meoh_name"; sprite = SPRITE_MEOH;
         }
         else if (no > 0)
         {
@@ -332,17 +348,30 @@ public static class GasCanister
             {
                 SetTemp(item, AMBIENT + (temp - AMBIENT) * Math.Exp(-COOL_PER_SECOND));
             }
+            bool changed = false;
             int h2 = Amount(item, HYDROGEN), cl2 = Amount(item, CHLORINE);
-            if (temp < REACT_TEMP || h2 <= 0 || cl2 <= 0)
+            if (temp >= REACT_TEMP && h2 > 0 && cl2 > 0)
             {
-                return;
+                int limiting = Math.Min(h2, cl2);
+                int pair = Math.Min(limiting, Math.Max(REACT_MIN_UL, (int)Math.Round(limiting * REACT_RATE)));
+                h2 -= pair;
+                SetAmount(item, HYDROGEN, h2);
+                SetAmount(item, CHLORINE, cl2 - pair);
+                SetAmount(item, HCL, Amount(item, HCL) + 2 * pair);
+                changed = true;
             }
-            int limiting = Math.Min(h2, cl2);
-            int pair = Math.Min(limiting, Math.Max(REACT_MIN_UL, (int)Math.Round(limiting * REACT_RATE)));
-            SetAmount(item, HYDROGEN, h2 - pair);
-            SetAmount(item, CHLORINE, cl2 - pair);
-            SetAmount(item, HCL, Amount(item, HCL) + 2 * pair);
-            Apply(item);
+            // Hydrogen left over at 150 C+ takes carbon dioxide from the air: 3 parts make 1 part of methanol vapour.
+            if (temp >= METHANOL_TEMP && h2 > 0)
+            {
+                int used = Math.Min(h2, Math.Max(REACT_MIN_UL, (int)Math.Round(h2 * REACT_RATE)));
+                SetAmount(item, HYDROGEN, h2 - used);
+                SetAmount(item, METHANOL, Amount(item, METHANOL) + Math.Max(1, used / METHANOL_H2_PER_PART));
+                changed = true;
+            }
+            if (changed)
+            {
+                Apply(item);
+            }
         }
         catch (Exception e)
         {
@@ -389,7 +418,7 @@ public static class GasCanister
         {
             return Total(s) > 0;
         }
-        return t.IsTag("LIQUID_CONTAINER_TAG") && (Amount(s, HCL) > 0 || Amount(s, NITRIC_OXIDE) > 0);
+        return t.IsTag("LIQUID_CONTAINER_TAG") && (Amount(s, HCL) > 0 || Amount(s, NITRIC_OXIDE) > 0 || Amount(s, METHANOL) > 0);
     }
 
     private static void OnTarget(GameItem s, GameItem t)
@@ -449,21 +478,29 @@ public static class GasCanister
 
     // Soluble gases into water, each 1:1 into its acid (hydrogen chloride -> vanilla acid, nitric oxide -> nitric
     // acid), each acid up to 40% of the liquid; what does not dissolve stays in the canister.
+    // Methanol vapour needs no water: it condenses 1:1 into liquid methanol, as far as the container has room.
     public static void Dissolve(GameItem canister, GameItem container)
     {
-        if (Amount(canister, HCL) <= 0 && Amount(canister, NITRIC_OXIDE) <= 0)
+        bool acids = Amount(canister, HCL) > 0 || Amount(canister, NITRIC_OXIDE) > 0;
+        if (!acids && Amount(canister, METHANOL) <= 0)
         {
-            return;
-        }
-        if (IaLiquids.Get(container, "water") <= 0)
-        {
-            Notify(Text.Get("gas_canister_needs_water"));
             return;
         }
         string failure = null;
         bool any = false;
-        DissolveGas(canister, container, HCL, "acid", ref any, ref failure);
-        DissolveGas(canister, container, NITRIC_OXIDE, FlavorChemistry.NITRIC_ACID, ref any, ref failure);
+        Condense(canister, container, ref any, ref failure);
+        if (acids)
+        {
+            if (IaLiquids.Get(container, "water") <= 0)
+            {
+                failure = "gas_canister_needs_water";
+            }
+            else
+            {
+                DissolveGas(canister, container, HCL, "acid", ref any, ref failure);
+                DissolveGas(canister, container, NITRIC_OXIDE, FlavorChemistry.NITRIC_ACID, ref any, ref failure);
+            }
+        }
         if (!any)
         {
             if (failure != null)
@@ -502,6 +539,25 @@ public static class GasCanister
         SetAmount(canister, gas, held - dissolved);
         ChemicalHelper.HandleReceiveLiquidTemp(container, dissolved, TempOf(canister));
         IaLiquids.Set(container, liquid, acid + dissolved);
+        any = true;
+    }
+
+    private static void Condense(GameItem canister, GameItem container, ref bool any, ref string failure)
+    {
+        int held = Amount(canister, METHANOL);
+        if (held <= 0)
+        {
+            return;
+        }
+        int amount = Math.Min(held, WaterHelper.GetFreeCapacity(container));
+        if (amount <= 0)
+        {
+            failure = "gas_canister_container_full";
+            return;
+        }
+        SetAmount(canister, METHANOL, held - amount);
+        ChemicalHelper.HandleReceiveLiquidTemp(container, amount, TempOf(canister));
+        IaLiquids.Set(container, IaLiquids.METHANOL, IaLiquids.Get(container, IaLiquids.METHANOL) + amount);
         any = true;
     }
 

@@ -209,7 +209,7 @@ public static class Barrel
     public const string WASTE_ID = "nuclear_waste";
     public const string OPENED_ID = "nc.opened_waste";
     public const string VITRIFIED_ID = "nc.vitrified_waste";
-    public const int CAPACITY_ML = 1500;
+    public const int CAPACITY_ML = 3000;  // 3 L (1.5 L before 1.10.0)
     public const int SPENT_FUEL_UL = 500000;
 
     // Decay heat: liquids in the barrel boil off nothing important at 70 C; dry, it heats past 300 C.

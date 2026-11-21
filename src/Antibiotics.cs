@@ -533,6 +533,10 @@ public static class Antibiotics
             // Default contents for tablets not pressed in the Chem Finisher (debug spawns): pharma grade.
             ChemFinisherRecipe.SetCompositionByPurity(item, 90, 95, TABLET_VOLUME, CEPH_ID);
             ChemicalProductHelper.InitChemicalProduct(item, CEPH_ID);
+            // A medical product as far as vanilla's chemical feedback goes: a purity label set higher than the real
+            // grade is now caught like any medicine's (buyer complaints, fraud), not sold for free. Tablets the
+            // extraction target makes contraband are left out by vanilla, as all contraband is.
+            ChemicalFeedbackHelper.InitChemicalIntentItem(item, ChemicalFeedbackHelper.ChemicalIntent.MEDICAL);
             AudioHelper.InitTinyItem(item);
             BeerSprites.Apply(item, TABLET_SPRITE);
             ModHelper.SetSource(item, DreamToxinMod.MOD_ID, DreamToxinMod.MOD_NAME);

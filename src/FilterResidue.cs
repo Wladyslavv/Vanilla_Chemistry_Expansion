@@ -251,7 +251,9 @@ public static class FilterResidueCatchPatch
     {
         try
         {
-            if (__state > __result && FilterResidue.Catches(filter))
+            // Mod setting "keep filter residue" off: filters catch nothing new (what they already hold can still be
+            // poured out).
+            if (__state > __result && IaSettings.KeepFilterResidue && FilterResidue.Catches(filter))
             {
                 FilterResidue.Add(filter, identifier, __state - __result);
             }

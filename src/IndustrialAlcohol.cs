@@ -66,11 +66,13 @@ public static class IndustrialAlcohol
         Beer.RegisterRecipe();
         Xinke.Register();
         Dynamite.Register();
+        ChlorineTablets.Register();
     }
 
     public static void UnregisterContent()
     {
         Dynamite.Unregister();
+        ChlorineTablets.Unregister();
         Xinke.Unregister();
         BlendedWine.UnregisterRecipe();
         BlendedWineLabels.Unregister();
@@ -85,6 +87,7 @@ public static class IndustrialAlcohol
         directory.Add(AdvancedFabric.ITEM_ID, AdvancedFabric.Create);
         Xinke.AddItems(directory);
         Dynamite.AddItems(directory);
+        ChlorineTablets.AddItems(directory);
     }
 }
 
@@ -144,6 +147,7 @@ public static class IaLiquids
         Rename(FlavorChemistry.NITRIC_ACID, "liquid_nitric_acid");
         Rename(FlavorChemistry.TNT, "liquid_tnt");
         Dynamite.RefreshNames();
+        ChlorineTablets.RefreshNames();
         BlendedWineLabels.RefreshDisplays();
         BlendedWine.RefreshRecipeName();
         BeerQuality.RefreshDisplays();

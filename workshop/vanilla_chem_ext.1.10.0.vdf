@@ -1,0 +1,69 @@
+"workshopitem"
+{
+	"appid"		"4348910"
+	"publishedfileid"		"3832077837"
+	"contentfolder"		"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Probably Stolen\\Mods\\vanilla_chem_ext"
+	"previewfile"		"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Probably Stolen\\Mods\\vanilla_chem_ext\\preview.png"
+	"visibility"		"0"
+	"title"		"原版化学扩展 / Vanilla Chemistry Expansion"
+	"description"		"For questions regarding chemical reactions, item crafting, or bug reports, we recommend that you first consult or use the discussion forum.
+
+You can buy alcohol, but you can't brew your own bootleg?
+Pumping out 2000 Dream Dust a day, and not even Wilde at level 3 plus Intimidating can keep you out of trouble?
+Droppers and measuring cylinders all over the bench, yet the only way to pure acid and base is fish?
+All you can do with nuclear waste is dump it at the junkyard, where it feels like nothing and someone just picks it back up?
+
+Inspired by real chemical production, this mod gives vanilla chemistry more to do, so late game you can really play the chemist through (somewhat) involved chemistry.
+
+Main features:
+0.0.0.1. [b]New: the HPLC. Now you can separate every solute, at a price!![/b]
+0.0.1. Explosives: make TNT from nitric acid and toluene and sell it to the Revolution so they can go big! Press your spare propellant into your own ammunition! (Fine, she explodes, so do I.)
+0.1. Antibiotics: make antibiotics from strains, mutate their genes with chemicals, breed a super strain and fight drug resistance.
+1. Brine electrolysis: electrolyse brine from GP Mining rock salt into base, hydrogen and chlorine; burn the gases into hydrogen chloride and dissolve it into acid. Pure acid and base in bulk. Purifying acid with fish never felt right, did it?
+2. Hollow's Lantern: grow a lab-bred chili and refine a legal riot-control incapacitant. Sell it to the Upper Level or Security and your crimes disappear; once they are gone, the investigation slows too.
+(Did nobody catch the Outer Wilds nod? 😭)
+3. Dream Toxin: the legal product of Dream Caps, a high-end cosmetic treatment for the Upper Level.
+4. Possibly the new ice: grow Xinke and make high-profit new ice that isn't medical. It brings a regular back the next day, whose budget grows 25% a day.
+5. Blend nutrifruit, brew beer with acid and yeast, and serve chilled draft beer!
+6. Make alcohol from starch and sugar, ethyl acetate from plant matter, and edit genes so other crops make sugar and starch. Deep-space wine merchant: probably blended.
+7. Crush ore and use the minerals to purify the acid and base the profiteers sell you.
+8. Neutralize nuclear waste, extract the plutonium, and make Nuclear Cola!
+9. Cartel expansion, beta 0.5:
+[list][*]Any start can join the cartel. Sell too much chemical contraband and the cartel takes notice.
+[*]Work with Security to bring the cartel down!
+[*]Plenty of cartel mechanics.
+[*]Still in testing, so it is off by default in the mod settings.[/list]
+The cartel storyline (spoilers!): https://github.com/Wladyslavv/Vanilla_Chemistry_Expansion
+More chemistry is planned; I just need a little inspiration.
+Gunsmiths may also want: Ammo Printer https://steamcommunity.com/sharedfiles/filedetails/?id=3831394883
+
+[h2]Vanilla Chemistry Expansion[/h2]Built on the vanilla chemistry system (extraction, heating, refrigeration, filtering, evaporation, pressing); vanilla products and reactions are unchanged.
+[h3]Machines[/h3][list][*][b]HPLC[/b]: splits the solutes of a sample into 4 collection slots by polarity. The mobile phase must be methanol of 99% or better, and each mL of solute separated uses 3-9 mL of it.
+[*][b]Electrolyzer[/b]: brine into base, hydrogen and chlorine; fat into toluene; with an empty feed slot, nitric oxide from the air.
+[*][b]Fermenter[/b]: grows Acremonium on feed; each round yields four strains of the next generation.
+[*][b]Reloading Press[/b]: presses pistol rounds from nitrocellulose, non-lethal, standard or armour-piercing; armour-piercing also uses TNT.[/list]
+[h3]Products[/h3][list][*][b]Dream Toxin Injector[/b] (the beauty shot): a legal medical product of Dream Caps, bought by Upper Level cosmetic clinics.
+[*][b]Crackine[/b] (small and large vial): new ice refined from Xinke leaves; not medical, and it brings a regular back the next day.
+[*][b]Incapacitant[/b]: a riot-control agent refined from Hollow's Lantern; selling it to the Upper Level or Security wipes out crimes.
+[*][b]Antibiotic tablet[/b]: pressed from cephalosporin C, sellable from pharma grade; also cures sick livestock in the same pen.
+[*][b]Bundle of Dynamite[/b]: a weapon and contraband pressed from TNT. Sell two or more a day to the Lower Level or the Revolution and a price rise follows the next day.
+[*][b]Blended wine[/b]: pressed from ethyl acetate, alcohol and water; its labels can be changed with the labeler.
+[*][b]Beer Keg[/b]: pours canned beer at room temperature, or draft beer once chilled; draft beer goes flat overnight.
+[*][b]Plutonium Ampoule[/b]: turns a drink into a Nuclear drink worth +50, or makes a Plutonium Chemical Battery recharge itself every night.
+[*][b]Disinfectant tablets[/b]: 100 mL of chlorine pressed in the Chem Finisher into a vanilla box of water purification tablets.[/list]
+[h3]Tools[/h3][list][*][b]Gas Canister[/b]: holds hydrogen, chlorine, hydrogen chloride, nitric oxide and methanol vapour. On a heating plate it makes hydrogen chloride or methanol vapour; dragged onto a container, its gases dissolve into acid or condense into methanol.
+[*][b]Plutonium Chemical Battery[/b]: a 200 kJ battery that recharges itself every night once given plutonium ampoules.
+[*][b]Advanced Kotton Fabric[/b]: restores its durability every night; how much is set in the mod settings.
+[*][b]Opened Nuclear Waste[/b] and [b]Vitrified Waste[/b]: where nuclear waste reprocessing starts and ends.
+[*][b]Advanced Chemistry Handbook[/b]: notes on every process, sold by the Cartel Vendor.[/list]
+[h3]Crops and materials[/h3][list][*][b]Xinke Shrub[/b]: a perennial whose leaves hold an alkaloid.
+[*][b]Hollow's Lantern[/b]: a lab-bred chili full of capsaicin.
+[*][b]Acremonium strain[/b]: blended for cephalosporin C; frozen, it can be copied without limit.
+[*][b]Rock Salt Ore[/b]: ordered from GP Mining, crushed for salt.
+[*][b]Nitrocellulose[/b]: nitric acid poured on Kotton fiber; the propellant for rounds.
+[*]New liquids: methanol, acetic acid, ethyl acetate, toluene, nitric acid, TNT, salt, alkaloid, capsaicin, cephalosporin C, plutonium, water glass, silica gel and more.[/list]
+[h3]Characters[/h3][list][*][b]Cartel Vendor[/b]: from day 5, every 7 days; sells this mod's machines, handbook, batteries, strains, seeds and gas canisters.
+[*][b]Waste Broker[/b]: from day 7, every 7 days; sells nuclear waste.
+[*]The cartel network's contacts, traders, couriers and Security officers (cartel expansion, off by default).[/list]"
+	"changenote"		"1.10.0: New machine: the HPLC (sold by the Cartel Vendor while you have none, 1000). It splits a filtered sample into four collection slots by polarity, every solute having a polarity modelled on its real counterpart; it runs on methanol of 99% or better and uses 3-9 mL of it per mL of solute. Its polarity table scrolls and sorts by name, polarity or slot, and it comes with a manual. Methanol: a hydrogen canister heated to 150°C or more on an upgraded heating plate turns 3 parts of hydrogen into 1 part of methanol vapour, which condenses into pure methanol when the canister is dragged onto a liquid container (let it cool first). Disinfectant tablets: a gas canister now goes straight into the Chem Finisher, which presses 100 mL of its chlorine into a vanilla box of water purification tablets. Mislabelled antibiotic tablets and beer now count as fraud like other products. New mod settings: Recoverable filter residue (on by default) and Advanced Kotton fabric nightly repair (1000 by default). Another setting labels blended wine from the Chem Finisher genuine by default (off by default). An opened nuclear waste barrel now holds 3 L instead of 1.5 L. The Reloading Press has a bigger hopper (3000) and bigger nitrocellulose (6x6) and output (8x6) grids. / 1.10.0：新机器高效液相色谱仪（卡特尔小贩出售，已有时不卖，售价 1000）：按极性把过滤好的样品分进四个收集槽，每种溶质的极性参照现实对应物设定；流动相须为 99% 以上的甲醇，每分离 1 毫升溶质消耗 3–9 毫升甲醇。极性表可滚动，可按名称、极性或槽位排序，机器自带说明书。甲醇制取：氢气罐在升级过的加热板上加热到 150°C 以上，每 3 份氢气生成 1 份甲醇蒸气，冷却后拖到液体容器上冷凝成纯甲醇。消毒片：气罐可以直接放进化学制剂成型机，100 毫升氯气压成一盒原版净水片。抗生素片和啤酒贴虚假标签出售，现在会像其他产品一样计入欺诈。模组设置新增「可回收滤出物」开关（默认开）和「高级韧棉织物每晚恢复耐久」（默认 1000）。另有「勾兑葡萄酒默认标为纯酿」开关（默认关）。打开的核废料桶容量从 1.5 升提高到 3 升。子弹复装机的药斗容量提高到 3000，硝酸纤维素格和输出格扩大到 6×6 和 8×6。"
+}

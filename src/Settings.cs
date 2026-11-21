@@ -16,6 +16,38 @@ public static class IaSettings
     public const string CARTEL_SECTION = "卡特尔 / Cartel";
     private static ConfigEntry<bool> cartelEnabled;
 
+    public const string WINE_SECTION = "葡萄酒 / Wine";
+    private static ConfigEntry<bool> blendedWineDefaultGenuine;
+
+    // Blended wine pressed in the Chem Finisher comes out labelled genuine instead of blended (FakeWine.cs). Off by
+    // default.
+    public static bool BlendedWineDefaultGenuine
+    {
+        get { return blendedWineDefaultGenuine != null && blendedWineDefaultGenuine.Value; }
+    }
+
+    public const string FILTER_SECTION = "过滤 / Filtering";
+    private static ConfigEntry<bool> keepFilterResidue;
+    private static ConfigEntry<int> advancedFabricRepair;
+
+    // Filters (Kotton fabric, advanced Kotton fabric, the water filters, the hydroreed filter) keep what they catch,
+    // to be poured out again (FilterResidue.cs). On by default; while off they catch nothing new, as in vanilla.
+    public static bool KeepFilterResidue
+    {
+        get { return keepFilterResidue == null || keepFilterResidue.Value; }
+    }
+
+    // Durability the advanced Kotton fabric regains each night (AdvancedFabric.cs); 1000 is a full repair. Typed in,
+    // so kept to 0..MAX_DURABILITY here.
+    public static int AdvancedFabricRepair
+    {
+        get
+        {
+            int value = advancedFabricRepair != null ? advancedFabricRepair.Value : AdvancedFabric.DAILY_REPAIR;
+            return Math.Max(0, Math.Min(AdvancedFabric.MAX_DURABILITY, value));
+        }
+    }
+
     // The cartel expansion (CartelNetwork.cs): the Cartel Network, the watching path, the boycott, Security's route
     // against the cartel and the cartel merchants. Off by default; while off none of it does anything.
     public static bool CartelEnabled
@@ -59,6 +91,15 @@ public static class IaSettings
                 () => IaText.Get("setting_ferment_tooltip"), false);
             cartelEnabled = config.Define("cartel_expansion", false, CARTEL_SECTION,
                 () => IaText.Get("setting_cartel"), () => IaText.Get("setting_cartel_tooltip"), false);
+            blendedWineDefaultGenuine = config.Define("blended_wine_default_genuine", false, WINE_SECTION,
+                () => IaText.Get("setting_wine_genuine"), () => IaText.Get("setting_wine_genuine_tooltip"), false);
+            keepFilterResidue = config.Define("keep_filter_residue", true, FILTER_SECTION,
+                () => IaText.Get("setting_filter_residue"), () => IaText.Get("setting_filter_residue_tooltip"), false);
+            // No min/max: the mod settings window draws a ranged number as a slider and an unranged one as a text
+            // field, and this one is typed in. AdvancedFabricRepair clamps it instead.
+            advancedFabricRepair = config.Define("advanced_fabric_repair", AdvancedFabric.DAILY_REPAIR, FILTER_SECTION,
+                () => IaText.Get("setting_fabric_repair"), (int?)null, (int?)null,
+                () => IaText.Get("setting_fabric_repair_tooltip"), false);
         }
         catch (Exception e)
         {

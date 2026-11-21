@@ -8,7 +8,8 @@ All you can do with nuclear waste is dump it at the junkyard, where it feels lik
 Inspired by real chemical production, this mod gives vanilla chemistry more to do, so late game you can really play the chemist through (somewhat) involved chemistry.
 
 Main features:
-0.0.1. Explosives: make TNT from nitric acid and toluene and sell it to the Revolution so they can go big! Press your spare propellant into your own ammunition!
+0.0.0.1. [b]New: the HPLC. Now you can separate every solute, at a price!![/b]
+0.0.1. Explosives: make TNT from nitric acid and toluene and sell it to the Revolution so they can go big! Press your spare propellant into your own ammunition! (Fine, she explodes, so do I.)
 0.1. Antibiotics: make antibiotics from strains, mutate their genes with chemicals, breed a super strain and fight drug resistance.
 1. Brine electrolysis: electrolyse brine from GP Mining rock salt into base, hydrogen and chlorine; burn the gases into hydrogen chloride and dissolve it into acid. Pure acid and base in bulk. Purifying acid with fish never felt right, did it?
 2. Hollow's Lantern: grow a lab-bred chili and refine a legal riot-control incapacitant. Sell it to the Upper Level or Security and your crimes disappear; once they are gone, the investigation slows too.
@@ -29,39 +30,30 @@ More chemistry is planned; I just need a little inspiration.
 Gunsmiths may also want: Ammo Printer https://steamcommunity.com/sharedfiles/filedetails/?id=3831394883
 
 [h2]Vanilla Chemistry Expansion[/h2]Built on the vanilla chemistry system (extraction, heating, refrigeration, filtering, evaporation, pressing); vanilla products and reactions are unchanged.
-
-[h3]Dream Toxin (handbook chapter 1)[/h3]A legal medical outlet for Dream Caps and Nightmare Caps.
-[list][*]Mix the two extracts 1:1 with a little acid and chill it in a fridge; burn off leftover extract, filter, dry and press [b]Dream Toxin Injectors[/b].
-[*]Popular with Upper Level cosmetic clinics; a legal medical item, base value 150. Only pharma grade (90%+) pays: about street Dream Dust money, without the notoriety.[/list]
-[h3]Brine electrolysis (new, handbook chapter 10)[/h3]A simplified chlor-alkali process: 1 part salt + 0.3 part water ends up as 1 part base and 1 part acid, both free of chemical contaminant and heavy metal.
-
-[h3]Hollow's Lantern and Incapacitant (handbook chapter 9)[/h3]A lab-bred chili, and the legal riot-control agent refined from it.
-[list][*][b]Hollow's Lantern[/b]: annual, innate Capsaicin Production III gene, spliceable into other crops. The Cartel Vendor brings two seeds each visit.
-[*]Making it: blend for capsaicin, add at least 4x the alcohol and heat to 50-78°C for Lantern Ester (too little alcohol leaves physical contaminant); filter, evaporate the alcohol and press [b]A Small Vial of Incapacitant[/b].
-[*][b]Wiping your record[/b]: each vial sold to the Upper Level or Security takes price × purity × 5 off your crimes; once those are cleared, every full 100 left takes 1 off investigation progress.[/list]
-[h3]Xinke and Crackine (handbook chapter 8)[/h3]A new crop, and the new ice refined from the alkaloid in its leaves. No medical tag: raw leaves earn less than Dream Dust, refined Crackine a little more.
-[list][*][b]Xinke[/b]: perennial, drought-tolerant, no replanting after picking. Innate Alkaloid Production gene, spliceable into other crops. The Cartel Vendor brings seeds; the shady farmer sells leaves.
-[*]Refining: blend the leaves, remove the protein, add acid and boil dry into Crackine powder, drive off the leftover acid in the evaporator and press [b]Crackine[/b] (a small vial ≈ 1.5 Dream Dust; a large one = four small).
-[*][b]Regulars[/b]: a personal-use buyer who gets 90%+ Crackine comes back the next day; each daily visit after that adds 25% to their budget (up to 2000), with special lines.[/list]
-[h3]Ore chemistry: purifying acid and base (handbook chapter 2)[/h3]No filter removes the chemical contaminant and heavy metal in vanilla acid and base, which keeps drugs from lab-pure grade.
-[list][*]Crush metal ore in a [b]blender with all 4 chem modules[/b] for calcite and quartz sand.
-[*][b]Purifying base[/b]: calcine calcite into quicklime and add it to base to remove the chemical contaminant; heavy metal settles out on its own. Filter.
-[*][b]Purifying acid[/b]: quartz sand and base make water glass; add acid to precipitate silica gel. Heated silica gel drives the chemical contaminant out of acid; freezing removes heavy metal. Filter.
-[*]Needs an upgraded heating plate.[/list]
-[h3]Starch genes[/h3]Nutrifruit's starch and sugar now come from innate Starch Production and Sugar Production genes: same totals, spliceable into other crops.
-
-[h3]Industrial alcohol (handbook chapter 3)[/h3][list][*]Blend nutrifruit, hydrolyse the starch into sugar with acid and heat, neutralize, add yeast: alcohol by morning. Each yeast tolerates a different strength.
-[*]Boil off the methanol; freeze and filter out ice to concentrate to about 25%.
-[*]The composition analyzer shows a container's temperature; mod settings adjust boiling, fermentation and fridge cooling speed.[/list]
-[h3]Blended wine (handbook chapters 3 and 4)[/h3][list][*]Dry-distil plant matter into acetic acid, esterify it with alcohol into ethyl acetate, then press it with alcohol and water into wine.
-[*]A labeller can change two labels: quality and method (genuine/blended). Lying is risky: unnoticed sales add up to fraud, and Upper Level clients refuse blended wine.[/list]
-[h3]Beer (handbook chapters 5 and 6)[/h3][list][*]The Chem Finisher fills weak nutrifruit brew into a 2 L [b]Beer Keg[/b], graded premium, ordinary or undrinkable; dilute with good or pure water for premium.
-[*]Double-click the keg to pour one: a [b]can of beer[/b] at room temperature, [b]draft beer[/b] once chilled. Draft sells best but goes flat overnight.
-[*]Beer counts as water: water buyers take it too.[/list]
-[h3]Advanced Kotton fabric[/h3]A gold Kotton fabric that regains full durability every day, found wherever the vanilla advanced water filter is.
-
-[h3]Nuclear waste reprocessing (handbook chapter 7)[/h3][list][*]Pry a barrel open with a crowbar, dissolve the spent fuel in strong acid, add reducing agent, extract the plutonium with ethyl acetate, boil dry and fill [b]Plutonium Ampoules[/b].
-[*]An ampoule dragged onto a drink makes a Nuclear drink worth +50; only Upper Level clients and addicts buy it.
-[*]Vitrify the leftover fission products with water glass.
-[*][b]Radiation sickness[/b]: nuclear waste left unprocessed overnight lowers your selling prices; genuine Immunivax eases it.
-[*]A Waste Broker comes every 7 days from day 7, selling nuclear waste.[/list]
+[h3]Machines[/h3][list][*][b]HPLC[/b]: splits the solutes of a sample into 4 collection slots by polarity. The mobile phase must be methanol of 99% or better, and each mL of solute separated uses 3-9 mL of it.
+[*][b]Electrolyzer[/b]: brine into base, hydrogen and chlorine; fat into toluene; with an empty feed slot, nitric oxide from the air.
+[*][b]Fermenter[/b]: grows Acremonium on feed; each round yields four strains of the next generation.
+[*][b]Reloading Press[/b]: presses pistol rounds from nitrocellulose, non-lethal, standard or armour-piercing; armour-piercing also uses TNT.[/list]
+[h3]Products[/h3][list][*][b]Dream Toxin Injector[/b] (the beauty shot): a legal medical product of Dream Caps, bought by Upper Level cosmetic clinics.
+[*][b]Crackine[/b] (small and large vial): new ice refined from Xinke leaves; not medical, and it brings a regular back the next day.
+[*][b]Incapacitant[/b]: a riot-control agent refined from Hollow's Lantern; selling it to the Upper Level or Security wipes out crimes.
+[*][b]Antibiotic tablet[/b]: pressed from cephalosporin C, sellable from pharma grade; also cures sick livestock in the same pen.
+[*][b]Bundle of Dynamite[/b]: a weapon and contraband pressed from TNT. Sell two or more a day to the Lower Level or the Revolution and a price rise follows the next day.
+[*][b]Blended wine[/b]: pressed from ethyl acetate, alcohol and water; its labels can be changed with the labeler.
+[*][b]Beer Keg[/b]: pours canned beer at room temperature, or draft beer once chilled; draft beer goes flat overnight.
+[*][b]Plutonium Ampoule[/b]: turns a drink into a Nuclear drink worth +50, or makes a Plutonium Chemical Battery recharge itself every night.
+[*][b]Disinfectant tablets[/b]: 100 mL of chlorine pressed in the Chem Finisher into a vanilla box of water purification tablets.[/list]
+[h3]Tools[/h3][list][*][b]Gas Canister[/b]: holds hydrogen, chlorine, hydrogen chloride, nitric oxide and methanol vapour. On a heating plate it makes hydrogen chloride or methanol vapour; dragged onto a container, its gases dissolve into acid or condense into methanol.
+[*][b]Plutonium Chemical Battery[/b]: a 200 kJ battery that recharges itself every night once given plutonium ampoules.
+[*][b]Advanced Kotton Fabric[/b]: restores its durability every night; how much is set in the mod settings.
+[*][b]Opened Nuclear Waste[/b] and [b]Vitrified Waste[/b]: where nuclear waste reprocessing starts and ends.
+[*][b]Advanced Chemistry Handbook[/b]: notes on every process, sold by the Cartel Vendor.[/list]
+[h3]Crops and materials[/h3][list][*][b]Xinke Shrub[/b]: a perennial whose leaves hold an alkaloid.
+[*][b]Hollow's Lantern[/b]: a lab-bred chili full of capsaicin.
+[*][b]Acremonium strain[/b]: blended for cephalosporin C; frozen, it can be copied without limit.
+[*][b]Rock Salt Ore[/b]: ordered from GP Mining, crushed for salt.
+[*][b]Nitrocellulose[/b]: nitric acid poured on Kotton fiber; the propellant for rounds.
+[*]New liquids: methanol, acetic acid, ethyl acetate, toluene, nitric acid, TNT, salt, alkaloid, capsaicin, cephalosporin C, plutonium, water glass, silica gel and more.[/list]
+[h3]Characters[/h3][list][*][b]Cartel Vendor[/b]: from day 5, every 7 days; sells this mod's machines, handbook, batteries, strains, seeds and gas canisters.
+[*][b]Waste Broker[/b]: from day 7, every 7 days; sells nuclear waste.
+[*]The cartel network's contacts, traders, couriers and Security officers (cartel expansion, off by default).[/list]

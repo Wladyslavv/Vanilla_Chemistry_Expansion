@@ -1,7 +1,7 @@
 // Reloading press: a 2x3 machine (art/explosives/draw_reloading_press.py) that presses vanilla pistol rounds out of
 // nitrocellulose, and TNT for armour-piercing ones. Its window, laid out like the vanilla Chem Finisher's:
-//   nitrocellulose slot | liquid container slot | output grid (4x2) | control (calibre, type, status, press)
-// Nitrocellulose put in the slot is tipped into the hopper (up to HOPPER_CAPACITY of propellant); a piece gives its
+//   nitrocellulose grid (6x6) | liquid container slot | output grid (8x6) | control (calibre, type, status, press)
+// Nitrocellulose put in the grid is tipped into the hopper (up to HOPPER_CAPACITY of propellant); a piece gives its
 // value in propellant (Nitrocellulose.PowderOf: 54 / 69 / 90). A round takes its vanilla base price in propellant, so
 // pressing pays exactly the contraband markup: non-lethal (no markup) breaks even, normal +35%, armour-piercing +70%.
 // Armour-piercing rounds also take TNT from the container: 3 mL a .22, 4 mL a heavy pistol round, which leaves them a
@@ -15,9 +15,12 @@ public static class ReloadingPress
     public const string ITEM_ID = "vce_reloading_press";
     public const string SPRITE = "vce_reloading_press";
     public const long VALUE = 300;
-    public const int OUTPUT_WIDTH = 4;
-    public const int OUTPUT_HEIGHT = 2;
-    public const int HOPPER_CAPACITY = 300;
+    // Output 8x6; the nitrocellulose grid (6x6) holds nine large pieces.
+    public const int OUTPUT_WIDTH = 8;
+    public const int OUTPUT_HEIGHT = 6;
+    public const int POWDER_WIDTH = 6;
+    public const int POWDER_HEIGHT = 6;
+    public const int HOPPER_CAPACITY = 3000;
 
     // Machine state, kept in its base tags (saved with the machine).
     public const string CALIBER_TAG = "VCE_PRESS_CALIBER_INT";  // 0 = .22, 1 = heavy pistol
@@ -56,7 +59,7 @@ public static class ReloadingPress
 
     private class Ui
     {
-        public GameSlotInventory Powder;
+        public GameGridInventory Powder;
         public GameSlotInventory Container;
         public GameGridInventory Output;
         public MachineryButton Caliber;
@@ -93,7 +96,7 @@ public static class ReloadingPress
     public static GameItem Create()
     {
         Ui ui = new Ui();
-        ui.Powder = new GameSlotInventory();
+        ui.Powder = new GameGridInventory(POWDER_WIDTH, POWDER_HEIGHT);
         ui.Container = new GameSlotInventory();
         ui.Output = new GameGridInventory(OUTPUT_WIDTH, OUTPUT_HEIGHT);
         ui.Caliber = new MachineryButton("");
@@ -123,8 +126,6 @@ public static class ReloadingPress
             BeerSprites.Apply(machine, SPRITE);
 
             ui.Powder.mayInventoryAddItemFunc = (GameItem item, GameInventory _) => GeneralHelper.IsItemOwned(item) && Nitrocellulose.IsNitrocellulose(item);
-            ui.Powder.SetBackgroundFadeSprite("Items/items_hydroponic_plant", "kotton_plant_s");
-            ui.Powder.slotPriorityFunc = (GameItem _, GameInventory __, SlotMarker ___) => 5;
             ui.Container.mayInventoryAddItemFunc = (GameItem item, GameInventory _) => GeneralHelper.IsItemOwned(item) && item.IsTag("LIQUID_CONTAINER_TAG");
             ui.Container.SetBackgroundFadeSprite("Items/water_container4", "xl");
             ui.Container.slotPriorityFunc = (GameItem _, GameInventory __, SlotMarker ___) => 4;
@@ -203,21 +204,30 @@ public static class ReloadingPress
 
     // ---- hopper and pressing --------------------------------------------------------------------------------------------
 
+    // Every piece in the grid that still fits in the hopper goes in; the rest wait for room.
     private static void LoadHopper(GameItem machine, Ui ui)
     {
-        GameItem piece = ui.Powder.childItem;
-        if (piece == null || !Nitrocellulose.IsNitrocellulose(piece))
-        {
-            return;
-        }
         int powder = GetInt(machine, POWDER_TAG);
-        int add = Nitrocellulose.PowderOf(piece);
-        if (add <= 0 || powder + add > HOPPER_CAPACITY)
+        bool changed = false;
+        foreach (GameItem piece in new System.Collections.Generic.List<GameItem>(ui.Powder.childItems))
         {
-            return;
+            if (piece == null || !Nitrocellulose.IsNitrocellulose(piece))
+            {
+                continue;
+            }
+            int add = Nitrocellulose.PowderOf(piece);
+            if (add <= 0 || powder + add > HOPPER_CAPACITY)
+            {
+                continue;
+            }
+            powder += add;
+            piece.Destroy();
+            changed = true;
         }
-        SetInt(machine, POWDER_TAG, powder + add);
-        piece.Destroy();
+        if (changed)
+        {
+            SetInt(machine, POWDER_TAG, powder);
+        }
     }
 
     // Why the selected round cannot be pressed now, or null.
