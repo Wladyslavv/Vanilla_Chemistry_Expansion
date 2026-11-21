@@ -25,7 +25,7 @@ ore_notes_base_4,"[[section:第4步：获取纯化碱液]]\n- 保存纯化后的
 ore_notes_acid,"[[page]]\n[[section:分支2：提纯酸液|fill=#41603F]]"
 ore_notes_acid_1,"[[section:第1步：原料准备]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- 将金属矿石装入搅拌机\n- 搅拌原料，制成石英砂"
 ore_notes_acid_2,"[[section:第2步：加热]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- 取下上一步使用的容器\n- 将其放入加热板\n- 往容器中加入与石英砂等量的碱（注：碱和石英砂1:1发生反应）\n- 加热至120°C以上，将石英砂溶解成水玻璃"
-ore_notes_acid_3,"[[gap:-8]]\n[[section:第3步：提纯]]\n- 取下上一步使用的容器\n- 使用滤水器过滤容器内溶液\n- 加入体积相当于水玻璃的酸，等候硅胶析出\n- （可选）使用韧棉织物除去大颗粒污染物\n- 将制得的硅胶加入到待提纯的酸液中（注：酸成分需要占液体总量的80%以上）并加热至100°C以上，硅胶应略多于化学污染物的体积的25%，等候其反应完全\n[[section:第4步：除杂（可选）]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- （可选）将容器放进冰箱冷冻区，以除去重金属\n- （可选）使用滤水器过滤容器内溶液"
+ore_notes_acid_3,"[[gap:-8]]\n[[section:第3步：提纯]]\n- 取下上一步使用的容器\n- 使用滤水器过滤容器内溶液\n- 加入体积相当于水玻璃的酸，等候硅胶析出\n- （可选）使用韧棉织物除去大颗粒污染物\n- 将制得的硅胶加入到待提纯的酸液中（注：酸成分需要占液体总量的80%以上）并加热至100°C以上，加入化学污染物4分之一量的硅胶，等候其反应完全\n[[section:第4步：除杂（可选）]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- （可选）将容器放进冰箱冷冻区，以除去重金属\n- （可选）使用滤水器过滤容器内溶液"
 ore_notes_acid_4,"[[section:第5步：获取纯化酸液]]\n- 保存纯化后的酸液\n- （可选）使用成分光谱仪检查纯度"
 liquid_yeast_wine,活性酿酒酵母
 liquid_yeast_super,活性超级酵母
