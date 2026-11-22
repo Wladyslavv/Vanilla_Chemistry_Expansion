@@ -1,0 +1,1 @@
+1.10.1: French translation. Every text of the mod, the Advanced Chemistry Handbook included, is now in French, using the game's own French names for vanilla items, factions and grades. / 1.10.1：新增法语翻译。模组的全部文本（含进阶化学手册）都有了法语版，原版物品、阵营和纯度等级沿用游戏官方的法语译名。

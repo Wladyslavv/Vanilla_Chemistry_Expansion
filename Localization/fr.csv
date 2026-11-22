@@ -1,0 +1,524 @@
+liquid_dream_toxin,Toxine onirique
+injector_name,Injecteur de toxine onirique
+injector_desc,"Très prisé dans les cliniques esthétiques des Strates supérieures. Injectées dans les muscles du visage, des microdoses de toxine onirique purifiée effacent les rides en quelques heures et figent l'expression sous son meilleur jour pour la caméra. Les cliniques n'acceptent que la qualité Labo ou supérieure."
+injector_flavor,Le sourire est un accessoire facultatif.
+formula_name,Formule de la toxine onirique
+formula_step_1,"[[section:Étape 1 : Ingrédients]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Préparez séparément de l'extrait onirique et de l'extrait cauchemardesque\n- Pour la méthode, voir la section Poussière onirique de « Bases de chimie »"
+formula_step_2,"[[gap:-4]]\n[[section:Étape 2 : Mélange et refroidissement]]\n[[image:vanilla_chem_ext:fridge|w=24|h=24|gap=6|float=left]]\n- Mélangez les deux extraits à parts égales (1:1)\n- Ajoutez un peu d'acide pour obtenir un mélange légèrement acide : l'acide doit représenter 0,5 % à 5 % de tout le liquide du récipient"
+formula_step_3,"- Refroidissez à 2-8 °C dans la partie réfrigérée du réfrigérateur ; les ingrédients se transforment en toxine onirique"
+formula_step_4,"[[section:Étape 3 : Nettoyage (facultatif)]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- (Facultatif) Éliminez l'extrait restant en chauffant au-dessus de 100 °C ; la toxine onirique elle-même résiste à la chaleur\n- (Facultatif) Ajoutez autant de base que d'acide pour le neutraliser, puis filtrez les résidus"
+formula_step_5,"[[section:Étape 4 : Évaporation]]\n[[image:vanilla_chem_ext:evaporator_b|w=24|h=24|gap=6|float=left]]\n- Placez le récipient dans l'évaporateur\n- Vérifiez que l'évaporateur est alimenté par une batterie\n- Attendez le lendemain que l'évaporateur ait terminé"
+formula_step_6,"[[section:Étape 5 : Finition]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- (Obligatoire) Une fois l'eau et l'alcool entièrement évaporés, placez le récipient dans le poste de finition\n- Sélectionnez la recette Injecteur de toxine onirique\n- Appuyez sur Sortie\n- (Facultatif) Vérifiez la pureté avec un spectromètre"
+liquid_calcite,Calcite
+liquid_quartz,Sable de quartz
+liquid_quicklime,Chaux vive
+liquid_calcium_carbonate,Carbonate de calcium
+liquid_water_glass,Verre soluble
+liquid_silica_gel,Gel de silice
+ore_notes_name,Notes de chimie des minerais
+ore_notes_intro,"[[section:Introduction]]\n[[image:vanilla_chem_ext:chem_module|w=24|h=24|gap=6|float=left]]\n- Seul un mixeur équipé de 4 modules de chimie peut broyer le minerai de métal\n- Seule une plaque chauffante équipée d'un module de chimie peut atteindre 120 °C et 150 °C"
+ore_notes_base,"[[section:Branche 1 : Purification de la base|fill=#41603F]]"
+ore_notes_base_1,"[[section:Étape 1 : Ingrédients]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Fixez un récipient à liquide au mixeur\n- Ajoutez du minerai de métal\n- Mixez-le pour obtenir de la calcite\n- (Facultatif) Filtrez le résultat avec du koton tissé pour retirer le sable de quartz"
+ore_notes_base_2,"[[section:Étape 2 : Calcination]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Prenez le récipient de l'étape précédente\n- Posez-le sur la plaque chauffante\n- Chauffez le mélange au-dessus de 150 °C pour calciner la calcite en chaux vive\n[[gap:4]]\n[[text:Note : gardez le mélange au sec pendant la fabrication de la chaux vive.|color=#853737|align=center]]"
+ore_notes_base_3,"[[gap:-4]]\n[[section:Étape 3 : Purification]]\n- Ajoutez la chaux vive obtenue à la base à purifier (remarque : la base doit représenter plus de 50 % de tout le liquide), en mettant un peu plus de chaux vive que de polluants chimiques, puis attendez la fin de la réaction\n- Avec plus de 50 % de base, les métaux lourds se déposent d'eux-mêmes sous forme de résidus d'hydroxyde.\n- (Facultatif) Chauffez le mélange à 80-120 °C pour accélérer la réaction\n- (Facultatif) Filtrez le carbonate de calcium et la chaux vive restante avec un filtre à eau"
+ore_notes_base_4,"[[section:Étape 4 : Récupération de la base purifiée]]\n- Conservez la base purifiée\n- (Facultatif) Vérifiez la pureté avec un spectromètre"
+ore_notes_acid,"[[page]]\n[[section:Branche 2 : Purification de l'acide|fill=#41603F]]"
+ore_notes_acid_1,"[[section:Étape 1 : Ingrédients]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Mettez du minerai de métal dans le mixeur\n- Mixez-le pour obtenir du sable de quartz"
+ore_notes_acid_2,"[[section:Étape 2 : Chauffage]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Prenez le récipient de l'étape précédente\n- Posez-le sur la plaque chauffante\n- Ajoutez autant de base que de sable de quartz (remarque : la base et le sable de quartz réagissent à 1:1)\n- Chauffez au-dessus de 120 °C pour dissoudre le sable de quartz en verre soluble"
+ore_notes_acid_3,"[[gap:-4]]\n[[section:Étape 3 : Purification]]\n- Prenez le récipient de l'étape précédente\n- Filtrez la solution avec un filtre à eau\n- Ajoutez autant d'acide que de verre soluble et attendez que le gel de silice se forme\n- (Facultatif) Retirez les polluants grossiers avec du koton tissé\n- Ajoutez le gel de silice obtenu à l'acide à purifier (remarque : l'acide doit représenter plus de 80 % de tout le liquide) et chauffez au-dessus de 100 °C, avec une quantité de gel de silice égale au quart des polluants chimiques, puis attendez la fin de la réaction\n[[section:Étape 4 : Nettoyage (facultatif)]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- (Facultatif) Placez le récipient dans la partie congélateur du réfrigérateur pour retirer les métaux lourds\n- (Facultatif) Filtrez la solution avec un filtre à eau"
+ore_notes_acid_4,"[[section:Étape 5 : Récupération de l'acide purifié]]\n- Conservez l'acide purifié\n- (Facultatif) Vérifiez la pureté avec un spectromètre"
+liquid_yeast_wine,Levure de vin vivante
+liquid_yeast_super,Super levure vivante
+liquid_yeast_red,Levure rouge vivante
+liquid_methanol,Méthanol
+liquid_ice,Glace
+yeast_hint,"Faites glisser sur un récipient pour dissoudre : ajoute {0} mL de levure vivante."
+yeast_hint_microbes,"Faites glisser sur un récipient pour dissoudre : ajoute {0} mL de levure vivante et {1} mL de microbes."
+yeast_hint_reusable,"Faites glisser sur un récipient : ajoute {0} mL de levure vivante. Ne s'épuise jamais ; utilisable à volonté."
+scanner_temperature," ({0} °C)"
+liquid_acetic_acid,Acide acétique
+liquid_ethyl_acetate,Acétate d'éthyle
+recipe_blended_wine,Vin coupé (750 mL)
+blended_wine_name,{0} coupé
+blended_wine_desc,"Vin coupé à partir d'alcool, d'eau et d'acétate d'éthyle, étiqueté honnêtement comme tel."
+setting_water_boil,Vitesse d'ébullition de l'eau (%)
+setting_water_boil_tooltip,"Vitesse à laquelle l'eau s'évapore au-dessus de 100 °C ; 100 correspond au jeu de base (2 % de l'eau du récipient par seconde, au moins 0,1 mL). N'affecte que l'ébullition, pas l'évaporateur ni les autres liquides."
+label_genuine,Authentique
+label_blended,Coupé
+category_blended_wine,Qualité du vin
+category_wine_blend,Production
+making_notes_name,Recette du vin coupé
+making_1,"[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Fixez un récipient à liquide au mixeur\n- Ajoutez tout ce qui donne de la matière végétale, comme des amanites oniriques comestibles, des amanites oniriques ou des amanites cauchemardesques\n- Mixez-les ; la bouillie onirique et la bouillie cauchemardesque se transforment aussi en matière végétale à la chaleur\n[[section:Étape 8 : Fabrication de l'acide acétique]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Prenez le récipient de l'étape précédente\n- Posez-le sur la plaque chauffante\n- Faites-le bouillir à sec au-dessus de 100 °C, puis distillez-le à sec au-dessus de 150 °C : la matière végétale se transforme en acide acétique et en charbon"
+making_2,"[[section:Étape 9 : Fabrication de l'acétate d'éthyle]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Ajoutez autant d'alcool que d'acide acétique\n- Ajoutez de l'acide à hauteur de 1 % de tout le liquide\n- Chauffez le mélange à 60-75 °C : l'acide acétique et l'alcool forment de l'acétate d'éthyle"
+making_3,"[[section:Étape 10 : Purification du produit (facultatif)]]\n- Une fois l'estérification terminée, neutralisez avec de la base : elle réagit d'abord avec l'acide, puis avec l'acide acétique restant\n- Filtrez les résidus avec un filtre à eau ; l'acétate d'éthyle, l'alcool et l'eau restants sont utilisables tels quels"
+making_4,"- Ajustez le mélange pour que l'alcool représente 20 à 25 % de tout le liquide, avec 1 à 2 mL d'acétate d'éthyle pour 1000 mL de liquide, et pas plus de 1 % d'autres impuretés"
+making_5,"[[section:Étape 12 : Finition]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- Placez le récipient dans le poste de finition\n- Sélectionnez la recette Vin coupé\n- Appuyez sur Sortie\n- (Facultatif) Vérifiez la pureté avec un spectromètre\n[[gap:8]]\n[[text:Note : le vin coupé ne peut pas vieillir ; chaque bouteille contient 750 mL|color=#3D823F|align=center]]"
+making_6,"[[section:Attention : au-delà de 0,1 % de méthanol, danger public|fill=#853737|color=#FFFFFF]]"
+selling_notes_name,Vente du vin coupé
+selling_1,"[[section:Score de qualité du vin coupé]]\n- Score de départ : +1\n- Alcool au-dessus de 25 % du liquide : +2\n- Alcool entre 20 % et 25 % du liquide : +3\n- Alcool entre 5 % et 20 % du liquide : +2\n- Alcool en dessous de 5 % du liquide : -3\n- Pas d'acétate d'éthyle : -2\n- Moins de 0,5 mL d'acétate d'éthyle pour 1000 mL de liquide : -1\n- Plus de 4 mL d'acétate d'éthyle pour 1000 mL de liquide : -1\n- 1 à 2 mL d'acétate d'éthyle pour 1000 mL de liquide : +1\n- Impuretés (tout sauf l'eau, l'alcool et l'acétate d'éthyle) au-dessus de 2 % du liquide : -1\n- Impuretés en dessous de 1 % du liquide : +1"
+selling_2,"[[gap:4]]\n[[section:Niveaux de qualité du vin coupé]]\n- 6 ou plus : Grand cru\n- 5 : Vin de réserve\n- 3-4 : Vin de table\n- 2 : Cuvée artisanale\n- 1 : Piquette"
+selling_3,"[[section:Étiquettes du vin coupé]]\n- Le vin coupé porte deux étiquettes modifiables avec l'étiqueteuse : la qualité du vin et la production (authentique/coupé)\n- Étiqueté coupé : prix -15 %\n- Les clients des Strates supérieures n'achètent pas de vin coupé"
+selling_4,"[[page]]\n[[section:Quand les fausses étiquettes sont repérées]]\n- Qualité affichée 2 niveaux trop haut ou plus : tous les clients s'en aperçoivent\n- Qualité affichée 1 niveau trop haut : les clients des Strates supérieures, les touristes et les clients qui testent les produits chimiques s'en aperçoivent"
+selling_5,"- Étiqueté authentique avec sa vraie qualité : seuls les clients qui testent les produits chimiques s'en aperçoivent\n- Vraie qualité de niveau 4 ou plus, étiquetée 1 niveau en dessous : personne ne s'en aperçoit"
+selling_6,"- Les commandes du comité de commerce repèrent toutes les fausses étiquettes"
+selling_7,"- Une fois repéré, le vin se vend comme vin coupé de sa vraie qualité\n- Les fausses étiquettes vendues sans être repérées s'accumulent en fraude"
+making_alcohol,"[[section:Étape 1 : Ingrédients]]"
+making_alcohol_1,"[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Fixez un récipient à liquide au mixeur\n- Ajoutez quelques nutrifruits\n- Mixez-les en purée de nutrifruit"
+making_alcohol_2,"[[section:Étape 2 : Fabrication du sucre]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Prenez le récipient de l'étape précédente\n- Posez-le sur la plaque chauffante\n- Ajoutez de l'acide à hauteur de 0,5 % à 1 % du liquide\n- Chauffez le mélange au-dessus de 90 °C pour hydrolyser l'amidon en sucre\n[[gap:8]]\n[[text:Note : la chaleur de cette étape tue aussi les microbes|color=#3D823F|align=center]]"
+making_alcohol_3,"[[gap:-4]]\n[[section:Étape 3 : Neutralisation]]\n- Ajoutez de la base jusqu'à ce que l'acide et la base réunis représentent moins de 1 % du liquide\n[[section:Étape 4 : Fermentation]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Refroidissez en dessous de 45 °C"
+making_alcohol_4,"- Dissolvez de la levure dans le récipient et maintenez-le entre 20 et 35 °C pendant la nuit : la levure se multiplie et fait fermenter le sucre en alcool, volume pour volume (1:1)\n- La levure de vin arrête de fermenter à 12 % d'alcool, la super levure à 18 %\n- Pour une purée sucrée, la super levure est recommandée\n[[gap:8]]\n[[text:Note : la levure rouge et une purée mal stérilisée produisent du méthanol pendant la fermentation ; chauffez à 65-75 °C pour l'éliminer par ébullition|color=#853737]]"
+making_alcohol_5,"[[gap:-4]]\n[[section:Étape 5 : Concentration de l'alcool]]\n[[image:vanilla_chem_ext:fridge|w=24|h=24|gap=6|float=left]]\n- Placez le récipient dans la partie congélateur du réfrigérateur et laissez l'eau geler ; sortez-le quand tout le reste représente environ 25 % du liquide (glace non comprise)\n- Filtrez la glace avec du koton tissé ; l'alcool est concentré jusqu'à environ 25 % du total au maximum\n[[section:Étape 6 : Purification de l'alcool (facultatif)]]\n[[image:vanilla_chem_ext:evaporator_b|w=24|h=24|gap=6|float=left]]\n- Placez le récipient dans un évaporateur équipé d'un module de récupération de solvant évaporé\n- Vérifiez que l'évaporateur est alimenté par une batterie\n- Attendez le lendemain que l'évaporateur ait terminé"
+making_ester,"[[section:Étape 7 : Ingrédients pour l'acide acétique]]"
+making_wine,"[[section:Étape 11 : Assemblage]]"
+advanced_fabric_name,Koton tissé avancé
+advanced_fabric_desc,"Filtre les particules grossières comme le koton tissé (pores de 150) et récupère 1000 points de durabilité chaque jour."
+advanced_fabric_flavor,"Tissé avec un revêtement autonettoyant. Aucun lavage nécessaire."
+effect_production,"+{0} mL ({1}) pour 100 g de fruit (+{2} mL par unité sur les autres cultures)"
+setting_fridge_cool,Vitesse de refroidissement du réfrigérateur (%)
+setting_fridge_cool_tooltip,"Vitesse à laquelle un réfrigérateur alimenté amène les récipients à sa température visée ; 100 correspond au jeu de base (partie réfrigérée 0,5 °C/s, congélateur 1 °C/s). Par défaut : 400."
+setting_ferment,Vitesse de fermentation de la levure (%)
+setting_ferment_tooltip,"Vitesse à laquelle la levure transforme le sucre en alcool pendant la nuit. 100 est la valeur par défaut : chaque mL de levure vivante transforme 24 mL de sucre en 24 mL d'alcool par nuit."
+guide_book_name,Manuel de chimie avancée
+guide_book_desc,Notes de procédés compilées par un chimiste à la retraite.
+guide_book_intro,"[[gap:6]]\nCe manuel couvre la toxine onirique, la chimie des minerais, la fabrication et la vente du vin coupé, le retraitement des déchets nucléaires, le brassage de la bière, le raffinage de la crackine, la production d'incapacitant et l'électrolyse de la saumure."
+liquid_spent_fuel,Combustible usé
+liquid_pu_dissolved,Plutonium dissous
+liquid_fission_products,Produits de fission
+liquid_pu_extract,Extrait de plutonium
+liquid_plutonium,Plutonium
+opened_waste_name,Déchets nucléaires ouverts
+opened_waste_desc,"Contient 500 mL de combustible usé. Tant que le fût contient des liquides volatils (eau, alcool, acétate d'éthyle), la chaleur de désintégration le maintient à 70 °C ; une fois le combustible dissous et ces liquides vidés, il dépasse 300 °C. Seuls l'extrait de plutonium et les liquides volatils peuvent être versés ; le contenu radioactif, l'acide et les autres impuretés restent à l'intérieur. Ne se range que dans l'inventaire principal, la vitrine et les comptoirs intérieur et extérieur."
+opened_waste_flavor,Ne le fixez pas trop longtemps.
+vitrified_name,Déchets vitrifiés
+vitrified_desc,"Les produits de fission sont fondus dans du verre et scellés dans une bouteille en acier. Sans danger ; vous pouvez les jeter."
+vitrified_flavor,À rouvrir dans dix mille ans.
+ampoule_name,Ampoule de plutonium
+ampoule_desc,"0,1 mL de solution de plutonium. Faites glisser sur une boisson ou un vin pour augmenter sa valeur de 50 et la rendre nucléaire, ou sur une batterie chimique au plutonium pour 2 kJ d'autorecharge par nuit."
+ampoule_flavor,"L'étiquette indique : ne pas boire."
+nuclear_drink_name,{0} nucléaire
+merchant_name,Courtier en déchets
+out_of_stock_sign_section_vce,Extension chimie
+merchant_line,"Il y a des gens qui me paient pour me débarrasser de ces fûts. D'autres me paient pour les leur vendre. Vous m'avez l'air du deuxième genre."
+radiation_notice,"Vous vous réveillez avec des nausées, sans force. Mal des rayons : -{0} % à la vente."
+radiation_cured,"L'Immunivax soulage votre mal des rayons. Désormais : -{0} %."
+radiation_immunivax_no_effect,"Vous ne sentez rien après l'injection, et le mal des rayons ne s'atténue pas. Le produit n'était peut-être pas authentique."
+radiation_penalty,Mal des rayons
+nightlog_radiation_new,"Une exposition aux radiations vous a donné le mal des rayons : -{0} % à la vente."
+nightlog_radiation_worse,"Votre mal des rayons s'est aggravé : -{0} % à la vente."
+nightlog_radiation_max,"Votre mal des rayons a atteint son niveau maximal : -{0} % à la vente."
+nc_notes_name,Notes de retraitement des déchets nucléaires
+nc_notes_warning,"[[section:Attention : à n'ouvrir que si vous pouvez neutraliser !|fill=#853737|color=#FFFFFF|w=259|h=16|align=center]]"
+nc_notes_1,"[[section:Étape 1 : Ouverture]]\n- Forcez le fût avec précaution à l'aide d'un pied-de-biche, et veillez à traiter chimiquement les produits de fission dans les étapes suivantes\n- Gardez le fût ouvert en lieu sûr : les produits de fission ne se versent pas, et ne doivent jamais l'être"
+nc_notes_2,"[[gap:-4]]\n[[section:Étape 2 : Dissolution]]\n- Versez environ 500 mL d'acide fort dans le fût et attendez la fin de la réaction. L'acide doit représenter plus de 98 % du liquide non radioactif du fût"
+nc_notes_3,"[[section:Étape 3 : Ajustement du degré d'oxydation]]\n- Versez environ 20 mL d'agent réducteur dans le fût"
+nc_notes_4,"[[section:Étape 4 : Extraction]]\n- Versez de l'acétate d'éthyle (fabriqué dans la Recette du vin coupé, étapes 7 à 9) à hauteur de deux fois le volume des produits de fission, soit environ 100 mL\n[[gap:4]]\n[[text:Astuce : ajoutez les 100 mL d'un coup pour une extraction optimale|color=#3D823F|align=center]]"
+nc_notes_5,"[[gap:-4]]\n[[section:Étape 5 : Séparation]]\n- Versez le liquide du fût dans un récipient vide et propre. Seuls l'extrait de plutonium et les liquides volatils en sortent ; l'acide et les impuretés restent dans le fût"
+nc_notes_6,"[[section:Étape 6 : Récupération du plutonium]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Prenez le récipient de l'étape précédente\n- Posez-le sur la plaque chauffante\n- Chauffez le mélange au-dessus de 100 °C pour chasser l'eau, les composés organiques et l'alcool"
+nc_notes_7,"[[section:Étape 7 : Vitrification]]\n- Répétez les étapes 5 et 6 jusqu'à épuisement du liquide du fût ; la chaleur de désintégration porte alors le fût au-dessus de 300 °C\n- Versez 50 mL de verre soluble (fabriqué dans les Notes de chimie des minerais, branche 2, étapes 1 et 2) dans le fût pour fondre les produits de fission dans du verre\n- Les produits de fission sont scellés dans la bouteille en acier inoxydable et peuvent être éliminés sans danger"
+nc_notes_8,"[[section:Étape 8 : Plutonium]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- Placez le récipient contenant la solution de plutonium pur dans le poste de finition et sélectionnez la recette Ampoule de plutonium\n- Appuyez sur Sortie\n[[gap:4]]\n[[text:Astuce : une ampoule de plutonium ajoutée à une boisson ou un vin en fait une boisson nucléaire valant 50 crédits de plus|color=#3D823F|align=center]]"
+nc_notes_9,"[[gap:-2]]\n[[section:Sécurité : protection|fill=#853737]]\n- Ne passez jamais la nuit avec des déchets non traités, sinon vous attraperez le mal des rayons, que seul l'Immunivax peut soigner."
+refuse_blended_wine,"Ça n'a rien à faire dans notre cave."
+refuse_nuclear_drink,"Je n'ai pas les moyens pour une boisson pareille. Donnez-moi juste une boisson normale."
+refuse_nuclear_drink_lower,"Je n'ai pas les moyens pour une boisson pareille. Donnez-moi juste une boisson normale."
+ore_needs_modules,"Le minerai de métal ne se décompose que dans un mixeur équipé de {0} modules de chimie (celui-ci en a {1})."
+beer_keg_name,Fût de bière
+beer_keg_desc,"2 L de bière maison. Chaque double-clic sert une portion : une canette (environ 333 mL) à température ambiante, ou une bière pression (500 mL) à température réfrigérée (2-8 °C)."
+beer_keg_flavor,"Tamponné sous le fond : servir frais."
+beer_can_name,Bière en canette
+beer_can_desc,"Une canette de bière maison. Un réfrigérateur alimenté la refroidit."
+beer_can_flavor,"Le meilleur, c'est le bruit à l'ouverture."
+draft_beer_name,Bière pression
+draft_beer_desc,"Tirée d'un fût froid, encore mousseuse. S'évente pendant la nuit."
+draft_beer_flavor,"À boire bien fraîche."
+flat_beer_name,Bière pression éventée
+flat_beer_desc,"La mousse a disparu depuis longtemps ; elle ne se vend plus qu'au prix d'une canette."
+beer_tier_undrinkable,Tord-boyaux imbuvable
+beer_tier_normal,Ordinaire
+beer_tier_premium,Premium
+category_beer_quality,Qualité de la bière
+recipe_beer_keg,Fût de bière
+beer_tapped,"Bière pression servie ; il reste {0} mL dans le fût."
+beer_split,"Canette de bière remplie ; il reste {0} mL dans le fût."
+beer_keg_tooltip_cold,"Température {0} C, {1} mL restants : bien frais, double-cliquez pour servir une bière pression."
+beer_keg_tooltip_warm,"Température {0} C, {1} mL restants : double-cliquez pour remplir une canette ; refroidissez-le entre 2 et 8 C pour servir de la bière pression."
+beer_notes_name,Notes de brassage de la bière
+beer_1,"[[section:Étape 1 : Ingrédients]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Fixez un récipient à liquide au Mixeur\n- Ajoutez 600-750 g de Nutrifruit\n- Mixez-le pour obtenir une purée de nutrifruit\n[[section:Étape 2 : Brassage]]\n- Hydrolysez et neutralisez la purée de l'étape précédente\n- Pour la méthode, consultez les étapes 2-3 de la recette du vin coupé dans ce manuel\n- (Facultatif) Ajoutez de l'eau jusqu'à 1,2 L pour offrir à la levure un meilleur environnement de fermentation\n- Ajoutez un sachet de Levure et attendez deux nuits qu'elle fermente en moût (le liquide fermenté qui contient l'alcool)\n- Ajoutez de l'eau propre pour porter le liquide à 2000 mL\n[[gap:6]]\n[[text:Note : l'Eau basique donne une bière ordinaire ; l'Eau raffinée ou l'Eau pure donne une bière premium|color=#3D823F|align=center]]"
+beer_2,"- Premium : alcool 5-8 % du total, levure vivante 0,1-1 %, sucre jusqu'à 4 %, protéines jusqu'à 1 % ; impuretés (tout sauf eau, alcool, levure, sucre et protéines) au plus 1 % de eau + impuretés"
+beer_3,"- Ordinaire : alcool 8-12 %, levure vivante sous 0,1 % ou 1-2 %, sucre 4-8 %, protéines 1-2 %, impuretés 1-2 % ; au-delà, la bière est imbuvable, de même qu'avec plus de 0,1 % de méthanol dans le total"
+beer_4,"[[gap:-2]]\n[[section:Étape 3 : Finition]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- (Obligatoire) Vérifiez qu'il y a plus de 2000 mL de liquide et qu'il contient de l'alcool\n- Placez le récipient dans le Poste de finition\n- Sélectionnez la recette Fût de bière\n- Appuyez sur Sortie"
+beer_5,"[[gap:6]]\n[[text:Note : le Poste de finition n'ajoute aucune impureté en remplissant un fût de bière, aucun Module de chimie n'est donc nécessaire.|color=#3D823F|align=center]]"
+beer_6,"[[page]]\n[[section:À propos de la bière]]\n- Astuce : double-cliquez sur un fût à température ambiante pour remplir 1 canette de bière, jusqu'à 6 canettes par fût\n- Placez le fût dans la Partie réfrigérée d'un Réfrigérateur alimenté ; une fois entre 2 et 8 °C, double-cliquez dessus pour servir une bière pression, jusqu'à 4 par fût\n- Le Réfrigérateur doit avoir deux améliorations de stockage pour accueillir un fût"
+beer_7,"- La bière pression ne se garde qu'une journée : pendant la nuit, elle perd l'essentiel de ses bulles et ne se vend plus qu'au prix d'une canette\n- Les canettes peuvent être refroidies au Réfrigérateur pour se vendre plus cher"
+beer_keg_empty,"Dernière portion servie ; le fût est vide."
+beer_table_name,Tableau de qualité de la bière
+beer_table_head,"[[table:fills=#D8C6A2,#7F916C,#B99A63,#95645D|colors=#3A3A3A,#F4EEDB,#2F2A24,#F4EEDB|w=230|rowh=10.5|rowgap=1|cellgap=1|size=5.6|padding=2.5|align=left,center,center,center]]\n[[row:Mesure|Premium|Ordinaire|Imbuvable|fill=#665441|color=#F5EAD1|head=1]]"
+beer_table_alcohol,"[[row:Alcool|5-8 %|8-12 %|autre]]"
+beer_table_yeast,"[[row:Levure vivante|0,1-1 %|1-2 % *|plus de 2 %]]"
+beer_table_sugar,"[[row:Sucre|jusqu'à 4 %|4-8 %|plus de 8 %]]"
+beer_table_protein,"[[row:Protéines|jusqu'à 1 %|1-2 %|plus de 2 %]]"
+beer_table_impurity,"[[row:Impuretés **|jusqu'à 1 %|1-2 %|plus de 2 %]]"
+beer_table_methanol,"[[row:Méthanol|-|-|plus de 0,1 %]]"
+beer_table_note_1,"[[gap:6]]\n- Toutes les proportions portent sur l'ensemble du fût, sauf les impuretés ; le fût prend la catégorie de sa pire mesure"
+beer_table_note_2,"- * Moins de 0,1 % de levure vivante (pas de bulles) compte aussi comme ordinaire"
+beer_table_note_3,"- ** Impuretés : tout sauf eau, alcool, levure, sucre et protéines, en proportion de eau + impuretés. Avec de l'Eau basique, elles sont généralement de 1-2 %, soit ordinaire ; seules l'Eau raffinée ou l'Eau pure permettent d'atteindre premium"
+liquid_alkaloid,Alcaloïde
+xinke_plant_name,Arbuste de xinke
+xinke_seed_name,Graines de xinke
+xinke_seed_desc,"Graines d'un arbuste persistant résistant à la sécheresse, qui peut être cueilli encore et encore une fois planté. Chaque baie rouge contient une seule graine."
+xinke_leaf_name,Feuilles de xinke
+xinke_leaf_name_s,Petites feuilles de xinke
+xinke_leaf_name_l,Grandes feuilles de xinke
+xinke_leaf_desc,"Feuilles coriaces et oblongues de l'arbuste de xinke, contenant un peu d'alcaloïde. Les habitants des Strates inférieures les mâchent pour se donner un coup de fouet : c'est bon marché, et doux."
+xinke_leaf_flavor,"Mâchez un moment, la langue s'engourdit, puis la fatigue disparaît."
+liquid_crackine_powder,Poudre de chlorhydrate de crackine
+crackine_vial_name,Petite fiole de crackine
+crackine_vial_desc,"Poudre jaune pâle raffinée à partir de feuilles de xinke, dans une petite fiole en verre. Bien plus puissante que les feuilles mâchées, et bien plus chère."
+crackine_vial_flavor,"Un tout petit peu suffit. Puis on en veut juste un peu plus."
+crackine_vial_l_name,Grande fiole de crackine
+crackine_regular_1_1,"Ce que tu m'as filé hier, {0}... franchement, j'ai jamais rien pris d'aussi pur."
+crackine_regular_1_2,"Toute la nuit, j'ai eu l'impression qu'on m'avait astiqué l'intérieur du crâne."
+crackine_regular_1_3,"T'en as encore ? J'ai apporté {1} crédits."
+crackine_regular_2_1,"C'est encore moi. {0}, comme hier."
+crackine_regular_2_2,"Je m'étais dit que je viendrais pas aujourd'hui. Et pourtant me revoilà, à ta porte."
+crackine_regular_2_3,"J'ai apporté un peu plus. {1} crédits. Ça suffit ?"
+crackine_regular_3_1,"Pose pas de questions. Donne-moi juste {0}."
+crackine_regular_3_2,"J'ai laissé tomber le boulot. Le loyer peut attendre aussi. Ça va. Vraiment."
+crackine_regular_3_3,"{1} crédits. C'est tout ce que j'ai."
+crackine_regular_4_1,"{0}... s'il te plaît. Y a que ta came qui marche. Celle des autres, c'est pas pareil."
+crackine_regular_4_2,"J'ai les mains qui tremblent depuis ce matin."
+crackine_regular_4_3,"J'ai réussi à réunir {1} crédits. J'ai vendu deux-trois trucs. Demande pas quoi."
+crackine_notes_name,Notes de raffinage de la crackine
+crackine_1,"[[section:Étape 1 : Ingrédients]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Fixez un récipient à liquide au Mixeur\n- Ajoutez des Feuilles de xinke\n- Mixez-les pour obtenir l'alcaloïde\n- (Facultatif) Coagulez les protéines avec un acide ou une base, et retirez les polluants grossiers avec du Koton tissé"
+crackine_2,"[[section:Étape 2 : Chauffage]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Prenez le récipient de l'étape précédente\n- Posez-le sur la Plaque chauffante"
+crackine_3,"- Ajoutez un peu d'acide pour obtenir un mélange acide : l'acide doit représenter environ 5 % de tout le liquide du récipient"
+crackine_4,"- Chauffez le mélange au-dessus de 100 °C pour faire bouillir l'eau\n- Quand l'eau passe sous 1 %, l'alcaloïde se lie à l'acide pour former de la Poudre de chlorhydrate de crackine, à raison de 0,1 part d'acide par part d'alcaloïde"
+crackine_5,"[[section:Étape 3 : Évaporation]]\n[[image:vanilla_chem_ext:evaporator_b|w=24|h=24|gap=6|float=left]]\n- Placez le récipient dans l'Évaporateur\n- Vérifiez que l'Évaporateur est alimenté par une Batterie\n- Attendez le lendemain que l'Évaporateur ait terminé\n[[gap:4]]\n[[text:Astuce : la poudre de crackine a une particularité, l'acide restant dans la poudre sèche peut être évaporé|color=#3D823F|align=center]]"
+crackine_6,"[[gap:-2]]\n[[section:Étape 4 : Finition]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- (Obligatoire) Une fois toute l'eau évaporée, placez le récipient dans le Poste de finition\n- Sélectionnez la recette Petite fiole de crackine ou Grande fiole de crackine\n- Appuyez sur Sortie\n- (Facultatif) Vérifiez la pureté avec un Spectromètre"
+crackine_7,"[[section:Annexe : le produit]]\n- La crackine de qualité Labo ou supérieure crée une forte dépendance\n- Vendez de la crackine très pure un jour, et un habitué reviendra à coup sûr le lendemain\n- Continuez à vendre de la crackine très pure chaque jour et le budget de l'acheteur augmente de 25 % par jour, jusqu'à 2000"
+lantern_plant_name,Lanterne de Hollow
+lantern_seed_name,Graines de Lanterne de Hollow
+lantern_seed_desc,"Une graine de piment créée en laboratoire. Très productive mais gourmande en nutriments, et ses racines polluent l'eau."
+lantern_chili_name,Lanterne de Hollow
+lantern_chili_name_s,Petite Lanterne de Hollow
+lantern_chili_name_l,Grande Lanterne de Hollow
+lantern_chili_desc,"Un piment affiné en laboratoire. Chauffé dans l'alcool, il dégage un irritant chimique utilisé pour le maintien de l'ordre à haute intensité."
+lantern_chili_flavor,"Affiné si longtemps qu'il n'est presque plus utilisable comme condiment. De toute façon, rares sont ceux sur la station qui peuvent s'offrir des condiments."
+liquid_capsaicin,Capsaïcine
+liquid_lantern_ester,Ester de Lanterne
+incapacitant_vial_name,Petite fiole d'incapacitant
+incapacitant_vial_desc,"De l'ester de Lanterne raffiné à partir de piments Lanterne de Hollow, dans une petite fiole en verre. Pulvérisé en brume, il empêche toute une rue d'ouvrir les yeux. La Sécurité comme les gardes privés des Strates supérieures en achètent."
+incapacitant_vial_flavor,"Légal, sous licence, et l'usage est inscrit sur le bon de commande."
+lantern_sale_upper_clean,"Bonne marchandise. Votre dossier est propre, en plus. Gardez-le ainsi."
+lantern_sale_upper_partial,"Nos gardes du domaine en manquaient. Je glisserai votre nom à un ami à la Sécurité."
+lantern_sale_upper_cleared,"J'ai passé un coup de fil. Votre dossier à la Sécurité est vierge, désormais."
+lantern_sale_upper_slowed,"Votre dossier est vierge, et j'ai demandé qu'on ralentisse l'enquête. Les Strates supérieures n'oublient pas ceux qui les aident."
+lantern_sale_security_clean,"L'intendance va apprécier ce lot. Vous n'avez jamais fait de vagues. Très bien."
+lantern_sale_security_partial,"On prend ce lot. Quelques pages de votre dossier semblent avoir disparu."
+lantern_sale_security_cleared,"Votre dossier ? Nous n'avons aucun dossier sur vous."
+lantern_sale_security_slowed,"Aucun dossier, et je vais toucher un mot aux enquêteurs. C'est à vous qu'on s'adressera pour le prochain lot."
+refuse_lantern_lower,"C'est le truc qu'ils nous balancent à la figure. Et tu veux que je ramène ça chez moi ?"
+refuse_lantern_revolution,"C'est ce qu'ils nous ont pulvérisé dessus sur la place la semaine dernière. Tu ferais mieux de choisir ton camp."
+salt_ore_name,Minerai de sel gemme
+liquid_salt,Sel
+gas_canister_name,Bouteille de gaz vide
+gas_canister_h2_name,Bouteille d'hydrogène
+gas_canister_cl2_name,Bouteille de chlore
+gas_canister_mix_name,Bouteille d'hydrogène et de chlore
+gas_canister_hcl_name,Bouteille de chlorure d'hydrogène
+gas_canister_desc,"Une petite bouteille en acier munie d'une valve, pouvant contenir jusqu'à 5 L de gaz comprimé. Faites-la glisser sur une autre bouteille pour y transférer son gaz ; si elle contient du chlorure d'hydrogène ou du monoxyde d'azote, faites-la glisser sur un récipient contenant de l'eau pour obtenir de l'acide chlorhydrique ou nitrique ; si elle contient de la vapeur de méthanol, faites-la glisser sur n'importe quel récipient à liquide pour la condenser en méthanol. Chauffée sur une plaque chauffante à 150 °C ou plus, une bouteille d'hydrogène capte le dioxyde de carbone de l'air pour produire de la vapeur de méthanol. Clic droit pour la purger."
+gas_h2,Hydrogène
+gas_cl2,Chlore
+gas_hcl,Chlorure d'hydrogène
+gas_canister_tooltip_gas,"{0} : {1} mL"
+gas_canister_tooltip_empty,Vide
+gas_canister_tooltip_total,"{0} / {1} mL, {2} C"
+gas_canister_vent,Purger
+gas_canister_vented,La bouteille est vide.
+gas_canister_full,Cette bouteille est pleine.
+gas_canister_needs_water,"Il faut de l'eau dans le récipient pour que le gaz devienne de l'acide."
+gas_canister_saturated,"Cet acide est déjà à 40 % ; ajoutez de l'eau pour en dissoudre davantage."
+gas_canister_container_full,Le récipient est plein.
+electrolyzer_name,Électrolyseur
+electrolyzer_desc,"Électrolyse la saumure en base, hydrogène et chlore ; avec un récipient à liquide en produit A, il électrolyse plutôt la graisse en toluène et hydrogène, et sans rien dans l'emplacement d'entrée, il produit du monoxyde d'azote à partir de l'air. Nécessite une batterie et fonctionne une fois par nuit."
+electrolyzer_manual_name,Notice de l'électrolyseur
+electrolyzer_manual_short,La notice fournie avec l'électrolyseur.
+electrolyzer_manual_flavor,"1. La batterie se place à gauche ; elle consomme 24 par nuit. 2. L'emplacement de saumure accepte un récipient contenant du sel et de l'eau. 3. Le produit A accepte une bouteille vide ou d'hydrogène, le produit B une bouteille vide ou de chlore. 4. Chaque nuit, il électrolyse 240 mL de sel : chaque mL de sel consomme 0,3 mL d'eau et donne 1 mL de base (laissée dans le récipient de saumure), 0,5 mL d'hydrogène et 0,5 mL de chlore. Il s'arrête faute de sel, d'eau, d'alimentation ou de place dans les bouteilles. 5. Accepte les modules universels : performance pour l'accélérer, efficacité pour économiser l'énergie, qualité pour modifier le rendement. 6. Avec un récipient à liquide en produit A, il électrolyse plutôt la graisse : 240 mL par nuit, chaque mL de graisse donnant 0,8 mL de toluène (dans le récipient du produit A) et 0,5 mL d'hydrogène (dans une bouteille vide ou d'hydrogène en produit B). 7. L'interrupteur en haut à droite du panneau d'entrée l'allume (bleu) ou l'éteint (rouge) ; il est éteint au départ et ne consomme rien quand il est éteint. 8. Allumé sans rien dans l'emplacement d'entrée, il produit du monoxyde d'azote à partir de l'air : 375 mL par nuit, dans une bouteille vide ou de monoxyde d'azote en produit A."
+electrolyzer_label_module,Modules
+electrolyzer_label_container,Entrée
+electrolyzer_label_products,Produits A / B
+electrolyzer_lines_title,"Chaque nuit : 1 part de sel + 0,3 part d'eau"
+electrolyzer_lines_a,"Ligne rouge -> produit A : 0,5 part d'hydrogène"
+electrolyzer_lines_b,"Ligne bleue -> produit B : 0,5 part de chlore"
+electrolyzer_lines_base,"Reste dans le récipient de saumure : 1 part de base"
+salt_ore_desc,"Sel gemme extrait d'un gisement souterrain : surtout du chlorure de sodium, avec un peu d'argile et d'autres minéraux."
+salt_order_small,"Je prends {0} blocs de sel gemme, livrés sous {1} jour."
+salt_order_large,"Je prends {0} blocs de sel gemme, livrés sous {1} jours."
+electrolysis_notes_name,Notes d'électrolyse de la saumure
+electrolysis_1,"[[section:Étape 1 : Ingrédients]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Fixez un récipient à liquide au Mixeur\n- Ajoutez du Minerai de sel gemme\n- Mixez-le pour obtenir du chlorure de sodium (sel de table)"
+electrolysis_2,"[[section:Étape 2 : Électrolyse]]\n[[image:vanilla_chem_ext:icon_electrolyzer|w=24|h=24|gap=6|float=left]]\n- Prenez le récipient de l'étape précédente\n- Placez-le dans l'Électrolyseur\n- Vérifiez que l'Électrolyseur est alimenté par une Batterie\n- Attendez le lendemain, puis récupérez l'hydrogène et le chlore dans les deux bouteilles de gaz"
+electrolysis_3,"[[section:Étape 3 : Mélange des gaz]]\n- Faites glisser la bouteille d'hydrogène sur la bouteille de chlore (ou inversement) pour combiner les gaz ; ce qui ne rentre pas reste dans la bouteille d'origine"
+electrolysis_4,"[[section:Étape 4 : Production de chlorure d'hydrogène]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Prenez la bouteille de gaz mélangé de l'étape précédente\n- Posez-la sur la Plaque chauffante\n- Chauffez-la au-dessus de 120 °C : l'hydrogène et le chlore brûlent à 1:1 pour donner deux fois leur volume de chlorure d'hydrogène"
+electrolysis_5,"[[page]]\n[[section:Étape 5 : Acide fort ou faible]]\n- Faites glisser la bouteille de chlorure d'hydrogène sur un récipient contenant de l'eau pour le dissoudre en acide\n- Il se dissout jusqu'à ce que l'acide représente 40 % du liquide (500 mL d'eau absorbent au plus 333 mL d'acide) ; le reste du gaz reste dans la bouteille\n- Pour un acide plus faible, mesurez l'acide fort avec une pipette ou une éprouvette graduée et ajoutez de l'eau\n[[gap:4]]\n[[text:Note : le chlorure d'hydrogène versé dans un récipient contenant une base est consommé en la neutralisant|color=#853737|align=center]]"
+electrolysis_6,"[[section:Étape 6 : Récupération de la base]]\n[[image:vanilla_chem_ext:evaporator_b|w=24|h=24|gap=6|float=left]]\n- Prenez le récipient de saumure de l'étape 2, après l'électrolyse\n- (Facultatif) Filtrez l'argile, les minéraux et autres polluants physiques avec un Filtre à eau\n- Placez le récipient dans l'Évaporateur\n- Vérifiez que l'Évaporateur est alimenté par une Batterie\n- Attendez le lendemain que l'Évaporateur ait terminé"
+electrolysis_7,"[[page]]\n[[section:Annexe : ingrédients]]\n- Commandez du Minerai de sel gemme à la coopérative minière GP par téléphone (6 en 1 jour ; 12 en 2 jours, débloqué après 350 dépensés)\n- N'importe quel Mixeur broie le Minerai de sel gemme ; chacun donne environ 80 mL de sel, plus un peu d'argile et de Minéraux\n- Le Vendeur du cartel vend des Bouteilles de gaz vides\n- Une bouteille contient 5 L ; faites un clic droit dessus pour la vider"
+electrolysis_8,"[[section:Annexe : la machine]]\n[[text:<u>Électrolyseur</u>|align=left|size=9]]\n[[gap:8]]\n[[image:vanilla_chem_ext:icon_electrolyzer|w=24|h=24|gap=6|float=left]]\n- Vendu par le Vendeur du cartel avec deux Bouteilles de gaz vides\n- Alim. à gauche, récipient de saumure au milieu, produit A (hydrogène) en haut à droite, produit B (chlore) en bas à droite\n- Électrolyse 240 mL de sel par nuit (davantage avec de meilleures performances)\n- Chaque mL de sel consomme 0,3 mL d'eau et laisse 1 mL de Base dans le récipient, plus 0,5 mL d'hydrogène et 0,5 mL de chlore\n- S'arrête quand il n'y a plus de sel, d'eau ou d'énergie, ou quand une bouteille est pleine\n- Une qualité de -100 à +100 fait varier la production de x0,5 à x1,5\n- Avec un récipient de liquide en produit A, il électrolyse plutôt la graisse du récipient d'alimentation : chaque mL de graisse donne 0,8 mL de toluène (dans le récipient en produit A) et 0,5 mL d'hydrogène (dans la bouteille en produit B)"
+electrolysis_9,"[[omit]]"
+lantern_notes_name,Notes de production d'incapacitant
+lantern_1,"[[section:Étape 1 : ingrédients]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Fixez un récipient de liquide au Mixeur\n- Ajoutez quelques Lanternes de Hollow\n- Mixez-les pour obtenir de la capsaïcine"
+lantern_2,"[[section:Étape 2 : extraction]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Prenez le récipient de l'étape précédente\n- Posez-le sur la Plaque chauffante\n- Ajoutez 4 fois le volume de capsaïcine en Alcool\n- Chauffez le mélange au-dessus de 50°C pour transformer la capsaïcine en ester de Lanterne\n[[gap:4]]\n[[text:Note : avec moins de 4 fois plus d'Alcool, l'extraction produit des Polluants physiques ; leur part = (4 - Alcool/capsaïcine) / 4|color=#853737]]\n[[gap:4]]\n[[text:Astuce : chaque part de capsaïcine consomme 0,1 part d'Alcool. L'Alcool bout à 78°C et trop de chaleur le gaspille ; 50-78°C est l'idéal|color=#3D823F|align=center]]"
+lantern_3,"[[section:Étape 3 : évaporation]]\n[[image:vanilla_chem_ext:evaporator_b|w=24|h=24|gap=6|float=left]]\n- (Facultatif) Retirez les Polluants physiques avec un Filtre à eau\n- Placez le récipient dans l'Évaporateur\n- Vérifiez que l'Évaporateur est alimenté par une Batterie\n- Attendez le lendemain que l'Évaporateur ait terminé"
+lantern_4,"[[section:Étape 4 : finition]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- (Obligatoire) Une fois tout l'Alcool évaporé, placez le récipient dans le Poste de finition\n- Sélectionnez la recette Petite fiole d'incapacitant\n- Appuyez sur Sortie\n- (Facultatif) Vérifiez la pureté avec un Spectromètre"
+lantern_5,"[[page]]\n[[section:Annexe : ingrédients]]\n- Le Vendeur du cartel vend des graines de Lanterne de Hollow\n- La Lanterne de Hollow est annuelle et rend une graine à la récolte\n- Elle consomme beaucoup de nutriments pendant sa croissance, et ses racines polluent les alentours"
+lantern_6,"[[section:Annexe : le produit]]\n- L'incapacitant est une marchandise légale : les clients des Strates supérieures et de la Sécurité qui achètent du matériel médical ou des armes en achètent, et les mercenaires en veulent souvent aussi\n- Les Strates inférieures, la Révolution et la plupart des gens ordinaires le refusent"
+lantern_7,"- Vendre de l'incapacitant aux Strates supérieures ou à la Sécurité efface des crimes de votre Dossier : prix x pureté x 5, en commençant par le crime le plus grave"
+lantern_8,"- Une fois vos crimes effacés, chaque tranche complète de 100 réduit la progression de l'Enquête de 1"
+pu_battery_name,Batterie chimique au plutonium
+pu_battery_desc,"Batterie de 200 kJ avec une fenêtre sur le côté. Faites-y glisser des ampoules de plutonium : chacune ajoute 2 kJ d'autorecharge chaque nuit, jusqu'à 10."
+pu_battery_flavor,"Le Pr Jackson insiste : c'est une batterie chimique, pas nucléaire. La différence, c'est ce qui figure sur la facture."
+pu_battery_tooltip_fuel,"Plutonium : {0} / {1} ampoules ({2} kJ d'autorecharge chacune par nuit)"
+pu_battery_tooltip_hint,Faites glisser une ampoule de plutonium sur la batterie pour lancer l'autorecharge.
+pu_battery_fuelled,"Plutonium ajouté : {0} kJ d'autorecharge par nuit ({1} / {2})"
+cartel_network_name,Réseau du cartel
+cartel_network_joined,"Votre dette envers le cartel est enfin réglée. Désormais, le cartel veut travailler avec vous, et le choix ne dépend peut-être pas que de vous deux."
+cartel_note_name,Note
+cartel_note_desc,"Une enveloppe pliée, scellée d'une cire noire frappée d'un œil."
+cartel_note_background,vce_cartel_note_en
+cartel_note_found,Il y a une enveloppe sur le comptoir.
+cartel_network_joined_paid,"Vous avez payé. À partir d'aujourd'hui, le réseau du cartel vous compte parmi les siens, du moins pour l'instant."
+cartel_contact_name,Contact du cartel
+cartel_contact_1,J'espère que notre dernière rencontre ne vous a pas fait peur.
+cartel_contact_2,Ça fait longtemps qu'on vous observe.
+cartel_contact_3,Personne ne fait circuler de marchandise sous l'œil du cartel sans se faire remarquer.
+cartel_contact_4,"Maintenant, vous feriez mieux de payer pour votre protection. Un jour, on vous laissera peut-être devenir notre partenaire."
+cartel_contact_5,Refuser n'est pas une option.
+cartel_contact_choice_pay,[Payer {0} crédits pour rejoindre le réseau du cartel]
+cartel_contact_choice_later,[Lui demander de revenir dans deux jours]
+cartel_contact_choice_refuse,[Refuser le cartel]
+cartel_contact_refused_1,"Ha, elle est bonne."
+cartel_contact_refused_2,Personne de vivant ne refuse le cartel.
+cartel_boycott_line,"Désolé, mais on ne peut pas prendre votre marchandise."
+cartel_contact_return_1,On dirait que quelqu'un a retenu la leçon.
+cartel_contact_return_2,Mais certaines leçons ne se présentent qu'une fois dans la vie.
+cartel_contact_return_choice_pay,[Payer {0} crédits pour rejoindre le cartel]
+cartel_contact_return_welcome,Bienvenue à bord. (ricanement)
+cartel_raid_officer_name,Agent de la Sécurité
+cartel_raid_officer_1,"Citoyen, citoyenne, nous avons remarqué une activité du cartel dans le secteur ces derniers temps. Signalez tout ce qui est suspect."
+cartel_raid_choice_report,[Dénoncer le cartel]
+cartel_raid_choice_decline,[Ne pas dénoncer le cartel]
+cartel_raid_officer_report_1,"Bien. La Sécurité a décidé de mener prochainement un coup de filet contre les organisations illégales locales."
+cartel_raid_officer_report_2,"Tout... don volontaire... de la part de la population soucieuse est vivement encouragé."
+cartel_sweep_medical_name,Approvisionnement médical de la Sécurité
+cartel_sweep_military_name,Intendance de la Sécurité
+cartel_sweep_medical_1,"Au nom de la Sécurité, je procède ouvertement à l'achat de fournitures médicales pour la lutte contre le crime organisé local."
+cartel_sweep_military_1,"Au nom de la Sécurité, je procède ouvertement à l'achat de fournitures militaires pour la lutte contre le crime organisé local."
+cartel_sweep_spent,"Très bien. Au nom de la Sécurité, merci à toute la population pour ses généreux dons."
+cartel_sweep_discount,Réquisition de la Sécurité
+cartel_sweep_thanks_name,Agent de la logistique de la Sécurité
+cartel_sweep_thanks_1,"Le coup de filet de la Sécurité dans ce secteur a été un franc succès."
+cartel_sweep_thanks_2,"La Logistique de la Sécurité remercie tous ceux et celles qui ont soutenu l'opération,"
+cartel_sweep_thanks_3,"en particulier les commerces locaux pour leur parrainage payant de la Logistique."
+cartel_sweep_thanks_4,"Ces fournitures n'étaient pas bon marché, mais sur une station qui manque de tout, elles ont beaucoup aidé la Sécurité."
+rep_perk_logistics_name,Gratitude de la Logistique
+rep_perk_logistics_desc,La Sécurité verse un pourboire de 15 % sur tout ce qu'elle achète.
+rep_perk_logistics_flavor,Certaines personnes à la Logistique se souviendront des commerces qui ont coopéré.
+rep_perk_net_retired_name,Règlement de comptes
+rep_perk_net_retired_desc,"Quand votre réputation auprès du réseau du cartel tombe à -100, quelqu'un vient régler les comptes le lendemain matin. Partie terminée."
+rep_perk_net_retired_flavor,Le réseau du cartel ne licencie jamais personne.
+rep_perk_net_boycott_name,Boycott
+rep_perk_net_boycott_desc,Les autres marchands du Marché noir ne viennent plus à votre boutique.
+rep_perk_net_boycott_flavor,Les sympathies et antipathies du cartel suffisent à décider si ses pairs osent traiter avec vous.
+rep_perk_net_distrust_name,Sous surveillance
+rep_perk_net_distrust_desc,"Les soupçons du cartel font que votre contrebande n'inspire plus confiance."
+rep_perk_net_distrust_flavor,"Dans une transaction, l'étiquette de la fiole est rarement la seule mesure de son prix ; le nom du vendeur et la confiance qu'il a gagnée comptent souvent davantage."
+cartel_distrust_suffix, (méfiance)
+rep_perk_net_open_trade_name,Commerce ouvert
+rep_perk_net_open_trade_desc,Le réseau commercial du cartel attire chaque semaine deux trafiquants de contrebande à votre boutique.
+rep_perk_net_open_trade_flavor,"Ironie du sort, les commerces dangereux ont parfois plus d'esprit communautaire... d'une manière qui nuit à tous les autres."
+rep_perk_net_tight_lips_name,Motus et bouche cousue
+rep_perk_net_tight_lips_desc,Les clients se plaignent moins souvent de la qualité de vos marchandises.
+rep_perk_net_tight_lips_flavor,"Selon une étude économique, les clients qui savent acheter sur le territoire du cartel sont plus satisfaits de la qualité."
+cartel_trader_name,Trafiquant du cartel
+cartel_trader_1,Il paraît dans le réseau que vous avez de la marchandise.
+cartel_trader_2,"Je prends toute la contrebande, toutes qualités confondues. J'ai apporté {0} crédits aujourd'hui, mais le réseau prend cinq pour cent."
+cartel_trader_cut,Part du cartel
+rep_perk_net_no_strangers_name,Pas d'étrangers
+rep_perk_net_no_strangers_desc,Les voleurs ne viennent plus sur le territoire du cartel.
+rep_perk_net_no_strangers_flavor,"Le cartel n'est pas dans tous les trafics, mais tous ceux qui trafiquent l'évitent soigneusement."
+rep_perk_net_supply_name,Réseau d'approvisionnement
+rep_perk_net_supply_desc,"Le réseau du cartel fournit les matières premières dont vous avez besoin : commandez par téléphone, à bon prix."
+rep_perk_net_supply_flavor,"Certains aiment les commerces illégaux et dangereux ; il y en a toujours d'autres qui préfèrent la partie illégale mais moins dangereuse de la chaîne."
+cartel_supply_name,Réseau du cartel
+cartel_supply_ask,Qu'est-ce qu'il vous faut ?
+cartel_supply_more,[Autre chose]
+cartel_supply_ask_more,Quoi d'autre ?
+cartel_supply_ready,"Demain. Évitez que le coursier se souvienne de vous."
+cartel_supply_wrong_number,[Faux numéro]
+cartel_supply_silence,......
+cartel_supply_cooldown,"Le dernier lot n'est pas encore écoulé. Rappelez dans {0} jours."
+cartel_courier_name,Coursier du cartel
+cartel_courier_1,Votre commande. Ne regardez pas mon visage.
+cartel_courier_done,Livré. Je ne suis jamais venu.
+cartel_pack_name,Lot de {0}
+cartel_pack_desc,"{1} bouteilles de {0}, filmées sur un plateau en carton. Double-cliquez pour déballer."
+cartel_pack_desc_left,"Lot de {0} filmé, déjà ouvert : il reste {1} bouteilles. Double-cliquez pour continuer à déballer."
+cartel_pack_full,"Plus de place : {0} bouteilles restent dans le lot."
+rep_perk_net_friends_name,Amis haut placés
+rep_perk_net_friends_desc,"Grâce à la médiation du cartel, toute Enquête vous concernant peut désormais se régler avec de l'argent."
+rep_perk_net_friends_flavor,"Un jour de plus, un porte-parole de plus de la Sécurité qui dément tout arrangement privé avec le cartel. Tout le monde sait que c'est juste une entente."
+cartel_peer_name,Pair
+cartel_peer_1,Je me suis dit que ça pourrait vous intéresser.
+cartel_peer_silence,......
+cartel_tourist_name,Touriste du Marché noir
+cartel_tourist_1,"Je le savais. Ici en bas, tout ce chaos fait naître les petites boutiques les plus spéciales."
+cartel_tourist_2,"Ce sont vos supérieurs qui m'envoient... vous voyez ce que je veux dire ?"
+cartel_tourist_more,C'est tout ?
+cartel_tourist_done,"Ignorer la loi, c'est grisant !"
+setting_cartel,Activer l'extension du cartel
+setting_cartel_tooltip,"Le réseau du cartel, la surveillance des ventes de contrebande, le boycott, la voie de la Sécurité contre le cartel et les marchands du cartel. Une fois désactivée, rien de tout cela n'a d'effet. Désactivée par défaut."
+liquid_cephalosporin,Céphalosporine C
+liquid_bioliquid_waste,Déchets biologiques liquides
+strain_name,Souche d'Acremonium
+strain_desc,"Acremonium chrysogenum sur une boîte de Petri. Cultivez-la dans un Fermenteur, ou mixez-la pour obtenir de la céphalosporine C."
+strain_flavor,Ce duvet crème sur la gélose représente toute la chaîne de production.
+strain_frozen_name,Souche d'Acremonium congelée
+strain_frozen_desc,"Un vase Dewar cryogénique. Double-cliquez pour obtenir une souche identique à celle qui y a été placée ; elle ne s'épuise jamais."
+strain_frozen_flavor,"La banque de souches mères. Toute la valeur de la chaîne tient dans ce bidon."
+strain_target_liquid,Phase liquide
+strain_target_surface,Surface cellulaire
+strain_target_intracellular,Intracellulaire
+strain_tooltip_genome,"Génome : {0}"
+strain_tooltip_traits,"Pureté {0} / Rendement {1} / Croissance {2} / Conso. de carbone {3}"
+strain_tooltip_target,"Cible d'extraction : {0}"
+strain_tooltip_inoculate,Double-cliquez pour obtenir une souche
+strain_tooltip_seed,"Souche de réserve : ne donne que des Protéines au mixage"
+antibiotic_name,Comprimé d'antibiotique
+antibiotic_desc,"Pressé à partir de céphalosporine C. En dessous de la qualité Labo, personne n'en veut. Mélangé dans un distributeur de nourriture, il guérit en une nuit la maladie de tous les animaux de la cage."
+antibiotic_flavor,"Une plaquette de comprimés, au bout de toute une chaîne de production."
+antibiotic_grade_lab,Cristal
+antibiotic_grade_pharma,Labo
+antibiotic_grade_reject,Non conforme
+antibiotic_tooltip_genome,"Génome : {0}"
+rat_medication_tooltip,"Antibiotique dans la nourriture : guérit les animaux de cette cage cette nuit"
+antibiotic_tooltip_target,"Cible d'extraction : {0}"
+antibiotic_tooltip_resistance,"Une résistance s'est installée : prix réduit de {0} %"
+antibiotic_tooltip_sales,"Ventes cumulées pour ce génome : {0}"
+antibiotic_resistance_feature,Résistance
+antibiotic_resistance_line,Ça ne marche plus trop ces temps-ci.
+fermenter_name,Fermenteur
+fermenter_desc,"Un fermenteur pour Acremonium. Il puise les calories nécessaires à la souche dans le distributeur de nourriture qui y est fixé. Avec des caractéristiques standard, un lot dure deux nuits et transforme une souche en quatre."
+fermenter_flavor,"La turbine ne s'arrête jamais. À force d'écouter, on dirait une respiration."
+fermenter_label_module,Modules
+fermenter_label_feed,Carbone
+fermenter_label_strain,Souche
+fermenter_label_output,Récolte
+fermenter_tooltip_idle,"Inactif : placez une souche pour lancer un lot"
+fermenter_tooltip_batch,"Lot : nuit {0} sur {1}, {2} souche(s) attendue(s)"
+fermenter_tooltip_draw,"{0} d'énergie et {1} kcal par nuit"
+fermenter_tooltip_feed,"Distributeur : {0} kcal restantes"
+fermenter_manual_name,Manuel du fermenteur
+fermenter_manual_short,Comment faire tourner un fermenteur à Acremonium.
+fermenter_manual_flavor,"1. Alimentation : mettez n'importe quelle nourriture dans le distributeur ; seules les calories comptent.\n2. Inoculation : placez une souche dans l'emplacement prévu. Elle est consommée à la fin du lot.\n3. Récolte : avec des caractéristiques standard, quatre souches à la fin de la deuxième nuit. Une vitesse de croissance plus élevée raccourcit le lot ; un rendement plus élevé donne plus de souches.\n4. Modules : efficacité, performance et qualité ont ici le même effet : ils réduisent la consommation d'énergie, jusqu'à zéro.\n5. Note : une souche récoltée a muté par rapport à sa souche mère, et avec le temps, le plus souvent en mal. Conservez votre stock dans un vase Dewar."
+antibiotic_notes_name,Notes de culture des souches
+abx_1,"[[section:Congeler les souches]]\n[[image:vanilla_chem_ext:icon_strain_frozen|w=24|h=24|gap=6|float=left]]\n- Vérifiez que la partie congélateur du réfrigérateur dispose de 3x3 cases libres\n- Placez la souche dans la partie congélateur\n- Vérifiez que le réfrigérateur est alimenté par une batterie\n- Attendez le lendemain : la souche devient une souche congelée\n- Double-cliquez sur la souche congelée pour en retirer une souche identique, autant de fois que vous le souhaitez\n[[gap:4]]\n[[text:Note : une souche retirée ainsi ne sert qu'à l'inoculation ; mixée, elle ne donne que des protéines|color=#853737]]\n[[gap:4]]\n[[text:Astuce : les souches du fermenteur se dégradent à chaque génération, congelez tôt les bonnes|color=#3D823F|align=center]]"
+abx_2,"[[section:Mutation]]\n[[image:vanilla_chem_ext:icon_strain|w=24|h=24|gap=6|float=left]]\n- Mesurez environ 5 mL d'un réactif avec une pipette ou une éprouvette graduée\n- Faites glisser le récipient sur la souche ; le réactif est consommé\n[[gap:3]]\n[[table:fills=#D8C6A2,#7F916C|colors=#3A3A3A,#F4EEDB|w=230|rowh=10.5|rowgap=1|cellgap=1|size=6.1|padding=3|align=left,left]]\n[[row:Réactif|Effet|fill=#665441|color=#F5EAD1|head=1]]\n[[row:Acide, base|Faible changement]]\n[[row:Fantyl, N-Methylol basique|Fort changement]]\n[[row:Acide acétique, acétate d'éthyle|Fort changement]]\n[[row:Extrait onirique|Faible changement, plutôt favorable]]\n[[row:Extrait cauchemardesque|Peut changer la cible d'extraction]]\n[[row:Toxine onirique|Change le génome]]\n[[row:Plutonium|Changement radical, légèrement favorable]]\n[[/table]]\n[[gap:3]]\n[[text:Note : avec une mauvaise quantité ou un réactif impur, la souche change quand même, et uniquement en mal|color=#853737]]"
+abx_traits,"[[section:Étude des caractéristiques des souches]]\n[[table:fills=#D8C6A2,#7F916C|colors=#3A3A3A,#F4EEDB|w=230|cols=1,2.5|rowh=10.5|rowgap=1|cellgap=1|size=6.1|padding=3|align=left,left]]\n[[row:Caractéristique|Par +1,0|fill=#665441|color=#F5EAD1|head=1]]\n[[row:· Pureté|Prix de base du comprimé +5]]\n[[row:· Rendement|Souches par lot +10 %]]\n[[row:· Croissance|Croissance 10 % plus rapide]]\n[[row:· Conso. de carbone|Nourriture requise par nuit -5 kcal]]\n[[row:· Cible d'extraction|Phase liquide : aucun effet ;<br>Surface cellulaire : les antibiotiques ainsi produits deviennent un poison et une contrebande de niveau 2 ;<br>Intracellulaire : les antibiotiques ainsi produits deviennent un stupéfiant et une contrebande de niveau 1.|height=42]]\n[[/table]]"
+abx_3,"[[section:Annexe : résistance]]\n[[image:vanilla_chem_ext:icon_antibiotic|w=24|h=24|gap=6|float=left]]\n- Chaque souche possède un génome, par exemple AGCTTAGCGATC.\n- Plus vous vendez d'antibiotiques d'un même génome, plus une résistance risque d'apparaître\n- Une fois la résistance installée, les antibiotiques de ce génome se vendent à moitié prix.\n- Les antibiotiques de génome proche sont aussi touchés. Les études montrent qu'à partir de 30 % de gènes différents, la résistance existante n'agit plus.\n- Cessez de vendre quelque temps et la résistance disparaît d'elle-même\n- La toxine onirique peut changer le génome d'une souche"
+antibiotic_genome_unknown,inconnu
+filter_residue_tooltip,Résidu : {0}
+filter_residue_part,{0} {1} mL
+filter_residue_separator,", "
+filter_residue_hint,"Faites glisser sur un récipient pour le vider, ou sur l'évacuation pour le jeter"
+cartel_vendor_name,Vendeur du cartel
+cartel_vendor_line_1,Le stock de la semaine.
+cartel_vendor_line_2,"Faites votre choix. Les prix sont fixes."
+liquid_toluene,Toluène
+electrolyzer_lines_fat,"Récipient de liquide en produit A : 1 part de graisse -> 0,8 part de toluène (A) + 0,5 part d'hydrogène (B)"
+electrolyzer_switch_on,"Activé. Cliquez pour désactiver"
+electrolyzer_switch_off,"Désactivé. Cliquez pour activer"
+gas_no,Monoxyde d'azote
+gas_canister_no_name,Bouteille de monoxyde d'azote
+gas_meoh,Vapeur de méthanol
+gas_canister_meoh_name,Bouteille de vapeur de méthanol
+chlorine_tablets_name,Comprimés désinfectants
+chlorine_tablets_desc,"Comprimés désinfectants fraîchement pressés, sur le point de rejoindre une boîte de tablettes assainissantes."
+gas_canister_mixed_name,Bouteille de gaz mélangé
+electrolyzer_lines_no,"Emplacement d'alimentation vide : monoxyde d'azote tiré de l'air (A), 375 mL par nuit"
+liquid_nitric_acid,Acide nitrique
+liquid_tnt,Trinitrotoluène
+dynamite_name,Fagot de dynamite
+dynamite_desc,"Trois bâtons de TNT scotchés ensemble, mèches apparentes. Fabriqué au poste de finition à partir de 250 mL de trinitrotoluène sec."
+dynamite_flavor,"L'emballage n'a jamais été terminé."
+nitrocellulose_s_name,Petite nitrocellulose
+nitrocellulose_name,Nitrocellulose
+nitrocellulose_l_name,Grande nitrocellulose
+nitrocellulose_desc,"Fibres de koton traitées à l'acide nitrique : un amas blanc et duveteux qui s'enflamme facilement."
+reloading_press_name,Presse de rechargement
+reloading_press_desc,"Une petite presse manuelle pour munitions de pistolet. La nitrocellulose se place dans la trémie comme propergol, chaque cartouche en consommant autant que son prix ; les cartouches perforantes prennent aussi du TNT dans le récipient de liquide."
+reloading_press_label_powder,Nitrocellulose
+reloading_press_label_container,Récipient
+reloading_press_label_output,Sortie
+reloading_press_label_control,Action
+reloading_press_btn_press,Presser
+reloading_press_caliber_small,Calibre : .22 SR
+reloading_press_caliber_heavy,Calibre : 10 mm
+reloading_press_type_0,Type : non létal
+reloading_press_type_1,Type : normal
+reloading_press_type_2,Type : perforant
+reloading_press_cost,"{0} de propergol par cartouche"
+reloading_press_cost_tnt,"{0} de propergol et {1} mL de TNT par cartouche"
+reloading_press_hopper,"Trémie : {0} / {1}"
+reloading_press_status_ready,Prête
+reloading_press_status_no_powder,Propergol insuffisant
+reloading_press_status_no_tnt,TNT insuffisant
+reloading_press_status_full,La sortie est pleine.
+explosives_notes_name,Notes de production d'explosifs
+explosives_1,"[[section:Étape 1 : Produire du monoxyde d'azote]]\n[[image:vanilla_chem_ext:icon_electrolyzer|w=24|h=24|gap=6|float=left]]\n- Laissez vide l'emplacement d'alimentation de l'électrolyseur\n- Placez une bouteille de gaz vide en produit A\n- Vérifiez que l'électrolyseur est alimenté par une batterie, puis activez l'interrupteur en haut à droite du panneau d'alimentation\n- Attendez le lendemain, puis récupérez le monoxyde d'azote dans la bouteille en produit A\n[[gap:4]]\n[[text:Note : l'interrupteur de l'électrolyseur est désactivé au départ (rouge) ; activez-le (bleu) manuellement|color=#853737]]"
+explosives_2,[[section:Étape 2 : Produire de l'acide nitrique]]\n- Faites glisser la bouteille de monoxyde d'azote sur un récipient d'eau pour le dissoudre en acide nitrique\n- La dissolution continue jusqu'à ce que l'acide nitrique représente 40 % du liquide (500 mL d'eau absorbent au plus 333 mL d'acide nitrique) ; le reste du gaz demeure dans la bouteille
+explosives_3,"[[section:Étape 3 : Ingrédients]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Fixez un récipient de liquide au mixeur\n- Ajoutez des grains de café\n- Mixez-les pour obtenir de la bouillie de café, de la graisse et de la caféine"
+explosives_4,[[section:Étape 4 : Produire de la graisse]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Prenez le récipient de l'étape précédente\n- Posez-le sur la plaque chauffante\n- (Facultatif) Ajoutez de l'alcool et chauffez à 50 °C ou plus : la bouillie de café se transforme en caféine\n- Chauffez le mélange à 150 °C ou plus : la caféine se transforme en graisse\n[[gap:4]]\n[[text:Note : seule une plaque chauffante équipée de modules de chimie atteint 150 °C|color=#3D823F|align=center]]
+explosives_5,"[[section:Étape 5 : Produire du toluène]]\n[[image:vanilla_chem_ext:icon_electrolyzer|w=24|h=24|gap=6|float=left]]\n- Prenez le récipient de l'étape précédente\n- Placez-le dans l'emplacement d'alimentation de l'électrolyseur\n- Placez un récipient de liquide vide en produit A et une bouteille de gaz vide en produit B\n- Vérifiez que l'électrolyseur est alimenté par une batterie, puis activez l'interrupteur\n- Attendez le lendemain, puis récupérez le toluène dans le récipient en produit A\n[[gap:4]]\n[[text:Note : le toluène bout à 110,6 °C ; en chauffant trop, vous en perdez une partie|color=#853737]]"
+explosives_6,[[section:Étape 6 : Nitration]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Mélangez toluène et acide nitrique à 1:3 en volume\n- Ajoutez de l'acide à hauteur de 10 % du liquide total\n- Chauffez le mélange à 50 °C ou plus : le toluène et l'acide nitrique forment du trinitrotoluène\n[[gap:4]]\n[[text:Note : l'acide sert de catalyseur et n'est pas consommé|color=#3D823F|align=center]]
+explosives_7,"[[section:Étape 7 : Purification]]\n[[image:vanilla_chem_ext:evaporator_b|w=24|h=24|gap=6|float=left]]\n- Une fois la nitration terminée, ajoutez de la base pour neutraliser l'acide restant\n- Placez le récipient dans l'évaporateur\n- Vérifiez que l'évaporateur est alimenté par une batterie\n- Attendez le lendemain que l'évaporateur ait terminé\n[[gap:4]]\n[[text:Note : le toluène et l'acide nitrique n'ayant pas réagi abaissent la pureté ; respectez les proportions|color=#853737]]"
+explosives_8,"[[section:Étape 8 : Finition]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- (Obligatoire) Une fois toute l'eau évaporée, placez le récipient dans le poste de finition\n- Sélectionnez la recette Fagot de dynamite\n- Appuyez sur Sortie\n- (Facultatif) Vérifiez la pureté avec un spectromètre\n[[gap:8]]\n[[text:Note : chaque fagot de dynamite nécessite 250 mL de trinitrotoluène|color=#3D823F|align=center]]"
+explosives_9,"[[page]]\n[[section:Annexe : ingrédients]]\n- Un grain de café donne environ 8 mL de graisse et 4,4 mL de caféine ; l'extraction à l'alcool transforme jusqu'à 75 % de la bouillie de café en caféine\n- Chaque mL de graisse donne par électrolyse 0,8 mL de toluène ; chaque mL de toluène nécessite 3 mL d'acide nitrique et donne 1 mL de trinitrotoluène\n- Un fagot de dynamite nécessite environ 10 grains de café et deux nuits de monoxyde d'azote produit par l'électrolyseur"
+explosives_10,"[[section:Annexe : le produit]]\n- La dynamite est une contrebande de haut niveau ; les Strates inférieures et la Révolution en achètent\n- Si vous vendez deux fagots ou plus aux Strates inférieures ou à la Révolution le même jour, quelque chose devient systématiquement plus cher le lendemain"
+explosives_11,"[[section:Annexe : nitrocellulose]]\n- Faites glisser un récipient d'acide nitrique sur des fibres de koton pour les transformer en nitrocellulose\n- Les fibres de koton petites, normales et grandes nécessitent 30, 40 et 50 mL d'acide nitrique\n- La nitrocellulose sert de propergol à la presse de rechargement"
+explosives_12,"[[section:Annexe : la machine]]\n[[text:<u>Presse de rechargement</u>|align=left|size=9]]\n[[gap:8]]\n- Vendue par le vendeur du cartel\n- La nitrocellulose à gauche, un récipient de liquide au milieu, la sortie et les actions à droite\n- La nitrocellulose placée est versée dans la trémie : petite, normale et grande donnent 54, 69 et 90 de propergol ; la trémie en contient 3000\n- Choisissez le calibre (.22 SR, 10 mm) et le type (non létal, normal, perforant) dans les actions ; chaque appui sur Presser produit une cartouche\n- Chaque cartouche consomme autant de propergol que son prix : 14, 20 et 26 pour les cartouches de .22 SR, 24, 30 et 36 pour celles de 10 mm\n- Les cartouches perforantes prennent aussi du trinitrotoluène dans le récipient : 3 mL pour une cartouche de .22 SR, 4 mL pour une cartouche de 10 mm\n- Impossible de presser sans assez de propergol ou de trinitrotoluène, ou si la sortie est pleine"
+setting_filter_residue,Résidus de filtre récupérables
+setting_filter_residue_tooltip,"Si activé, le koton tissé, le koton tissé avancé, les filtres à eau, les filtres à eau avancés et les filtres en hydroseau conservent ce qu'ils retiennent, et vous pouvez le verser dans un récipient. Si désactivé, les résidus disparaissent simplement, comme dans le jeu de base ; ce qu'un filtre contient déjà peut toujours être vidé."
+setting_fabric_repair,Réparation nocturne du koton tissé avancé
+setting_fabric_repair_tooltip,"Durabilité regagnée chaque nuit par le koton tissé avancé : un nombre entier de 0 à 1000. 1000 par défaut, soit une réparation complète ; 0 signifie aucune ; les valeurs hors limites sont ramenées à la borne la plus proche."
+hplc_name,CLHP
+hplc_desc,"Un instrument d'analyse qui sépare un mélange liquide selon la polarité. Du méthanol à 99 % ou plus se place à gauche comme phase mobile, l'échantillon filtré à côté ; ses solutés sont répartis selon leur polarité dans les quatre récipients de collecte à droite, les moins polaires en bas. Il consomme du méthanol en fonctionnant, d'autant plus que le soluté le plus polaire de l'échantillon est polaire."
+hplc_manual_name,Manuel CLHP
+hplc_manual_short,Notes d'utilisation du chromatographe et fabrication du méthanol.
+hplc_manual_flavor,"1. Phase mobile : placez du méthanol pur à au moins 99 % pour démarrer.\n2. Échantillon : placez le mélange à séparer. Il doit contenir au moins :\n1) un solvant : eau, alcool ou méthanol\n2) des solutés : ce qu'il faut séparer.\nL'échantillon ne doit contenir aucune particule de taille supérieure à 22 (ce que retient un filtre à eau).\n3. Colonne : les solutés sont répartis selon leur polarité dans les quatre emplacements de collecte, la polarité la plus faible dans l'emplacement du bas, puis croissante vers le haut. Jusqu'à quatre solutés, chacun occupe au plus un emplacement ; au-delà, les solutés de polarité proche partagent un emplacement. La table de polarité indique à l'avance l'emplacement de chaque soluté.\n4. Vitesse : jusqu'à 5 mL de soluté par seconde. Chaque mL de soluté sort avec 1 mL de solvant, dans les proportions de solvant de l'échantillon.\n5. Coût : chaque mL de soluté séparé consomme 0,06 x (50 + la polarité la plus élevée de l'échantillon) mL de méthanol, soit 3 à 9 mL. Le méthanol nécessaire est indiqué sous la table de polarité.\n6. Table de polarité : liste chaque soluté avec sa polarité. Placez un échantillon pour voir ses solutés.\n7. Fabriquer du méthanol : brûlez de l'hydrogène sur une plaque chauffante au-dessus de 150° ; il capte le dioxyde de carbone de l'air pour former de la vapeur de méthanol. Une fois la vapeur refroidie (important), faites glisser la bouteille sur un récipient de liquide : la vapeur se condense en méthanol."
+hplc_label_sample,Échantillon
+hplc_label_solvent,Phase mobile
+hplc_label_column,Colonne
+hplc_label_table,Polarité
+hplc_head_name,Nom
+hplc_head_polarity,Pol.
+hplc_head_slot,Empl.
+hplc_sort_asc, ▲
+hplc_sort_desc, ▼
+hplc_table_all,"Tous les solutés ; avec un échantillon, seulement les siens. Cliquez sur un en-tête pour trier."
+hplc_table_solvent,"(solvant : sort en premier, avec le front de solvant)"
+hplc_table_particle,"(particules : filtrez avant l'injection)"
+hplc_table_cost,Méthanol nécessaire : {0} mL
+hplc_column_title,Colonne
+hplc_column_line_1,"Le méthanol entraîne l'échantillon à travers la colonne ; les composants les plus polaires sortent en premier"
+hplc_column_line_2,Ce qui sort est réparti à son tour dans les quatre récipients de collecte à droite
+hplc_status_running,Séparation en cours
+hplc_status_no_methanol,La phase mobile doit être du méthanol à 99 % ou plus
+hplc_status_low_methanol,Méthanol insuffisant
+hplc_status_no_sample,Placez un échantillon
+hplc_status_particles,"L'échantillon contient des particules ; filtrez-le d'abord"
+hplc_status_no_solute,L'échantillon ne contient rien à séparer
+hplc_status_no_solvent,"L'échantillon n'a pas de solvant pour entraîner ses solutés"
+hplc_status_slot_1,L'emplacement de collecte 1 n'a pas de récipient ou est plein
+hplc_status_slot_2,L'emplacement de collecte 2 n'a pas de récipient ou est plein
+hplc_status_slot_3,L'emplacement de collecte 3 n'a pas de récipient ou est plein
+hplc_status_slot_4,L'emplacement de collecte 4 n'a pas de récipient ou est plein
+setting_wine_genuine,Vin coupé étiqueté authentique par défaut
+setting_wine_genuine_tooltip,"Si activé, le vin coupé sortant du poste de finition est étiqueté authentique, ce qui évite de réétiqueter chaque bouteille. Il reste coupé : les risques d'une fausse étiquette sont les mêmes, et les ventes passées inaperçues s'accumulent en fraude."
