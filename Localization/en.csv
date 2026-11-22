@@ -464,6 +464,8 @@ reloading_press_caliber_heavy,Calibre: heavy pistol
 reloading_press_type_0,Type: non-lethal
 reloading_press_type_1,Type: normal
 reloading_press_type_2,Type: armour-piercing
+reloading_press_count,Batch: ×{0}
+reloading_press_made_some,Pressed {0} of {1}: out of propellant or TNT
 reloading_press_cost,"{0} propellant a round"
 reloading_press_cost_tnt,"{0} propellant and {1} mL TNT a round"
 reloading_press_hopper,"Hopper: {0} / {1}"
@@ -492,7 +494,7 @@ hplc_name,HPLC
 hplc_desc,"An analytical instrument that splits a liquid mixture by polarity. Methanol of 99% or better goes on the left as the mobile phase, the filtered sample beside it; its solutes are split by polarity into the four collection containers on the right, least polar at the bottom. It uses up methanol as it runs: the more polar the sample's most polar solute, the more."
 hplc_manual_name,HPLC Manual
 hplc_manual_short,Operating notes for the chromatograph and how to make methanol.
-hplc_manual_flavor,"1. Mobile phase: put in methanol of at least 99% purity to start.\n2. Sample: put in the mixture to separate. It must hold at least:\n1) a solvent: water, alcohol or methanol\n2) solutes: what is to be separated.\nThe sample must hold no particles larger than 22 (what a water filter catches).\n3. Column: the solutes are split by polarity into the four collection slots, lowest polarity in the bottom slot, rising upward. Up to four solutes take at most one slot each; with more than four, solutes of close polarity share a slot. The polarity table shows each solute's slot beforehand.\n4. Speed: up to 5 mL of solute a second. Each mL of solute leaves with 1 mL of solvent, in the sample's solvent proportions.\n5. Cost: each mL of solute separated uses 0.06 x (50 + the highest polarity in the sample) mL of methanol, 3 to 9 mL. The methanol needed is shown under the polarity table.\n6. Polarity table: lists each solute with its polarity. Put in a sample to see its solutes.\n7. Making methanol: burn hydrogen on a heating plate above 150°; it takes carbon dioxide from the air to make methanol vapour. Once the vapour has cooled (important), drag the canister onto a liquid container and the vapour condenses into methanol."
+hplc_manual_flavor,"1. Mobile phase: put in methanol of at least 99% purity to start.\n2. Sample: put in the mixture to separate. It must hold at least:\n1) a solvent: water, alcohol or methanol\n2) solutes: what is to be separated.\nThe sample must hold no particles larger than 22 (what a water filter catches).\n3. Column: the solutes are split by polarity into the four collection slots, lowest polarity in the bottom slot, rising upward. Up to four solutes take at most one slot each; with more than four, solutes of close polarity share a slot. The polarity table shows each solute's slot beforehand.\n4. Speed: up to 5 mL of solute a second. Each mL of solute leaves with 1 mL of solvent, in the sample's solvent proportions.\n5. Cost: each mL of solute separated uses 0.02 x (50 + the highest polarity in the sample) mL of methanol, 1 to 3 mL. The methanol needed is shown under the polarity table.\n6. Polarity table: lists each solute with its polarity. Put in a sample to see its solutes.\n7. Making methanol: burn hydrogen on a heating plate above 150°; it takes carbon dioxide from the air to make methanol vapour. Once the vapour has cooled (important), drag the canister onto a liquid container and the vapour condenses into methanol."
 hplc_label_sample,Sample
 hplc_label_solvent,Mobile phase
 hplc_label_column,Column

@@ -32,7 +32,7 @@ More chemistry is planned; I just need a little inspiration.
 Gunsmiths may also want: Ammo Printer https://steamcommunity.com/sharedfiles/filedetails/?id=3831394883
 
 [h2]Vanilla Chemistry Expansion[/h2]Built on the vanilla chemistry system (extraction, heating, refrigeration, filtering, evaporation, pressing); vanilla products and reactions are unchanged.
-[h3]Machines[/h3][list][*][b]HPLC[/b]: splits the solutes of a sample into 4 collection slots by polarity. The mobile phase must be methanol of 99% or better, and each mL of solute separated uses 3-9 mL of it.
+[h3]Machines[/h3][list][*][b]HPLC[/b]: splits the solutes of a sample into 4 collection slots by polarity. The mobile phase must be methanol of 99% or better, and each mL of solute separated uses 1-3 mL of it.
 [*][b]Electrolyzer[/b]: brine into base, hydrogen and chlorine; fat into toluene; with an empty feed slot, nitric oxide from the air.
 [*][b]Fermenter[/b]: grows Acremonium on feed; each round yields four strains of the next generation.
 [*][b]Reloading Press[/b]: presses pistol rounds from nitrocellulose, non-lethal, standard or armour-piercing; armour-piercing also uses TNT.[/list]

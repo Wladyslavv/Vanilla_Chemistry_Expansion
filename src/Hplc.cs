@@ -4,7 +4,7 @@
 //
 // How it runs, every second:
 //   - The mobile phase must be at least 99% methanol. It is used up: METHANOL_COST x the solute separated that second
-//     x (POLARITY_BASE + the highest polarity in the sample), so 0.06 x (50 + P): 3 to 9 mL of methanol a mL of
+//     x (POLARITY_BASE + the highest polarity in the sample), so 0.02 x (50 + P): 1 to 3 mL of methanol a mL of
 //     solute. Short of methanol, the second separates only what the methanol left pays for.
 //   - The sample must hold no particles (anything a water filter would catch): it has to be filtered first.
 //   - The sample's solutes are sorted by polarity. Up to four: each gets a collection slot of its own, the least polar
@@ -33,7 +33,7 @@ public static class Hplc
     public const int RATE_UL = 5000;                         // solute per second
     // Set once the manual has been put in, so it is never added twice.
     public const string MANUAL_TAG = "VCE_HPLC_MANUAL_TAG";
-    public const double METHANOL_COST = 0.06;
+    public const double METHANOL_COST = 0.02;
     public const int POLARITY_BASE = 50;
 
     // Polarity table: a scrolling text box under three header buttons (name, polarity, slot). Columns are lined up

@@ -17,6 +17,7 @@ public static class ExplosivesTestKit
         try
         {
             ModHelper.AddDebugFunction(DreamToxinMod.MOD_ID, "Modding", "Explosives: full test kit", Give, false);
+            ModHelper.AddDebugFunction(DreamToxinMod.MOD_ID, "Modding", "Reloading press: test kit", GivePress, false);
         }
         catch (Exception e)
         {
@@ -33,18 +34,42 @@ public static class ExplosivesTestKit
     {
         try
         {
-            if (ModHelper.GetModData(DreamToxinMod.MOD_ID, FLAG_KEY, null) != AntibioticTestKit.FLAG_PENDING)
+            if (ModHelper.GetModData(DreamToxinMod.MOD_ID, FLAG_KEY, null) == AntibioticTestKit.FLAG_PENDING)
             {
-                return;
+                ModHelper.SetModData(DreamToxinMod.MOD_ID, FLAG_KEY, AntibioticTestKit.FLAG_GIVEN);
+                Log.Info("this save asked for the explosives test kit");
+                Give();
             }
-            ModHelper.SetModData(DreamToxinMod.MOD_ID, FLAG_KEY, AntibioticTestKit.FLAG_GIVEN);
-            Log.Info("this save asked for the explosives test kit");
-            Give();
+            if (ModHelper.GetModData(DreamToxinMod.MOD_ID, PRESS_FLAG_KEY, null) == AntibioticTestKit.FLAG_PENDING)
+            {
+                ModHelper.SetModData(DreamToxinMod.MOD_ID, PRESS_FLAG_KEY, AntibioticTestKit.FLAG_GIVEN);
+                Log.Info("this save asked for the reloading press test kit");
+                GivePress();
+            }
         }
         catch (Exception e)
         {
             Log.Error("giving the explosives test kit on load failed", e);
         }
+    }
+
+    // ---- reloading press only: flag "vanilla_chem_ext:press_test_kit" = "1" -----------------------------------
+    // The press, nine large nitrocellulose (810 propellant: about forty .22 rounds, enough for a few x10 batches and a
+    // short one at the end) and 100 mL of TNT for armour-piercing rounds (33 .22 or 25 heavy).
+    public const string PRESS_FLAG_KEY = "press_test_kit";
+
+    public static void GivePress()
+    {
+        List<string> missing = new List<string>();
+        int placed = 0;
+        placed += Place(Owned(ReloadingPress.ITEM_ID), "reloading press", missing);
+        for (int i = 0; i < 9; i++)
+        {
+            placed += Place(Owned("vce_nitrocellulose_l"), "large nitrocellulose", missing);
+        }
+        placed += Place(Bottle("bottled_water", new string[] { FlavorChemistry.TNT }, new int[] { 100000 }), "TNT 100 mL", missing);
+        Log.Info("reloading press test kit: " + placed + " item(s) placed"
+            + (missing.Count > 0 ? "; no room for: " + string.Join(", ", missing.ToArray()) : ""));
     }
 
     public static void Give()

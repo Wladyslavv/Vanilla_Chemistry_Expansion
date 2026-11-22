@@ -1,6 +1,6 @@
 // Reloading press: a 2x3 machine (art/explosives/draw_reloading_press.py) that presses vanilla pistol rounds out of
 // nitrocellulose, and TNT for armour-piercing ones. Its window, laid out like the vanilla Chem Finisher's:
-//   nitrocellulose grid (6x6) | liquid container slot | output grid (8x6) | control (calibre, type, status, press)
+//   nitrocellulose grid (6x6) | liquid container slot | output grid (8x6) | control (calibre, type, x1/x5/x10, status, press)
 // Nitrocellulose put in the grid is tipped into the hopper (up to HOPPER_CAPACITY of propellant); a piece gives its
 // value in propellant (Nitrocellulose.PowderOf: 54 / 69 / 90). A round takes its vanilla base price in propellant, so
 // pressing pays exactly the contraband markup: non-lethal (no markup) breaks even, normal +35%, armour-piercing +70%.
@@ -26,6 +26,18 @@ public static class ReloadingPress
     public const string CALIBER_TAG = "VCE_PRESS_CALIBER_INT";  // 0 = .22, 1 = heavy pistol
     public const string TYPE_TAG = "VCE_PRESS_TYPE_INT";        // 0 = non-lethal, 1 = normal, 2 = armour-piercing
     public const string POWDER_TAG = "VCE_PRESS_POWDER_INT";    // propellant in the hopper
+    public const string COUNT_TAG = "VCE_PRESS_COUNT_INT";      // index into Counts: rounds per press
+    // Rounds per press of the button; it stops early when propellant, TNT or output room runs out.
+    private static readonly int[] Counts = { 1, 5, 10 };
+
+    // The sound of one press of the button: vanilla's pistol magazine click (AudioHelper.MOD_PISTOL_RELOAD).
+    public const string PRESS_SOUND = "pistol_reload";
+    // Vanilla mechanical sounds to try instead, each playable from the debug panel ("Press sound: ...").
+    private static readonly string[] SoundCandidates =
+    {
+        "pistol_reload", "pistol_reload_light", "smg_reload", "cocking2-1", "cocking2-2", "modding1", "modding2",
+        "shotgun_pump", "shotgun_cock",
+    };
 
     private class Round
     {
@@ -64,6 +76,7 @@ public static class ReloadingPress
         public GameGridInventory Output;
         public MachineryButton Caliber;
         public MachineryButton Type;
+        public MachineryButton Count;
         public MachineryText Target;
         public MachineryText Status;
     }
@@ -76,6 +89,11 @@ public static class ReloadingPress
         try
         {
             ModHelper.AddDebugFunction(DreamToxinMod.MOD_ID, "Modding", "Reloading press: spawn one", SpawnOne, false);
+            foreach (string sound in SoundCandidates)
+            {
+                string name = sound;
+                ModHelper.AddDebugFunction(DreamToxinMod.MOD_ID, "Modding", "Press sound: " + name, delegate { PlaySound(name); }, false);
+            }
         }
         catch (Exception e)
         {
@@ -101,12 +119,14 @@ public static class ReloadingPress
         ui.Output = new GameGridInventory(OUTPUT_WIDTH, OUTPUT_HEIGHT);
         ui.Caliber = new MachineryButton("");
         ui.Type = new MachineryButton("");
+        ui.Count = new MachineryButton("");
         ui.Target = new MachineryText("", 6, HorizontalAlignmentOptions.Center, false);
         ui.Status = new MachineryText("", 6, HorizontalAlignmentOptions.Center, false);
         MachineryButton press = new MachineryButton(Text.Get("reloading_press_btn_press"));
         ui.Caliber.SetSize(75);
         ui.Type.SetSize(75);
-        MachineryStack control = MachineryStack.Vertical(ui.Caliber, ui.Type, ui.Target, ui.Status, press);
+        ui.Count.SetSize(75);
+        MachineryStack control = MachineryStack.Vertical(ui.Caliber, ui.Type, ui.Count, ui.Target, ui.Status, press);
         PixelWindow window = MachineHelper.CreateMachineryWindow(true,
             MachineHelper.Panel(Text.Get("reloading_press_label_powder"), ui.Powder, "powder", true),
             MachineHelper.Panel(Text.Get("reloading_press_label_container"), ui.Container, "container", true),
@@ -139,6 +159,11 @@ public static class ReloadingPress
             ui.Type.SetCallback(delegate
             {
                 SetInt(machine, TYPE_TAG, (Clamp(GetInt(machine, TYPE_TAG), 2) + 1) % 3);
+                Refresh(machine, ui);
+            });
+            ui.Count.SetCallback(delegate
+            {
+                SetInt(machine, COUNT_TAG, (Clamp(GetInt(machine, COUNT_TAG), Counts.Length - 1) + 1) % Counts.Length);
                 Refresh(machine, ui);
             });
             press.SetCallback(delegate
@@ -248,51 +273,85 @@ public static class ReloadingPress
         return null;
     }
 
+    private static int CountOf(GameItem machine)
+    {
+        return Counts[Clamp(GetInt(machine, COUNT_TAG), Counts.Length - 1)];
+    }
+
+    // Presses up to the selected count of rounds, one at a time, stopping at the first one that cannot be made.
     private static void Press(GameItem machine, Ui ui)
     {
         try
         {
             Round round = Selected(machine);
-            if (Blocker(machine, ui, round) != null)
+            int wanted = CountOf(machine);
+            int made = 0;
+            bool full = false;
+            while (made < wanted && Blocker(machine, ui, round) == null)
             {
-                return;
+                if (!PressOne(machine, ui, round))
+                {
+                    full = true;
+                    break;
+                }
+                made++;
             }
-            GameItem made = DirectoryMaster.Item(round.ItemId, true);
-            if (made == null)
+            if (made > 0)
             {
-                return;
-            }
-            ModHelper.SetItemOwnerShip(made, true);
-            pressing = true;
-            bool placed;
-            try
-            {
-                placed = ItemPlacement.TryPut(ui.Output, made);
-            }
-            finally
-            {
-                pressing = false;
-            }
-            if (!placed)
-            {
-                made.Destroy();
-                Notify(Text.Get("reloading_press_status_full"));
-                return;
-            }
-            SetInt(machine, POWDER_TAG, GetInt(machine, POWDER_TAG) - round.Powder);
-            if (round.TntUl > 0)
-            {
+                PlaySound(PRESS_SOUND);
                 GameItem container = ui.Container.childItem;
-                IaLiquids.Set(container, FlavorChemistry.TNT, IaLiquids.Get(container, FlavorChemistry.TNT) - round.TntUl);
-                WaterFeatureHelper.OnLiquidContainerPourOutOf(container);
-                SpriteHelper.UpdateWaterContainerSprite(container);
+                if (round.TntUl > 0 && container != null)
+                {
+                    WaterFeatureHelper.OnLiquidContainerPourOutOf(container);
+                    SpriteHelper.UpdateWaterContainerSprite(container);
+                }
             }
-            AudioHelper.UseWaterFilter();
+            if (full)
+            {
+                Notify(Text.Get("reloading_press_status_full"));
+            }
+            else if (made > 0 && made < wanted)
+            {
+                Notify(Text.Get("reloading_press_made_some", made, wanted));
+            }
         }
         catch (Exception e)
         {
             Log.Error("reloading press failed", e);
         }
+    }
+
+    // One round into the output; false if the output has no room for it (nothing is used up then).
+    private static bool PressOne(GameItem machine, Ui ui, Round round)
+    {
+        GameItem made = DirectoryMaster.Item(round.ItemId, true);
+        if (made == null)
+        {
+            return false;
+        }
+        ModHelper.SetItemOwnerShip(made, true);
+        pressing = true;
+        bool placed;
+        try
+        {
+            placed = ItemPlacement.TryPut(ui.Output, made);
+        }
+        finally
+        {
+            pressing = false;
+        }
+        if (!placed)
+        {
+            made.Destroy();
+            return false;
+        }
+        SetInt(machine, POWDER_TAG, GetInt(machine, POWDER_TAG) - round.Powder);
+        if (round.TntUl > 0)
+        {
+            GameItem container = ui.Container.childItem;
+            IaLiquids.Set(container, FlavorChemistry.TNT, IaLiquids.Get(container, FlavorChemistry.TNT) - round.TntUl);
+        }
+        return true;
     }
 
     private static void Refresh(GameItem machine, Ui ui)
@@ -302,6 +361,7 @@ public static class ReloadingPress
             Round round = Selected(machine);
             ui.Caliber.SetText(Text.Get(Clamp(GetInt(machine, CALIBER_TAG), 1) == 0 ? "reloading_press_caliber_small" : "reloading_press_caliber_heavy"));
             ui.Type.SetText(Text.Get("reloading_press_type_" + Clamp(GetInt(machine, TYPE_TAG), 2)));
+            ui.Count.SetText(Text.Get("reloading_press_count", CountOf(machine)));
             string cost = round.TntUl > 0
                 ? Text.Get("reloading_press_cost_tnt", round.Powder, round.TntUl / 1000)
                 : Text.Get("reloading_press_cost", round.Powder);
@@ -313,6 +373,21 @@ public static class ReloadingPress
         catch (Exception e)
         {
             Log.Error("reloading press refresh failed", e);
+        }
+    }
+
+    private static void PlaySound(string sound)
+    {
+        try
+        {
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.Play2(sound);
+            }
+        }
+        catch (Exception e)
+        {
+            Log.Error("reloading press sound " + sound + " failed", e);
         }
     }
 
