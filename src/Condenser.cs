@@ -212,8 +212,9 @@ public static class Condenser
             ui.Receiver = new GameSlotInventory();
             ui.Info = new MachineryText("", 6, HorizontalAlignmentOptions.Left, false);
             ui.Status = new MachineryText("", 6, HorizontalAlignmentOptions.Center, false);
-            // The three switch rows share a left edge (a vertical stack centres its rows, and the labels differ in length);
-            // the block of rows is centred in the panel.
+            // The three switch rows share a left edge. A vertical stack stretches every child container (each row is a
+            // horizontal stack) to its full width, and a row then centres its contents along itself by default, so the
+            // rows with shorter labels started further right; each row lays out from its start instead.
             MachineryStack switchRows = MachineryStack.Vertical().SetAlign(MachineryStack.Align.Start);
             for (int mode = MODE_COIL; mode <= MODE_CLOSED; mode++)
             {
@@ -224,7 +225,8 @@ public static class Condenser
                     : new MachineryButton(Text.Get(ModeKeys[m]));
                 ui.Switches[m].SetCallback(delegate { Toggle(still, m); });
                 switchRows.Add(MachineryStack.Horizontal(ui.Switches[m],
-                    new MachineryText(Text.Get(ModeKeys[m]), 6, HorizontalAlignmentOptions.Left, false)));
+                    new MachineryText(Text.Get(ModeKeys[m]), 6, HorizontalAlignmentOptions.Left, false))
+                    .SetMainAlign(MachineryStack.Align.Start));
             }
             List<PixelElement> modeRows = new List<PixelElement> { switchRows, ui.Info, ui.Status };
 
