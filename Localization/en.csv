@@ -565,7 +565,7 @@ still_mode_coil,Coil
 still_mode_evaporative,Evaporative
 still_mode_closed,Closed loop
 still_mode_coil_desc,Condenses once a night: 1 mL for every 8 mL of coolant. The coolant is not used up.
-still_mode_evaporative_desc,"Condenses steadily: each second 5% of the vapour in the chamber (at least 1 mL), using up 4 mL of coolant per mL."
+still_mode_evaporative_desc,"Condenses steadily: each second 5% of the vapour in the chamber (at least 1 mL), using up 4 mL of coolant per mL. The coolant must be base water or better (98% water or more)."
 still_mode_closed_desc,"Condenses steadily: each second 5% of the vapour in the chamber (at least 1 mL), 5 mL per kJ of battery power. The coolant is not used up."
 still_switch_on,On (click to switch off)
 still_switch_off,Off (click to switch on; the other modes switch off)
@@ -580,6 +580,8 @@ still_status_condensing,Condensing
 still_status_no_receiver,No collecting container
 still_status_full,The collecting container is full
 still_status_no_coolant,No usable coolant
+still_status_low_grade,The coolant is below base water: no evaporative cooling
+still_info_low_grade,Evaporative cooling needs base water or better ({0}% water or more)
 still_status_low_coolant,Not enough coolant: only part condensed
 still_status_no_power,The battery is empty
 still_status_low_power,Not enough power: only part condensed

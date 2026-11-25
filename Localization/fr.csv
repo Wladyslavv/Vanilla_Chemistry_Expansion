@@ -565,7 +565,7 @@ still_mode_coil,Serpentin
 still_mode_evaporative,Évaporatif
 still_mode_closed,Circuit fermé
 still_mode_coil_desc,"Condense une fois par nuit : 1 mL pour 8 mL de liquide de refroidissement, sans le consommer."
-still_mode_evaporative_desc,"Condense progressivement : chaque seconde 5 % de la vapeur de la chambre (au moins 1 mL), en consommant 4 mL de liquide de refroidissement par mL."
+still_mode_evaporative_desc,"Condense progressivement : chaque seconde 5 % de la vapeur de la chambre (au moins 1 mL), en consommant 4 mL de liquide de refroidissement par mL. Le liquide doit être de l'eau de base ou mieux (au moins 98 % d'eau)."
 still_mode_closed_desc,"Condense progressivement : chaque seconde 5 % de la vapeur de la chambre (au moins 1 mL), 5 mL par kJ de batterie, sans consommer le liquide de refroidissement."
 still_switch_on,Activé (cliquez pour désactiver)
 still_switch_off,Désactivé (cliquez pour activer ; les autres modes se désactivent)
@@ -580,6 +580,8 @@ still_status_condensing,Condensation en cours
 still_status_no_receiver,Aucun récipient de collecte
 still_status_full,Le récipient de collecte est plein
 still_status_no_coolant,Aucun liquide de refroidissement utilisable
+still_status_low_grade,Le liquide de refroidissement est sous l'eau de base : pas de refroidissement par évaporation
+still_info_low_grade,Le refroidissement par évaporation exige de l'eau de base ou mieux (au moins {0} % d'eau)
 still_status_low_coolant,Liquide de refroidissement insuffisant : condensation partielle
 still_status_no_power,La batterie est vide
 still_status_low_power,Énergie insuffisante : condensation partielle

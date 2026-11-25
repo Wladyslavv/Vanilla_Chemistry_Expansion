@@ -565,7 +565,7 @@ still_mode_coil,盘管冷凝
 still_mode_evaporative,蒸发冷凝
 still_mode_closed,闭式循环冷凝
 still_mode_coil_desc,每晚冷凝一次：每 8 毫升冷凝液冷凝 1 毫升，不消耗冷凝液。
-still_mode_evaporative_desc,持续冷凝：每秒冷凝蒸汽室里 5% 的蒸汽（至少 1 毫升），每冷凝 1 毫升消耗 4 毫升冷凝液。
+still_mode_evaporative_desc,持续冷凝：每秒冷凝蒸汽室里 5% 的蒸汽（至少 1 毫升），每冷凝 1 毫升消耗 4 毫升冷凝液。冷凝液须为基础水或以上（水纯度 98% 以上）。
 still_mode_closed_desc,持续冷凝：每秒冷凝蒸汽室里 5% 的蒸汽（至少 1 毫升），每 1 kJ 电量冷凝 5 毫升，不消耗冷凝液。
 still_switch_on,已开启（点击关闭）
 still_switch_off,已关闭（点击开启，其他模式会自动关闭）
@@ -580,6 +580,8 @@ still_status_condensing,正在冷凝
 still_status_no_receiver,没有收集容器
 still_status_full,收集容器满了
 still_status_no_coolant,没有可用的冷凝液
+still_status_low_grade,冷凝液水质低于基础水，无法蒸发冷凝
+still_info_low_grade,蒸发冷凝需要基础水或以上（水纯度 {0}% 以上）
 still_status_low_coolant,冷凝液不足，只冷凝了一部分
 still_status_no_power,电池没电
 still_status_low_power,电量不足，只冷凝了一部分

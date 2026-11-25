@@ -8,7 +8,8 @@
 // chamber: 1 L, first in first out (when it is full, the oldest vapour is pushed out and lost). The mode decides how the
 // vapour is condensed into the collecting container, oldest first:
 //   - coil: once a night, 1 mL for every 8 mL of coolant; the coolant is not used up;
-//   - evaporative: gradually (5% of the chamber a second, at least 1 mL), using up 4 mL of coolant per mL;
+//   - evaporative: gradually (5% of the chamber a second, at least 1 mL), using up 4 mL of coolant per mL; only
+//     on base water or better (98% water or more, vanilla's grade);
 //   - closed loop: gradually like the evaporative mode, 5 mL per kJ from the battery; the coolant is not used up.
 // Coolant that is not pure water works less well: every mL counts as (water purity)^2 of a mL of water, the purity being
 // the vanilla one (water's share of the liquid). All three modes need coolant.
@@ -36,6 +37,18 @@ public static class Condenser
     private const int VAPOUR_BUCKET_UL = 10000;             // first in first out in steps of 10 mL
     public const double COIL_COOLANT_PER_ML = 8.0;          // coil: mL of coolant per mL condensed each night
     public const double EVAPORATIVE_COOLANT_PER_ML = 4.0;   // evaporative: mL of coolant used up per mL condensed
+    // Evaporative cooling only runs on base water or better (vanilla's grades: pure, high quality, base, ...).
+    private const int BASE_WATER_INDEX = 2;
+
+    public static int EvaporativeMinPurity()
+    {
+        return WaterFeatureHelper.WATER_PURITIES[BASE_WATER_INDEX];
+    }
+
+    public static bool EvaporativeGradeOk(GameItem still)
+    {
+        return WaterHelper.GetTotalVolume(still) > 0 && WaterHelper.GetWaterPurity(still) >= EvaporativeMinPurity();
+    }
     public const double CLOSED_ML_PER_KJ = 5.0;             // closed loop: mL condensed per kJ
     // The evaporative and closed-loop modes condense gradually, like a reaction: each second 5% of the vapour in the
     // chamber, at least 1 mL (all of it when there is less). With a container boiling 2% of its liquid a second, the
@@ -572,6 +585,11 @@ public static class Condenser
                 SetStatus(ui, "still_status_no_coolant");
                 return;
             }
+            if (mode == MODE_EVAPORATIVE && !EvaporativeGradeOk(still))
+            {
+                SetStatus(ui, "still_status_low_grade");
+                return;
+            }
             int step = mode == MODE_COIL ? waiting
                 : Math.Min(waiting, Math.Max(REALTIME_MIN_UL, (int)(waiting * REALTIME_RATE)));
             int want = Math.Min(step, room);
@@ -873,8 +891,9 @@ public static class Condenser
             }
             else if (mode == MODE_EVAPORATIVE)
             {
-                text += "\n" + (factor > 0 ? Text.Get("still_info_evaporative", (EVAPORATIVE_COOLANT_PER_ML / factor).ToString("0.#"))
-                    : Text.Get("still_status_no_coolant"));
+                text += "\n" + (factor <= 0 ? Text.Get("still_status_no_coolant")
+                    : !EvaporativeGradeOk(still) ? Text.Get("still_info_low_grade", (EvaporativeMinPurity() / 100.0).ToString("0.#"))
+                    : Text.Get("still_info_evaporative", (EVAPORATIVE_COOLANT_PER_ML / factor).ToString("0.#")));
             }
             else if (mode == MODE_CLOSED)
             {
