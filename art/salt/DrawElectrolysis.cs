@@ -62,55 +62,72 @@ public static class DrawElectrolysis
 
     // ---- electrolyzer -------------------------------------------------------------------------------------------
 
-    // A small canister standing on the housing, hosed to the outlet above it.
-    static void MiniCanister(Canvas c, int x, Color band, Color bandDk, int hoseToX)
+    // Seen like vanilla machines: straight from the front but from slightly above, so every box shows a lit strip of
+    // top face (TOP, the vanilla fridge / chem finisher top) over its front face, and round parts show their tops.
+    static readonly Color TOP = Hex("a8aea5");
+
+    // A small canister standing on the housing's top face, hosed to the outlet above it.
+    static void MiniCanister(Canvas c, int x, Color band, Color bandLt, Color bandDk, int hoseToX)
     {
         // Hose from the valve up and over to the outlet.
-        c.VLine(x + 2, 4, 12, M_DEEP); c.HLine(Math.Min(x + 2, hoseToX), Math.Max(x + 2, hoseToX), 4, M_DEEP);
+        c.VLine(x + 2, 3, 12, M_DEEP); c.HLine(Math.Min(x + 2, hoseToX), Math.Max(x + 2, hoseToX), 3, M_DEEP);
         c.Put(x + 2, 13, M_DK);
-        // Shoulder band and steel body (5 px wide).
-        c.Rect(x, 14, x + 4, 16, band); c.Put(x + 4, 14, bandDk); c.Put(x + 4, 15, bandDk); c.Put(x + 4, 16, bandDk);
-        c.Rect(x, 17, x + 4, 27, M);
-        c.VLine(x, 17, 27, M_LT); c.VLine(x + 1, 17, 27, CREAM); c.VLine(x + 4, 17, 27, M_DK);
-        c.Rect(x + 1, 21, x + 3, 23, CREAM); c.HLine(x + 1, x + 2, 22, M_DK);
-        c.HLine(x, x + 4, 28, M_DEEP);
+        // Domed shoulder band: its crown, seen from above, is a lit narrow row.
+        c.HLine(x + 1, x + 3, 14, bandLt);
+        c.Rect(x, 15, x + 4, 17, band); c.Put(x, 15, bandLt); c.VLine(x + 4, 15, 17, bandDk);
+        c.Put(x + 1, 17, bandDk); c.Put(x + 2, 17, bandDk); c.Put(x + 3, 17, bandDk);   // its lower edge bows down
+        c.Put(x, 17, band); c.Put(x + 4, 17, band);
+        // Steel body (5 px wide).
+        c.Rect(x, 18, x + 4, 28, M);
+        c.VLine(x, 18, 28, M_LT); c.VLine(x + 1, 18, 28, CREAM); c.VLine(x + 4, 18, 28, M_DK);
+        c.Rect(x + 1, 21, x + 3, 24, CREAM); c.HLine(x + 1, x + 2, 23, M_DK);
+        c.HLine(x, x + 4, 29, M_DEEP); c.HLine(x + 1, x + 3, 30, M_DEEP);           // foot ring, bowed
     }
 
     static Bitmap Electrolyzer(bool container, bool canisterA, bool canisterB)
     {
         Canvas c = new Canvas(48, 48);
+
+        // ---- housing: a lit top face the tank stands on, then the front face ------------------------------------
+        c.Rect(4, 25, 43, 30, TOP);
+        c.HLine(4, 43, 25, M_LT); c.HLine(4, 43, 30, M_LT);
+        c.Put(4, 26, CREAM); c.Put(5, 26, CREAM); c.Put(6, 26, CREAM);
+        c.Rect(4, 31, 43, 44, M); c.Rect(4, 39, 43, 44, M_DK); c.HLine(4, 43, 44, M_DEEP);
+        c.VLine(4, 31, 43, M_LT);
+        // Teal trim like the chem finisher, along the top of the front face.
+        c.HLine(5, 42, 31, T_MD); c.HLine(5, 42, 32, T_DK);
+        // Readout window.
+        c.Rect(8, 34, 20, 40, OUT); c.Rect(9, 35, 19, 39, CAVITY);
+        int[,] digits = { { 10, 36 }, { 11, 36 }, { 12, 36 }, { 12, 37 }, { 11, 38 }, { 14, 36 }, { 14, 37 }, { 14, 38 }, { 15, 38 }, { 16, 38 }, { 17, 36 }, { 17, 37 }, { 18, 38 } };
+        for (int i = 0; i < digits.GetLength(0); i++) c.Put(digits[i, 0], digits[i, 1], GLASS);
+        // Status lights.
+        c.Put(9, 42, LIME_MD); c.Put(11, 42, LIME_MD); c.Put(13, 42, RED);
+        // Vents.
+        for (int y = 34; y <= 42; y += 2) c.HLine(24, 40, y, M_DEEP);
+        // Feet.
+        c.Rect(7, 45, 12, 46, M_DEEP); c.Rect(35, 45, 40, 46, M_DEEP);
+
         // Product B (chlorine, lime outlet) on the left, product A (hydrogen, red outlet) on the right.
-        if (canisterB) MiniCanister(c, 2, LIME_MD, LIME_DK, 13);
-        if (canisterA) MiniCanister(c, 41, RED, RED_DEEP, 34);
+        if (canisterB) MiniCanister(c, 2, LIME_MD, LIME, LIME_DK, 13);
+        if (canisterA) MiniCanister(c, 41, RED, Hex("e07a66"), RED_DEEP, 34);
 
-        // Gas outlets on the lid: chlorine (lime cap) on the anode side, hydrogen (red cap) on the cathode side.
-        c.Rect(13, 3, 15, 7, M_DK); c.VLine(13, 3, 7, M_LT);
-        c.Rect(12, 1, 16, 2, LIME_MD); c.HLine(12, 16, 1, LIME); c.Put(16, 2, LIME_DK);
-        c.Rect(32, 3, 34, 7, M_DK); c.VLine(32, 3, 7, M_LT);
-        c.Rect(31, 1, 35, 2, RED_DK); c.HLine(31, 35, 1, RED); c.Put(35, 2, RED_DEEP);
-
-        // Lid.
-        c.Rect(8, 8, 39, 10, M); c.HLine(8, 39, 8, M_LT); c.HLine(8, 39, 10, M_DK);
-        c.Put(8, 8, CREAM); c.Put(9, 8, CREAM);
-        // Terminals: + (red) and - (dark).
-        c.Rect(19, 6, 20, 7, RED); c.Put(19, 6, Hex("e07a66"));
-        c.Rect(27, 6, 28, 7, M_DEEP); c.Put(27, 6, M_DK);
-
-        // Glass tank.
-        c.Rect(9, 11, 38, 28, CAVITY);
-        c.VLine(9, 11, 28, OUT); c.VLine(38, 11, 28, OUT);
+        // ---- glass tank, standing on the back of the housing's top face ------------------------------------------
+        c.Rect(9, 11, 38, 27, CAVITY);
+        c.VLine(9, 11, 27, OUT); c.VLine(38, 11, 27, OUT); c.HLine(9, 38, 28, OUT);
         // Head space above the brine, with a glass glint.
         c.Rect(10, 11, 37, 13, Hex("3d4f55"));
         c.VLine(11, 12, 26, GLASS); c.Put(12, 12, GLASS);
-        // Brine, only while a container is plugged into the brine slot; otherwise an empty glass tank.
+        // Brine, only while a container is plugged into the brine slot; otherwise an empty glass tank. Seen from
+        // above, its surface is a lit strip across the back of the tank.
         if (container)
         {
-            c.Rect(10, 14, 37, 27, T); c.HLine(10, 37, 14, GLASS); c.Rect(10, 24, 37, 27, T_MD); c.HLine(10, 37, 27, T_DK);
-            c.VLine(11, 15, 26, T_LT);
+            c.Rect(10, 14, 37, 27, T); c.HLine(10, 37, 14, GLASS); c.HLine(10, 37, 15, T_LT); c.HLine(10, 37, 16, T_LT);
+            c.Rect(10, 24, 37, 27, T_MD); c.HLine(10, 37, 27, T_DK);
+            c.VLine(11, 17, 26, T_LT);
         }
         else
         {
-            c.HLine(10, 37, 27, M_DEEP);
+            c.HLine(10, 37, 26, M_DK); c.HLine(10, 37, 27, M_DEEP);   // the tank's floor, seen from above
         }
         // Membrane between the two halves.
         for (int y = 11; y <= 27; y++) c.Put(23, y, y % 2 == 0 ? M_LT : CREAM);
@@ -121,48 +138,59 @@ public static class DrawElectrolysis
         // Bubbles rising off the electrodes.
         if (container)
         {
-            int[,] bubbles = { { 18, 22 }, { 17, 18 }, { 19, 16 }, { 13, 20 }, { 29, 23 }, { 34, 19 }, { 30, 17 }, { 33, 15 }, { 35, 22 } };
+            int[,] bubbles = { { 18, 22 }, { 17, 19 }, { 19, 17 }, { 13, 20 }, { 29, 23 }, { 34, 19 }, { 30, 18 }, { 33, 17 }, { 35, 22 } };
             for (int i = 0; i < bubbles.GetLength(0); i++) c.Put(bubbles[i, 0], bubbles[i, 1], i % 3 == 0 ? CREAM : GLASS);
         }
 
-        // Housing.
-        c.Rect(4, 29, 43, 43, M); c.HLine(4, 43, 29, M_LT); c.Rect(4, 37, 43, 43, M_DK); c.HLine(4, 43, 43, M_DEEP);
-        c.Put(4, 29, CREAM); c.Put(5, 29, CREAM); c.Put(6, 29, CREAM);
-        c.VLine(4, 30, 42, M_LT);
-        // Readout window.
-        c.Rect(8, 32, 20, 38, OUT); c.Rect(9, 33, 19, 37, CAVITY);
-        int[,] digits = { { 10, 34 }, { 11, 34 }, { 12, 34 }, { 12, 35 }, { 11, 36 }, { 14, 34 }, { 14, 35 }, { 14, 36 }, { 15, 36 }, { 16, 36 }, { 17, 34 }, { 17, 35 }, { 18, 36 } };
-        for (int i = 0; i < digits.GetLength(0); i++) c.Put(digits[i, 0], digits[i, 1], GLASS);
-        // Status lights.
-        c.Put(9, 40, LIME_MD); c.Put(11, 40, LIME_MD); c.Put(13, 40, RED);
-        // Vents.
-        for (int y = 32; y <= 40; y += 2) c.HLine(24, 40, y, M_DEEP);
-        // Teal trim like the chem finisher.
-        c.HLine(5, 42, 30, T_MD); c.HLine(5, 42, 31, T_DK);
-        // Feet.
-        c.Rect(7, 44, 12, 45, M_DEEP); c.Rect(35, 44, 40, 45, M_DEEP);
+        // ---- lid: a lit top face over a short front edge ----------------------------------------------------------
+        c.Rect(8, 6, 39, 8, TOP); c.HLine(8, 39, 6, M_LT);
+        c.Put(8, 7, CREAM); c.Put(9, 7, CREAM); c.Put(10, 7, CREAM);
+        c.Rect(8, 9, 39, 10, M); c.HLine(8, 39, 10, M_DK);
+        // Terminals standing on the lid: + (red) and - (dark), their tops lit.
+        c.Rect(19, 5, 20, 7, RED); c.HLine(19, 20, 5, Hex("e07a66"));
+        c.Rect(27, 5, 28, 7, M_DEEP); c.HLine(27, 28, 5, M_DK);
+        // Gas outlets: chlorine (lime cap) on the anode side, hydrogen (red cap) on the cathode side. Each cap shows its
+        // round top as a lit row narrower than the cap.
+        c.Rect(13, 3, 15, 7, M_DK); c.VLine(13, 3, 7, M_LT);
+        c.HLine(13, 15, 0, LIME); c.Rect(12, 1, 16, 2, LIME_MD); c.HLine(12, 15, 1, LIME); c.Put(16, 1, LIME_DK); c.Put(16, 2, LIME_DK);
+        c.Rect(32, 3, 34, 7, M_DK); c.VLine(32, 3, 7, M_LT);
+        c.HLine(32, 34, 0, Hex("e07a66")); c.Rect(31, 1, 35, 2, RED_DK); c.HLine(31, 34, 1, RED); c.Put(35, 1, RED_DEEP); c.Put(35, 2, RED_DEEP);
 
         return c.Render();
     }
 
     // ---- gas canister ----------------------------------------------------------------------------------------------
 
+    // The valve's hand wheel, seen from slightly above: its lit top face over its rim.
+    static void HandWheel(Canvas c)
+    {
+        c.HLine(6, 9, 0, M_LT);
+        c.HLine(5, 10, 1, M_LT); c.Put(5, 1, CREAM); c.Put(6, 1, CREAM);
+        c.HLine(5, 10, 2, M_DK);
+        c.Rect(7, 3, 8, 5, M_DEEP); c.Put(7, 3, M_DK);
+    }
+
+    // The seam under the shoulder: the front half of a ring, one pixel lower in the middle.
+    static void Seam(Canvas c, int y)
+    {
+        c.Put(4, y, M_DEEP); c.Put(5, y, M_DEEP); c.Put(10, y, M_DEEP); c.Put(11, y, M_DEEP);
+        c.HLine(6, 9, y + 1, M_DEEP);
+    }
+
     static Bitmap Canister(Color band, Color bandDk, Color bandLt, bool labelled)
     {
         Canvas c = new Canvas(16, 32);
-        // Valve and hand wheel.
-        c.Rect(5, 1, 10, 2, M_DK); c.HLine(5, 10, 1, M_LT);
-        c.Rect(7, 3, 8, 5, M_DEEP); c.Put(7, 3, M_DK);
-        // Shoulder (gas colour band), rounded.
-        c.Rect(5, 6, 10, 6, band);
-        c.Rect(4, 7, 11, 11, band);
-        c.VLine(4, 7, 11, bandLt); c.VLine(5, 7, 11, bandLt); c.VLine(10, 6, 11, bandDk); c.VLine(11, 7, 11, bandDk);
-        c.Put(5, 6, bandLt);
+        HandWheel(c);
+        // Shoulder (gas colour band), rounded: its crown, seen from above, is the lit top row.
+        c.HLine(5, 10, 6, band); c.HLine(6, 9, 6, bandLt);
+        c.Rect(4, 7, 11, 12, band);
+        c.VLine(4, 7, 12, bandLt); c.VLine(5, 7, 12, bandLt); c.VLine(10, 6, 12, bandDk); c.VLine(11, 7, 12, bandDk);
         // Steel body with a cylinder shading: highlight, mid, shadow.
-        c.Rect(4, 12, 11, 28, M);
-        c.VLine(4, 12, 28, M_LT); c.VLine(5, 12, 28, CREAM);
-        c.VLine(10, 12, 28, M_DK); c.VLine(11, 12, 28, M_DEEP);
-        c.HLine(4, 11, 12, M_DEEP);
+        c.Rect(4, 13, 11, 28, M);
+        c.Put(4, 12, M_LT); c.Put(5, 12, CREAM); c.Put(10, 12, M_DK); c.Put(11, 12, M_DEEP);
+        c.VLine(4, 13, 28, M_LT); c.VLine(5, 13, 28, CREAM);
+        c.VLine(10, 13, 28, M_DK); c.VLine(11, 13, 28, M_DEEP);
+        Seam(c, 12);
         // Label.
         if (labelled)
         {
@@ -179,27 +207,24 @@ public static class DrawElectrolysis
     static Bitmap MixedCanister()
     {
         Canvas c = new Canvas(16, 32);
-        // Valve and hand wheel, as on the other canisters.
-        c.Rect(5, 1, 10, 2, M_DK); c.HLine(5, 10, 1, M_LT);
-        c.Rect(7, 3, 8, 5, M_DEEP); c.Put(7, 3, M_DK);
+        HandWheel(c);
         Color redLt = Hex("e07a66");
-        // Shoulder: hydrogen colour.
-        c.Rect(5, 6, 10, 6, RED);
-        c.Rect(4, 7, 11, 11, RED);
-        c.VLine(4, 7, 11, redLt); c.VLine(5, 7, 11, redLt); c.VLine(10, 6, 11, RED_DEEP); c.VLine(11, 7, 11, RED_DEEP);
-        c.Put(5, 6, redLt);
+        // Shoulder: hydrogen colour, its crown lit.
+        c.HLine(5, 10, 6, RED); c.HLine(6, 9, 6, redLt);
+        c.Rect(4, 7, 11, 12, RED);
+        c.VLine(4, 7, 12, redLt); c.VLine(5, 7, 12, redLt); c.VLine(10, 6, 12, RED_DEEP); c.VLine(11, 7, 12, RED_DEEP);
         // Body: upper half hydrogen, lower half chlorine, with the cylinder shading kept.
         for (int y = 12; y <= 28; y++)
         {
-            bool top = y <= 19;
+            bool top = y <= 20;
             Color mid = top ? RED_DK : LIME_MD, lt = top ? redLt : LIME, dk = top ? RED_DEEP : LIME_DK;
             c.HLine(4, 11, y, mid);
             c.Put(4, y, lt); c.Put(5, y, lt);
             c.Put(10, y, dk); c.Put(11, y, dk);
         }
-        // A thin boundary line where the two gases meet, and the seam under the shoulder.
-        c.HLine(4, 11, 20, M_DEEP);
-        c.HLine(4, 11, 12, M_DEEP);
+        // A thin boundary where the two gases meet and the seam under the shoulder, both bowed like rings.
+        Seam(c, 20);
+        Seam(c, 12);
         // Label straddling the boundary.
         c.Rect(6, 16, 9, 23, CREAM);
         c.HLine(6, 8, 18, M_DK); c.HLine(6, 9, 21, M_DK);

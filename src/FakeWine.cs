@@ -12,7 +12,7 @@ public static class FlavorChemistry
     public const string ETHYL_ACETATE = "ia_ethyl_acetate";
     // Made by electrolysing fat (Electrolyzer.cs); evaporates, boils at 110.6 C.
     public const string TOLUENE = "vce_toluene";
-    // Made by dissolving nitric oxide from a gas canister in water (GasCanister.Dissolve); no reactions yet.
+    // Made by dissolving nitric oxide from a gas canister in water (GasCanister.Dissolve); base neutralizes it.
     public const string NITRIC_ACID = "vce_nitric_acid";
     // Trinitrotoluene, from toluene and nitric acid with vanilla acid as the catalyst (Nitrate below).
     public const string TNT = "vce_tnt";
@@ -56,14 +56,29 @@ public static class FlavorChemistry
             toluene.boilingPoint = 110.6;
             toluene.isEvaporative = true;
         }
-        IaLiquids.AddLiquid(NITRIC_ACID, "liquid_nitric_acid", 5, "f3edc4", 1);
+        // Nitric acid boils at 120.5 C, the nitric acid / water azeotrope (the game's nitric acid is always dissolved in
+        // water), not pure nitric acid's 83 C. Nitration never gets there: its toluene boils off at 110.6 C, so a
+        // nitration mix is kept below that anyway. Being evaporative, it also counts as wet and leaves in the evaporator.
+        Liquid nitric = IaLiquids.AddLiquid(NITRIC_ACID, "liquid_nitric_acid", 5, "f3edc4", 1);
+        if (nitric != null)
+        {
+            nitric.boilingPoint = 120.5;
+            nitric.isEvaporative = true;
+        }
         IaLiquids.AddLiquid(TNT, "liquid_tnt", 5, "e8c860", 1);
     }
 
-    // Acetic acid and base neutralize 1:1 like vanilla acid and base (both disappear; 10% of the smaller a tick, at
-    // least 1 mL), but only once the vanilla acid is gone: base goes to the acid first.
+    // Nitric acid and base neutralize 1:1 like vanilla acid and base (both disappear; 10% of the smaller a tick, at
+    // least 1 mL). Nitric acid is a strong acid like the vanilla one, so the two take the base side by side.
+    // Acetic acid, a weak acid, neutralizes the same way but only once both strong acids are gone.
     public const double NEUTRALIZE_RATE = 0.1;
     public const int NEUTRALIZE_MIN_UL = 1000;
+
+    // A game rule: at 155 C or more protein chars into insoluble debris, 5% a tick and at least 2 mL, the pace of
+    // the other heat rules (caffeine to fat, dry distillation).
+    public const double PROTEIN_CHAR_TEMP = 155.0;
+    public const double PROTEIN_CHAR_RATE = 0.05;
+    public const int PROTEIN_CHAR_MIN_UL = 2000;
 
     // A game rule, not real chemistry: at 150 C or more caffeine turns into fat, 5% a tick and at least 2 mL (small batches and the tail go quickly), the
     // same pace as dry distillation. Below that nothing changes, so the vanilla caffeine pill line (alcohol
@@ -74,8 +89,40 @@ public static class FlavorChemistry
 
     public static int Run(GameItem container, double temp)
     {
-        return DryDistill(container, temp) | Esterify(container, temp) | Neutralize(container)
-            | CaffeineToFat(container, temp) | Nitrate(container, temp);
+        return DryDistill(container, temp) | Esterify(container, temp) | NeutralizeNitric(container) | Neutralize(container)
+            | CaffeineToFat(container, temp) | Nitrate(container, temp) | CharProtein(container, temp);
+    }
+
+    private static int CharProtein(GameItem container, double temp)
+    {
+        if (temp < PROTEIN_CHAR_TEMP)
+        {
+            return 0;
+        }
+        int protein = IaLiquids.Get(container, "protein");
+        if (protein <= 0)
+        {
+            return 0;
+        }
+        int amount = Math.Min(protein, Math.Max(PROTEIN_CHAR_MIN_UL, (int)(protein * PROTEIN_CHAR_RATE)));
+        IaLiquids.Set(container, "protein", protein - amount);
+        IaLiquids.Set(container, "debris", IaLiquids.Get(container, "debris") + amount);
+        return 1;
+    }
+
+    private static int NeutralizeNitric(GameItem container)
+    {
+        int nitric = IaLiquids.Get(container, NITRIC_ACID);
+        int alkali = IaLiquids.Get(container, "base");
+        if (nitric <= 0 || alkali <= 0)
+        {
+            return 0;
+        }
+        int limiting = Math.Min(nitric, alkali);
+        int amount = Math.Min(limiting, Math.Max(NEUTRALIZE_MIN_UL, (int)(limiting * NEUTRALIZE_RATE)));
+        IaLiquids.Set(container, NITRIC_ACID, nitric - amount);
+        IaLiquids.Set(container, "base", alkali - amount);
+        return 1;
     }
 
     private static int Nitrate(GameItem container, double temp)
@@ -123,7 +170,7 @@ public static class FlavorChemistry
     {
         int acetic = IaLiquids.Get(container, ACETIC_ACID);
         int alkali = IaLiquids.Get(container, "base");
-        if (acetic <= 0 || alkali <= 0 || IaLiquids.Get(container, "acid") > 0)
+        if (acetic <= 0 || alkali <= 0 || IaLiquids.Get(container, "acid") > 0 || IaLiquids.Get(container, NITRIC_ACID) > 0)
         {
             return 0;
         }

@@ -1,7 +1,7 @@
 // The Cartel Vendor: the only seller of this mod's machines, handbook and starting stock. He first comes on day 5
 // and then every 7 days, and every visit lays out the whole range on the front counter, big items first:
-//   fermenter, electrolyzer (each only 50% of visits once the player owns one), the HPLC and the handbook (each only
-//   while the player has none), reloading press (50% once owned), a plutonium battery, an empty gas canister, a random strain, two Xinke seeds, two Hollow's Lantern
+//   fermenter, electrolyzer (each only 50% of visits once the player owns one), the HPLC, the condenser and the handbook (each only
+//   while the player has none), reloading press (50% once owned), two separatory funnels, a plutonium battery, an empty gas canister, a random strain, two Xinke seeds, two Hollow's Lantern
 //   seeds.
 // These used to come from Dr. Jackson, the retired chemist, the retired farmer and battery loot; none of them carry
 // these goods any more. He does not depend on the Cartel Expansion setting (the handbook must stay obtainable), and
@@ -18,6 +18,8 @@ public static class CartelVendor
     public const int INTERVAL_DAYS = 7;
     // Chance that a machine the player already owns is in stock again.
     public const int OWNED_MACHINE_CHANCE = 50;
+    // Separatory funnels laid out on every visit (2x4 each: with every machine in stock the 18x4 counter is nearly full).
+    public const int SEP_FUNNELS = 2;
 
     // The Ammo Printer mod (same author): when it is installed and enabled, its six ammo chips are in stock too.
     // Its items are only asked for while it runs, so players without it never see a missing-item error.
@@ -105,9 +107,18 @@ public static class CartelVendor
             {
                 stock.Add(DirectoryMaster.Item(Hplc.ITEM_ID, false));
             }
+            // The condenser too; one fitted to a heating plate (a still) counts as owned.
+            if (!Owns(item => Condenser.IsCondenser(item) || Condenser.IsStill(item)))
+            {
+                stock.Add(DirectoryMaster.Item(Condenser.ITEM_ID, false));
+            }
             if (!Owns(ReloadingPress.IsReloadingPress) || RNG.Roll(OWNED_MACHINE_CHANCE))
             {
                 stock.Add(DirectoryMaster.Item(ReloadingPress.ITEM_ID, false));
+            }
+            for (int i = 0; i < SEP_FUNNELS; i++)
+            {
+                stock.Add(DirectoryMaster.Item(SepFunnel.ITEM_ID, false));
             }
             stock.Add(GuideBook.CreateForSaleIfUnowned());
             stock.Add(DirectoryMaster.Item(PuBattery.ITEM_ID, false));

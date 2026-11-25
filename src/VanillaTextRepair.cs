@@ -13,9 +13,13 @@
 // Written for C# 5 (see DreamToxinMod.cs).
 using System;
 using System.Collections.Generic;
+using HarmonyLib;
 
 public static class VanillaTextRepair
 {
+    // Every water label replaced so far -> its quality index (WATER_DISPLAY order). Read by WaterLabelRemapPatch.
+    internal static readonly Dictionary<string, int> StaleWaterLabels = new Dictionary<string, int>();
+
     // Liquid identifier -> localization key, as in Liquid.InitLiquid.
     private static readonly string[,] LiquidKeys =
     {
@@ -210,6 +214,20 @@ public static class VanillaTextRepair
         {
             return 0;
         }
+        lock (StaleWaterLabels)
+        {
+            for (int i = 0; i < fresh.Length; i++)
+            {
+                if (!string.IsNullOrEmpty(old[i]) && old[i] != fresh[i])
+                {
+                    StaleWaterLabels[old[i]] = i;
+                }
+            }
+            foreach (string label in fresh)
+            {
+                StaleWaterLabels.Remove(label);  // a label current again (language switched back) is not stale
+            }
+        }
         WaterFeatureHelper.PURE_WATER_DISPLAY = fresh[0];
         WaterFeatureHelper.HIGH_QUALITY_WATER_DISPLAY = fresh[1];
         WaterFeatureHelper.BASE_WATER_DISPLAY = fresh[2];
@@ -255,5 +273,41 @@ public static class VanillaTextRepair
     {
         string text = LocHelper.GetLocalizedItem(key);
         return string.IsNullOrEmpty(text) || text == key ? null : text;
+    }
+}
+
+// Runs after every other mod's patch on GetCurrentWaterDisplay. Another mod that fixes the same stale-label problem
+// its own way may map a container's label back to the labels cached at startup (AdvancedUI does: issue #6). Clients
+// compare this result with WaterFeatureHelper's labels, which RepairWater has replaced, so they would then refuse all
+// water. Any stale label is turned into the current one. Without such a mod the result is already current and this
+// changes nothing.
+[HarmonyPatch(typeof(WaterFeatureHelper), "GetCurrentWaterDisplay")]
+public static class WaterLabelRemapPatch
+{
+    [HarmonyPriority(Priority.Last)]
+    private static void Postfix(ref string __result)
+    {
+        try
+        {
+            if (string.IsNullOrEmpty(__result) || VanillaTextRepair.StaleWaterLabels.Count == 0)
+            {
+                return;
+            }
+            int index;
+            bool found;
+            lock (VanillaTextRepair.StaleWaterLabels)
+            {
+                found = VanillaTextRepair.StaleWaterLabels.TryGetValue(__result, out index);
+            }
+            string[] labels = WaterFeatureHelper.WATER_DISPLAY;
+            if (found && labels != null && index < labels.Length && !string.IsNullOrEmpty(labels[index]))
+            {
+                __result = labels[index];
+            }
+        }
+        catch (Exception e)
+        {
+            Log.Error("mapping a stale water label failed", e);
+        }
     }
 }

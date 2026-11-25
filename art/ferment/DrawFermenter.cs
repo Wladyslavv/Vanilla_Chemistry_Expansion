@@ -4,8 +4,10 @@
 // Perspective, copied from the vanilla hydroponic machine: the viewer is slightly above the machine, so every
 // horizontal surface shows as a flattened ellipse and is lit a step brighter (A8AEA5) than the front faces.
 //   - the base's top surface is visible, like the hydroponic's water trough;
-//   - the rings around the tank (top flange, jacket bands, bottom flange) dip about 2 px in the middle, because
-//     we see the front half of each ring;
+//   - the rings around the tank (top flange, jacket bands, bottom flange) dip in the middle, because we see the
+//     front half of each ring: a round thing's top is an ellipse about 0.3 as tall as it is wide, as on the vanilla
+//     heating plate and blender (DIP; the separatory funnel uses the same TILT);
+//   - the top flange shows its lit top face as a crescent between the dome and its front edge;
 //   - the dome and the motor on top are drawn looking down on them.
 // Palette from the vanilla hydroponic and the mod's other machines; broth uses the lime/ochre family so it reads
 // as a culture rather than water.
@@ -39,6 +41,7 @@ public static class DrawFermenter
     // Tank body. Narrower than the base, so the base's top surface shows all round it like the hydroponic's trough.
     const int X0 = 11, X1 = 36;
     const double CX = (X0 + X1) / 2.0, A = (X1 - X0) / 2.0;
+    const double DIP = 4.0;                 // ~0.3 x the tank's half width
 
     class Canvas
     {
@@ -97,13 +100,14 @@ public static class DrawFermenter
         }
     }
 
-    // A ring around the tank: the front half of a horizontal band, dipping in the middle.
-    static void Ring(Canvas c, int y, int thickness, Color top, Color face, int widen)
+    // A ring around the tank: the front half of a horizontal band, dipping in the middle. With fillTop, the band's
+    // top face between its back edge (row y, hidden behind what is above) and its front edge is filled in as well.
+    static void Ring(Canvas c, int y, int thickness, Color top, Color face, int widen, bool fillTop = false)
     {
         for (int x = X0 - widen; x <= X1 + widen; x++)
         {
-            int dy = y + Dip(x, 2.0);
-            c.Put(x, dy, top);
+            int dy = y + Dip(x, DIP);
+            for (int k = fillTop ? y : dy; k <= dy; k++) c.Put(x, k, top);
             for (int k = 1; k < thickness; k++) c.Put(x, dy + k, face);
         }
     }
@@ -137,12 +141,12 @@ public static class DrawFermenter
         c.Rect(14, 10, 16, 11, M_DK); c.HLine(14, 16, 10, M_LT); c.Put(15, 9, RED); c.Put(14, 9, RED_DEEP);
         c.Rect(31, 10, 33, 11, M_DK); c.HLine(31, 33, 10, M_LT); c.Put(32, 9, T_LT); c.Put(31, 9, T_MD);
 
-        // ---- top flange ring ------------------------------------------------------------------------------------------
-        Ring(c, 16, 3, TOP, M_DK, 1);
-        for (int x = X0 + 1; x <= X1; x += 4) c.Put(x, 16 + Dip(x, 2.0), CREAM);   // bolts
+        // ---- cylinder body (down into the collar on the base, which covers its bottom) -------------------------------
+        for (int y = 17; y <= 52; y++) CylRow(c, y, X0, X1);
 
-        // ---- cylinder body --------------------------------------------------------------------------------------------
-        for (int y = 19; y <= 48; y++) CylRow(c, y, X0, X1);
+        // ---- top flange ring: its lit top face shows between the dome and its front edge -----------------------------
+        Ring(c, 16, 3, TOP, M_DK, 1, true);
+        for (int x = X0 + 1; x <= X1; x += 4) c.Put(x, 16 + Dip(x, DIP), CREAM);   // bolts on the front edge
 
         // Jacket bands: the front half of each ring dips in the middle, and is darker than the body so it reads.
         Ring(c, 24, 1, M_LT, M_DK, 0);
@@ -150,24 +154,37 @@ public static class DrawFermenter
         Ring(c, 42, 1, M_LT, M_DK, 0);
         Ring(c, 43, 2, M_DEEP, M_DK, 0);
 
-        // Sight glass: a tall window with the broth level inside.
-        c.Rect(19, 28, 28, 41, OUT);
-        c.Rect(20, 29, 27, 40, CAVITY);
+        // Sight glass: a window between the jacket bands, with the broth inside. Its top and bottom edges follow the
+        // tank's curve, and the broth's surface is an ellipse seen from above.
+        for (int x = 19; x <= 28; x++)
+        {
+            int d = Dip(x, DIP) - 3;   // the window is near the middle, where the curve is deepest: keep only the bow
+            for (int y = 31 + d; y <= 41 + d; y++)
+            {
+                bool rim = x == 19 || x == 28 || y == 31 + d || y == 41 + d;
+                c.Put(x, y, rim ? OUT : CAVITY);
+            }
+        }
         if (broth)
         {
-            c.Rect(20, 32, 27, 40, B_MD);
-            c.HLine(20, 27, 32, B_LT);
-            c.Rect(20, 38, 27, 40, B_DK);
-            c.VLine(20, 33, 39, B_LT);
-            int[,] bubbles = { { 24, 35 }, { 22, 38 }, { 26, 36 }, { 23, 30 }, { 25, 31 } };
+            for (int x = 20; x <= 27; x++)
+            {
+                int d = Dip(x, DIP) - 3;
+                for (int y = 33 + d; y <= 40 + d; y++)
+                {
+                    bool surface = y <= 34 + d;
+                    c.Put(x, y, surface ? B_LT : y >= 38 + d ? B_DK : x == 20 ? B_LT : B_MD);
+                }
+            }
+            int[,] bubbles = { { 24, 37 }, { 22, 39 }, { 26, 38 }, { 23, 33 }, { 25, 33 } };
             for (int i = 0; i < bubbles.GetLength(0); i++) c.Put(bubbles[i, 0], bubbles[i, 1], i < 3 ? B_LT : WARM);
         }
-        c.VLine(20, 29, 31, GLASS);   // glass glint above the broth line
+        c.VLine(20, 32, 33, GLASS);   // glass glint above the broth line
 
         // Agitator shaft and two impellers, seen through the glass.
-        c.VLine(23, 29, 40, broth ? B_DK : M_DK); c.VLine(24, 29, 40, broth ? B_DK : M_DEEP);
-        c.HLine(21, 26, 34, broth ? B_DK : M_DK);
-        c.HLine(21, 26, 39, broth ? B_DK : M_DK);
+        c.VLine(23, 32, 40, broth ? B_DK : M_DK); c.VLine(24, 32, 40, broth ? B_DK : M_DEEP);
+        c.HLine(21, 26, 36, broth ? B_DK : M_DK);
+        c.HLine(21, 26, 40, broth ? B_DK : M_DK);
 
         // Air line down the right side into the sparger.
         c.Rect(33, 20, 34, 47, M_DK); c.VLine(33, 20, 47, M_LT);
@@ -180,7 +197,7 @@ public static class DrawFermenter
         {
             for (int x = top[i, 0]; x <= top[i, 1]; x++)
             {
-                if (x >= X0 - 1 && x <= X1 + 1 && i < 2) continue;   // the tank still occupies the middle up here
+                if (x >= X0 - 1 && x <= X1 + 1 && top[i, 2] <= 47 + Dip(x, DIP) + 1) continue;   // behind the tank
                 c.Put(x, top[i, 2], TOP);
             }
         }

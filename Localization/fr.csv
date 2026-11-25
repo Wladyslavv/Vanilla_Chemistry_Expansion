@@ -41,8 +41,8 @@ liquid_ethyl_acetate,Acétate d'éthyle
 recipe_blended_wine,Vin coupé (750 mL)
 blended_wine_name,{0} coupé
 blended_wine_desc,"Vin coupé à partir d'alcool, d'eau et d'acétate d'éthyle, étiqueté honnêtement comme tel."
-setting_water_boil,Vitesse d'ébullition de l'eau (%)
-setting_water_boil_tooltip,"Vitesse à laquelle l'eau s'évapore au-dessus de 100 °C ; 100 correspond au jeu de base (2 % de l'eau du récipient par seconde, au moins 0,1 mL). N'affecte que l'ébullition, pas l'évaporateur ni les autres liquides."
+setting_water_boil,Vitesse d'ébullition des liquides (%)
+setting_water_boil_tooltip,"Vitesse à laquelle un liquide s'évapore quand le récipient dépasse son point d'ébullition ; 100 correspond au jeu de base (2 % de ce liquide par seconde, au moins 0,1 mL). S'applique à tous les liquides qui bouillent ; n'affecte que l'ébullition, pas l'évaporateur."
 label_genuine,Authentique
 label_blended,Coupé
 category_blended_wine,Qualité du vin
@@ -242,7 +242,7 @@ electrolyzer_name,Électrolyseur
 electrolyzer_desc,"Électrolyse la saumure en base, hydrogène et chlore ; avec un récipient à liquide en produit A, il électrolyse plutôt la graisse en toluène et hydrogène, et sans rien dans l'emplacement d'entrée, il produit du monoxyde d'azote à partir de l'air. Nécessite une batterie et fonctionne une fois par nuit."
 electrolyzer_manual_name,Notice de l'électrolyseur
 electrolyzer_manual_short,La notice fournie avec l'électrolyseur.
-electrolyzer_manual_flavor,"1. La batterie se place à gauche ; elle consomme 24 par nuit. 2. L'emplacement de saumure accepte un récipient contenant du sel et de l'eau. 3. Le produit A accepte une bouteille vide ou d'hydrogène, le produit B une bouteille vide ou de chlore. 4. Chaque nuit, il électrolyse 240 mL de sel : chaque mL de sel consomme 0,3 mL d'eau et donne 1 mL de base (laissée dans le récipient de saumure), 0,5 mL d'hydrogène et 0,5 mL de chlore. Il s'arrête faute de sel, d'eau, d'alimentation ou de place dans les bouteilles. 5. Accepte les modules universels : performance pour l'accélérer, efficacité pour économiser l'énergie, qualité pour modifier le rendement. 6. Avec un récipient à liquide en produit A, il électrolyse plutôt la graisse : 240 mL par nuit, chaque mL de graisse donnant 0,8 mL de toluène (dans le récipient du produit A) et 0,5 mL d'hydrogène (dans une bouteille vide ou d'hydrogène en produit B). 7. L'interrupteur en haut à droite du panneau d'entrée l'allume (bleu) ou l'éteint (rouge) ; il est éteint au départ et ne consomme rien quand il est éteint. 8. Allumé sans rien dans l'emplacement d'entrée, il produit du monoxyde d'azote à partir de l'air : 375 mL par nuit, dans une bouteille vide ou de monoxyde d'azote en produit A."
+electrolyzer_manual_flavor,"1. La batterie se place à gauche ; elle consomme 24 par nuit. 2. L'emplacement de saumure accepte un récipient contenant du sel et de l'eau. 3. Le produit A accepte une bouteille vide ou d'hydrogène, le produit B une bouteille vide ou de chlore. 4. Chaque nuit, il électrolyse 240 mL de sel : chaque mL de sel consomme 0,3 mL d'eau et donne 1 mL de base (laissée dans le récipient de saumure), 0,5 mL d'hydrogène et 0,5 mL de chlore. Il s'arrête faute de sel, d'eau, d'alimentation ou de place dans les bouteilles. 5. Accepte les modules universels : performance pour l'accélérer, efficacité pour économiser l'énergie, qualité pour modifier le rendement. 6. Avec un récipient à liquide en produit A, il électrolyse plutôt la graisse : 240 mL par nuit, chaque mL de graisse donnant 0,8 mL de toluène (dans le récipient du produit A) et 0,5 mL d'hydrogène (dans une bouteille vide ou d'hydrogène en produit B). 7. L'interrupteur en haut à droite du panneau d'entrée ne commande que le monoxyde d'azote ; il est éteint au départ, et l'électrolyse de la saumure et des lipides fonctionne dans tous les cas. 8. Interrupteur activé (bleu) et emplacement d'entrée vide, il produit du monoxyde d'azote à partir de l'air : 375 mL par nuit, dans une bouteille vide ou de monoxyde d'azote en produit A."
 electrolyzer_label_module,Modules
 electrolyzer_label_container,Entrée
 electrolyzer_label_products,Produits A / B
@@ -253,8 +253,12 @@ electrolyzer_lines_base,"Reste dans le récipient de saumure : 1 part de base"
 salt_ore_desc,"Sel gemme extrait d'un gisement souterrain : surtout du chlorure de sodium, avec un peu d'argile et d'autres minéraux."
 salt_order_small,"Je prends {0} blocs de sel gemme, livrés sous {1} jour."
 salt_order_large,"Je prends {0} blocs de sel gemme, livrés sous {1} jours."
+salt_phone_metal,Je voudrais commander du minerai de métal.
+salt_phone_salt,Je voudrais commander du sel gemme.
+salt_phone_how_many,Combien ?
+salt_phone_back,Revenons en arrière.
 electrolysis_notes_name,Notes d'électrolyse de la saumure
-electrolysis_1,"[[section:Étape 1 : Ingrédients]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Fixez un récipient à liquide au Mixeur\n- Ajoutez du Minerai de sel gemme\n- Mixez-le pour obtenir du chlorure de sodium (sel de table)"
+electrolysis_1,"[[section:Étape 1 : Ingrédients]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Fixez un récipient à liquide au Mixeur\n- Ajoutez du Minerai de sel gemme\n- Mixez-le pour obtenir du chlorure de sodium (sel de table)\n- Ajoutez de l'eau pure, au moins 0,3 fois le volume du sel"
 electrolysis_2,"[[section:Étape 2 : Électrolyse]]\n[[image:vanilla_chem_ext:icon_electrolyzer|w=24|h=24|gap=6|float=left]]\n- Prenez le récipient de l'étape précédente\n- Placez-le dans l'Électrolyseur\n- Vérifiez que l'Électrolyseur est alimenté par une Batterie\n- Attendez le lendemain, puis récupérez l'hydrogène et le chlore dans les deux bouteilles de gaz"
 electrolysis_3,"[[section:Étape 3 : Mélange des gaz]]\n- Faites glisser la bouteille d'hydrogène sur la bouteille de chlore (ou inversement) pour combiner les gaz ; ce qui ne rentre pas reste dans la bouteille d'origine"
 electrolysis_4,"[[section:Étape 4 : Production de chlorure d'hydrogène]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Prenez la bouteille de gaz mélangé de l'étape précédente\n- Posez-la sur la Plaque chauffante\n- Chauffez-la au-dessus de 120 °C : l'hydrogène et le chlore brûlent à 1:1 pour donner deux fois leur volume de chlorure d'hydrogène"
@@ -433,8 +437,8 @@ cartel_vendor_line_1,Le stock de la semaine.
 cartel_vendor_line_2,"Faites votre choix. Les prix sont fixes."
 liquid_toluene,Toluène
 electrolyzer_lines_fat,"Récipient de liquide en produit A : 1 part de graisse -> 0,8 part de toluène (A) + 0,5 part d'hydrogène (B)"
-electrolyzer_switch_on,"Activé. Cliquez pour désactiver"
-electrolyzer_switch_off,"Désactivé. Cliquez pour activer"
+electrolyzer_switch_on,"Monoxyde d'azote : activé. Cliquez pour désactiver"
+electrolyzer_switch_off,"Monoxyde d'azote : désactivé. Cliquez pour activer"
 gas_no,Monoxyde d'azote
 gas_canister_no_name,Bouteille de monoxyde d'azote
 gas_meoh,Vapeur de méthanol
@@ -478,7 +482,7 @@ explosives_1,"[[section:Étape 1 : Produire du monoxyde d'azote]]\n[[image:vanil
 explosives_2,[[section:Étape 2 : Produire de l'acide nitrique]]\n- Faites glisser la bouteille de monoxyde d'azote sur un récipient d'eau pour le dissoudre en acide nitrique\n- La dissolution continue jusqu'à ce que l'acide nitrique représente 40 % du liquide (500 mL d'eau absorbent au plus 333 mL d'acide nitrique) ; le reste du gaz demeure dans la bouteille
 explosives_3,"[[section:Étape 3 : Ingrédients]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Fixez un récipient de liquide au mixeur\n- Ajoutez des grains de café\n- Mixez-les pour obtenir de la bouillie de café, de la graisse et de la caféine"
 explosives_4,[[section:Étape 4 : Produire de la graisse]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Prenez le récipient de l'étape précédente\n- Posez-le sur la plaque chauffante\n- (Facultatif) Ajoutez de l'alcool et chauffez à 50 °C ou plus : la bouillie de café se transforme en caféine\n- Chauffez le mélange à 150 °C ou plus : la caféine se transforme en graisse\n[[gap:4]]\n[[text:Note : seule une plaque chauffante équipée de modules de chimie atteint 150 °C|color=#3D823F|align=center]]
-explosives_5,"[[section:Étape 5 : Produire du toluène]]\n[[image:vanilla_chem_ext:icon_electrolyzer|w=24|h=24|gap=6|float=left]]\n- Prenez le récipient de l'étape précédente\n- Placez-le dans l'emplacement d'alimentation de l'électrolyseur\n- Placez un récipient de liquide vide en produit A et une bouteille de gaz vide en produit B\n- Vérifiez que l'électrolyseur est alimenté par une batterie, puis activez l'interrupteur\n- Attendez le lendemain, puis récupérez le toluène dans le récipient en produit A\n[[gap:4]]\n[[text:Note : le toluène bout à 110,6 °C ; en chauffant trop, vous en perdez une partie|color=#853737]]"
+explosives_5,"[[section:Étape 5 : Produire du toluène]]\n[[image:vanilla_chem_ext:icon_electrolyzer|w=24|h=24|gap=6|float=left]]\n- Prenez le récipient de l'étape précédente\n- Placez-le dans l'emplacement d'alimentation de l'électrolyseur\n- Placez un récipient de liquide vide en produit A et une bouteille de gaz vide en produit B\n- Vérifiez que l'électrolyseur est alimenté par une batterie\n- Attendez le lendemain, puis récupérez le toluène dans le récipient en produit A\n[[gap:4]]\n[[text:Note : le toluène bout à 110,6 °C ; en chauffant trop, vous en perdez une partie|color=#853737]]"
 explosives_6,[[section:Étape 6 : Nitration]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Mélangez toluène et acide nitrique à 1:3 en volume\n- Ajoutez de l'acide à hauteur de 10 % du liquide total\n- Chauffez le mélange à 50 °C ou plus : le toluène et l'acide nitrique forment du trinitrotoluène\n[[gap:4]]\n[[text:Note : l'acide sert de catalyseur et n'est pas consommé|color=#3D823F|align=center]]
 explosives_7,"[[section:Étape 7 : Purification]]\n[[image:vanilla_chem_ext:evaporator_b|w=24|h=24|gap=6|float=left]]\n- Une fois la nitration terminée, ajoutez de la base pour neutraliser l'acide restant\n- Placez le récipient dans l'évaporateur\n- Vérifiez que l'évaporateur est alimenté par une batterie\n- Attendez le lendemain que l'évaporateur ait terminé\n[[gap:4]]\n[[text:Note : le toluène et l'acide nitrique n'ayant pas réagi abaissent la pureté ; respectez les proportions|color=#853737]]"
 explosives_8,"[[section:Étape 8 : Finition]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- (Obligatoire) Une fois toute l'eau évaporée, placez le récipient dans le poste de finition\n- Sélectionnez la recette Fagot de dynamite\n- Appuyez sur Sortie\n- (Facultatif) Vérifiez la pureté avec un spectromètre\n[[gap:8]]\n[[text:Note : chaque fagot de dynamite nécessite 250 mL de trinitrotoluène|color=#3D823F|align=center]]"
@@ -491,6 +495,32 @@ setting_filter_residue_tooltip,"Si activé, le koton tissé, le koton tissé ava
 setting_fabric_repair,Réparation nocturne du koton tissé avancé
 setting_fabric_repair_tooltip,"Durabilité regagnée chaque nuit par le koton tissé avancé : un nombre entier de 0 à 1000. 1000 par défaut, soit une réparation complète ; 0 signifie aucune ; les valeurs hors limites sont ramenées à la borne la plus proche."
 hplc_name,CLHP
+sep_funnel_name,Ampoule à décanter
+sep_funnel_desc,"Une ampoule à décanter en forme de poire sur un support, de 5 L. Elle sert de récipient ordinaire ; double-cliquez dessus pour séparer deux liquides non miscibles : la phase huileuse (lipides, toluène, acétate d'éthyle, ester de Lanterne) en haut, la phase aqueuse (eau, alcool, méthanol, acide acétique) en bas, vidée par le robinet."
+sep_funnel_label_phases,Phases
+sep_funnel_label_drain,Vidange
+sep_funnel_btn_drain,Vider
+sep_funnel_mode_before,Vider jusqu'à l'interface
+sep_funnel_mode_past,Vider au-delà de l'interface
+sep_funnel_hint_before,Sortie : phase aqueuse pure. Reste : huile et un peu d'eau
+sep_funnel_hint_past,Reste : huile pure. Sortie : eau et un peu d'huile
+sep_funnel_phase_oil,Phase huileuse (haut) : {0} mL
+sep_funnel_phase_aqueous,Phase aqueuse (bas) : {0} mL
+sep_funnel_phase_total,Total : {0} / {1} mL
+sep_funnel_phase_item,  · {0} : {1} mL
+sep_funnel_phase_none,  · (aucun)
+sep_funnel_solute_head,Solutés (huile / eau) :
+sep_funnel_solute_row,{0} : {1} / {2} mL
+sep_funnel_particle_row,"{0} : {1} mL (déposé, sort à la première vidange)"
+sep_funnel_solute_more,... et d'autres
+sep_funnel_solute_none,Aucun soluté
+sep_funnel_status_ready,Prête à vider
+sep_funnel_status_one_phase,Il faut une phase huileuse et une phase aqueuse pour séparer
+sep_funnel_status_no_receiver,Placez un récipient dans l'emplacement de réception
+sep_funnel_status_nothing,Rien à vider
+sep_funnel_status_full,Le récipient de réception est plein
+sep_funnel_status_drained,{0} mL vidés
+sep_funnel_status_receiver_full,"Le récipient s'est rempli, seule une partie a été vidée"
 hplc_desc,"Un instrument d'analyse qui sépare un mélange liquide selon la polarité. Du méthanol à 99 % ou plus se place à gauche comme phase mobile, l'échantillon filtré à côté ; ses solutés sont répartis selon leur polarité dans les quatre récipients de collecte à droite, les moins polaires en bas. Il consomme du méthanol en fonctionnant, d'autant plus que le soluté le plus polaire de l'échantillon est polaire."
 hplc_manual_name,Manuel CLHP
 hplc_manual_short,Notes d'utilisation du chromatographe et fabrication du méthanol.
@@ -524,3 +554,35 @@ hplc_status_slot_3,L'emplacement de collecte 3 n'a pas de récipient ou est plei
 hplc_status_slot_4,L'emplacement de collecte 4 n'a pas de récipient ou est plein
 setting_wine_genuine,Vin coupé étiqueté authentique par défaut
 setting_wine_genuine_tooltip,"Si activé, le vin coupé sortant du poste de finition est étiqueté authentique, ce qui évite de réétiqueter chaque bouteille. Il reste coupé : les risques d'une fausse étiquette sont les mêmes, et les ventes passées inaperçues s'accumulent en fraude."
+condenser_name,Condenseur
+condenser_desc,Une unité de condensation industrielle contenant jusqu'à 2 L de liquide de refroidissement. Glissez un récipient de liquide dessus pour le remplir ; l'eau pure est la plus efficace. Glissez-le sur une plaque chauffante et les deux deviennent un alambic.
+still_name,Alambic
+still_desc,"Une plaque chauffante équipée d'un condenseur. Quand le récipient sur la plaque bout, la vapeur va d'abord dans la chambre à vapeur du condenseur (1 L, premier entré premier sorti : pleine, elle laisse échapper la vapeur la plus ancienne), puis le mode choisi la condense dans le récipient de collecte. Glissez un récipient de liquide dessus pour ajouter du liquide de refroidissement ; double-cliquez pour y placer une batterie et un récipient de collecte et choisir le mode ; clic droit pour retirer le condenseur."
+still_label_battery,Batterie
+still_label_collect,Récipient de collecte
+still_label_modes,Mode de condensation
+still_mode_coil,Serpentin
+still_mode_evaporative,Évaporatif
+still_mode_closed,Circuit fermé
+still_mode_coil_desc,"Condense une fois par nuit : 1 mL pour 8 mL de liquide de refroidissement, sans le consommer."
+still_mode_evaporative_desc,"Condense progressivement : chaque seconde 5 % de la vapeur de la chambre (au moins 1 mL), en consommant 4 mL de liquide de refroidissement par mL."
+still_mode_closed_desc,"Condense progressivement : chaque seconde 5 % de la vapeur de la chambre (au moins 1 mL), 5 mL par kJ de batterie, sans consommer le liquide de refroidissement."
+still_switch_on,Activé (cliquez pour désactiver)
+still_switch_off,Désactivé (cliquez pour activer ; les autres modes se désactivent)
+still_info_vapour,Vapeur {0} / {1} mL
+still_info_coolant,"Refroidissement {0} / {1} mL, pureté de l'eau {2} %"
+still_info_coil,Peut condenser {0} mL cette nuit
+still_info_evaporative,Consomme {0} mL de liquide par mL
+still_info_closed,{0} mL par kJ
+still_info_off,Aucun mode actif : la vapeur est gardée sans être condensée
+still_status_idle,En attente de vapeur
+still_status_condensing,Condensation en cours
+still_status_no_receiver,Aucun récipient de collecte
+still_status_full,Le récipient de collecte est plein
+still_status_no_coolant,Aucun liquide de refroidissement utilisable
+still_status_low_coolant,Liquide de refroidissement insuffisant : condensation partielle
+still_status_no_power,La batterie est vide
+still_status_low_power,Énergie insuffisante : condensation partielle
+still_joined,Condenseur monté sur la plaque chauffante
+still_detached,Condenseur retiré
+still_detach,Retirer le condenseur

@@ -41,8 +41,8 @@ liquid_ethyl_acetate,Ethyl Acetate
 recipe_blended_wine,Blended Wine (750 mL)
 blended_wine_name,Blended {0}
 blended_wine_desc,"Wine blended from alcohol, water and ethyl acetate, honestly labelled as such."
-setting_water_boil,Water boiling speed (%)
-setting_water_boil_tooltip,"How fast water boils off above 100 C; 100 is vanilla (2% of the container's water per second, at least 0.1 mL). Only affects boiling, not the evaporator or other liquids."
+setting_water_boil,Liquid boiling speed (%)
+setting_water_boil_tooltip,"How fast a liquid boils off once the container is above its boiling point; 100 is vanilla (2% of that liquid per second, at least 0.1 mL). Applies to every liquid that boils; only affects boiling, not the evaporator."
 label_genuine,Genuine
 label_blended,Blended
 category_blended_wine,Wine Quality
@@ -242,7 +242,7 @@ electrolyzer_name,Electrolyzer
 electrolyzer_desc,"Electrolyses brine into base, hydrogen and chlorine; with a liquid container in product A it electrolyses fat into toluene and hydrogen instead, and with nothing in the feed slot it makes nitric oxide from air. Needs a battery and runs once a night."
 electrolyzer_manual_name,Electrolyzer Instructions
 electrolyzer_manual_short,The instructions that came with the electrolyzer.
-electrolyzer_manual_flavor,"1. A battery goes on the left; it draws 24 a night. 2. The brine slot takes a container of salt and water. 3. Product A takes an empty or hydrogen canister, product B an empty or chlorine one. 4. Each night it electrolyses 240 mL of salt: every mL of salt uses 0.3 mL of water and gives 1 mL of base (left in the brine container), 0.5 mL of hydrogen and 0.5 mL of chlorine. It stops without salt, water, power or canister room. 5. Takes universal modules: performance speeds it up, efficiency saves power, quality changes the yield. 6. With a liquid container in product A it electrolyses fat instead: 240 mL a night, every mL of fat giving 0.8 mL of toluene (into the container in product A) and 0.5 mL of hydrogen (into an empty or hydrogen canister in product B). 7. The switch at the top right of the feed panel turns it on (blue) or off (red) and starts off; it uses no power while off. 8. Switched on with nothing in the feed slot, it makes nitric oxide from air: 375 mL a night, into an empty or nitric oxide canister in product A."
+electrolyzer_manual_flavor,"1. A battery goes on the left; it draws 24 a night. 2. The brine slot takes a container of salt and water. 3. Product A takes an empty or hydrogen canister, product B an empty or chlorine one. 4. Each night it electrolyses 240 mL of salt: every mL of salt uses 0.3 mL of water and gives 1 mL of base (left in the brine container), 0.5 mL of hydrogen and 0.5 mL of chlorine. It stops without salt, water, power or canister room. 5. Takes universal modules: performance speeds it up, efficiency saves power, quality changes the yield. 6. With a liquid container in product A it electrolyses fat instead: 240 mL a night, every mL of fat giving 0.8 mL of toluene (into the container in product A) and 0.5 mL of hydrogen (into an empty or hydrogen canister in product B). 7. The switch at the top right of the feed panel only controls nitric oxide and starts off; brine and fat electrolysis run either way. 8. Switched on (blue) with nothing in the feed slot, it makes nitric oxide from air: 375 mL a night, into an empty or nitric oxide canister in product A."
 electrolyzer_label_module,Modules
 electrolyzer_label_container,Feed
 electrolyzer_label_products,Products A / B
@@ -253,8 +253,12 @@ electrolyzer_lines_base,"Stays in the brine container: 1 part base"
 salt_ore_desc,"Rock salt mined from an underground salt bed: mostly sodium chloride, with a little clay and other minerals."
 salt_order_small,"I'll take {0} chunks of rock salt, delivered in {1} day."
 salt_order_large,"I'll take {0} chunks of rock salt, delivered in {1} days."
+salt_phone_metal,I'd like to order metal ore.
+salt_phone_salt,I'd like to order rock salt.
+salt_phone_how_many,How much?
+salt_phone_back,Let's go back.
 electrolysis_notes_name,Brine Electrolysis Notes
-electrolysis_1,"[[section:Step 1: Ingredients]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Attach a liquid container to the Blender\n- Add some Rock Salt Ore\n- Blend it into sodium chloride (table salt)"
+electrolysis_1,"[[section:Step 1: Ingredients]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Attach a liquid container to the Blender\n- Add some Rock Salt Ore\n- Blend it into sodium chloride (table salt)\n- Add clean water, at least 0.3 times the volume of the salt"
 electrolysis_2,"[[section:Step 2: Electrolyse]]\n[[image:vanilla_chem_ext:icon_electrolyzer|w=24|h=24|gap=6|float=left]]\n- Take the container from the previous step\n- Put it in the Electrolyzer\n- Make sure the Electrolyzer has an Energy Cell for power\n- Wait until the next day, then collect the hydrogen and chlorine from the two gas canisters"
 electrolysis_3,"[[section:Step 3: Mix the gases]]\n- Drag the hydrogen canister onto the chlorine canister (or the other way round) to combine the gases; whatever does not fit stays in the canister it came from"
 electrolysis_4,"[[section:Step 4: Make hydrogen chloride]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Take the mixed gas canister from the previous step\n- Put it on the Heating Plate\n- Heat it above 120°C: hydrogen and chlorine burn 1:1 into twice the volume of hydrogen chloride"
@@ -433,8 +437,8 @@ cartel_vendor_line_1,This week's stock.
 cartel_vendor_line_2,"Take your pick. Prices are fixed."
 liquid_toluene,Toluene
 electrolyzer_lines_fat,"Liquid container in product A: 1 part fat -> 0.8 part toluene (A) + 0.5 part hydrogen (B)"
-electrolyzer_switch_on,"On. Click to switch off"
-electrolyzer_switch_off,"Off. Click to switch on"
+electrolyzer_switch_on,Nitric oxide: on. Click to switch off
+electrolyzer_switch_off,Nitric oxide: off. Click to switch on
 gas_no,Nitric oxide
 gas_canister_no_name,Nitric Oxide Canister
 gas_meoh,Methanol vapour
@@ -478,7 +482,7 @@ explosives_1,"[[section:Step 1: Make nitric oxide]]\n[[image:vanilla_chem_ext:ic
 explosives_2,[[section:Step 2: Make nitric acid]]\n- Drag the nitric oxide canister onto a container with water to dissolve it into nitric acid\n- It dissolves until nitric acid is 40% of the liquid (500 mL of water takes at most 333 mL of nitric acid); the rest of the gas stays in the canister
 explosives_3,"[[section:Step 3: Ingredients]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- Attach a liquid container to the Blender\n- Add some Coffee Beans\n- Blend them into coffee mush, fat and caffeine"
 explosives_4,[[section:Step 4: Make fat]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Take the container from the previous step\n- Put it on the Heating Plate\n- (Optional) Add alcohol and heat to 50°C or more: the coffee mush turns into caffeine\n- Heat the mix to 150°C or more: the caffeine turns into fat\n[[gap:4]]\n[[text:Note: only a Heating Plate with chemical modules reaches 150°C|color=#3D823F|align=center]]
-explosives_5,"[[section:Step 5: Make toluene]]\n[[image:vanilla_chem_ext:icon_electrolyzer|w=24|h=24|gap=6|float=left]]\n- Take the container from the previous step\n- Put it in the Electrolyzer's feed slot\n- Put an empty liquid container in product A and an Empty Gas Canister in product B\n- Make sure the Electrolyzer has an Energy Cell for power, and turn on the switch\n- Wait until the next day, then collect the toluene from the container in product A\n[[gap:4]]\n[[text:Note: toluene boils at 110.6°C; heating it too far loses some|color=#853737]]"
+explosives_5,"[[section:Step 5: Make toluene]]\n[[image:vanilla_chem_ext:icon_electrolyzer|w=24|h=24|gap=6|float=left]]\n- Take the container from the previous step\n- Put it in the Electrolyzer's feed slot\n- Put an empty liquid container in product A and an Empty Gas Canister in product B\n- Make sure the Electrolyzer has an Energy Cell for power\n- Wait until the next day, then collect the toluene from the container in product A\n[[gap:4]]\n[[text:Note: toluene boils at 110.6°C; heating it too far loses some|color=#853737]]"
 explosives_6,[[section:Step 6: Nitrate]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- Mix toluene and nitric acid 1:3 by volume\n- Add acid making up 10% of all the liquid\n- Heat the mix to 50°C or more: the toluene and nitric acid form trinitrotoluene\n[[gap:4]]\n[[text:Note: the acid is a catalyst and is not used up|color=#3D823F|align=center]]
 explosives_7,"[[section:Step 7: Purify]]\n[[image:vanilla_chem_ext:evaporator_b|w=24|h=24|gap=6|float=left]]\n- Once nitration is done, add base to neutralize the leftover acid\n- Put the container in the Evaporator\n- Make sure the Evaporator has an Energy Cell for power\n- Wait until the next day for the Evaporator to finish\n[[gap:4]]\n[[text:Note: unreacted toluene and nitric acid lower the purity; mix in the right proportions|color=#853737]]"
 explosives_8,"[[section:Step 8: Finish]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- (Required) Once all the water has evaporated, put the container in the Chem Finisher\n- Select the Bundle of Dynamite recipe\n- Press Output\n- (Optional) Check the purity with a Composition Spectrometer\n[[gap:8]]\n[[text:Note: each bundle of dynamite takes 250 mL of trinitrotoluene|color=#3D823F|align=center]]"
@@ -491,6 +495,32 @@ setting_filter_residue_tooltip,"When on, Kotton fabric, advanced Kotton fabric, 
 setting_fabric_repair,Advanced Kotton fabric nightly repair
 setting_fabric_repair_tooltip,"Durability the advanced Kotton fabric regains each night: a whole number from 0 to 1000. 1000 is the default, a full repair; 0 means none; values outside the range count as the nearest end."
 hplc_name,HPLC
+sep_funnel_name,Separatory Funnel
+sep_funnel_desc,"A pear-shaped separatory funnel on a retort stand, holding 5 L. Works as an ordinary liquid container; double-click it to split two liquids that do not mix: the oil phase (fat, toluene, ethyl acetate, Lantern Ester) on top, the aqueous phase (water, alcohol, methanol, acetic acid) below, drained through the stopcock."
+sep_funnel_label_phases,Phases
+sep_funnel_label_drain,Drain
+sep_funnel_btn_drain,Drain
+sep_funnel_mode_before,Drain up to the interface
+sep_funnel_mode_past,Drain past the interface
+sep_funnel_hint_before,"Out: pure aqueous. Kept: oil, a little aqueous"
+sep_funnel_hint_past,"Kept: pure oil. Out: aqueous, a little oil"
+sep_funnel_phase_oil,Oil phase (top): {0} mL
+sep_funnel_phase_aqueous,Aqueous phase (bottom): {0} mL
+sep_funnel_phase_total,Total: {0} / {1} mL
+sep_funnel_phase_item,  · {0}: {1} mL
+sep_funnel_phase_none,  · (none)
+sep_funnel_solute_head,Solutes (oil / aqueous):
+sep_funnel_solute_row,{0}: {1} / {2} mL
+sep_funnel_particle_row,"{0}: {1} mL (settled, leaves with the first drain)"
+sep_funnel_solute_more,...and more
+sep_funnel_solute_none,No solutes
+sep_funnel_status_ready,Ready to drain
+sep_funnel_status_one_phase,Both an oil and an aqueous phase are needed to separate
+sep_funnel_status_no_receiver,Put a liquid container in the receiver slot
+sep_funnel_status_nothing,Nothing to drain
+sep_funnel_status_full,The receiver is full
+sep_funnel_status_drained,Drained {0} mL
+sep_funnel_status_receiver_full,"The receiver filled up, so only part was drained"
 hplc_desc,"An analytical instrument that splits a liquid mixture by polarity. Methanol of 99% or better goes on the left as the mobile phase, the filtered sample beside it; its solutes are split by polarity into the four collection containers on the right, least polar at the bottom. It uses up methanol as it runs: the more polar the sample's most polar solute, the more."
 hplc_manual_name,HPLC Manual
 hplc_manual_short,Operating notes for the chromatograph and how to make methanol.
@@ -524,3 +554,35 @@ hplc_status_slot_3,Collection slot 3 has no container or is full
 hplc_status_slot_4,Collection slot 4 has no container or is full
 setting_wine_genuine,Blended wine labelled genuine by default
 setting_wine_genuine_tooltip,"When on, blended wine from the Chem Finisher comes out labelled genuine, so you do not have to relabel every bottle. It is still blended: the risks of a fake label stay the same, and sales that go unnoticed add up to fraud."
+condenser_name,Condenser
+condenser_desc,An industrial condensing unit holding up to 2 L of coolant. Drag a liquid container onto it to pour in coolant; pure water works best. Drag it onto a Heating Plate and the two become a still.
+still_name,Still
+still_desc,"A Heating Plate with a condenser fitted. When the container on the plate boils, the vapour first goes into the condenser's vapour chamber (1 L, first in first out: when it is full the oldest vapour escapes), then the chosen mode condenses it into the collecting container. Drag a liquid container onto it to add coolant; double-click it to put in a battery and a collecting container and choose the mode; right-click to take the condenser off."
+still_label_battery,Battery
+still_label_collect,Collecting container
+still_label_modes,Condensing mode
+still_mode_coil,Coil
+still_mode_evaporative,Evaporative
+still_mode_closed,Closed loop
+still_mode_coil_desc,Condenses once a night: 1 mL for every 8 mL of coolant. The coolant is not used up.
+still_mode_evaporative_desc,"Condenses steadily: each second 5% of the vapour in the chamber (at least 1 mL), using up 4 mL of coolant per mL."
+still_mode_closed_desc,"Condenses steadily: each second 5% of the vapour in the chamber (at least 1 mL), 5 mL per kJ of battery power. The coolant is not used up."
+still_switch_on,On (click to switch off)
+still_switch_off,Off (click to switch on; the other modes switch off)
+still_info_vapour,Vapour {0} / {1} mL
+still_info_coolant,"Coolant {0} / {1} mL, water purity {2}%"
+still_info_coil,Can condense {0} mL tonight
+still_info_evaporative,Uses {0} mL of coolant per mL
+still_info_closed,{0} mL per kJ
+still_info_off,"No mode on: vapour is kept, not condensed"
+still_status_idle,Waiting for vapour
+still_status_condensing,Condensing
+still_status_no_receiver,No collecting container
+still_status_full,The collecting container is full
+still_status_no_coolant,No usable coolant
+still_status_low_coolant,Not enough coolant: only part condensed
+still_status_no_power,The battery is empty
+still_status_low_power,Not enough power: only part condensed
+still_joined,Condenser fitted to the Heating Plate
+still_detached,Condenser taken off
+still_detach,Take off condenser

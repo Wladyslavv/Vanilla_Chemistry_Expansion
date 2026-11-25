@@ -1,5 +1,6 @@
 // Mod settings (mod list -> this mod -> settings). Written for C# 5 (see DreamToxinMod.cs).
 using System;
+using System.Collections.Generic;
 using HarmonyLib;
 
 public static class IaSettings
@@ -69,8 +70,9 @@ public static class IaSettings
         get { return fridgeCoolPercent != null ? fridgeCoolPercent.Value : 100; }
     }
 
-    // Speed of vanilla water boiling (above 100 C), as a percentage of vanilla.
-    public static int WaterBoilPercent
+    // Speed of vanilla boiling (every evaporative liquid above its boiling point), as a percentage of vanilla. The config
+    // key is still "water_boil_percent" (up to 1.10 it only scaled water), so a saved setting carries over.
+    public static int BoilPercent
     {
         get { return waterBoilPercent != null ? waterBoilPercent.Value : 100; }
     }
@@ -119,28 +121,51 @@ public static class FridgeCoolSpeedPatch
 }
 
 // Vanilla boiling removes 2% (at least 0.1 mL) of each liquid above its boiling point per tick. Scale the
-// amount of water it removed by the setting; other liquids keep the vanilla speed.
+// amount it removed of every liquid by the setting.
 [HarmonyPatch(typeof(ChemicalHelper), "HandleBoilingReaction")]
-public static class WaterBoilSpeedPatch
+public static class BoilSpeedPatch
 {
-    private static void Prefix(GameItem container, out int __state)
+    private static void Prefix(GameItem container, out Dictionary<string, int> __state)
     {
-        __state = container != null ? IaLiquids.Get(container, "water") : 0;
+        __state = null;
+        if (container == null || IaSettings.BoilPercent == 100)
+        {
+            return;
+        }
+        foreach (Liquid liquid in Liquid.Liquids)
+        {
+            if (!liquid.isEvaporative)
+            {
+                continue;
+            }
+            int amount = IaLiquids.Get(container, liquid.identifier);
+            if (amount > 0)
+            {
+                if (__state == null)
+                {
+                    __state = new Dictionary<string, int>();
+                }
+                __state[liquid.identifier] = amount;
+            }
+        }
     }
 
-    private static void Postfix(GameItem container, int __state)
+    private static void Postfix(GameItem container, Dictionary<string, int> __state)
     {
-        int percent = IaSettings.WaterBoilPercent;
-        if (container == null || percent == 100 || __state <= 0)
+        int percent = IaSettings.BoilPercent;
+        if (container == null || percent == 100 || __state == null)
         {
             return;
         }
-        int removed = __state - IaLiquids.Get(container, "water");
-        if (removed <= 0)
+        foreach (KeyValuePair<string, int> entry in __state)
         {
-            return;
+            int removed = entry.Value - IaLiquids.Get(container, entry.Key);
+            if (removed <= 0)
+            {
+                continue;
+            }
+            int scaled = (int)Math.Min((long)entry.Value, (long)removed * percent / 100);
+            IaLiquids.Set(container, entry.Key, entry.Value - scaled);
         }
-        int scaled = (int)Math.Min((long)__state, (long)removed * percent / 100);
-        IaLiquids.Set(container, "water", __state - scaled);
     }
 }

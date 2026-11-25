@@ -9,8 +9,9 @@
 //   1 mL fat -> 0.8 mL toluene (into the container in product A) + 0.5 mL hydrogen (into the canister in product B)
 // 240 mL of fat a night x performance, products x quality, as above. Product B then takes empty, chlorine or
 // hydrogen canisters (a canister holding the other gas stops the run). With nothing in the feed slot at all, it makes
-// 375 mL of nitric oxide a night from air into an empty or nitric oxide canister in product A. It only runs while the
-// switch in the feed panel is on (off by default). Written for C# 5 (see DreamToxinMod.cs).
+// 375 mL of nitric oxide a night from air into an empty or nitric oxide canister in product A, but only while the
+// switch in the feed panel is on (off by default); brine and fat electrolysis ignore the switch (it gated every run in
+// 1.9.0 - 1.10.1, which stopped every electrolyzer until switched on). Written for C# 5 (see DreamToxinMod.cs).
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -56,8 +57,8 @@ public static class Electrolyzer
         public bool SwitchShowsOff;
     }
 
-    // The on/off switch in the feed panel's header (blue = on, red = off). Set while the machine is switched on, so
-    // every machine starts switched off; machine tags come back with a save, so the switch keeps its position.
+    // The nitric oxide switch in the feed panel's header (blue = on, red = off). Set while it is switched on, so every
+    // machine starts switched off; machine tags come back with a save, so the switch keeps its position.
     public const string ON_TAG = "VCE_ELECTROLYZER_ON_TAG";
     public const string SWITCH_SPRITE = "vce_electrolyzer_switch";
     public const int SWITCH_WIDTH = 18;
@@ -473,14 +474,17 @@ public static class Electrolyzer
     public static void RunCycle(GameItem machine)
     {
         Slots s = SlotsOf(machine);
-        if (s == null || s.Battery.childItem == null || IsOff(machine))
+        if (s == null || s.Battery.childItem == null)
         {
             return;
         }
-        // Nothing in the feed slot: nitric oxide from air.
+        // Nothing in the feed slot: nitric oxide from air, only while the switch is on (an idle machine stays idle).
         if (s.Container.childItem == null)
         {
-            RunNoCycle(machine, s);
+            if (!IsOff(machine))
+            {
+                RunNoCycle(machine, s);
+            }
             return;
         }
         // A liquid container in product A switches the machine to fat electrolysis.

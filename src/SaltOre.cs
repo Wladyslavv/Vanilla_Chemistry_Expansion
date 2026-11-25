@@ -1,5 +1,5 @@
 // Rock salt ore, the raw material for the planned brine electrolysis line. It is ordered from GP Mining like the
-// vanilla metal ore: two extra entries on Caulson's phone menu (6 ores in 1 day, or 12 in 2 days once 350 has been
+// vanilla metal ore: extra entries on Caulson's phone menu (6 ores in 1 day, or 12 in 2 days once 350 has been
 // spent with GP Mining), delivered by the same courier at the same wholesale price, sharing the 5-day cooldown.
 // Salt is softer than metal ore: any blender crushes it (with vanilla's content loss for missing chem modules),
 // giving mostly salt plus a little clay (physical contaminant) and mineral. Written for C# 5 (see DreamToxinMod.cs).
@@ -117,10 +117,17 @@ public static class SaltOre
     }
 }
 
-// Caulson's menu: our two orders go after vanilla's, before "end call".
+// Caulson's menu. The phone has only PHONE_CHOICES answer bubbles (no vanilla phone menu uses more), and it fills
+// them by index without a bounds check, so a longer menu shows the first three and drops the rest, "end call"
+// included. While the salt orders fit, they go after vanilla's ore orders, before "end call":
+//   6 ores | 6 salt ores | end call                                       (under 350 spent with GP Mining)
+// Once the 12-unit orders unlock they no longer fit, and the menu splits in two levels:
+//   Metal ore... | Rock salt... | end call   ->   6 | 12 | back   (vanilla's own ore orders, or ours for salt)
 [HarmonyPatch(typeof(PhoneDialogList), "MiningRegular")]
 public static class SaltOrderPhonePatch
 {
+    public const int PHONE_CHOICES = 3;
+
     private static void Postfix(Dialogue __result)
     {
         try
@@ -137,12 +144,44 @@ public static class SaltOrderPhonePatch
                 return;
             }
             StorePhoneClient mining = StorePhoneClient.GetMiningPhoneClient();
-            int insertAt = menu.choices.Count - 1;
-            AddOrder(menu, insertAt++, SaltOre.STOCK_SMALL, "salt_order_small", SaltOre.SMALL_QUANTITY, SaltOre.SMALL_DAYS);
-            if (mining != null && mining.amountSpent >= SaltOre.LARGE_UNLOCK_SPENT)
+            bool large = mining != null && mining.amountSpent >= SaltOre.LARGE_UNLOCK_SPENT;
+            int saltOrders = large ? 2 : 1;
+            int oreOrders = menu.choices.Count - 1;   // vanilla's orders; the last choice is "end call"
+
+            if (oreOrders + saltOrders + 1 <= PHONE_CHOICES)
             {
-                AddOrder(menu, insertAt, SaltOre.STOCK_LARGE, "salt_order_large", SaltOre.LARGE_QUANTITY, SaltOre.LARGE_DAYS);
+                int insertAt = oreOrders;
+                AddOrder(menu, SaltOre.STOCK_SMALL, "salt_order_small", SaltOre.SMALL_QUANTITY, SaltOre.SMALL_DAYS);
+                MoveLast(menu, insertAt++);
+                if (large)
+                {
+                    AddOrder(menu, SaltOre.STOCK_LARGE, "salt_order_large", SaltOre.LARGE_QUANTITY, SaltOre.LARGE_DAYS);
+                    MoveLast(menu, insertAt);
+                }
+                return;
             }
+
+            // Two levels: vanilla's ore orders move into a submenu as they are, ours get their own.
+            var quit = menu.choices[menu.choices.Count - 1];
+            var ore = menu.choices.GetRange(0, oreOrders);
+            Dialogue oreList;
+            Dialogue orePick = Submenu(menu, "salt_phone_metal", out oreList);
+            oreList.choices.AddRange(ore);
+            AddBack(oreList, menu);
+
+            Dialogue saltList;
+            Dialogue saltPick = Submenu(menu, "salt_phone_salt", out saltList);
+            AddOrder(saltList, SaltOre.STOCK_SMALL, "salt_order_small", SaltOre.SMALL_QUANTITY, SaltOre.SMALL_DAYS);
+            if (large)
+            {
+                AddOrder(saltList, SaltOre.STOCK_LARGE, "salt_order_large", SaltOre.LARGE_QUANTITY, SaltOre.LARGE_DAYS);
+            }
+            AddBack(saltList, menu);
+
+            menu.choices.Clear();
+            menu.AddChoice(DirectoryMaster.Item("$", true), "", "", orePick, null);
+            menu.AddChoice(DirectoryMaster.Item("$", true), "", "", saltPick, null);
+            menu.choices.Add(quit);
         }
         catch (Exception e)
         {
@@ -150,8 +189,36 @@ public static class SaltOrderPhonePatch
         }
     }
 
+    // The player's pick ("Metal ore..."), leading to Caulson's "How many?" with the orders as its choices.
+    private static Dialogue Submenu(Dialogue menu, string pickKey, out Dialogue list)
+    {
+        Dialogue pick = new Dialogue();
+        pick.SetText("PLAYER", Text.Get(pickKey));
+        list = pick.NextDialogue();
+        list.SetText(LocHelper.GetLocalizedName("name_caulson"), Text.Get("salt_phone_how_many"));
+        return pick;
+    }
+
+    // "Back": the player's line, then the main menu again.
+    private static void AddBack(Dialogue list, Dialogue menu)
+    {
+        Dialogue back = new Dialogue();
+        back.SetText("PLAYER", Text.Get("salt_phone_back"));
+        back.SetNextDialogue(menu);
+        list.AddChoice(DirectoryMaster.Item("$", true), "", "", back, null);
+    }
+
+    // AddChoice appends; move the last choice to `index`.
+    private static void MoveLast(Dialogue menu, int index)
+    {
+        int last = menu.choices.Count - 1;
+        var choice = menu.choices[last];
+        menu.choices.RemoveAt(last);
+        menu.choices.Insert(Math.Max(0, Math.Min(index, menu.choices.Count)), choice);
+    }
+
     // Same shape as vanilla's orders: the player's line, then Caulson's "ready", which ends the call.
-    private static void AddOrder(Dialogue menu, int index, int stockType, string textKey, int quantity, int days)
+    private static void AddOrder(Dialogue menu, int stockType, string textKey, int quantity, int days)
     {
         string caulson = LocHelper.GetLocalizedName("name_caulson");
         Dialogue order = new Dialogue();
@@ -168,11 +235,6 @@ public static class SaltOrderPhonePatch
                 PhoneUIManager.Instance.OnPhoneDialogEnd();
             });
         });
-        // AddChoice appends; move it in front of "end call".
-        int last = menu.choices.Count - 1;
-        var choice = menu.choices[last];
-        menu.choices.RemoveAt(last);
-        menu.choices.Insert(Math.Max(0, Math.Min(index, menu.choices.Count)), choice);
     }
 }
 

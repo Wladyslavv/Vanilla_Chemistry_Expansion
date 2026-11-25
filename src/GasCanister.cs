@@ -684,6 +684,60 @@ public static class HeatingPlateCanisterPatch
     }
 }
 
+// The fridge takes a canister in either zone (vanilla only lets in liquid containers, drinks and ice cream).
+[HarmonyPatch(typeof(MachineFridge), "MayZoneAcceptItem")]
+public static class CanisterFridgeAcceptPatch
+{
+    private static void Postfix(GameItem item, ref bool __result)
+    {
+        try
+        {
+            if (!__result && GasCanister.IsCanister(item) && GeneralHelper.IsItemOwned(item))
+            {
+                __result = true;
+            }
+        }
+        catch (Exception e)
+        {
+            Log.Error("letting a gas canister into the fridge failed", e);
+        }
+    }
+}
+
+// A powered fridge cools canisters like liquid containers: towards 3 C at 0.5 C a second in the chill zone, -18 C at
+// 1 C a second in the freezer. Vanilla only runs this while the fridge has power.
+[HarmonyPatch(typeof(MachineFridge), "CoolZoneContainers")]
+public static class CanisterFridgeCoolPatch
+{
+    private static void Postfix(GameGridInventory zone, double targetTemp, double degreesPerSecond)
+    {
+        try
+        {
+            if (zone == null)
+            {
+                return;
+            }
+            foreach (GameItem item in zone.childItems)
+            {
+                if (!GasCanister.IsCanister(item))
+                {
+                    continue;
+                }
+                double temp = GasCanister.TempOf(item);
+                double next = temp > targetTemp ? Math.Max(temp - degreesPerSecond, targetTemp) : Math.Min(temp + degreesPerSecond, targetTemp);
+                if (next != temp)
+                {
+                    GasCanister.SetTemp(item, next);
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Log.Error("cooling a gas canister in the fridge failed", e);
+        }
+    }
+}
+
 // The right-click toggle button reads "Vent" on a canister.
 [HarmonyPatch(typeof(ItemContextHandler), "SetButtonColor")]
 public static class CanisterVentLabelPatch

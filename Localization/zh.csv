@@ -41,8 +41,8 @@ liquid_ethyl_acetate,乙酸乙酯
 recipe_blended_wine,勾兑葡萄酒（750 毫升）
 blended_wine_name,勾兑{0}
 blended_wine_desc,用酒精、水和乙酸乙酯勾兑的葡萄酒，标签如实注明。
-setting_water_boil,水的沸腾速度（%）
-setting_water_boil_tooltip,容器温度高于 100°C 时水蒸发的速度，100 为原版（每秒蒸发容器中水量的 2%，至少 0.1 毫升）。只影响加热沸腾，不影响蒸发器，也不影响其他液体。
+setting_water_boil,液体沸腾速度（%）
+setting_water_boil_tooltip,容器温度高于某种液体的沸点时，这种液体蒸发的速度，100 为原版（每秒蒸发该液体存量的 2%，至少 0.1 毫升）。对所有会沸腾的液体都生效；只影响加热沸腾，不影响蒸发器。
 label_genuine,纯酿
 label_blended,勾兑
 category_blended_wine,葡萄酒品质
@@ -242,7 +242,7 @@ electrolyzer_name,电解机
 electrolyzer_desc,电解食盐水，产出碱、氢气和氯气；产物 A 放液体容器时改为电解油脂，产出甲苯和氢气；原料栏空着时从空气里产出一氧化氮。需要电池组，每晚运行一次。
 electrolyzer_manual_name,电解机使用说明
 electrolyzer_manual_short,电解机附带的使用说明。
-electrolyzer_manual_flavor,1. 左边装电池组，每晚耗电 24。2. 盐水槽放装着食盐和水的容器。3. 产物 A 放空罐或氢气罐，产物 B 放空罐或氯气罐。4. 每晚电解 240 毫升食盐：每 1 毫升食盐耗 0.3 毫升水，生成 1 毫升碱（留在盐水容器里）、0.5 毫升氢气和 0.5 毫升氯气。缺盐、缺水、没电或气罐装满时停机。5. 可装通用模组：性能加快电解，效率省电，质量增减产物。6. 产物 A 放液体容器时改为电解油脂：每晚 240 毫升，每 1 毫升油脂生成 0.8 毫升甲苯（流进产物 A 的容器）和 0.5 毫升氢气（进产物 B 的空罐或氢气罐）。7. 原料栏右上角是开关，默认关闭：蓝色运行，红色停机，停机时不耗电。8. 开着开关、原料栏什么都不放时，机器从空气里产出一氧化氮：每晚 375 毫升，进产物 A 的空罐或一氧化氮罐。
+electrolyzer_manual_flavor,1. 左边装电池组，每晚耗电 24。2. 盐水槽放装着食盐和水的容器。3. 产物 A 放空罐或氢气罐，产物 B 放空罐或氯气罐。4. 每晚电解 240 毫升食盐：每 1 毫升食盐耗 0.3 毫升水，生成 1 毫升碱（留在盐水容器里）、0.5 毫升氢气和 0.5 毫升氯气。缺盐、缺水、没电或气罐装满时停机。5. 可装通用模组：性能加快电解，效率省电，质量增减产物。6. 产物 A 放液体容器时改为电解油脂：每晚 240 毫升，每 1 毫升油脂生成 0.8 毫升甲苯（流进产物 A 的容器）和 0.5 毫升氢气（进产物 B 的空罐或氢气罐）。7. 原料栏右上角是一氧化氮开关，默认关闭，只在原料栏为空时起作用；电解盐水和油脂不受它影响。8. 开关打开（蓝色）、原料栏什么都不放时，机器从空气里产出一氧化氮：每晚 375 毫升，进产物 A 的空罐或一氧化氮罐。
 electrolyzer_label_module,模组
 electrolyzer_label_container,原料
 electrolyzer_label_products,产物 A / B
@@ -253,8 +253,12 @@ electrolyzer_lines_base,留在盐水容器里：1 份碱
 salt_ore_desc,从地下盐层开采的岩盐，主要成分是氯化钠，夹杂少量泥土和其他矿物。
 salt_order_small,订购 {0} 份盐矿石，{1} 天后送达
 salt_order_large,订购 {0} 份盐矿石，{1} 天后送达
+salt_phone_metal,我要订金属矿石。
+salt_phone_salt,我要订盐矿。
+salt_phone_how_many,要多少？
+salt_phone_back,先回到上一步。
 electrolysis_notes_name,电解食盐水笔记
-electrolysis_1,"[[section:第1步：原料准备]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- 将液体容器接到搅拌机上\n- 加入若干盐矿石\n- 搅拌原料，制成氯化钠（即食盐）"
+electrolysis_1,"[[section:第1步：原料准备]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- 将液体容器接到搅拌机上\n- 加入若干盐矿石\n- 搅拌原料，制成氯化钠（即食盐）\n- 加入净水，水的体积至少为食盐的 0.3 倍"
 electrolysis_2,"[[section:第2步：电解]]\n[[image:vanilla_chem_ext:icon_electrolyzer|w=24|h=24|gap=6|float=left]]\n- 取下上一步使用的容器\n- 将其放入电解机\n- 确保电解机装有能量电池供电\n- 等到第二天，从两侧的气罐中收集氢气和氯气"
 electrolysis_3,"[[section:第3步：混气]]\n- 移动氢气罐到氯气罐上（或反过来），合并气体，多余的气体会保留在原罐里"
 electrolysis_4,"[[section:第4步：制备氯化氢]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- 取下上一步使用的混合气罐\n- 将其放入加热板\n- 加热至 120°C 以上，氢气和氯气将按 1:1 燃烧成两倍体积的氯化氢"
@@ -433,8 +437,8 @@ cartel_vendor_line_1,这周的货。
 cartel_vendor_line_2,要什么自己挑，价钱不还。
 liquid_toluene,甲苯
 electrolyzer_lines_fat,产物 A 放液体容器时：1 份油脂 → 0.8 份甲苯（A）+ 0.5 份氢气（B）
-electrolyzer_switch_on,运行中，点击停机
-electrolyzer_switch_off,已停机，点击运行
+electrolyzer_switch_on,一氧化氮：开。点击关闭
+electrolyzer_switch_off,一氧化氮：关。点击打开
 gas_no,一氧化氮
 gas_canister_no_name,一氧化氮罐
 gas_meoh,甲醇蒸气
@@ -478,7 +482,7 @@ explosives_1,[[section:第1步：制备一氧化氮]]\n[[image:vanilla_chem_ext:
 explosives_2,[[section:第2步：制备硝酸]]\n- 移动一氧化氮罐到盛有水的容器上，可溶解生成硝酸\n- 最多可溶解使硝酸占液体总量的 40%（即 500 毫升水最多溶 333 毫升硝酸），多余的气体会保留在原罐里
 explosives_3,[[section:第3步：原料准备]]\n[[image:vanilla_chem_ext:blender_b|w=24|h=24|gap=6|float=left]]\n- 将液体容器接到搅拌机上\n- 加入若干咖啡豆\n- 搅拌原料，制成咖啡渣、油脂和咖啡因
 explosives_4,[[section:第4步：制备油脂]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- 取下上一步使用的容器\n- 将其放入加热板\n- （可选）加入酒精并加热至 50°C 以上，使咖啡渣转化成咖啡因\n- 将混合物加热至 150°C 以上，使咖啡因转化成油脂\n[[gap:4]]\n[[text:提示：装有化学设备模组的加热板方可升温至 150°C|color=#3D823F|align=center]]
-explosives_5,[[section:第5步：制备甲苯]]\n[[image:vanilla_chem_ext:icon_electrolyzer|w=24|h=24|gap=6|float=left]]\n- 取下上一步使用的容器\n- 将其放入电解机的原料栏\n- 在产物 A 放入一个空的液体容器，在产物 B 放入一个空气罐\n- 确保电解机装有能量电池供电，并打开开关\n- 等到第二天，从产物 A 的容器中收集甲苯\n[[gap:4]]\n[[text:注意：甲苯的沸点是 110.6°C，温度过高会产生损耗|color=#853737]]
+explosives_5,[[section:第5步：制备甲苯]]\n[[image:vanilla_chem_ext:icon_electrolyzer|w=24|h=24|gap=6|float=left]]\n- 取下上一步使用的容器\n- 将其放入电解机的原料栏\n- 在产物 A 放入一个空的液体容器，在产物 B 放入一个空气罐\n- 确保电解机装有能量电池供电\n- 等到第二天，从产物 A 的容器中收集甲苯\n[[gap:4]]\n[[text:注意：甲苯的沸点是 110.6°C，温度过高会产生损耗|color=#853737]]
 explosives_6,[[section:第6步：硝化]]\n[[image:vanilla_chem_ext:heating_plate_b|w=24|h=24|gap=6|float=left]]\n- 将甲苯与硝酸按 1:3 的体积混合\n- 加入相当于溶液总体积 10% 的酸\n- 将混合物加热至 50°C 以上，使甲苯和硝酸生成三硝基甲苯\n[[gap:4]]\n[[text:提示：酸在反应中起催化作用，不会被消耗|color=#3D823F|align=center]]
 explosives_7,[[section:第7步：提纯]]\n[[image:vanilla_chem_ext:evaporator_b|w=24|h=24|gap=6|float=left]]\n- 等硝化完成后再加入碱液中和，除去剩余的酸\n- 将容器放入蒸发器\n- 确保蒸发器装有能量电池供电\n- 等到第二天，让蒸发器完成处理\n[[gap:4]]\n[[text:注意：未反应完的甲苯和硝酸会降低纯度，请按比例配料|color=#853737]]
 explosives_8,[[section:第8步：成型封装]]\n[[image:vanilla_chem_ext:chem_finisher_b|w=24|h=24|gap=6|float=left]]\n- （必需）待水全部蒸发后，将容器放入化学制剂成型机\n- 选择“一捆炸药”配方\n- 按下“输出”按钮\n- （可选）使用成分光谱仪检查纯度\n[[gap:8]]\n[[text:注意：每捆炸药需要 250 毫升三硝基甲苯|color=#3D823F|align=center]]
@@ -491,6 +495,32 @@ setting_filter_residue_tooltip,开启时，韧棉织物、高级韧棉织物、�
 setting_fabric_repair,高级韧棉织物每晚恢复耐久
 setting_fabric_repair_tooltip,高级韧棉织物每晚恢复的耐久度，填 0–1000 之间的整数。1000 为默认，即每晚完全恢复；0 为不恢复；超出范围按最近的边界算。
 hplc_name,高效液相色谱仪
+sep_funnel_name,分液漏斗
+sep_funnel_desc,"装在铁架台上的梨形分液漏斗，容量 5 升。能当普通液体容器用；双击打开，可以把不相溶的两层液体分开：油相（油脂、甲苯、乙酸乙酯、辣酯）在上，水相（水、酒精、甲醇、乙酸）在下，从活塞放出。"
+sep_funnel_label_phases,两相
+sep_funnel_label_drain,放液
+sep_funnel_btn_drain,放液
+sep_funnel_mode_before,放出液体直到分液界面前
+sep_funnel_mode_past,放出液体直到分液界面后
+sep_funnel_hint_before,流出纯水相，漏斗留下油相和少量水相
+sep_funnel_hint_past,漏斗只留纯油相，水相带着少量油相流出
+sep_funnel_phase_oil,油相（上层）：{0} 毫升
+sep_funnel_phase_aqueous,水相（下层）：{0} 毫升
+sep_funnel_phase_total,合计：{0} / {1} 毫升
+sep_funnel_phase_item,  · {0}：{1} 毫升
+sep_funnel_phase_none,  · （无）
+sep_funnel_solute_head,溶质（油相 / 水相）：
+sep_funnel_solute_row,{0}：{1} / {2} 毫升
+sep_funnel_particle_row,{0}：{1} 毫升（沉底，随第一次放液流出）
+sep_funnel_solute_more,……还有更多
+sep_funnel_solute_none,没有溶质
+sep_funnel_status_ready,可以放液
+sep_funnel_status_one_phase,需要油相和水相同时存在才能分层
+sep_funnel_status_no_receiver,在接液槽放一个液体容器
+sep_funnel_status_nothing,没有可以放出的液体
+sep_funnel_status_full,接液容器已满
+sep_funnel_status_drained,放出了 {0} 毫升
+sep_funnel_status_receiver_full,接液容器装满，只放出了一部分
 hplc_desc,按极性把混合液分成几份的分析仪器。左边放 99% 以上的甲醇作流动相，旁边放过滤好的样品；样品里的溶质按极性分进右边四个收集容器，极性低的在下面。运行时消耗甲醇，样品里极性最高的溶质越极性，消耗越多。
 hplc_manual_name,高效液相色谱仪说明书
 hplc_manual_short,色谱仪操作要点与甲醇制取。
@@ -524,3 +554,35 @@ hplc_status_slot_3,3 号收集槽缺少容器或已满
 hplc_status_slot_4,4 号收集槽缺少容器或已满
 setting_wine_genuine,勾兑葡萄酒默认标为纯酿
 setting_wine_genuine_tooltip,开启后，化学制剂成型机压出的勾兑葡萄酒默认贴“纯酿”标签，省得每瓶都用贴标机改。实际上仍是勾兑酒：标签作假的风险不变，没被识破卖出会累积欺诈罪名。
+condenser_name,冷凝器
+condenser_desc,工业冷凝单元，最多装 2 升冷凝液。拖液体容器到它上面可以倒入冷凝液，纯水效果最好；把它拖到加热板上，两者会合成一台蒸馏装置。
+still_name,蒸馏装置
+still_desc,装上冷凝器的加热板。加热板上的容器沸腾时，蒸汽先存进冷凝器的蒸汽室（1 升，先进先出，满了最早的蒸汽会散掉），再按所选模式冷凝进收集容器。拖液体容器到它上面可以补充冷凝液；双击打开，放入电池和收集容器、选择冷凝模式；右键可以拆下冷凝器。
+still_label_battery,电池
+still_label_collect,收集容器
+still_label_modes,冷凝模式
+still_mode_coil,盘管冷凝
+still_mode_evaporative,蒸发冷凝
+still_mode_closed,闭式循环冷凝
+still_mode_coil_desc,每晚冷凝一次：每 8 毫升冷凝液冷凝 1 毫升，不消耗冷凝液。
+still_mode_evaporative_desc,持续冷凝：每秒冷凝蒸汽室里 5% 的蒸汽（至少 1 毫升），每冷凝 1 毫升消耗 4 毫升冷凝液。
+still_mode_closed_desc,持续冷凝：每秒冷凝蒸汽室里 5% 的蒸汽（至少 1 毫升），每 1 kJ 电量冷凝 5 毫升，不消耗冷凝液。
+still_switch_on,已开启（点击关闭）
+still_switch_off,已关闭（点击开启，其他模式会自动关闭）
+still_info_vapour,蒸汽 {0} / {1} 毫升
+still_info_coolant,冷凝液 {0} / {1} 毫升，水纯度 {2}%
+still_info_coil,今晚可冷凝 {0} 毫升
+still_info_evaporative,每冷凝 1 毫升耗冷凝液 {0} 毫升
+still_info_closed,每 1 kJ 冷凝 {0} 毫升
+still_info_off,未开启冷凝，蒸汽只存不冷凝
+still_status_idle,等待蒸汽
+still_status_condensing,正在冷凝
+still_status_no_receiver,没有收集容器
+still_status_full,收集容器满了
+still_status_no_coolant,没有可用的冷凝液
+still_status_low_coolant,冷凝液不足，只冷凝了一部分
+still_status_no_power,电池没电
+still_status_low_power,电量不足，只冷凝了一部分
+still_joined,冷凝器已装到加热板上
+still_detached,冷凝器已拆下
+still_detach,拆下冷凝器

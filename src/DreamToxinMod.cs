@@ -32,6 +32,8 @@ public class DreamToxinMod : IMod
         Electrolyzer.Enable();
         ReloadingPress.Enable();
         Hplc.Enable();
+        SepFunnel.Enable();
+        Condenser.Enable();
         PuBattery.Enable();
         Strain.Enable();
         Fermenter.Enable();
@@ -107,6 +109,8 @@ public class DreamToxinMod : IMod
         AntibioticTestKit.Disable();
         ExplosivesTestKit.Disable();
         HplcTestKit.Disable();
+        SepFunnel.Disable();
+        Condenser.Disable();
         CartelNetwork.Disable();
         CartelRaid.Disable();
         CartelSweep.Disable();
@@ -148,6 +152,8 @@ public class DreamToxinMod : IMod
             Nitrocellulose.AddItems(directory);
             ReloadingPress.AddItems(directory);
             Hplc.AddItems(directory);
+            SepFunnel.AddItems(directory);
+            Condenser.AddItems(directory);
             PuBattery.AddItems(directory);
             Strain.AddItems(directory);
             Fermenter.AddItems(directory);
