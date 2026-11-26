@@ -62,7 +62,7 @@ public static class OutOfStockSignPatch
         new Entry(
             "vce_cartel_peer",
             "cartel_peer_name",
-            delegate { return CartelNetwork.IsMember(); },
+            delegate { return CartelNetwork.IsMember() && IaSettings.CartelPeerEnabled; },
             delegate { return RandomVisitLabel(); }),
         new Entry(
             "vce_cartel_tourist",

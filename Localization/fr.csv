@@ -379,6 +379,8 @@ cartel_tourist_more,C'est tout ?
 cartel_tourist_done,"Ignorer la loi, c'est grisant !"
 setting_cartel,Activer l'extension du cartel
 setting_cartel_tooltip,"Le réseau du cartel, la surveillance des ventes de contrebande, le boycott, la voie de la Sécurité contre le cartel et les marchands du cartel. Une fois désactivée, rien de tout cela n'a d'effet. Désactivée par défaut."
+setting_cartel_peer,Marchands du cartel : Pair
+setting_cartel_peer_tooltip,"Activé, une fois membre du réseau du cartel, le Pair passe de temps en temps vendre de la contrebande. Désactivé, le Pair ne vient plus. Ne compte que si l'extension du cartel est activée. Activé par défaut."
 liquid_cephalosporin,Céphalosporine C
 liquid_bioliquid_waste,Déchets biologiques liquides
 strain_name,Souche d'Acremonium
@@ -555,7 +557,7 @@ hplc_status_slot_4,L'emplacement de collecte 4 n'a pas de récipient ou est plei
 setting_wine_genuine,Vin coupé étiqueté authentique par défaut
 setting_wine_genuine_tooltip,"Si activé, le vin coupé sortant du poste de finition est étiqueté authentique, ce qui évite de réétiqueter chaque bouteille. Il reste coupé : les risques d'une fausse étiquette sont les mêmes, et les ventes passées inaperçues s'accumulent en fraude."
 condenser_name,Condenseur
-condenser_desc,Une unité de condensation industrielle contenant jusqu'à 2 L de liquide de refroidissement. Glissez un récipient de liquide dessus pour le remplir ; l'eau pure est la plus efficace. Glissez-le sur une plaque chauffante et les deux deviennent un alambic.
+condenser_desc,Une unité de condensation industrielle contenant jusqu'à 5 L de liquide de refroidissement. Glissez un récipient de liquide dessus pour le remplir ; l'eau pure est la plus efficace. Glissez-le sur une plaque chauffante et les deux deviennent un alambic.
 still_name,Alambic
 still_desc,"Une plaque chauffante équipée d'un condenseur. Quand le récipient sur la plaque bout, la vapeur va d'abord dans la chambre à vapeur du condenseur (1 L, premier entré premier sorti : pleine, elle laisse échapper la vapeur la plus ancienne), puis le mode choisi la condense dans le récipient de collecte. Glissez un récipient de liquide dessus pour ajouter du liquide de refroidissement ; double-cliquez pour y placer une batterie et un récipient de collecte et choisir le mode ; clic droit pour retirer le condenseur."
 still_label_battery,Batterie

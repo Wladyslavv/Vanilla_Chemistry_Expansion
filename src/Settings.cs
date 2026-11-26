@@ -16,6 +16,7 @@ public static class IaSettings
 
     public const string CARTEL_SECTION = "卡特尔 / Cartel";
     private static ConfigEntry<bool> cartelEnabled;
+    private static ConfigEntry<bool> cartelPeerEnabled;
 
     public const string WINE_SECTION = "葡萄酒 / Wine";
     private static ConfigEntry<bool> blendedWineDefaultGenuine;
@@ -56,6 +57,13 @@ public static class IaSettings
         get { return cartelEnabled != null && cartelEnabled.Value; }
     }
 
+    // Whether the Peer, one of the cartel merchants (CartelPeer in CartelNetwork.cs), still visits. On by default; it
+    // only matters while the cartel expansion is on.
+    public static bool CartelPeerEnabled
+    {
+        get { return cartelPeerEnabled == null || cartelPeerEnabled.Value; }
+    }
+
     // Speed at which yeast turns sugar into alcohol overnight, as a percentage of the base rate (24 uL of
     // sugar per uL of yeast per night).
     public static int FermentPercent
@@ -93,6 +101,8 @@ public static class IaSettings
                 () => IaText.Get("setting_ferment_tooltip"), false);
             cartelEnabled = config.Define("cartel_expansion", false, CARTEL_SECTION,
                 () => IaText.Get("setting_cartel"), () => IaText.Get("setting_cartel_tooltip"), false);
+            cartelPeerEnabled = config.Define("cartel_peer", true, CARTEL_SECTION,
+                () => IaText.Get("setting_cartel_peer"), () => IaText.Get("setting_cartel_peer_tooltip"), false);
             blendedWineDefaultGenuine = config.Define("blended_wine_default_genuine", false, WINE_SECTION,
                 () => IaText.Get("setting_wine_genuine"), () => IaText.Get("setting_wine_genuine_tooltip"), false);
             keepFilterResidue = config.Define("keep_filter_residue", true, FILTER_SECTION,

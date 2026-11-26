@@ -4,8 +4,11 @@
 #   ground-glass stopper | pear-shaped bulb held by a ring clamp (back half seen through the glass) | PTFE stopcock |
 #   stem dripping into a beaker | stand rod on a cast-iron base plate.
 # Glass is drawn half transparent so the back of the ring, the stem in the beaker and the liquids read as "inside".
-# The liquid in the funnel is drawn by the game (SepFunnel.BuildSprite); liquid_layer() here is the same algorithm,
-# for the preview. Keep TILT, the bulb radius and the ring in step with SepFunnel.cs.
+# SUPERSEDED: Textures/Items/vce_sep_funnel.png has been a hand-drawn sprite since PR #7 (after 1.11.0), and
+# SepFunnel.cs now takes the glass row by row from that picture (GlassFrom / GlassTo). Do not write this script's
+# output over the texture; it is kept for reference only.
+# The liquid in the funnel is drawn by the game (SepFunnel.BuildSprite); liquid_layer() here was the same algorithm,
+# for the preview, with the old bulb radius and ring.
 # Writes the empty funnel, a two-layer version and a 4x preview with some fill levels next to vanilla glass.
 # usage: python draw_sep_funnel.py OUT_DIR PREVIEW_PNG [VANILLA_PNG ...]
 import math

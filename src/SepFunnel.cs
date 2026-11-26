@@ -381,13 +381,13 @@ public static class SepFunnel
     }
 
     // ---- the liquid in the picture --------------------------------------------------------------------------------
-    // The sprite's glass is empty; the liquid is an innate sprite layer drawn over it, built here from the same bulb
-    // shape as art/glassware/draw_sep_funnel.py (radius per row). Fresh liquid shows one mixed colour; when it holds
-    // both phases it settles into an upper oil layer and a lower aqueous layer over SETTLE_SECONDS.
+    // The sprite's glass is empty; the liquid is an innate sprite layer drawn over it, inside the glass of
+    // Textures/Items/vce_sep_funnel.png (row by row, see GlassFrom / GlassTo). Fresh liquid shows one mixed colour; when
+    // it holds both phases it settles into an upper oil layer and a lower aqueous layer over SETTLE_SECONDS.
     public const int SETTLE_SECONDS = 5;
     private const int SPRITE_W = 32, SPRITE_H = 64;
-    private const float AXIS = 19.5f;
-    private const int LIQ_TOP = 10, LIQ_BOT = 36;           // bulb and cone rows that show liquid
+    private const int LIQ_TOP = 9, LIQ_BOT = 34;            // bulb, cone and stem rows that hold liquid
+    private const int CLAMP_TOP = 29, CLAMP_BOT = 30;       // the clamp ring in front of the cone: liquid there is hidden
     private const int CHANGE_UL = 1000;                     // a change bigger than this stirs the funnel up again
 
     private class Look
@@ -402,28 +402,37 @@ public static class SepFunnel
         new System.Runtime.CompilerServices.ConditionalWeakTable<GameItem, Look>();
     private static readonly Dictionary<string, UnityEngine.Sprite> spriteCache = new Dictionary<string, UnityEngine.Sprite>();
 
-    private static float Radius(int y)
+    // The inside of the glass, measured off the sprite, for rows LIQ_TOP..LIQ_BOT: first and last pixel column within
+    // the outline. Rows 29-30 are the glass behind the clamp ring; 31-34 the stem down to the stopcock.
+    private static readonly int[] GlassFrom =
     {
-        if (y <= 9) return 2.5f;
-        if (y <= 14) return 2.5f + 7.5f * (float)Math.Sin((y - 9) / 5.0 * Math.PI / 2);
-        if (y <= 22) return 10f;
-        return 10f - 8.5f * (y - 22) / 14f;
-    }
+        18, 17, 16, 15, 14, 13, 13, 13, 13, 13, 13, 13, 14, 14, 15, 15, 16, 16, 17, 18,    // rows 9-28: the bulb
+        18, 18,                                                                         // rows 29-30: behind the clamp
+        19, 19, 20, 20,                                                                 // rows 31-34: the stem
+    };
+    private static readonly int[] GlassTo =
+    {
+        24, 25, 26, 27, 28, 29, 29, 29, 29, 29, 29, 29, 28, 28, 27, 27, 26, 26, 25, 24,
+        24, 24,
+        23, 23, 22, 22,
+    };
 
-    // Liquid columns of a row: inside the outline, leaving the left rim highlight.
+    // Liquid columns of a row: the inside of the glass (none outside LIQ_TOP..LIQ_BOT).
     private static void Columns(int y, out int from, out int to)
     {
-        float r = Radius(y);
-        int l = (int)Math.Round(AXIS - r);
-        int rr = (int)Math.Round(AXIS + r - 1);
-        from = l + 2;
-        to = rr - 1;
+        if (y < LIQ_TOP || y > LIQ_BOT)
+        {
+            from = 0;
+            to = -1;
+            return;
+        }
+        from = GlassFrom[y - LIQ_TOP];
+        to = GlassTo[y - LIQ_TOP];
     }
 
     // Round things are seen from slightly above, like vanilla items: a liquid surface is an ellipse this many times
-    // as tall as it is wide (draw_sep_funnel.py: TILT).
+    // as tall as it is wide.
     private const float TILT = 0.3f;
-    private const float RING_CY = 28f, RING_A = 8f, RING_B = 2.6f;  // the clamp ring (draw_sep_funnel.py)
 
     private static bool InEllipse(int x, int y, float cx, float cy, float a, float b)
     {
@@ -431,20 +440,10 @@ public static class SepFunnel
         return dx * dx + dy * dy <= 1f;
     }
 
-    // The front half of the clamp ring: the outline of its ellipse, nearer than the centre line.
-    private static bool OnRing(int x, int y)
-    {
-        if (y + 0.5f < RING_CY || !InEllipse(x, y, AXIS, RING_CY, RING_A, RING_B))
-        {
-            return false;
-        }
-        return !InEllipse(x + 1, y, AXIS, RING_CY, RING_A, RING_B) || !InEllipse(x - 1, y, AXIS, RING_CY, RING_A, RING_B)
-            || !InEllipse(x, y + 1, AXIS, RING_CY, RING_A, RING_B) || !InEllipse(x, y - 1, AXIS, RING_CY, RING_A, RING_B);
-    }
-
+    // The clamp ring covers the glass on these rows: the liquid there still counts, it just is not drawn.
     private static bool InFrontRing(int x, int y)
     {
-        return OnRing(x, y) || OnRing(x, y - 1);
+        return y >= CLAMP_TOP && y <= CLAMP_BOT;
     }
 
     // Called every second and after a drain: work out the settling and redraw when the picture changed.

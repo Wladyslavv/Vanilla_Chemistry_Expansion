@@ -379,6 +379,8 @@ cartel_tourist_more,就这些吗？
 cartel_tourist_done,无视法律的感觉真棒！
 setting_cartel,启用卡特尔扩展
 setting_cartel_tooltip,卡特尔网络、被注意到的违禁品交易、拒收、治安部对抗卡特尔的路线，以及卡特尔商人。关闭时以上全部不生效。默认关闭。
+setting_cartel_peer,卡特尔商人——同行
+setting_cartel_peer_tooltip,开启时，加入卡特尔网络后，「同行」会不定期来店里摆卖违禁品。关闭后不再出现。只在启用卡特尔扩展时生效。默认开启。
 liquid_cephalosporin,头孢菌素 C
 liquid_bioliquid_waste,生物废液
 strain_name,枝顶孢霉菌菌种
@@ -555,7 +557,7 @@ hplc_status_slot_4,4 号收集槽缺少容器或已满
 setting_wine_genuine,勾兑葡萄酒默认标为纯酿
 setting_wine_genuine_tooltip,开启后，化学制剂成型机压出的勾兑葡萄酒默认贴“纯酿”标签，省得每瓶都用贴标机改。实际上仍是勾兑酒：标签作假的风险不变，没被识破卖出会累积欺诈罪名。
 condenser_name,冷凝器
-condenser_desc,工业冷凝单元，最多装 2 升冷凝液。拖液体容器到它上面可以倒入冷凝液，纯水效果最好；把它拖到加热板上，两者会合成一台蒸馏装置。
+condenser_desc,工业冷凝单元，最多装 5 升冷凝液。拖液体容器到它上面可以倒入冷凝液，纯水效果最好；把它拖到加热板上，两者会合成一台蒸馏装置。
 still_name,蒸馏装置
 still_desc,装上冷凝器的加热板。加热板上的容器沸腾时，蒸汽先存进冷凝器的蒸汽室（1 升，先进先出，满了最早的蒸汽会散掉），再按所选模式冷凝进收集容器。拖液体容器到它上面可以补充冷凝液；双击打开，放入电池和收集容器、选择冷凝模式；右键可以拆下冷凝器。
 still_label_battery,电池

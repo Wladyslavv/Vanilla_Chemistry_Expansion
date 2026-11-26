@@ -1,4 +1,4 @@
-// Condenser and still. The condenser is a 2 L liquid container (3x3): pour liquid into it, by dragging a container onto
+// Condenser and still. The condenser is a 5 L liquid container (3x3): pour liquid into it, by dragging a container onto
 // it, and that liquid is its coolant. Dragged onto a vanilla heating plate it joins it: both become one 6x3 machine, the
 // still, built from the vanilla heating plate (MachineHeatingPlate.HeatingPlate, so heating works exactly as on the
 // plate) with three more panels, left to right: a battery slot, a slot for the collecting container, and the three mode
@@ -27,7 +27,7 @@ public static class Condenser
     public const string ITEM_ID = "vce_condenser";
     public const string STILL_ID = "vce_still";
     public const string PLATE_ID = "heating_plate";
-    public const int CAPACITY_ML = 2000;
+    public const int CAPACITY_ML = 5000;
     public const int BASE_PRICE = 60;                       // vanilla's container price field
     public const long VALUE = 600;                          // the Cartel Vendor's price
     public const long PLATE_VALUE = 250;                    // the vanilla heating plate's
@@ -158,6 +158,7 @@ public static class Condenser
             item.SetGameItemType("CHEMICAL_SUPPLIES");
             item.SetGameItemType("TOOL");
             WaterHelper.InitLiquidContainerItem(item, CAPACITY_ML, BASE_PRICE, false, true);
+            item.onLoaded = (Action<GameItem>)Delegate.Combine(item.onLoaded, (Action<GameItem>)RaiseCapacity);
             item.unitValue = VALUE;
             AudioHelper.InitGlass(item);
             // Dragged onto a heating plate it joins it; onto anything else it behaves as the container it is.
@@ -260,6 +261,7 @@ public static class Condenser
             // A dropped item must not go into the plate's slot instead, so it is no longer a container to drop into.
             Action<GameItem, GameInventory, SlotMarker> plateTick = still.onOneSecondItemFunc;
             WaterHelper.InitLiquidContainerItem(still, CAPACITY_ML, BASE_PRICE, false, true);
+            still.onLoaded = (Action<GameItem>)Delegate.Combine(still.onLoaded, (Action<GameItem>)RaiseCapacity);
             ChemicalHelper.InitContainerTempFunction(still);
             Action<GameItem, GameInventory, SlotMarker> coolantTick = still.onOneSecondItemFunc;
             still.onOneSecondItemFunc = delegate(GameItem self, GameInventory inventory, SlotMarker marker)
@@ -761,6 +763,24 @@ public static class Condenser
         }
     }
 
+    // The capacity is a saved tag, so a condenser or still saved while it held 2 L would keep 2 L: raise it on load.
+    private static void RaiseCapacity(GameItem item)
+    {
+        try
+        {
+            int capacity = CAPACITY_ML * 1000;
+            if (item.IsTag(WaterHelper.LIQUID_CONTAINER_CAPACITY)
+                && item.GetTagReadonly(WaterHelper.LIQUID_CONTAINER_CAPACITY).GetInt() < capacity)
+            {
+                item.ModifyTag(WaterHelper.LIQUID_CONTAINER_CAPACITY, delegate(TagState state) { state.Enable().SetInt(capacity); }, false);
+            }
+        }
+        catch (Exception e)
+        {
+            Log.Error("raising a condenser's capacity failed", e);
+        }
+    }
+
     private static void CopyInt(GameItem from, GameItem to, string tag)
     {
         if (!from.IsTag(tag))
@@ -1075,7 +1095,7 @@ public static class Condenser
         Give(DirectoryMaster.Item(ITEM_ID, true));
     }
 
-    // A condenser with 2 L of pure water, a heating plate, a 100 kJ battery (closed loop), a bottle of beer-strength
+    // A condenser with 5 L of pure water, a heating plate, a 100 kJ battery (closed loop), a bottle of beer-strength
     // wash (water + 10% alcohol) to distil, a bottle of half water, half alcohol (impure coolant: purity 50%, so a
     // quarter of the effect) and two empty bottles to collect in.
     public static void GiveTestKit()

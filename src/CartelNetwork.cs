@@ -2444,7 +2444,7 @@ public static class CartelPeer
 
     public static void OnGenerateCustomers(StoreClientManager manager)
     {
-        if (!IaSettings.CartelEnabled)
+        if (!IaSettings.CartelEnabled || !IaSettings.CartelPeerEnabled)
         {
             return;
         }

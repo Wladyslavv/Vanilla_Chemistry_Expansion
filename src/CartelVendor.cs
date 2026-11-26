@@ -1,8 +1,9 @@
 // The Cartel Vendor: the only seller of this mod's machines, handbook and starting stock. He first comes on day 5
-// and then every 7 days, and every visit lays out the whole range on the front counter, big items first:
-//   fermenter, electrolyzer (each only 50% of visits once the player owns one), the HPLC, the condenser and the handbook (each only
-//   while the player has none), reloading press (50% once owned), two separatory funnels, a plutonium battery, an empty gas canister, a random strain, two Xinke seeds, two Hollow's Lantern
-//   seeds.
+// and then every 7 days, and every visit lays out the whole range on the front counter, the handbook first (only while
+// the player has none, so it is never the item crowded out), then big items first:
+//   fermenter, electrolyzer (each only 50% of visits once the player owns one), the HPLC and the condenser (each only
+//   while the player has none), reloading press (50% once owned), two separatory funnels, a plutonium battery, an empty
+//   gas canister, a random strain, two Xinke seeds, two Hollow's Lantern seeds.
 // These used to come from Dr. Jackson, the retired chemist, the retired farmer and battery loot; none of them carry
 // these goods any more. He does not depend on the Cartel Expansion setting (the handbook must stay obtainable), and
 // he counts as a Lower Levels citizen so the cartel boycott perks never keep him away. Written for C# 5 (see
@@ -88,12 +89,14 @@ public static class CartelVendor
         return client;
     }
 
-    // Biggest first, so the machines get the room; whatever still does not fit is left off and logged.
+    // The handbook, then biggest first, so the machines get the room; whatever still does not fit is left off and logged.
     private static void LayOut()
     {
         try
         {
             List<GameItem> stock = new List<GameItem>();
+            // The handbook first, while the player has none: it must never be the item that finds no room.
+            stock.Add(GuideBook.CreateForSaleIfUnowned());
             if (!Owns(Fermenter.IsFermenter) || RNG.Roll(OWNED_MACHINE_CHANCE))
             {
                 stock.Add(Fermenter.CreateForSale());
@@ -120,7 +123,6 @@ public static class CartelVendor
             {
                 stock.Add(DirectoryMaster.Item(SepFunnel.ITEM_ID, false));
             }
-            stock.Add(GuideBook.CreateForSaleIfUnowned());
             stock.Add(DirectoryMaster.Item(PuBattery.ITEM_ID, false));
             stock.Add(GasCanister.CreateForSale());
             stock.Add(Strain.Spawn(false, null, false));

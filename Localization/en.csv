@@ -379,6 +379,8 @@ cartel_tourist_more,Is that all?
 cartel_tourist_done,Ignoring the law feels amazing!
 setting_cartel,Enable the cartel expansion
 setting_cartel_tooltip,"The Cartel Network, being watched for contraband sales, the boycott, Security's route against the cartel, and the cartel merchants. While off, none of it has any effect. Off by default."
+setting_cartel_peer,Cartel merchants: Peer
+setting_cartel_peer_tooltip,"When on, once you are in the Cartel Network the Peer drops by now and then to sell contraband. When off, the Peer no longer comes. Only matters while the cartel expansion is on. On by default."
 liquid_cephalosporin,Cephalosporin C
 liquid_bioliquid_waste,Bioliquid waste
 strain_name,Acremonium strain
@@ -555,7 +557,7 @@ hplc_status_slot_4,Collection slot 4 has no container or is full
 setting_wine_genuine,Blended wine labelled genuine by default
 setting_wine_genuine_tooltip,"When on, blended wine from the Chem Finisher comes out labelled genuine, so you do not have to relabel every bottle. It is still blended: the risks of a fake label stay the same, and sales that go unnoticed add up to fraud."
 condenser_name,Condenser
-condenser_desc,An industrial condensing unit holding up to 2 L of coolant. Drag a liquid container onto it to pour in coolant; pure water works best. Drag it onto a Heating Plate and the two become a still.
+condenser_desc,An industrial condensing unit holding up to 5 L of coolant. Drag a liquid container onto it to pour in coolant; pure water works best. Drag it onto a Heating Plate and the two become a still.
 still_name,Still
 still_desc,"A Heating Plate with a condenser fitted. When the container on the plate boils, the vapour first goes into the condenser's vapour chamber (1 L, first in first out: when it is full the oldest vapour escapes), then the chosen mode condenses it into the collecting container. Drag a liquid container onto it to add coolant; double-click it to put in a battery and a collecting container and choose the mode; right-click to take the condenser off."
 still_label_battery,Battery
