@@ -1,5 +1,6 @@
 // The Cartel Vendor: the only seller of this mod's machines, handbook and starting stock. He first comes on day 5
-// and then every 7 days, and every visit lays out the whole range on the front counter, the handbook first (only while
+// and then every 7 days once the player has the Retired Chemist (Joe Wild's upgrade, or the chemist start),
+// every 28 days without it; every visit lays out the whole range on the front counter, the handbook first (only while
 // the player has none, so it is never the item crowded out), then big items first:
 //   fermenter, electrolyzer (each only 50% of visits once the player owns one), the HPLC and the condenser (each only
 //   while the player has none), reloading press (50% once owned), two separatory funnels, a plutonium battery, an empty
@@ -16,7 +17,12 @@ public static class CartelVendor
     public const string CLIENT_ID = "vce_cartel_vendor";
     public const string LAST_VISIT_KEY = "cartel_vendor_last_visit";
     public const int FIRST_DAY = 5;
+    // Weekly once the player has the Retired Chemist (Joe Wild's network upgrade; the chemist start comes with it),
+    // otherwise once a "month": four weeks, so he keeps coming on the same weekday. The game has no month of its own.
     public const int INTERVAL_DAYS = 7;
+    public const int MONTHLY_INTERVAL_DAYS = 28;
+    // The last visit assumed before the first one: far enough back that day FIRST_DAY is due either way.
+    public const int NEVER_VISITED = -MONTHLY_INTERVAL_DAYS;
     // Chance that a machine the player already owns is in stock again.
     public const int OWNED_MACHINE_CHANCE = 50;
     // Separatory funnels laid out on every visit (2x4 each: with every machine in stock the 18x4 counter is nearly full).
@@ -55,8 +61,8 @@ public static class CartelVendor
         try
         {
             int day = StoreStation.GetDayCounter();
-            int last = ModHelper.GetModDataInt(DreamToxinMod.MOD_ID, LAST_VISIT_KEY, -INTERVAL_DAYS);
-            if (manager == null || day < FIRST_DAY || day - last < INTERVAL_DAYS)
+            int last = ModHelper.GetModDataInt(DreamToxinMod.MOD_ID, LAST_VISIT_KEY, NEVER_VISITED);
+            if (manager == null || day < FIRST_DAY || day - last < IntervalDays())
             {
                 return;
             }
@@ -67,6 +73,21 @@ public static class CartelVendor
         catch (Exception e)
         {
             Log.Error("cartel vendor visit failed", e);
+        }
+    }
+
+    // Days between visits, checked on each day's customers: buying the Retired Chemist upgrade between two visits
+    // shortens the wait at once.
+    public static int IntervalDays()
+    {
+        try
+        {
+            return NetworkUpgrade.IsRetiredChemistUnlocked() ? INTERVAL_DAYS : MONTHLY_INTERVAL_DAYS;
+        }
+        catch (Exception e)
+        {
+            Log.Error("cartel vendor: reading the Retired Chemist upgrade failed", e);
+            return INTERVAL_DAYS;
         }
     }
 

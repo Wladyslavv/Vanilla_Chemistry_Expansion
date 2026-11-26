@@ -57,7 +57,7 @@
 
 ### 配方
 
-制取步骤收录在**进阶化学手册**里：只要你还没有这本手册，**卡特尔小贩**（第 5 天第一次来店，之后每 7 天一次）每次都会出售一本。
+制取步骤收录在**进阶化学手册**里：只要你还没有这本手册，**卡特尔小贩**（第 5 天第一次来店；之后有退休化学家时每 7 天一次，否则每 28 天一次。退休化学家可以向王尔德购买，化学家开局自带）每次都会出售一本。
 
 ---
 
@@ -392,7 +392,7 @@ An expansion built on the vanilla chemistry system, without changing vanilla pro
 
 - **Purifying base**: calcine calcite (dry, 150 C+) into quicklime and add it to base (50%+). Quicklime causticizes chemical contaminant back into base plus calcium carbonate (faster at 80 C+); heavy metal settles out by itself. Filter with a water filter.
 - **Purifying acid**: dissolve quartz in base at 120 C+ to get water glass, filter, then add acid to precipitate silica gel. In acid (80%+), silica gel drives chemical contaminant off as gas at 100 C+ (1 gel per 4 contaminant); freezing then removes heavy metal at the cost of an equal amount of acid. Filter with a water filter.
-- All steps are in the **Advanced Chemistry Handbook**, which the Cartel Vendor (first visit on day 5, then every 7 days) sells whenever you don't own one.
+- All steps are in the **Advanced Chemistry Handbook**, which the Cartel Vendor (first visit on day 5, then every 7 days with the Retired Chemist from Joe Wild or the Chemist start, otherwise every 28 days) sells whenever you don't own one.
 
 **Starch genes**: nutrifruit's starch and sugar now come from innate Starch Production (rank 4) and Sugar Production (rank 1) genes with vanilla totals, so they can be extracted onto DNA disks and spliced into other crops.
 

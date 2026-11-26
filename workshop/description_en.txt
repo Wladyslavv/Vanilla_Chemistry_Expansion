@@ -58,6 +58,6 @@ Gunsmiths may also want: Ammo Printer https://steamcommunity.com/sharedfiles/fil
 [*][b]Rock Salt Ore[/b]: ordered from GP Mining, crushed for salt.
 [*][b]Nitrocellulose[/b]: nitric acid poured on Kotton fiber; the propellant for rounds.
 [*]New liquids: methanol, acetic acid, ethyl acetate, toluene, nitric acid, TNT, salt, alkaloid, capsaicin, cephalosporin C, plutonium, water glass, silica gel and more.[/list]
-[h3]Characters[/h3][list][*][b]Cartel Vendor[/b]: from day 5, every 7 days; sells this mod's machines, handbook, batteries, strains, seeds and gas canisters.
+[h3]Characters[/h3][list][*][b]Cartel Vendor[/b]: from day 5, every 7 days with the Retired Chemist (Joe Wild's upgrade, or the Chemist start), otherwise every 28 days; sells this mod's machines, handbook, batteries, strains, seeds and gas canisters.
 [*][b]Waste Broker[/b]: from day 7, every 7 days; sells nuclear waste.
 [*]The cartel network's contacts, traders, couriers and Security officers (cartel expansion, off by default).[/list]

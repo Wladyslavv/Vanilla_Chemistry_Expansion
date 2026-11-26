@@ -51,8 +51,8 @@ public static class OutOfStockSignPatch
                 return VisitLabel(ScheduledDay(
                     CartelVendor.LAST_VISIT_KEY,
                     CartelVendor.FIRST_DAY,
-                    CartelVendor.INTERVAL_DAYS,
-                    -CartelVendor.INTERVAL_DAYS));
+                    CartelVendor.IntervalDays(),
+                    CartelVendor.NEVER_VISITED));
             }),
         new Entry(
             "vce_cartel_trader",
