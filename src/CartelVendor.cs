@@ -1,10 +1,10 @@
 // The Cartel Vendor: the only seller of this mod's machines, handbook and starting stock. He first comes on day 5
 // and then every 7 days once the player has the Retired Chemist (Joe Wild's upgrade, or the chemist start),
-// every 28 days without it; every visit lays out the whole range on the front counter, the handbook first (only while
-// the player has none, so it is never the item crowded out), then big items first:
-//   fermenter, electrolyzer (each only 50% of visits once the player owns one), the HPLC and the condenser (each only
-//   while the player has none), reloading press (50% once owned), two separatory funnels, a plutonium battery, an empty
-//   gas canister, a random strain, two Xinke seeds, two Hollow's Lantern seeds.
+// every 28 days without it. Every visit lays out his goods on the front counter: the handbook first and for certain
+// while the player has none (so it is never the item crowded out), then, each rolled on its own (chances below), big
+// items first: fermenter, electrolyzer, the HPLC, the condenser, reloading press, up to two separatory funnels, a
+// plutonium battery, an empty gas canister, a random strain, up to two Xinke seeds and two Hollow's Lantern seeds, up
+// to two flow hoses.
 // These used to come from Dr. Jackson, the retired chemist, the retired farmer and battery loot; none of them carry
 // these goods any more. He does not depend on the Cartel Expansion setting (the handbook must stay obtainable), and
 // he counts as a Lower Levels citizen so the cartel boycott perks never keep him away. Written for C# 5 (see
@@ -23,10 +23,19 @@ public static class CartelVendor
     public const int MONTHLY_INTERVAL_DAYS = 28;
     // The last visit assumed before the first one: far enough back that day FIRST_DAY is due either way.
     public const int NEVER_VISITED = -MONTHLY_INTERVAL_DAYS;
-    // Chance that a machine the player already owns is in stock again.
-    public const int OWNED_MACHINE_CHANCE = 50;
-    // Separatory funnels laid out on every visit (2x4 each: with every machine in stock the 18x4 counter is nearly full).
+    // Stock chances, per item and per visit (the handbook alone is certain while the player has none):
+    //   a machine the player does not own: 70%; one already owned: 25% (fermenter, electrolyzer, reloading press) or
+    //   never (HPLC, condenser); separatory funnels, flow hoses, the battery and the gas canister: 50% each; the strain
+    //   and the seeds: 70% each.
+    public const int NEW_MACHINE_CHANCE = 70;
+    public const int OWNED_MACHINE_CHANCE = 25;
+    public const int SUPPLY_CHANCE = 50;
+    public const int LIVING_CHANCE = 70;
+    // Up to two separatory funnels (2x4 each: with every machine in stock the 18x4 counter is nearly full).
     public const int SEP_FUNNELS = 2;
+    // Up to two flow hoses (2x2), last of the mod's goods: on a crowded visit they are what is left off, not the seeds
+    // or the strain.
+    public const int HOSES = 2;
 
     // The Ammo Printer mod (same author): when it is installed and enabled, its six ammo chips are in stock too.
     // Its items are only asked for while it runs, so players without it never see a missing-item error.
@@ -116,44 +125,69 @@ public static class CartelVendor
         try
         {
             List<GameItem> stock = new List<GameItem>();
-            // The handbook first, while the player has none: it must never be the item that finds no room.
+            // The handbook first, and always, while the player has none: it must never be the item that finds no room.
             stock.Add(GuideBook.CreateForSaleIfUnowned());
-            if (!Owns(Fermenter.IsFermenter) || RNG.Roll(OWNED_MACHINE_CHANCE))
+            // Everything else is rolled item by item. Machines: likelier while the player has none; the HPLC and the
+            // condenser never once owned (a condenser fitted to a heating plate, a still, counts as owned).
+            if (RNG.Roll(MachineChance(Owns(Fermenter.IsFermenter), true)))
             {
                 stock.Add(Fermenter.CreateForSale());
             }
-            if (!Owns(Electrolyzer.IsElectrolyzer) || RNG.Roll(OWNED_MACHINE_CHANCE))
+            if (RNG.Roll(MachineChance(Owns(Electrolyzer.IsElectrolyzer), true)))
             {
                 stock.Add(Electrolyzer.CreateForSale());
             }
-            // The HPLC, like the handbook, only while the player has none.
-            if (!Owns(Hplc.IsHplc))
+            if (RNG.Roll(MachineChance(Owns(Hplc.IsHplc), false)))
             {
                 stock.Add(DirectoryMaster.Item(Hplc.ITEM_ID, false));
             }
-            // The condenser too; one fitted to a heating plate (a still) counts as owned.
-            if (!Owns(item => Condenser.IsCondenser(item) || Condenser.IsStill(item)))
+            if (RNG.Roll(MachineChance(Owns(item => Condenser.IsCondenser(item) || Condenser.IsStill(item)), false)))
             {
                 stock.Add(DirectoryMaster.Item(Condenser.ITEM_ID, false));
             }
-            if (!Owns(ReloadingPress.IsReloadingPress) || RNG.Roll(OWNED_MACHINE_CHANCE))
+            if (RNG.Roll(MachineChance(Owns(ReloadingPress.IsReloadingPress), true)))
             {
                 stock.Add(DirectoryMaster.Item(ReloadingPress.ITEM_ID, false));
             }
             for (int i = 0; i < SEP_FUNNELS; i++)
             {
-                stock.Add(DirectoryMaster.Item(SepFunnel.ITEM_ID, false));
+                if (RNG.Roll(SUPPLY_CHANCE))
+                {
+                    stock.Add(DirectoryMaster.Item(SepFunnel.ITEM_ID, false));
+                }
             }
-            stock.Add(DirectoryMaster.Item(PuBattery.ITEM_ID, false));
-            stock.Add(GasCanister.CreateForSale());
-            stock.Add(Strain.Spawn(false, null, false));
+            if (RNG.Roll(SUPPLY_CHANCE))
+            {
+                stock.Add(DirectoryMaster.Item(PuBattery.ITEM_ID, false));
+            }
+            if (RNG.Roll(SUPPLY_CHANCE))
+            {
+                stock.Add(GasCanister.CreateForSale());
+            }
+            if (RNG.Roll(LIVING_CHANCE))
+            {
+                stock.Add(Strain.Spawn(false, null, false));
+            }
             for (int i = 0; i < 2; i++)
             {
-                stock.Add(Xinke.CreateSeed());
+                if (RNG.Roll(LIVING_CHANCE))
+                {
+                    stock.Add(Xinke.CreateSeed());
+                }
             }
             for (int i = 0; i < 2; i++)
             {
-                stock.Add(Lantern.CreateSeed());
+                if (RNG.Roll(LIVING_CHANCE))
+                {
+                    stock.Add(Lantern.CreateSeed());
+                }
+            }
+            for (int i = 0; i < HOSES; i++)
+            {
+                if (RNG.Roll(SUPPLY_CHANCE))
+                {
+                    stock.Add(DirectoryMaster.Item(Hose.ITEM_ID, false));
+                }
             }
             AddAmmoPrinterChips(stock);
             int placed = 0;
@@ -179,6 +213,17 @@ public static class CartelVendor
         {
             Log.Error("cartel vendor stock failed", e);
         }
+    }
+
+    // A machine's chance this visit: NEW_MACHINE_CHANCE while the player has none; once owned, OWNED_MACHINE_CHANCE if
+    // it may be sold again, else 0.
+    private static int MachineChance(bool owned, bool soldAgain)
+    {
+        if (!owned)
+        {
+            return NEW_MACHINE_CHANCE;
+        }
+        return soldAgain ? OWNED_MACHINE_CHANCE : 0;
     }
 
     private static void AddAmmoPrinterChips(List<GameItem> stock)

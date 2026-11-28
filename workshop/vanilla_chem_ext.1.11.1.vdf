@@ -1,0 +1,73 @@
+"workshopitem"
+{
+	"appid"		"4348910"
+	"publishedfileid"		"3832077837"
+	"contentfolder"		"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Probably Stolen\\Mods\\vanilla_chem_ext"
+	"previewfile"		"C:\\Program Files (x86)\\Steam\\steamapps\\common\\Probably Stolen\\Mods\\vanilla_chem_ext\\preview.png"
+	"visibility"		"0"
+	"title"		"原版化学扩展 / Vanilla Chemistry Expansion"
+	"description"		"[b]Languages:[/b] English, 简体中文, Русский, Français
+
+For questions regarding chemical reactions, item crafting, or bug reports, we recommend that you first consult or use the discussion forum.
+
+You can buy alcohol, but you can't brew your own bootleg?
+Pumping out 2000 Dream Dust a day, and not even Wilde at level 3 plus Intimidating can keep you out of trouble?
+Droppers and measuring cylinders all over the bench, yet the only way to pure acid and base is fish?
+All you can do with nuclear waste is dump it at the junkyard, where it feels like nothing and someone just picks it back up?
+
+Inspired by real chemical production, this mod gives vanilla chemistry more to do, so late game you can really play the chemist through (somewhat) involved chemistry.
+
+Main features:
+0.0.0.1. [b]New: the HPLC. Now you can separate every solute, at a price!![/b]
+0.0.1. Explosives: make TNT from nitric acid and toluene and sell it to the Revolution so they can go big! Press your spare propellant into your own ammunition! (Fine, she explodes, so do I.)
+0.1. Antibiotics: make antibiotics from strains, mutate their genes with chemicals, breed a super strain and fight drug resistance.
+1. Brine electrolysis: electrolyse brine from GP Mining rock salt into base, hydrogen and chlorine; burn the gases into hydrogen chloride and dissolve it into acid. Pure acid and base in bulk. Purifying acid with fish never felt right, did it?
+2. Hollow's Lantern: grow a lab-bred chili and refine a legal riot-control incapacitant. Sell it to the Upper Level or Security and your crimes disappear; once they are gone, the investigation slows too.
+(Did nobody catch the Outer Wilds nod? 😭)
+3. Dream Toxin: the legal product of Dream Caps, a high-end cosmetic treatment for the Upper Level.
+4. Possibly the new ice: grow Xinke and make high-profit new ice that isn't medical. It brings a regular back the next day, whose budget grows 25% a day.
+5. Blend nutrifruit, brew beer with acid and yeast, and serve chilled draft beer!
+6. Make alcohol from starch and sugar, ethyl acetate from plant matter, and edit genes so other crops make sugar and starch. Deep-space wine merchant: probably blended.
+7. Crush ore and use the minerals to purify the acid and base the profiteers sell you.
+8. Neutralize nuclear waste, extract the plutonium, and make Nuclear Cola!
+9. Cartel expansion, beta 0.5:
+[list][*]Any start can join the cartel. Sell too much chemical contraband and the cartel takes notice.
+[*]Work with Security to bring the cartel down!
+[*]Plenty of cartel mechanics.
+[*]Still in testing, so it is off by default in the mod settings.[/list]
+The cartel storyline (spoilers!): https://github.com/Wladyslavv/Vanilla_Chemistry_Expansion
+More chemistry is planned; I just need a little inspiration.
+Gunsmiths may also want: Ammo Printer https://steamcommunity.com/sharedfiles/filedetails/?id=3831394883
+
+[h2]Vanilla Chemistry Expansion[/h2]Built on the vanilla chemistry system (extraction, heating, refrigeration, filtering, evaporation, pressing); vanilla products and reactions are unchanged.
+[h3]Machines[/h3][list][*][b]HPLC[/b]: splits the solutes of a sample into 4 collection slots by polarity. The mobile phase must be methanol of 99% or better, and each mL of solute separated uses 1-3 mL of it.
+[*][b]Condenser[/b]: drag it onto a heating plate to make a still. What boils off goes into a 1 L vapour chamber and is condensed into a collecting container by coil (overnight), evaporative (uses coolant) or closed-loop (uses battery power) cooling.
+[*][b]Separatory Funnel[/b]: splits an oil phase from an aqueous phase and drains them apart.
+[*][b]Electrolyzer[/b]: brine into base, hydrogen and chlorine; fat into toluene; with an empty feed slot, nitric oxide from the air.
+[*][b]Fermenter[/b]: grows Acremonium on feed; each round yields four strains of the next generation.
+[*][b]Reloading Press[/b]: presses pistol rounds from nitrocellulose, non-lethal, standard or armour-piercing; armour-piercing also uses TNT.[/list]
+[h3]Products[/h3][list][*][b]Dream Toxin Injector[/b] (the beauty shot): a legal medical product of Dream Caps, bought by Upper Level cosmetic clinics.
+[*][b]Crackine[/b] (small and large vial): new ice refined from Xinke leaves; not medical, and it brings a regular back the next day.
+[*][b]Incapacitant[/b]: a riot-control agent refined from Hollow's Lantern; selling it to the Upper Level or Security wipes out crimes.
+[*][b]Antibiotic tablet[/b]: pressed from cephalosporin C, sellable from pharma grade; also cures sick livestock in the same pen.
+[*][b]Bundle of Dynamite[/b]: a weapon and contraband pressed from TNT. Sell two or more a day to the Lower Level or the Revolution and a price rise follows the next day.
+[*][b]Blended wine[/b]: pressed from ethyl acetate, alcohol and water; its labels can be changed with the labeler.
+[*][b]Beer Keg[/b]: pours canned beer at room temperature, or draft beer once chilled; draft beer goes flat overnight.
+[*][b]Plutonium Ampoule[/b]: turns a drink into a Nuclear drink worth +50, or makes a Plutonium Chemical Battery recharge itself every night.
+[*][b]Disinfectant tablets[/b]: 100 mL of chlorine pressed in the Chem Finisher into a vanilla box of water purification tablets.[/list]
+[h3]Tools[/h3][list][*][b]Gas Canister[/b]: holds hydrogen, chlorine, hydrogen chloride, nitric oxide and methanol vapour. On a heating plate it makes hydrogen chloride or methanol vapour; dragged onto a container, its gases dissolve into acid or condense into methanol.
+[*][b]Plutonium Chemical Battery[/b]: a 200 kJ battery that recharges itself every night once given plutonium ampoules.
+[*][b]Advanced Kotton Fabric[/b]: restores its durability every night; how much is set in the mod settings.
+[*][b]Opened Nuclear Waste[/b] and [b]Vitrified Waste[/b]: where nuclear waste reprocessing starts and ends.
+[*][b]Advanced Chemistry Handbook[/b]: notes on every process, sold by the Cartel Vendor.[/list]
+[h3]Crops and materials[/h3][list][*][b]Xinke Shrub[/b]: a perennial whose leaves hold an alkaloid.
+[*][b]Hollow's Lantern[/b]: a lab-bred chili full of capsaicin.
+[*][b]Acremonium strain[/b]: blended for cephalosporin C; frozen, it can be copied without limit.
+[*][b]Rock Salt Ore[/b]: ordered from GP Mining, crushed for salt.
+[*][b]Nitrocellulose[/b]: nitric acid poured on Kotton fiber; the propellant for rounds.
+[*]New liquids: methanol, acetic acid, ethyl acetate, toluene, nitric acid, TNT, salt, alkaloid, capsaicin, cephalosporin C, plutonium, water glass, silica gel and more.[/list]
+[h3]Characters[/h3][list][*][b]Cartel Vendor[/b]: from day 5, every 7 days with the Retired Chemist (Joe Wild's upgrade, or the Chemist start), otherwise every 28 days; sells this mod's machines, handbook, batteries, strains, seeds and gas canisters.
+[*][b]Waste Broker[/b]: from day 7, every 7 days; sells nuclear waste.
+[*]The cartel network's contacts, traders, couriers and Security officers (cartel expansion, off by default).[/list]"
+	"changenote"		"1.11.1: New tool: the Flow Hose (sold by the Cartel Vendor, 150). Drop it on a liquid container, then on a second one: the first then flows steadily into the second, 1-100 mL a second (default 5). Right-click it and choose Configure to set the flow and its conditions: flow only while the receiving container is under X% or X mL, only while the source holds over X% or X mL, and a limit on how much one link moves. Right-click either linked container and choose Detach to take the hose back. New look: 53 item and machine sprites redrawn by xXStrayXx, among them the fermenter, electrolyzer, HPLC, reloading press, separatory funnel, gas canisters, plutonium battery, nuclear waste, crops and products; the liquid in the separatory funnel now fits the new glass. The condenser and still hold 5 L of coolant (was 2 L); ones you already have are enlarged on load. The Cartel Vendor now comes every 7 days only once you have the Retired Chemist (bought from Joe Wild, or the Chemist start), otherwise every 28 days; his first visit is still on day 5. While you have no Advanced Chemistry Handbook it is always the first item on his counter, so it is never crowded off. New setting: Cartel merchants: Peer (on by default); turn it off and the Peer no longer visits. / 1.11.1：新工具导流管（卡特尔小贩出售，150）：先拖到一个液体容器上，再拖到另一个液体容器上，前者的液体就会持续流进后者，每秒 1～100 毫升（默认 5）。右键选择「配置」可以设置流速和导流条件：目标容器少于多少百分比或毫升时才输送、源容器多于多少百分比或毫升时才输送，以及一次连接最多输送多少。右键任意一端的容器选择「卸下」可以收回导流管。xXStrayXx 重画了 53 张贴图，包括发酵罐、电解机、高效液相色谱仪、子弹复装机、分液漏斗、气罐、钚电池、核废料、作物和各种产品；分液漏斗里的液体已对齐新的玻璃。冷凝器和蒸馏装置的冷凝液容量从 2 升提高到 5 升，已有的读档时自动扩容。卡特尔小贩改为：你有退休化学家（向乔·王尔德购买，或化学家开局自带）时每 7 天来一次，否则每 28 天一次；第一次仍是第 5 天。你还没有进阶化学手册时，手册总摆在他柜台的第一个位置，不会再被其他商品挤掉。新设置「卡特尔商人——同行」（默认开启），关闭后同行不再来访。"
+}

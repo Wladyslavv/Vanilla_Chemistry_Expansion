@@ -17,6 +17,9 @@ public static class FlavorChemistry
     // Trinitrotoluene, from toluene and nitric acid with vanilla acid as the catalyst (Nitrate below).
     public const string TNT = "vce_tnt";
 
+    // The registered nitric acid, made evaporative for the length of each boiling reaction only.
+    public static Liquid NitricLiquid;
+
     // Nitration: 1 toluene + 3 nitric acid -> 1 TNT (no water, a game rule), at 50 C or more, while vanilla acid
     // (standing in for sulfuric acid) makes up at least 10% of the liquid; the acid is not used up. 5% of the
     // toluene a tick, at least 2 mL, so small batches and the end of a batch do not crawl.
@@ -58,12 +61,16 @@ public static class FlavorChemistry
         }
         // Nitric acid boils at 120.5 C, the nitric acid / water azeotrope (the game's nitric acid is always dissolved in
         // water), not pure nitric acid's 83 C. Nitration never gets there: its toluene boils off at 110.6 C, so a
-        // nitration mix is kept below that anyway. Being evaporative, it also counts as wet and leaves in the evaporator.
+        // nitration mix is kept below that anyway. It is evaporative only inside vanilla's boiling reaction
+        // (NitricBoilingWindowPatch): everywhere else it stays as before 1.11, so the evaporator leaves it behind
+        // (pure nitric acid by evaporating the water), it does not count as wet for the Chem Finisher, and the mod's
+        // own dryness checks ignore it.
         Liquid nitric = IaLiquids.AddLiquid(NITRIC_ACID, "liquid_nitric_acid", 5, "f3edc4", 1);
         if (nitric != null)
         {
             nitric.boilingPoint = 120.5;
-            nitric.isEvaporative = true;
+            nitric.isEvaporative = false;
+            NitricLiquid = nitric;
         }
         IaLiquids.AddLiquid(TNT, "liquid_tnt", 5, "e8c860", 1);
     }
@@ -906,6 +913,30 @@ public static class BlendedWineLabelerRepeatPatch
         if (BlendedWine.IsBlendedWine(___curItem))
         {
             BlendedWine.ApplyLabel(___curItem);
+        }
+    }
+}
+
+// Nitric acid is evaporative only while vanilla's boiling reaction runs (FlavorChemistry.RegisterLiquids): this opens
+// the window before any other patch on the reaction (the still's vapour capture and the boiling speed setting look at
+// the evaporative liquids in their prefixes) and the finalizer closes it however the reaction ends.
+[HarmonyPatch(typeof(ChemicalHelper), "HandleBoilingReaction")]
+public static class NitricBoilingWindowPatch
+{
+    [HarmonyPriority(Priority.First + 100)]
+    private static void Prefix()
+    {
+        if (FlavorChemistry.NitricLiquid != null)
+        {
+            FlavorChemistry.NitricLiquid.isEvaporative = true;
+        }
+    }
+
+    private static void Finalizer()
+    {
+        if (FlavorChemistry.NitricLiquid != null)
+        {
+            FlavorChemistry.NitricLiquid.isEvaporative = false;
         }
     }
 }

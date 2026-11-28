@@ -7,8 +7,8 @@
 //   - Drag one canister onto another: its gases move into the target, as far as there is room.
 //   - On a heating plate (patched below) it warms up; at 120 C+ hydrogen and chlorine burn 1:1 into twice the volume
 //     of hydrogen chloride, 10% a second (at least 1000 uL), like the faster reactions of this mod.
-//     At 150 C+ the hydrogen left takes carbon dioxide from the air (taken as always there): 3 parts of hydrogen make
-//     1 part of methanol vapour, at the same rate.
+//     At 150 C+ the hydrogen left takes carbon dioxide from the air (taken as always there): each part of hydrogen
+//     makes 1 part of methanol vapour, at the same rate.
 //   - Drag it onto a liquid container with water: hydrogen chloride dissolves into vanilla acid and nitric oxide into
 //     nitric acid, each up to 40% of the liquid; what does not dissolve stays in the canister.
 //     Methanol vapour needs no water: it condenses 1:1 into liquid methanol, as far as the container has room.
@@ -55,9 +55,12 @@ public static class GasCanister
     public const double REACT_RATE = 0.1;
     public const int REACT_MIN_UL = 1000;
 
-    // 3 H2 (+ CO2 from the air) -> methanol vapour: 3 parts of hydrogen make 1 part of vapour, at 150 C+, at the same rate.
+    // H2 (+ CO2 from the air) -> methanol vapour, 1 part of hydrogen to 1 part of vapour, at 150 C+, at the same rate.
+    // The gases here are counted in liquid-equivalent millilitres, not real gas volumes, so the molar 3:1 of
+    // CO2 + 3 H2 -> CH3OH + H2O does not carry over; 1:1 (3:1 up to 1.11.0) gives the HPLC enough methanol: one
+    // electrolyzer night of brine (240 mL salt, 120 mL hydrogen) now makes 120 mL of methanol.
     public const double METHANOL_TEMP = 150.0;
-    public const int METHANOL_H2_PER_PART = 3;
+    public const int METHANOL_H2_PER_PART = 1;
 
     // Hydrogen chloride dissolves until acid makes up 40% of the liquid: acid <= other liquids x 2/3.
     public const double SOLUBILITY = 0.4;
@@ -360,7 +363,7 @@ public static class GasCanister
                 SetAmount(item, HCL, Amount(item, HCL) + 2 * pair);
                 changed = true;
             }
-            // Hydrogen left over at 150 C+ takes carbon dioxide from the air: 3 parts make 1 part of methanol vapour.
+            // Hydrogen left over at 150 C+ takes carbon dioxide from the air: 1 part makes 1 part of methanol vapour.
             if (temp >= METHANOL_TEMP && h2 > 0)
             {
                 int used = Math.Min(h2, Math.Max(REACT_MIN_UL, (int)Math.Round(h2 * REACT_RATE)));

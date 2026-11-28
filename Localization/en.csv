@@ -558,6 +558,26 @@ setting_wine_genuine,Blended wine labelled genuine by default
 setting_wine_genuine_tooltip,"When on, blended wine from the Chem Finisher comes out labelled genuine, so you do not have to relabel every bottle. It is still blended: the risks of a fake label stay the same, and sales that go unnoticed add up to fraud."
 condenser_name,Condenser
 condenser_desc,An industrial condensing unit holding up to 5 L of coolant. Drag a liquid container onto it to pour in coolant; pure water works best. Drag it onto a Heating Plate and the two become a still.
+hose_name,Flow Hose
+hose_desc,"A coiled hose with a valve. Drop it on a liquid container to fit one end, then on a second one: the first then flows steadily into the second at the set rate. Right-click and choose Configure to set the flow; right-click a linked container and choose Detach to take the hose back."
+hose_rate,Moves {0} mL per second
+hose_conditions,Flow conditions
+hose_below_pct,Flows only while the receiving container is under {0}% full
+hose_below_pct_off,Receiving container by percentage: off
+hose_below_ml,Flows only while the receiving container holds under {0} mL
+hose_below_ml_off,Receiving container by millilitres: off
+hose_above_pct,Flows only while the source container is over {0}% full
+hose_above_pct_off,Source container by percentage: off
+hose_above_ml,Flows only while the source container holds over {0} mL
+hose_above_ml_off,Source container by millilitres: off
+hose_limit,Transfer limit: {0} mL
+hose_limit_off,Transfer limit: off
+hose_moved,Moved {0} of {1} mL
+hose_half_hint,"One end is on {0}. Drop it on another liquid container to finish the link, or back on the same one to take it off."
+hose_feeds,"Hose: feeds {0}, {1} mL per second"
+hose_fed_by,Hose: fed from {0}
+hose_end_missing,(the other end is not in the shop)
+hose_detach,Detach
 still_name,Still
 still_desc,"A Heating Plate with a condenser fitted. When the container on the plate boils, the vapour first goes into the condenser's vapour chamber (1 L, first in first out: when it is full the oldest vapour escapes), then the chosen mode condenses it into the collecting container. Drag a liquid container onto it to add coolant; double-click it to put in a battery and a collecting container and choose the mode; right-click to take the condenser off."
 still_label_battery,Battery

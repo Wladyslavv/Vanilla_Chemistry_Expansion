@@ -558,6 +558,26 @@ setting_wine_genuine,Vin coupé étiqueté authentique par défaut
 setting_wine_genuine_tooltip,"Si activé, le vin coupé sortant du poste de finition est étiqueté authentique, ce qui évite de réétiqueter chaque bouteille. Il reste coupé : les risques d'une fausse étiquette sont les mêmes, et les ventes passées inaperçues s'accumulent en fraude."
 condenser_name,Condenseur
 condenser_desc,Une unité de condensation industrielle contenant jusqu'à 5 L de liquide de refroidissement. Glissez un récipient de liquide dessus pour le remplir ; l'eau pure est la plus efficace. Glissez-le sur une plaque chauffante et les deux deviennent un alambic.
+hose_name,Tuyau de transfert
+hose_desc,"Un tuyau enroulé muni d'une vanne. Posez-le sur un récipient de liquide pour y fixer un bout, puis sur un second : le premier s'écoule alors en continu dans le second au débit réglé. Clic droit puis Configurer pour régler le débit ; clic droit sur un récipient raccordé puis Détacher pour récupérer le tuyau."
+hose_rate,Transfère {0} mL par seconde
+hose_conditions,Conditions d'écoulement
+hose_below_pct,Ne s'écoule que tant que le récipient receveur est rempli à moins de {0} %
+hose_below_pct_off,Récipient receveur par pourcentage : désactivé
+hose_below_ml,Ne s'écoule que tant que le récipient receveur contient moins de {0} mL
+hose_below_ml_off,Récipient receveur par millilitres : désactivé
+hose_above_pct,Ne s'écoule que tant que le récipient source est rempli à plus de {0} %
+hose_above_pct_off,Récipient source par pourcentage : désactivé
+hose_above_ml,Ne s'écoule que tant que le récipient source contient plus de {0} mL
+hose_above_ml_off,Récipient source par millilitres : désactivé
+hose_limit,Limite de transfert : {0} mL
+hose_limit_off,Limite de transfert : désactivée
+hose_moved,Transféré : {0} sur {1} mL
+hose_half_hint,"Un bout est fixé sur : {0}. Posez-le sur un autre récipient de liquide pour terminer le raccord, ou de nouveau sur le même pour le retirer."
+hose_feeds,"Tuyau : alimente {0}, {1} mL par seconde"
+hose_fed_by,Tuyau : alimenté par {0}
+hose_end_missing,(l'autre bout n'est pas dans la boutique)
+hose_detach,Détacher
 still_name,Alambic
 still_desc,"Une plaque chauffante équipée d'un condenseur. Quand le récipient sur la plaque bout, la vapeur va d'abord dans la chambre à vapeur du condenseur (1 L, premier entré premier sorti : pleine, elle laisse échapper la vapeur la plus ancienne), puis le mode choisi la condense dans le récipient de collecte. Glissez un récipient de liquide dessus pour ajouter du liquide de refroidissement ; double-cliquez pour y placer une batterie et un récipient de collecte et choisir le mode ; clic droit pour retirer le condenseur."
 still_label_battery,Batterie

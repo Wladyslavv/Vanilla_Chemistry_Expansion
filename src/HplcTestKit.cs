@@ -79,7 +79,7 @@ public static class HplcTestKit
 
     // ---- methanol (GasCanister.cs): flag "vanilla_chem_ext:methanol_test_kit" = "1" -----------------------------
     // A heating plate with chem modules (a plain plate stops at 99 C; one module lifts it to 160 C, three heat 4x
-    // faster, four 16x), two full hydrogen canisters (5 L -> about 1.67 L of methanol vapour each), one half hydrogen
+    // faster, four 16x), two full hydrogen canisters (5 L -> 5 L of methanol vapour each), one half hydrogen
     // half chlorine (both reactions at 150 C+), and two empty bottles to condense the vapour into.
     public const string METHANOL_FLAG_KEY = "methanol_test_kit";
     public const int PLATE_MODULES = 4;

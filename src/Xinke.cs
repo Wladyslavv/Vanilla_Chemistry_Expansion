@@ -408,7 +408,29 @@ public static class Xinke
     }
 }
 
-// The hydroponic machine loads "<harvest id>_p"/"_p2" from the vanilla plant atlas; serve ours from the mod.
+// The hydroponic machine loads the ripening "<harvest id>_p2" with TryLoadFromAtlas, not LoadFromAtlas, so the patches
+// on LoadFromAtlas (Xinke and Lantern) never saw it and the ripe plant kept the growing picture. Serve both crops' _p2
+// here too (vanilla only asks for it when the seed is perennial and ripening).
+[HarmonyPatch(typeof(RenderHandler), "TryLoadFromAtlas")]
+public static class PlantRipeningSpritePatch
+{
+    private static bool Prefix(string name, ref Sprite __result)
+    {
+        if (name == null || (!name.StartsWith(Xinke.GROWING_PREFIX) && !name.StartsWith(Lantern.GROWING_PREFIX)))
+        {
+            return true;
+        }
+        Sprite sprite = Xinke.ModSprite(name);
+        if (sprite == null)
+        {
+            return true;
+        }
+        __result = sprite;
+        return false;
+    }
+}
+
+// The hydroponic machine loads "<harvest id>_p" from the vanilla plant atlas; serve ours from the mod.
 [HarmonyPatch(typeof(RenderHandler), "LoadFromAtlas")]
 public static class XinkeMachineSpritePatch
 {

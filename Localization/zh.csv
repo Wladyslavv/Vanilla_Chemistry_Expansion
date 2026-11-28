@@ -558,6 +558,26 @@ setting_wine_genuine,勾兑葡萄酒默认标为纯酿
 setting_wine_genuine_tooltip,开启后，化学制剂成型机压出的勾兑葡萄酒默认贴“纯酿”标签，省得每瓶都用贴标机改。实际上仍是勾兑酒：标签作假的风险不变，没被识破卖出会累积欺诈罪名。
 condenser_name,冷凝器
 condenser_desc,工业冷凝单元，最多装 5 升冷凝液。拖液体容器到它上面可以倒入冷凝液，纯水效果最好；把它拖到加热板上，两者会合成一台蒸馏装置。
+hose_name,导流管
+hose_desc,一卷带阀门的软管。拖到一个液体容器上接好一端，再拖到另一个液体容器上，前者的液体就会按设定的速度持续流进后者。右键选择「配置」可以调节每秒的输送量；右键已连接的容器选择「卸下」可以收回导流管。
+hose_rate,每秒输送 {0} 毫升
+hose_conditions,导流条件
+hose_below_pct,目标容器的液体少于容量的 {0}% 时才输送
+hose_below_pct_off,目标容器按百分比：不启用
+hose_below_ml,目标容器的液体少于 {0} 毫升时才输送
+hose_below_ml_off,目标容器按毫升数：不启用
+hose_above_pct,源容器的液体多于容量的 {0}% 时才输送
+hose_above_pct_off,源容器按百分比：不启用
+hose_above_ml,源容器的液体多于 {0} 毫升时才输送
+hose_above_ml_off,源容器按毫升数：不启用
+hose_limit,输送液体上限：{0} 毫升
+hose_limit_off,输送液体上限：不启用
+hose_moved,已输送 {0} / {1} 毫升
+hose_half_hint,一端已接在{0}上。拖到另一个液体容器上完成连接，拖回原容器可以收回。
+hose_feeds,导流管：每秒向{0}输送 {1} 毫升
+hose_fed_by,导流管：从{0}接收液体
+hose_end_missing,（另一端不在店里）
+hose_detach,卸下
 still_name,蒸馏装置
 still_desc,装上冷凝器的加热板。加热板上的容器沸腾时，蒸汽先存进冷凝器的蒸汽室（1 升，先进先出，满了最早的蒸汽会散掉），再按所选模式冷凝进收集容器。拖液体容器到它上面可以补充冷凝液；双击打开，放入电池和收集容器、选择冷凝模式；右键可以拆下冷凝器。
 still_label_battery,电池
